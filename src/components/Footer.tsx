@@ -31,33 +31,27 @@ export default function Footer() {
         }}
       />
 
-      {/* ── Top CTA band ───────────────────────────────────── */}
-      <div className="relative border-b border-white/10">
-        <div className="section-shell py-10 lg:py-12 grid lg:grid-cols-5 gap-6 items-center">
-          <div className="lg:col-span-3">
-            <div className="news-eyebrow text-[var(--brand-accent)] mb-2">Stay connected</div>
-            <h2 className="font-display text-[24px] lg:text-[32px] font-bold leading-tight text-white">
-              Have a question about admissions or curriculum?
-            </h2>
-            <p className="mt-2 text-[14.5px] text-slate-300 max-w-2xl">
-              Our admissions team replies within one business day — by email, WhatsApp, phone or in person.
-            </p>
+      {/* ── Top "Stay connected" band — lighter so it doesn't compete with page CTAStrip */}
+      <div className="relative border-b border-white/10 bg-white/[0.02]">
+        <div className="section-shell py-8 lg:py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+          <div className="flex items-center gap-4">
+            <span className="grid place-items-center h-11 w-11 rounded-full bg-[var(--brand-accent)]/15 border border-[var(--brand-accent)]/30 text-[var(--brand-accent)] shrink-0">
+              <Icon name="mail" size={18} />
+            </span>
+            <div className="leading-tight">
+              <div className="news-eyebrow text-[var(--brand-accent)]">Stay connected</div>
+              <div className="font-display text-[17px] lg:text-[19px] font-bold text-white mt-0.5">
+                Email · WhatsApp · Phone · Open House
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-2 flex flex-wrap lg:justify-end gap-3">
-            <Link href={ctaInquire.href} className="btn-primary">
-              {ctaInquire.label}
-              <Icon name="arrow-right" size={16} />
-            </Link>
-            <a
-              href={ctaWhatsApp.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-white"
-            >
-              <Icon name="whatsapp" size={14} />
-              {ctaWhatsApp.label}
-            </a>
-          </div>
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center gap-2 text-[13px] font-bold text-white/85 hover:text-white"
+          >
+            See all ways to reach us
+            <Icon name="arrow-right" size={14} />
+          </Link>
         </div>
       </div>
 

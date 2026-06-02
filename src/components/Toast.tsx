@@ -1,6 +1,9 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import Icon from "./Icon";
+
+type IconName = React.ComponentProps<typeof Icon>["name"];
 
 type ToastKind = "success" | "error" | "info";
 type ToastMsg = { id: number; kind: ToastKind; text: string };
@@ -10,6 +13,8 @@ type Ctx = {
 };
 
 const ToastCtx = createContext<Ctx | null>(null);
+
+const DURATION_MS = 4200;
 
 let _id = 0;
 
@@ -21,13 +26,17 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     setItems((arr) => [...arr, { id, kind, text }]);
     setTimeout(() => {
       setItems((arr) => arr.filter((t) => t.id !== id));
-    }, 3800);
+    }, DURATION_MS);
+  }, []);
+
+  const dismiss = useCallback((id: number) => {
+    setItems((arr) => arr.filter((t) => t.id !== id));
   }, []);
 
   return (
     <ToastCtx.Provider value={{ show }}>
       {children}
-      <Toaster items={items} />
+      <Toaster items={items} onDismiss={dismiss} />
     </ToastCtx.Provider>
   );
 }
@@ -41,44 +50,124 @@ export function useToast() {
   return ctx;
 }
 
-function Toaster({ items }: { items: ToastMsg[] }) {
+function Toaster({
+  items,
+  onDismiss,
+}: {
+  items: ToastMsg[];
+  onDismiss: (id: number) => void;
+}) {
   return (
-    <div className="fixed top-4 right-4 z-[80] space-y-2 pointer-events-none">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-4 z-[80] w-[calc(100vw-2rem)] sm:w-auto sm:max-w-[380px] space-y-2 pointer-events-none">
       {items.map((t) => (
-        <ToastBubble key={t.id} item={t} />
+        <ToastBubble key={t.id} item={t} onDismiss={() => onDismiss(t.id)} />
       ))}
     </div>
   );
 }
 
-function ToastBubble({ item }: { item: ToastMsg }) {
+const KIND: Record<
+  ToastKind,
+  { icon: IconName; chipBg: string; ringRGBA: string; accent: string }
+> = {
+  success: {
+    icon: "check",
+    chipBg: "linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%)",
+    ringRGBA: "13,138,135",
+    accent: "var(--brand-primary)",
+  },
+  error: {
+    icon: "shield",
+    chipBg: "linear-gradient(135deg, #d4574d 0%, #9a342d 100%)",
+    ringRGBA: "212,87,77",
+    accent: "#d4574d",
+  },
+  info: {
+    icon: "sparkle",
+    chipBg: "linear-gradient(135deg, var(--brand-navy) 0%, #1e293b 100%)",
+    ringRGBA: "11,29,51",
+    accent: "var(--brand-navy)",
+  },
+};
+
+function ToastBubble({
+  item,
+  onDismiss,
+}: {
+  item: ToastMsg;
+  onDismiss: () => void;
+}) {
   const [enter, setEnter] = useState(false);
+  const [leaving, setLeaving] = useState(false);
+
   useEffect(() => {
     const r = requestAnimationFrame(() => setEnter(true));
     return () => cancelAnimationFrame(r);
   }, []);
 
-  const styles: Record<ToastKind, string> = {
-    success: "bg-[var(--brand-primary)] text-white",
-    error: "bg-red-600 text-white",
-    info: "bg-[var(--brand-navy)] text-white",
-  };
-  const glyph: Record<ToastKind, string> = {
-    success: "✓",
-    error: "!",
-    info: "i",
-  };
+  function close() {
+    setLeaving(true);
+    setTimeout(onDismiss, 200);
+  }
+
+  const k = KIND[item.kind];
 
   return (
     <div
-      className={`pointer-events-auto ${styles[item.kind]} shadow-xl rounded-md pl-3 pr-4 py-2.5 flex items-center gap-3 min-w-[260px] max-w-[360px] transition-all duration-300 ${
-        enter ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+      className={`pointer-events-auto relative overflow-hidden rounded-2xl bg-white border border-[var(--brand-rule)] pl-4 pr-3 py-3 flex items-start gap-3 transition-all duration-300 ${
+        leaving ? "opacity-0 translate-y-1" : enter ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
       }`}
+      style={{
+        boxShadow: `0 18px 36px -12px rgba(${k.ringRGBA},0.35), 0 6px 14px -6px rgba(15,23,42,0.10)`,
+      }}
+      role="status"
+      aria-live="polite"
     >
-      <span className="h-6 w-6 rounded-full bg-white/15 grid place-items-center text-sm font-bold shrink-0">
-        {glyph[item.kind]}
+      {/* Accent bar on the left edge */}
+      <span
+        aria-hidden
+        className="absolute inset-y-2 left-0 w-1 rounded-full"
+        style={{ background: k.accent }}
+      />
+
+      {/* Icon chip */}
+      <span
+        className="grid place-items-center h-9 w-9 rounded-xl text-white shrink-0"
+        style={{
+          background: k.chipBg,
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.18)",
+        }}
+        aria-hidden
+      >
+        <Icon name={k.icon} size={16} />
       </span>
-      <span className="text-[14px] font-medium leading-snug">{item.text}</span>
+
+      {/* Body */}
+      <p className="flex-1 text-[13.5px] leading-snug text-[var(--brand-navy)] pt-0.5">
+        {item.text}
+      </p>
+
+      {/* Close */}
+      <button
+        onClick={close}
+        aria-label="Dismiss"
+        className="grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition shrink-0 -mr-1"
+      >
+        <Icon name="close" size={13} />
+      </button>
+
+      {/* Auto-dismiss progress bar */}
+      <span
+        aria-hidden
+        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left"
+        style={{
+          background: k.accent,
+          opacity: 0.35,
+          transform: enter ? "scaleX(0)" : "scaleX(1)",
+          transformOrigin: "left",
+          transition: `transform ${DURATION_MS}ms linear`,
+        }}
+      />
     </div>
   );
 }

@@ -108,7 +108,7 @@ export default function Home() {
           {
             title: "Curriculum Continuity Support",
             body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
-            image: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png",
+            image: "/img/lsp07568_jpg.jpg",
             href: "/curriculum",
           },
         ]}
@@ -123,7 +123,7 @@ export default function Home() {
           title: "A Complete Learning Environment for Confident Growth",
           body:
             "Sri Sathya Sai Global School combines experienced educators, structured classroom learning, and application-based teaching to help children build strong academic foundations. Students learn through clear guidance, regular feedback, and practical classroom experiences that make concepts easier to understand and apply.",
-          image: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg",
+          image: "/img/labs-science.png",
           href: "/about-us",
         }}
         items={[
@@ -158,7 +158,7 @@ export default function Home() {
           title: "Curriculum, Pathway, Assessment — all aligned.",
           body:
             "From phonics in Grade 1 to lab-based projects in Grade 8, our academic pathway is built around conceptual clarity, consistent feedback, and outcomes that travel with the child across schools and curricula.",
-          image: "/img/1599a2_ed47f03379f64d9ab01a96e82b343cd6_mv2.png",
+          image: "/img/grade1-8_edited.jpg",
           href: "/curriculum",
         }}
         items={[
@@ -205,7 +205,7 @@ export default function Home() {
           {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png",
+            image: "/img/art-cca.png",
             href: "/cca",
           },
           {

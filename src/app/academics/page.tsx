@@ -26,7 +26,7 @@ export default function Page() {
           title: "Curriculum: NCERT-aligned, integrated, hands-on.",
           body:
             "Concept-led teaching combined with structured progression, conceptual clarity and foundational skill development. Designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
-          image: "/img/1599a2_ed47f03379f64d9ab01a96e82b343cd6_mv2.png",
+          image: "/img/grade1-8_edited.jpg",
           href: "/curriculum",
         }}
         items={[
@@ -66,19 +66,19 @@ export default function Page() {
           {
             title: "Science & Maths Labs",
             body: "Hands-on experiments and visual modelling. Children learn to think like scientists and reason like mathematicians.",
-            image: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg",
+            image: "/img/labs-science.png",
             href: "/science-lab",
           },
           {
             title: "Language & ICT Labs",
             body: "Read, speak, write with confidence — and develop digital literacy from Grade 1 with online safety baked in.",
-            image: "/img/1599a2_38d21a50594d437cb89204e57148a189_mv2.png",
+            image: "/img/lab-english_jpg.jpg",
             href: "/language-lab",
           },
           {
             title: "CCAs & Enrichment",
             body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
-            image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png",
+            image: "/img/art-cca.png",
             href: "/cca",
           },
         ]}

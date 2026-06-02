@@ -39,13 +39,13 @@ export default function Page() {
           {
             title: "SSSGS Spaces",
             body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
-            image: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png",
+            image: "/img/lsp07568_jpg.jpg",
             href: "/sssgs-spaces",
           },
           {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png",
+            image: "/img/art-cca.png",
             href: "/cca",
           },
         ]}

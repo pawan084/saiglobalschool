@@ -62,14 +62,14 @@ export default function Page() {
           title: "Character development, threaded through daily life.",
           body:
             "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — character development sits alongside academic learning in every grade, every day.",
-          image: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png",
+          image: "/img/lsp07568_jpg.jpg",
           href: "/character-development",
         }}
         items={[
           {
             title: "Human Excellence",
             body: "Competence, character and contribution on equal footing — the SSSGS pedagogy puts all three at the heart of teaching.",
-            image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png",
+            image: "/img/art-cca.png",
             href: "/human-excellence",
           },
           {

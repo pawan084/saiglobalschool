@@ -13,7 +13,7 @@ export default function Page() {
       hero={{
         title: "Maths Lab — visualise, model, prove",
         lead: "Concrete manipulatives, visual models, and problem-led exploration make mathematics tangible — children build intuition before they automate.",
-        image: "/img/1599a2_d5965d0120da4471b9832d5478969cec_mv2.png",
+        image: "/img/lab-maths1_jpg.jpg",
       }}
       quote={{ text: "Mathematics is not about numbers, equations, computations, or algorithms — it's about understanding.", author: "William Paul Thurston" }}
       pillars={[

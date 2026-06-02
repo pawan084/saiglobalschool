@@ -11,8 +11,8 @@ export const metadata = {
 
 const gallery: GalleryItem[] = [
   { src: "/img/school_edited.jpg", alt: "Campus building", caption: "The SSSGS campus" },
-  { src: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png", alt: "Classroom", caption: "Bright, well-organised classrooms" },
-  { src: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg", alt: "Science Lab", caption: "Hands-on science learning" },
+  { src: "/img/lsp07568_jpg.jpg", alt: "Classroom", caption: "Bright, well-organised classrooms" },
+  { src: "/img/labs-science.png", alt: "Science Lab", caption: "Hands-on science learning" },
   { src: "/img/lab-english_jpg.jpg", alt: "Language Lab", caption: "Language Lab in session" },
   { src: "/img/grade1-8_edited.jpg", alt: "Students at work", caption: "Students at work" },
   { src: "/img/ss1_edited.jpg", alt: "In session", caption: "A class in session" },

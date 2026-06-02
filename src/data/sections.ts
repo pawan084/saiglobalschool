@@ -13,6 +13,8 @@ export type SectionSpec = {
 
 /* =========================================================
  *  HOME PAGE — composed of multiple sections
+ *  Card images are sourced from the original SSSGS Wix site's
+ *  hero/feature image for each page (audit run 2026-06).
  * ========================================================= */
 export const homeHero: CardSpec = {
   title: "Education Blossoms into Character",
@@ -29,7 +31,7 @@ export const homeHeroSatellites: CardSpec[] = [
     href: "/admission-process",
     eyebrow: "Admissions",
     lead: "Mid-year admissions welcome. Continue your child’s academic journey without disruption.",
-    image: "/img/school_edited.jpg",
+    image: "/img/lsp07484_jpg.jpg", imagePosition: "top" as const,
   },
   {
     title: "Book a campus tour this week",
@@ -69,19 +71,19 @@ export const homeSections: SectionSpec[] = [
         title: "Management & governance, transparent and parent-aligned",
         href: "/management-governance",
         eyebrow: "Leadership",
-        image: "/img/1599a2_8cdce8bb36eb4e6d9a4ff7648d331146_mv2.png",
+        image: "/img/lsp07578_jpg.jpg", imagePosition: "top" as const,
       },
       {
         title: "Faculty: experienced, values-led educators",
         href: "/faculty",
         eyebrow: "Faculty",
-        image: "/img/lsp07578_jpg.jpg", imagePosition: "top" as const,
+        image: "/img/lsp07600_jpg.jpg", imagePosition: "top" as const,
       },
       {
         title: "Human excellence at the heart of every classroom",
         href: "/human-excellence",
         eyebrow: "Pedagogy",
-        image: "/img/lab-english_jpg.jpg",
+        image: "/img/original-2.png",
       },
       {
         title: "Character development, threaded through daily life",
@@ -91,10 +93,10 @@ export const homeSections: SectionSpec[] = [
       },
     ],
     extras: [
-      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/1599a2_8d456f6d52e7480891c2e98f0468474f_mv2.png" },
-      { title: "Parent community at SSSGS", href: "/parent-community", eyebrow: "Community", image: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png" },
-      { title: "Read the parent–student handbook", href: "/parent-student-handbook", eyebrow: "Handbook", image: "/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg" },
-      { title: "FAQs from prospective families", href: "/faqs", eyebrow: "FAQ", image: "/img/sssgs_new-logo-3--226a26.jpg" },
+      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/sssvvp3_2.jpg" },
+      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/lsp07568_jpg.jpg", imagePosition: "top" as const },
+      { title: "Read the parent–student handbook", href: "/parent-student-handbook",    eyebrow: "Handbook",  image: "/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg" },
+      { title: "FAQs from prospective families",  href: "/faqs",                         eyebrow: "FAQ",       image: "/img/lsp07438_jpg.jpg", imagePosition: "top" as const },
     ],
   },
 
@@ -108,14 +110,14 @@ export const homeSections: SectionSpec[] = [
       eyebrow: "Curriculum",
       lead:
         "Concept-led teaching, foundational skills, and age-appropriate progression across Grades 1–8 — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
-      image: "/img/1599a2_ed47f03379f64d9ab01a96e82b343cd6_mv2.png",
+      image: "/img/grade1-8_edited.jpg",
     },
     satellites: [
       {
         title: "Courses offered across primary and middle school",
         href: "/courses-offered",
         eyebrow: "Courses",
-        image: "/img/grade1-8_edited.jpg",
+        image: "/img/g1_edited.jpg",
       },
       {
         title: "Academic pathway, Grade 1 to Grade 8",
@@ -133,14 +135,14 @@ export const homeSections: SectionSpec[] = [
         title: "Learning labs — language, science, maths, ICT",
         href: "/learning-labs",
         eyebrow: "Labs",
-        image: "/img/lab-english_jpg.jpg",
+        image: "/img/labs-science.png",
       },
     ],
     extras: [
-      { title: "Technology & LMS for parents and students", href: "/technology-lms", eyebrow: "Tech", image: "/img/sssgs_new-logo-3--226a26.jpg" },
-      { title: "Student support & enrichment", href: "/student-support", eyebrow: "Support", image: "/img/1599a2_ed47f03379f64d9ab01a96e82b343cd6_mv2.png" },
-      { title: "Co-curricular activities (CCA)", href: "/cca", eyebrow: "CCA", image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png" },
-      { title: "Phonics, Abacus, Vedic Maths & Olympiad", href: "/enrichment-activities", eyebrow: "Enrichment", image: "/img/1599a2_7a27f86e83ca49f9a97a56eafa80b134_mv2.png" },
+      { title: "Technology & LMS for parents and students", href: "/technology-lms",            eyebrow: "Tech",       image: "/img/school-ai-12.png" },
+      { title: "Student support & enrichment",              href: "/student-support",           eyebrow: "Support",    image: "/img/7406-1.png" },
+      { title: "Co-curricular activities (CCA)",            href: "/cca",                       eyebrow: "CCA",        image: "/img/art-cca.png" },
+      { title: "Phonics, Abacus, Vedic Maths & Olympiad",   href: "/enrichment-activities",     eyebrow: "Enrichment", image: "/img/7389-1.png" },
     ],
   },
 
@@ -153,32 +155,32 @@ export const homeSections: SectionSpec[] = [
       href: "/science-lab",
       eyebrow: "Science",
       lead: "Hands-on experiments, structured enquiry, and a culture of asking questions — children learn to think like scientists.",
-      image: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg",
+      image: "/img/labs-science.png",
     },
     satellites: [
       {
         title: "Language Lab: read, speak, write, with confidence",
         href: "/language-lab",
         eyebrow: "Language",
-        image: "/img/1599a2_38d21a50594d437cb89204e57148a189_mv2.png",
+        image: "/img/lab-english_jpg.jpg",
       },
       {
         title: "Maths Lab: visualise, model, prove",
         href: "/maths-lab",
         eyebrow: "Maths",
-        image: "/img/1599a2_d5965d0120da4471b9832d5478969cec_mv2.png",
+        image: "/img/lab-maths1_jpg.jpg",
       },
       {
         title: "ICT Lab: digital literacy from Grade 1",
         href: "/ict-lab",
         eyebrow: "ICT",
-        image: "/img/1599a2_11ae48a37e3d4942b243075e5e2bc127_mv2.png",
+        image: "/img/school-ai-04.png",
       },
       {
         title: "Enrichment activities across subjects",
         href: "/enrichment-activities",
         eyebrow: "Enrichment",
-        image: "/img/ss1_edited.jpg",
+        image: "/img/7389-1.png",
       },
     ],
   },
@@ -192,7 +194,7 @@ export const homeSections: SectionSpec[] = [
       href: "/a-day-at-sssgs",
       eyebrow: "School Day",
       lead: "Structured rhythms, classroom learning, lab work, CCAs, mealtime conversations, and reflection — every day rounds the whole child.",
-      image: "/img/p1-vision.png",
+      image: "/img/curiosity-ignited.png",
     },
     satellites: [
       {
@@ -205,19 +207,19 @@ export const homeSections: SectionSpec[] = [
         title: "SSSGS spaces — classrooms, labs, library",
         href: "/sssgs-spaces",
         eyebrow: "Spaces",
-        image: "/img/1599a2_ceba713090de446aa704425813893fe9_mv2.png",
+        image: "/img/lab-maths1_jpg.jpg",
       },
       {
         title: "Co-curricular activities & clubs",
         href: "/cca",
         eyebrow: "CCA",
-        image: "/img/grade1-8_edited.jpg",
+        image: "/img/art-cca.png",
       },
       {
         title: "Uniform, transportation & daily logistics",
         href: "/school-uniform-and-transportation",
         eyebrow: "Daily Life",
-        image: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg",
+        image: "/img/7455-2.png",
       },
     ],
   },
@@ -231,39 +233,39 @@ export const homeSections: SectionSpec[] = [
       href: "/admission-process",
       eyebrow: "Admission",
       lead: "Inquire → meet the team → assessment → registration. Mid-year admissions welcome; we accompany families through every step.",
-      image: "/img/grade1-8_edited.jpg",
+      image: "/img/lsp07484_jpg.jpg",
     },
     satellites: [
       {
         title: "Entry requirements by grade",
         href: "/entry-requirements",
         eyebrow: "Requirements",
-        image: "/img/grade1-8_edited.jpg",
+        image: "/img/g3.png",
       },
       {
         title: "Registration & documents",
         href: "/registration",
         eyebrow: "Register",
-        image: "/img/school_edited.jpg",
+        image: "/img/7621-2.png",
       },
       {
         title: "Fee structure for Grades 1–8",
         href: "/fee-structure",
         eyebrow: "Fees",
-        image: "/img/lab-english_jpg.jpg",
+        image: "/img/primary1-5.jpg",
       },
       {
         title: "Open House — meet faculty in person",
         href: "/open-house",
         eyebrow: "Event",
-        image: "/img/548-1.png",
+        image: "/img/lsp07578_jpg.jpg", imagePosition: "top" as const,
       },
     ],
     extras: [
-      { title: "Refund policy & terms", href: "/refund-policy", eyebrow: "Policy", image: "/img/sssgs_new-logo-3--226a26.jpg" },
-      { title: "Inquire / book a campus tour", href: "/inquire-book-a-tour", eyebrow: "Visit", image: "/img/7621-1.png" },
-      { title: "FAQs from prospective parents", href: "/faqs", eyebrow: "FAQ", image: "/img/sssgs_new-logo-3-.jpg" },
-      { title: "Contact admissions", href: "/contact-us", eyebrow: "Contact", image: "/img/1599a2_8e68bf804ebd4e5ba224bafdc32cd7de_mv2.png" },
+      { title: "Refund policy & terms",        href: "/refund-policy",         eyebrow: "Policy",  image: "/img/7406-1.png" },
+      { title: "Inquire / book a campus tour", href: "/inquire-book-a-tour",   eyebrow: "Visit",   image: "/img/ss1_edited.jpg" },
+      { title: "FAQs from prospective parents", href: "/faqs",                 eyebrow: "FAQ",     image: "/img/lsp07438_jpg.jpg", imagePosition: "top" as const },
+      { title: "Contact admissions",            href: "/contact-us",            eyebrow: "Contact", image: "/img/lsp07305_jpg.jpg", imagePosition: "top" as const },
     ],
   },
 
@@ -283,32 +285,32 @@ export const homeSections: SectionSpec[] = [
         title: "School calendar 2026 & holiday list",
         href: "/calendar",
         eyebrow: "Calendar",
-        image: "/img/white.jpg",
+        image: "/img/holidays_jpg.jpg",
       },
       {
         title: "FAQs from prospective parents",
         href: "/faqs",
         eyebrow: "FAQ",
-        image: "/img/sssgs_new-logo-3--226a26.jpg",
+        image: "/img/lsp07438_jpg.jpg", imagePosition: "top" as const,
       },
       {
         title: "Olympiad coaching for Grades 3–8",
         href: "/olympiad",
         eyebrow: "Olympiad",
-        image: "/img/1599a2_5673a8acdee043768e0d99294cebca80_mv2.png",
+        image: "/img/debate.png",
       },
       {
         title: "Phonics classes — early literacy",
         href: "/phonics-classes",
         eyebrow: "Phonics",
-        image: "/img/1599a2_7a27f86e83ca49f9a97a56eafa80b134_mv2.png",
+        image: "/img/7389-2.png",
       },
     ],
     extras: [
-      { title: "Abacus & Vedic Maths classes", href: "/abacus-vedic-maths", eyebrow: "Maths", image: "/img/1599a2_6a14b3f0a5544c0bad5ed491c8684598_mv2.png" },
-      { title: "Refund policy details", href: "/refund-policy", eyebrow: "Policy", image: "/img/sssgs_new-logo-3-.jpg" },
-      { title: "Contact us anytime", href: "/contact-us", eyebrow: "Contact", image: "/img/1599a2_8e68bf804ebd4e5ba224bafdc32cd7de_mv2.png" },
-      { title: "WhatsApp the admissions desk", href: "https://wa.me/6580830971", eyebrow: "Chat", image: "/img/1599a2_5a4405ad06c548069c50fa4e1e4647ca_mv2.png" },
+      { title: "Abacus & Vedic Maths classes",    href: "/abacus-vedic-maths",  eyebrow: "Maths",   image: "/img/lab-maths1_jpg.jpg" },
+      { title: "Refund policy details",            href: "/refund-policy",       eyebrow: "Policy",  image: "/img/7406-1.png" },
+      { title: "Contact us anytime",               href: "/contact-us",          eyebrow: "Contact", image: "/img/lsp07305_jpg.jpg", imagePosition: "top" as const },
+      { title: "WhatsApp the admissions desk",     href: "https://wa.me/6580830971", eyebrow: "Chat", image: "/img/lsp07568_jpg.jpg", imagePosition: "top" as const },
     ],
   },
 ];

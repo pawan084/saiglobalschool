@@ -3,10 +3,10 @@ import ContentSection from "@/components/ContentSection";
 import NewsCard from "@/components/NewsCard";
 
 const labs = [
-  { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/1599a2_ececcb34ed9c44db92913aa8c13503ef_mv2.jpg", lead: "Hands-on experiments, structured enquiry, evidence-led thinking." },
-  { title: "Language Lab — read, speak, write", href: "/language-lab", eyebrow: "Language", image: "/img/1599a2_38d21a50594d437cb89204e57148a189_mv2.png", lead: "Phonics, vocabulary, fluency, public speaking and writing." },
-  { title: "Maths Lab — visualise, model, prove", href: "/maths-lab", eyebrow: "Maths", image: "/img/1599a2_d5965d0120da4471b9832d5478969cec_mv2.png", lead: "Manipulatives, models and reasoning aloud across the math curriculum." },
-  { title: "ICT Lab — digital literacy from Grade 1", href: "/ict-lab", eyebrow: "ICT", image: "/img/1599a2_11ae48a37e3d4942b243075e5e2bc127_mv2.png", lead: "Typing, online safety, productivity tools and computational thinking." },
+  { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/labs-science.png", lead: "Hands-on experiments, structured enquiry, evidence-led thinking." },
+  { title: "Language Lab — read, speak, write", href: "/language-lab", eyebrow: "Language", image: "/img/lab-english_jpg.jpg", lead: "Phonics, vocabulary, fluency, public speaking and writing." },
+  { title: "Maths Lab — visualise, model, prove", href: "/maths-lab", eyebrow: "Maths", image: "/img/lab-maths1_jpg.jpg", lead: "Manipulatives, models and reasoning aloud across the math curriculum." },
+  { title: "ICT Lab — digital literacy from Grade 1", href: "/ict-lab", eyebrow: "ICT", image: "/img/school-ai-04.png", lead: "Typing, online safety, productivity tools and computational thinking." },
 ];
 
 export const metadata = {

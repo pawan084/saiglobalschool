@@ -139,7 +139,7 @@ export const homeSections: SectionSpec[] = [
       },
     ],
     extras: [
-      { title: "Technology & LMS for parents and students", href: "/technology-lms",            eyebrow: "Tech",       image: "/img/school-ai-12.png" },
+      { title: "Technology & LMS for parents and students", href: "/technology-lms",            eyebrow: "Tech",       image: "/img/img-4c416e73.jpg" },
       { title: "Student support & enrichment",              href: "/student-support",           eyebrow: "Support",    image: "/img/7406-1.png" },
       { title: "Co-curricular activities (CCA)",            href: "/cca",                       eyebrow: "CCA",        image: "/img/art-cca.png" },
       { title: "Phonics, Abacus, Vedic Maths & Olympiad",   href: "/enrichment-activities",     eyebrow: "Enrichment", image: "/img/7389-1.png" },
@@ -174,7 +174,7 @@ export const homeSections: SectionSpec[] = [
         title: "ICT Lab: digital literacy from Grade 1",
         href: "/ict-lab",
         eyebrow: "ICT",
-        image: "/img/school-ai-04.png",
+        image: "/img/lsp07302_jpg.jpg",
       },
       {
         title: "Enrichment activities across subjects",
@@ -194,7 +194,7 @@ export const homeSections: SectionSpec[] = [
       href: "/a-day-at-sssgs",
       eyebrow: "School Day",
       lead: "Structured rhythms, classroom learning, lab work, CCAs, mealtime conversations, and reflection — every day rounds the whole child.",
-      image: "/img/curiosity-ignited.png",
+      image: "/img/breaks_jpg.jpg",
     },
     satellites: [
       {

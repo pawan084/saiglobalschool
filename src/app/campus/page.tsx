@@ -26,7 +26,7 @@ export default function Page() {
           title: "From morning circle to closing reflection.",
           body:
             "Eight blocks make up the school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection. Children leave with both skills and stories.",
-          image: "/img/curiosity-ignited.png",
+          image: "/img/breaks_jpg.jpg",
           href: "/a-day-at-sssgs",
         }}
         items={[

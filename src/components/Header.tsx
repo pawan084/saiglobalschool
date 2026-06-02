@@ -28,22 +28,25 @@ export default function Header() {
       }`}
     >
       {/* Brand band */}
-      <div className={`section-shell transition-[padding] ${scrolled ? "py-2" : "py-3 lg:py-4"}`}>
+      <div className={`section-shell transition-[padding] ${scrolled ? "py-2.5" : "py-4 lg:py-5"}`}>
         <div className="flex items-center justify-between gap-4">
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
-            <BrandLogo size={scrolled ? 52 : 60} className="shrink-0 transition-[width,height]" />
+          <Link href="/" className="flex items-center gap-4 lg:gap-5 group shrink-0">
+            <BrandLogo
+              size={scrolled ? 64 : 92}
+              className="shrink-0 transition-[width,height] drop-shadow-sm"
+            />
             <div className="flex flex-col leading-tight">
               <span
                 className={`font-display font-bold text-[var(--brand-navy)] tracking-tight transition-[font-size] ${
-                  scrolled ? "text-[17px] lg:text-[19px]" : "text-[18px] lg:text-[21px]"
+                  scrolled ? "text-[19px] lg:text-[22px]" : "text-[22px] lg:text-[28px]"
                 } group-hover:text-[var(--brand-primary)]`}
               >
                 Sri Sathya Sai Global School
               </span>
               <span
                 className={`font-display italic text-[var(--brand-accent)] tracking-wide transition-[font-size] ${
-                  scrolled ? "text-[10.5px] lg:text-[11px]" : "text-[11px] lg:text-[12.5px]"
+                  scrolled ? "text-[11px] lg:text-[12px]" : "text-[12px] lg:text-[14px]"
                 }`}
               >
                 The End of Education is Character · Singapore

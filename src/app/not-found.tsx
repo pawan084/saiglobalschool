@@ -1,59 +1,118 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
+import Icon from "@/components/Icon";
+import CTAStrip from "@/components/CTAStrip";
 
 const popular = [
-  { label: "About SSSGS", href: "/about-us" },
-  { label: "Curriculum", href: "/curriculum" },
-  { label: "Admission Process", href: "/admission-process" },
-  { label: "Inquire / Book a Tour", href: "/inquire-book-a-tour" },
-  { label: "Fee Structure", href: "/fee-structure" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "About SSSGS",            href: "/about-us",            icon: "school" as const },
+  { label: "Curriculum",             href: "/curriculum",          icon: "book-open" as const },
+  { label: "Admission Process",      href: "/admission-process",   icon: "document" as const },
+  { label: "Inquire / Book a Tour",  href: "/inquire-book-a-tour", icon: "calendar" as const },
+  { label: "Fee Structure",          href: "/fee-structure",       icon: "credit-card" as const },
+  { label: "Contact Us",             href: "/contact-us",          icon: "mail" as const },
 ];
 
 export const metadata = { title: "Page not found" };
 
 export default function NotFound() {
   return (
-    <section className="section-shell py-20 lg:py-28">
-      <div className="max-w-2xl">
-        <div className="news-eyebrow mb-2">Lost?</div>
-        <h1 className="text-4xl lg:text-5xl font-extrabold news-headline">
-          404 — We couldn&rsquo;t find that page
-        </h1>
-        <p className="mt-4 text-slate-600 text-[16px] leading-relaxed">
-          The page might have been moved, renamed, or never existed. Try one of the popular
-          destinations below, or get in touch.
-        </p>
+    <>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--brand-cream)] via-white to-[#eef0fc] py-20 lg:py-28">
+        {/* Decorative blobs */}
+        <span
+          aria-hidden
+          className="absolute -top-20 -left-24 w-[420px] h-[420px] rounded-full opacity-[0.35] pointer-events-none"
+          style={{ background: "radial-gradient(closest-side, rgba(13,138,135,0.18), transparent)" }}
+        />
+        <span
+          aria-hidden
+          className="absolute -bottom-32 -right-24 w-[480px] h-[480px] rounded-full opacity-[0.30] pointer-events-none"
+          style={{ background: "radial-gradient(closest-side, rgba(234,88,12,0.16), transparent)" }}
+        />
 
-        <div className="mt-8 grid sm:grid-cols-2 gap-3">
-          {popular.map((p) => (
-            <Link
-              key={p.href}
-              href={p.href}
-              className="p-4 rounded border border-[var(--brand-rule)] bg-white hover:border-[var(--brand-primary)] hover:shadow-sm transition flex items-center justify-between group"
+        <div className="section-shell relative grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[var(--brand-rule)] text-[11px] font-bold tracking-[0.14em] uppercase mb-5 text-[var(--brand-accent)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent)]" />
+              404 · Not found
+            </div>
+            <h1 className="font-display text-[42px] sm:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight text-[var(--brand-navy)]">
+              We couldn&rsquo;t find <span className="italic font-medium text-[var(--brand-accent)]">that page.</span>
+            </h1>
+            <p className="mt-5 text-[16px] text-slate-600 max-w-xl leading-relaxed">
+              The page might have been moved, renamed, or never existed. Try one of the popular
+              destinations below — or get in touch with us directly.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/" className="btn-primary">
+                <Icon name="arrow-left" size={15} />
+                Back to home
+              </Link>
+              <Link href="/contact-us" className="btn-secondary">
+                Contact us
+                <Icon name="arrow-right" size={15} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Brand panel */}
+          <div className="relative justify-self-center lg:justify-self-end max-w-[440px] w-full">
+            <div
+              className="rounded-3xl bg-white border border-[var(--brand-rule)] p-8 lg:p-10 relative overflow-hidden"
+              style={{ boxShadow: "var(--shadow-lg)" }}
             >
-              <span className="font-bold text-[var(--brand-navy)] group-hover:text-[var(--brand-primary)]">
-                {p.label}
-              </span>
-              <span className="text-[var(--brand-accent)] font-bold">→</span>
-            </Link>
-          ))}
+              <span
+                aria-hidden
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-20"
+                style={{ background: "radial-gradient(closest-side, var(--brand-accent), transparent)" }}
+              />
+              <div className="relative flex flex-col items-center text-center">
+                <BrandLogo size={120} />
+                <p className="mt-5 font-display italic text-[var(--brand-navy)] text-[15px] leading-snug">
+                  &ldquo;The End of Education is Character.&rdquo;
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.14em] text-slate-500 font-bold">
+                  Sri Sathya Sai Global School
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-10 flex gap-3 flex-wrap">
-          <Link
-            href="/"
-            className="px-5 py-2.5 rounded-full bg-[var(--brand-accent)] text-white text-[13px] font-bold hover:bg-[var(--brand-accent-dark)] transition"
-          >
-            Back to home
-          </Link>
-          <Link
-            href="/contact-us"
-            className="px-5 py-2.5 rounded-full bg-white border border-slate-300 text-slate-800 text-[13px] font-bold hover:border-[var(--brand-primary)] transition"
-          >
-            Contact us
-          </Link>
+      {/* Popular destinations */}
+      <section className="py-12 lg:py-16 bg-white">
+        <div className="section-shell">
+          <div className="news-eyebrow mb-2">Try these instead</div>
+          <h2 className="font-display text-[24px] lg:text-[30px] font-bold text-[var(--brand-navy)] tracking-tight">
+            Popular destinations
+          </h2>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {popular.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                className="card-fancy flex items-center gap-4 p-4 rounded-2xl bg-white border border-[var(--brand-rule)] group"
+                style={{ boxShadow: "var(--shadow-xs)" }}
+              >
+                <span className="grid place-items-center h-11 w-11 rounded-xl bg-[var(--brand-primary-tint)] text-[var(--brand-primary)] shrink-0">
+                  <Icon name={p.icon} size={18} />
+                </span>
+                <span className="flex-1 font-bold text-[var(--brand-navy)] group-hover:text-[var(--brand-primary)] transition-colors">
+                  {p.label}
+                </span>
+                <Icon name="arrow-right" size={16} className="text-[var(--brand-accent)] shrink-0" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <CTAStrip
+        title="Looking for something specific?"
+        subtitle="Our admissions team replies within one business day — by email, WhatsApp or phone."
+      />
+    </>
   );
 }

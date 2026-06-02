@@ -2,7 +2,9 @@ import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
 import CourseJsonLd from "@/components/CourseJsonLd";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Icon from "@/components/Icon";
 import Link from "next/link";
+import { SUBJECTS } from "@/data/subjects";
 
 export const metadata = {
   title: "Curriculum",
@@ -125,6 +127,50 @@ export default function Page() {
         >
           Full academic pathway →
         </Link>
+      </ContentSection>
+
+      {/* Subject explorer */}
+      <ContentSection flush eyebrow="Explore by subject" title="Click a subject for the full curriculum">
+        <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
+          Seven subjects, three grade bands, three layers of depth — pick one and see exactly what
+          your child will study.
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {SUBJECTS.map((s) => (
+            <Link
+              key={s.id}
+              href={`/curriculum/${s.id}`}
+              className="card-fancy block p-5 rounded-2xl bg-white border border-[var(--brand-rule)] group"
+              style={{ boxShadow: "var(--shadow-xs)" }}
+            >
+              <div className="flex items-start gap-3">
+                <span
+                  className="grid place-items-center h-10 w-10 rounded-xl text-white shrink-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%)",
+                  }}
+                  aria-hidden
+                >
+                  <Icon name={s.icon} size={16} />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-display text-[16px] font-bold text-[var(--brand-navy)] leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
+                    {s.name}
+                  </div>
+                  <p className="text-[12.5px] text-slate-600 mt-0.5 leading-snug">
+                    {s.blurb}
+                  </p>
+                </div>
+                <Icon
+                  name="arrow-right"
+                  size={14}
+                  className="text-[var(--brand-accent)] shrink-0 mt-1 transition-transform group-hover:translate-x-0.5"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
       </ContentSection>
 
       {/* Supporting programs grid */}

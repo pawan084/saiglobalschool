@@ -307,6 +307,106 @@ html[data-contrast="high"] .text-white\/90 { color: #ffffff !important; }
   }
 }
 
+/* ── Print styles ─────────────────────────────────────────
+   Goal: a branded, readable single-document print when a parent
+   prints a policy, fee sheet, calendar, or handbook section.
+   - Hide site chrome and interactive widgets
+   - Force readable colours on white
+   - Remove decorative gradients/orbs/shadows
+   - Expand collapsible sticky layouts to full width
+*/
+@media print {
+  /* hide chrome */
+  header, footer,
+  nav, aside,
+  .skip-link,
+  [aria-label="Accessibility options"],
+  [aria-label="Cookie consent"],
+  [aria-label="Install app"],
+  [aria-label="Open chat"],
+  [aria-label="Close chat"],
+  [aria-label="Toggle menu"],
+  [role="dialog"],
+  [role="status"]:not(.print-keep),
+  .float-launcher,
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  /* layout reset */
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+  main {
+    display: block;
+  }
+
+  /* grids collapse to single column */
+  .grid {
+    display: block !important;
+  }
+  .grid > * {
+    margin-bottom: 0.75rem;
+  }
+  .lg\:grid-cols-2,
+  .lg\:grid-cols-3,
+  .lg\:grid-cols-\[260px_minmax\(0\,1fr\)\] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* remove decoration */
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+
+  /* preserve hero block as a clean header */
+  section {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  /* coloured strips become outlined */
+  .bg-\[var\(--brand-navy\)\],
+  .bg-\[var\(--brand-primary\)\],
+  .bg-\[var\(--brand-accent\)\] {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+
+  /* links — show URL */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after,
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after {
+    content: "";
+  }
+
+  /* page margin via @page */
+}
+@page {
+  margin: 18mm 14mm;
+  size: A4;
+}
+
 /* AccessibilityMenu / Cookie / Modal helpers */
 .float-launcher {
   position: fixed;

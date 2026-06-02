@@ -1,6 +1,7 @@
 import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
-import PersonGrid, { type Person } from "@/components/PersonGrid";
+import FacultyGrid from "@/components/FacultyGrid";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Icon from "@/components/Icon";
 
 export const metadata = {
@@ -8,15 +9,6 @@ export const metadata = {
   description: "Meet the educators who shape learning at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/faculty" },
 };
-
-const faculty: Person[] = [
-  { name: "Mausumi Mukherjee", role: "Principal & Mathematics", image: "/img/lsp07578_jpg.jpg" },
-  { name: "Pousali Bhattacharya", role: "HOD & Science", image: "/img/lsp07600_jpg.jpg" },
-  { name: "Moumita Mazumdar", role: "Admissions Lead, Art", image: "/img/lsp07438_jpg.jpg" },
-  { name: "Subject Lead", role: "Language", image: "/img/lsp07288_jpg.jpg" },
-  { name: "Subject Lead", role: "Social Studies", image: "/img/lsp07305_jpg.jpg" },
-  { name: "Subject Lead", role: "ICT", image: "/img/lsp07302_jpg.jpg" },
-];
 
 const pedagogy = [
   { icon: "eye", title: "Small-group learning", body: "Lower teacher–student ratios mean more attention, tighter feedback loops, and visible growth for every child." },
@@ -52,8 +44,18 @@ export default function Page() {
       ctaTitle="Meet our faculty in person"
       ctaSubtitle="Open House and campus tours include time with our subject leads."
     >
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "About", href: "/about-us" },
+          { label: "Faculty", href: "/faculty" },
+        ]}
+      />
       <ContentSection flush eyebrow="Faculty roster" title="Meet our team">
-        <PersonGrid people={faculty} />
+        <p className="mb-5 text-[13.5px] text-slate-500 max-w-2xl">
+          Click a portrait to read the full bio.
+        </p>
+        <FacultyGrid />
         <p className="mt-6 text-[13.5px] text-slate-500 leading-relaxed max-w-2xl">
           Additional subject leads cover Physical Education, Music & Performing Arts. Photos and
           full bios are added as new faculty join.

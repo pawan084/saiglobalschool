@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 import TrustBadges from "./TrustBadges";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
+import NewsletterSignup from "./NewsletterSignup";
 
 export default function Footer() {
   const navCols = navigation.filter((n) => n.children).slice(0, 5);
@@ -125,6 +126,11 @@ export default function Footer() {
               </a>
             ))}
           </div>
+
+          {/* Newsletter */}
+          <div className="mt-7 p-4 rounded-2xl bg-white/[0.03] border border-white/10 max-w-sm">
+            <NewsletterSignup />
+          </div>
         </div>
 
         {/* Nav columns — all 5 sections */}
@@ -170,6 +176,9 @@ export default function Footer() {
             <Link href="/parent-student-handbook" className="hover:text-white transition-colors">Handbook</Link>
             <Link href="/faqs"                    className="hover:text-white transition-colors">FAQs</Link>
             <Link href="/contact-us"              className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/privacy"                 className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms"                   className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/cookie-policy"           className="hover:text-white transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

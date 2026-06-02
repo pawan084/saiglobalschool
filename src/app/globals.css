@@ -256,3 +256,74 @@ select.form-input {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* Skip-to-content link (visually hidden until focused) */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--brand-navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 20px -6px rgba(11,29,51,0.40);
+  transition: top 0.2s ease;
+}
+.skip-link:focus, .skip-link:focus-visible {
+  top: 0.75rem;
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+/* User accessibility preferences applied via html[data-*] attributes */
+html[data-font-scale="lg"] body { font-size: 1.0625rem; }
+html[data-font-scale="xl"] body { font-size: 1.125rem; }
+html[data-font-scale="xxl"] body { font-size: 1.1875rem; }
+
+html[data-contrast="high"] {
+  --brand-navy: #000000;
+  --brand-primary: #006d6a;
+  --brand-accent: #b03a00;
+  --brand-rule: #404040;
+}
+html[data-contrast="high"] body { color: #000; }
+html[data-contrast="high"] .text-slate-500,
+html[data-contrast="high"] .text-slate-600,
+html[data-contrast="high"] .text-slate-700 { color: #1a1a1a !important; }
+html[data-contrast="high"] .text-white\/85,
+html[data-contrast="high"] .text-white\/90 { color: #ffffff !important; }
+
+/* Respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* AccessibilityMenu / Cookie / Modal helpers */
+.float-launcher {
+  position: fixed;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--brand-navy);
+  border: 1px solid var(--brand-rule);
+  box-shadow: 0 10px 28px -10px rgba(11,29,51,0.30);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.float-launcher:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -10px rgba(11,29,51,0.36);
+}
+

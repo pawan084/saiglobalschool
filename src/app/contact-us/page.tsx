@@ -3,6 +3,8 @@ import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
 import FormCard from "@/components/FormCard";
 import Icon from "@/components/Icon";
+import LiveOnlineIndicator from "@/components/LiveOnlineIndicator";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { site } from "@/data/site";
 import { ctaWhatsApp } from "@/data/nav";
 
@@ -32,7 +34,16 @@ export default function Page() {
       ctaTitle="Prefer a quick chat?"
       ctaSubtitle="WhatsApp us — replies typically within an hour during office hours."
     >
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Contact", href: "/contact-us" },
+        ]}
+      />
       <ContentSection flush>
+        <div className="mb-5">
+          <LiveOnlineIndicator />
+        </div>
         <div className="grid sm:grid-cols-3 gap-3 mb-8">
           {channels.map((c) => (
             <a

@@ -91,6 +91,9 @@ export default function Page() {
       <ContentSection flush title="What's included & how it's billed" eyebrow="Notes">
         <FeatureGrid items={policies} cols={3} />
         <div className="mt-5 flex flex-wrap gap-2">
+          <Link href="/fee-structure/calculator" className="px-5 py-2.5 rounded-full bg-[var(--brand-navy)] text-white text-[13px] font-bold hover:bg-[#1e293b] transition">
+            Try the fee calculator →
+          </Link>
           <Link href="/refund-policy" className="px-5 py-2.5 rounded-full bg-white border border-slate-300 text-slate-800 text-[13px] font-bold hover:border-[var(--brand-primary)] transition">
             Refund policy →
           </Link>

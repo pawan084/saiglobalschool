@@ -70,6 +70,19 @@ export default function Header() {
 
           {/* Right cluster */}
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("sssgs:open-search"))}
+              aria-label="Search (⌘K)"
+              title="Search (⌘K)"
+              className="hidden md:inline-flex items-center gap-2 text-[12.5px] text-slate-700 hover:text-[var(--brand-primary)] px-3 py-2 rounded-full border border-[var(--brand-rule)] hover:border-[var(--brand-primary)] transition"
+            >
+              <Icon name="sparkle" size={12} />
+              <span className="font-bold tracking-tight hidden xl:inline">Search</span>
+              <kbd className="hidden xl:inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded border border-[var(--brand-rule)] text-slate-500">
+                ⌘K
+              </kbd>
+            </button>
             <a
               href={`tel:${site.phone.replace(/\s+/g, "")}`}
               className="hidden xl:inline-flex items-center gap-2 text-[12.5px] text-slate-700 hover:text-[var(--brand-primary)] px-3 py-2 rounded-full border border-[var(--brand-rule)] hover:border-[var(--brand-primary)] transition"

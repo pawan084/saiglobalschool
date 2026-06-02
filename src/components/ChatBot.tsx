@@ -18,18 +18,51 @@ const SUGGESTIONS: Array<{ label: string; icon: IconName }> = [
   { label: "What are the fees?", icon: "credit-card" },
 ];
 
+const STORAGE_KEY = "sssgs:chat-history";
+const LEAD_AFTER = 4; // user turns
+
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [voiceState, setVoiceState] = useState<"idle" | "listening" | "unsupported">("idle");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const recognitionRef = useRef<unknown>(null);
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, sending]);
+
+  // Hydrate history from localStorage
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw) as Msg[];
+        if (Array.isArray(parsed)) setMessages(parsed.slice(-20));
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  // Persist on change (skip the streaming "assistant: ''" placeholder)
+  useEffect(() => {
+    if (!messages.length) {
+      localStorage.removeItem(STORAGE_KEY);
+      return;
+    }
+    const last = messages[messages.length - 1];
+    if (last.role === "assistant" && !last.content) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-20)));
+    } catch {
+      /* ignore */
+    }
+  }, [messages]);
 
   // Focus input when chat opens
   useEffect(() => {
@@ -38,6 +71,48 @@ export default function ChatBot() {
       return () => clearTimeout(t);
     }
   }, [open]);
+
+  function toggleVoice() {
+    type SR = {
+      lang: string;
+      continuous: boolean;
+      interimResults: boolean;
+      onresult: ((e: { results: { isFinal: boolean; 0: { transcript: string } }[] }) => void) | null;
+      onerror: (() => void) | null;
+      onend: (() => void) | null;
+      start: () => void;
+      stop: () => void;
+    };
+    type SRConstructor = new () => SR;
+    const win = window as unknown as {
+      SpeechRecognition?: SRConstructor;
+      webkitSpeechRecognition?: SRConstructor;
+    };
+    const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
+    if (!Ctor) {
+      setVoiceState("unsupported");
+      return;
+    }
+    if (voiceState === "listening") {
+      (recognitionRef.current as SR | null)?.stop();
+      return;
+    }
+    const rec: SR = new Ctor();
+    rec.lang = "en-SG";
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.onresult = (e) => {
+      const result = e.results[e.results.length - 1];
+      const text = result[0].transcript;
+      setInput(text);
+      if (result.isFinal) rec.stop();
+    };
+    rec.onerror = () => setVoiceState("idle");
+    rec.onend = () => setVoiceState("idle");
+    recognitionRef.current = rec;
+    rec.start();
+    setVoiceState("listening");
+  }
 
   async function send(text: string) {
     const userMsg: Msg = { role: "user", content: text.trim() };
@@ -53,8 +128,12 @@ export default function ChatBot() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ messages: nextHistory }),
+        body: JSON.stringify({ messages: nextHistory, honey: "" }),
       });
+
+      if (res.status === 429) {
+        throw new Error("Too many requests — please wait a moment and try again.");
+      }
 
       if (!res.ok || !res.body) {
         const errText = await res.text().catch(() => "");
@@ -210,6 +289,11 @@ export default function ChatBot() {
                 <span>{error}</span>
               </div>
             )}
+
+            {/* Lead capture after enough conversation */}
+            {messages.filter((m) => m.role === "user").length >= LEAD_AFTER && (
+              <LeadCapture />
+            )}
           </div>
 
           {/* Composer */}
@@ -226,10 +310,29 @@ export default function ChatBot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about admissions, fees, curriculum…"
+                placeholder={
+                  voiceState === "listening"
+                    ? "Listening…"
+                    : "Ask about admissions, fees, curriculum…"
+                }
                 disabled={sending}
-                className="w-full rounded-full border border-[var(--brand-rule-strong)] pl-4 pr-12 py-2.5 text-[13.5px] text-[var(--brand-navy)] placeholder:text-slate-400 focus:border-[var(--brand-primary)] focus:ring-4 focus:ring-[var(--brand-primary)]/15 outline-none disabled:bg-slate-50 disabled:cursor-not-allowed transition"
+                className="w-full rounded-full border border-[var(--brand-rule-strong)] pl-4 pr-20 py-2.5 text-[13.5px] text-[var(--brand-navy)] placeholder:text-slate-400 focus:border-[var(--brand-primary)] focus:ring-4 focus:ring-[var(--brand-primary)]/15 outline-none disabled:bg-slate-50 disabled:cursor-not-allowed transition"
               />
+              {/* Microphone */}
+              <button
+                type="button"
+                onClick={toggleVoice}
+                aria-label={voiceState === "listening" ? "Stop voice input" : "Voice input"}
+                title={voiceState === "unsupported" ? "Voice input not supported in this browser" : "Voice input"}
+                disabled={voiceState === "unsupported" || sending}
+                className={`absolute top-1/2 right-11 -translate-y-1/2 h-8 w-8 grid place-items-center rounded-full transition ${
+                  voiceState === "listening"
+                    ? "bg-[var(--brand-accent)] text-white animate-pulse"
+                    : "text-slate-500 hover:text-[var(--brand-primary)]"
+                } disabled:opacity-30 disabled:cursor-not-allowed`}
+              >
+                <Icon name="microphone" size={14} />
+              </button>
               <button
                 type="submit"
                 disabled={sending || !input.trim()}
@@ -377,4 +480,45 @@ function FormattedAssistantContent({ content }: { content: string }) {
   }
   if (lastIndex < content.length) parts.push(content.slice(lastIndex));
   return <span className="whitespace-pre-wrap">{parts}</span>;
+}
+
+function LeadCapture() {
+  return (
+    <div className="mt-4 rounded-xl border border-[var(--brand-accent)]/25 bg-[var(--brand-cream)]/70 p-3">
+      <div className="flex items-start gap-2.5">
+        <span
+          className="grid place-items-center h-8 w-8 rounded-lg text-white shrink-0"
+          style={{
+            background:
+              "linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-accent-dark) 100%)",
+          }}
+          aria-hidden
+        >
+          <Icon name="user-check" size={14} />
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="text-[12.5px] font-bold text-[var(--brand-navy)]">
+            Want a human to follow up?
+          </div>
+          <div className="text-[11.5px] text-slate-600">
+            Our admissions team picks up where the chat leaves off.
+          </div>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            <Link
+              href="/apply"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-[var(--brand-navy)] text-white hover:bg-[#1e293b] transition"
+            >
+              Start application <Icon name="arrow-right" size={10} />
+            </Link>
+            <Link
+              href="/inquire-book-a-tour"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold border border-[var(--brand-rule)] bg-white text-[var(--brand-navy)] hover:border-[var(--brand-primary)] transition"
+            >
+              Book a tour
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

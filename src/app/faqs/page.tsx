@@ -1,6 +1,8 @@
 import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
 import FaqAccordion, { type FAQ } from "@/components/FaqAccordion";
+import FaqJsonLd from "@/components/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "FAQs",
@@ -36,6 +38,14 @@ export default function Page() {
       ctaTitle="Didn't find your answer?"
       ctaSubtitle="Send a quick question via WhatsApp or the contact form."
     >
+      <FaqJsonLd items={faqs} />
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/resources" },
+          { label: "FAQs", href: "/faqs" },
+        ]}
+      />
       <ContentSection flush>
         <FaqAccordion items={faqs} />
       </ContentSection>

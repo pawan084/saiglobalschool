@@ -1,0 +1,332 @@
+import type { SimplePage } from "@/components/SimpleContentPage";
+
+const academicsCrumb = { label: "Academics", href: "/academics" };
+const aboutCrumb = { label: "About", href: "/about-us" };
+const campusCrumb = { label: "Campus", href: "/campus" };
+const resourcesCrumb = { label: "Resources", href: "/resources" };
+
+export const simplePages: Record<string, SimplePage> = {
+  "academic-pathway": {
+    eyebrow: "Academics",
+    title: "Academic Pathway, Grade 1 to Grade 8",
+    lead: "A structured academic pathway that takes children from foundational learning in Grade 1 through to confident, exam-ready learners in Grade 8.",
+    breadcrumb: [academicsCrumb, { label: "Academic Pathway", href: "/academic-pathway" }],
+    intro: [
+      "The SSSGS academic pathway is built around clear, age-appropriate progression. Each grade builds on the last with structured content, formative assessment and reinforcement through lab and applied work.",
+      "Children moving between schools or curricula receive personalised onboarding so academic continuity is preserved.",
+    ],
+    features: {
+      sectionTitle: "Pathway by grade band",
+      items: [
+        { icon: "1", title: "Grades 1–2 — Foundations", body: "Phonics, early numeracy, motor skills, classroom routines and social skills." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building in language, math, science, social studies and ICT." },
+        { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
+      ],
+      cols: 3,
+    },
+    followUp: {
+      sectionTitle: "How progression is supported",
+      body: [
+        "Regular formative checkpoints, teacher feedback and parent updates keep students and families informed.",
+        "Specialised support — including settling-in help and enrichment — is woven into the pathway, not bolted on.",
+      ],
+      links: [
+        { label: "Curriculum", href: "/curriculum" },
+        { label: "Assessment", href: "/assessment-structure" },
+        { label: "Student Support", href: "/student-support" },
+      ],
+    },
+  },
+
+  "assessment-structure": {
+    eyebrow: "Academics",
+    title: "Assessment Structure",
+    lead: "Assessment at SSSGS is for learning, not just of learning. A blend of formative and summative checks keeps progress visible to students, teachers and parents.",
+    breadcrumb: [academicsCrumb, { label: "Assessment Structure", href: "/assessment-structure" }],
+    intro: [
+      "We use multiple types of assessment because no single test captures a child's learning. The goal is always to understand what the child knows, what they need next, and how we can support them.",
+    ],
+    features: {
+      sectionTitle: "Types of assessment",
+      items: [
+        { iconName: "check", title: "Daily formative checks", body: "Quick in-class checks help teachers adjust instruction in the moment." },
+        { iconName: "document", title: "Weekly reviews", body: "Short reviews consolidate learning and identify misconceptions." },
+        { iconName: "target", title: "Term assessments", body: "Structured assessments at term boundaries give a holistic picture of progress." },
+        { iconName: "chat", title: "Oral & project work", body: "Speaking, presentations and projects assess skills written tests miss." },
+      ],
+      cols: 2,
+      tone: "cream",
+    },
+    followUp: {
+      sectionTitle: "Reporting & feedback",
+      body: [
+        "Parents receive structured reports each term, plus informal updates as needed. Parent-teacher meetings give space to discuss progress and next steps.",
+      ],
+      links: [{ label: "Academic Pathway", href: "/academic-pathway" }, { label: "Curriculum", href: "/curriculum" }],
+    },
+  },
+
+  "courses-offered": {
+    eyebrow: "Academics",
+    title: "Courses Offered",
+    lead: "Subjects across primary and middle school — academic core plus arts, physical education, value education and ICT.",
+    breadcrumb: [academicsCrumb, { label: "Courses Offered", href: "/courses-offered" }],
+    features: {
+      sectionTitle: "Subjects across grades",
+      items: [
+        { iconName: "book-open", title: "Languages", body: "English (medium of instruction), additional languages as part of curriculum." },
+        { iconName: "calculator", title: "Mathematics", body: "Foundations through pre-algebra and geometry across the grade range." },
+        { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in middle school." },
+        { iconName: "globe", title: "Social Studies", body: "History, geography and civics with critical-thinking emphasis." },
+        { iconName: "monitor", title: "ICT", body: "Digital literacy from Grade 1, including online safety and computational thinking." },
+        { iconName: "palette", title: "Art & Music", body: "Visual arts, music and performing arts in every grade." },
+        { iconName: "play", title: "Physical Education", body: "Movement, sport and yoga integrated weekly." },
+        { iconName: "sparkle", title: "Value Education", body: "Daily moments and dedicated sessions for character work." },
+        { iconName: "compass", title: "Skill Development", body: "Hands-on skill-building modules complement the academic core." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "character-development": {
+    eyebrow: "About SSSGS",
+    title: "Character Development at SSSGS",
+    lead: "Character is not a class — it's the way the whole school runs. Daily routines, conversations, conflict, and reflection all shape who a child becomes.",
+    breadcrumb: [aboutCrumb, { label: "Character Development", href: "/character-development" }],
+    intro: [
+      "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. SSSGS takes that seriously — character development sits alongside academic learning in every grade, every day.",
+    ],
+    features: {
+      sectionTitle: "The daily mechanisms",
+      items: [
+        { iconName: "sparkle", title: "Morning circle", body: "Each day starts with a thought, an intention and a brief reflection." },
+        { iconName: "chat", title: "Reflective conversations", body: "Teachers help children make sense of what happened — celebrations and conflicts both." },
+        { iconName: "handshake", title: "Restorative practice", body: "Discipline focuses on repair and learning rather than punishment." },
+        { iconName: "palette", title: "Stories & role models", body: "Stories from across traditions ground values in narrative." },
+      ],
+      cols: 2,
+      tone: "cream",
+    },
+    followUp: {
+      links: [
+        { label: "Vision & Mission", href: "/vision-mission" },
+        { label: "Human Excellence", href: "/human-excellence" },
+        { label: "Values & Academics", href: "/values-integration-academics" },
+      ],
+      body: ["Character work is most powerful when it shapes the whole school day, not just an isolated lesson. See how values integrate with academics for the bigger picture."],
+    },
+  },
+
+  "human-excellence": {
+    eyebrow: "About SSSGS",
+    title: "Human Excellence",
+    lead: "Pursuing excellence in being human — competence, character, and contribution. The SSSGS pedagogy puts these on equal footing.",
+    breadcrumb: [aboutCrumb, { label: "Human Excellence", href: "/human-excellence" }],
+    intro: [
+      "Human excellence is more than academic achievement. It's the practiced craft of being a thoughtful, capable, contributing person — the kind of person any community is glad to count.",
+    ],
+    features: {
+      sectionTitle: "The three commitments",
+      items: [
+        { iconName: "lightbulb", title: "Competence", body: "Mastery of the academic core, applied across real situations." },
+        { iconName: "heart", title: "Character", body: "Honesty, courage, empathy, restraint, and gratitude as habits." },
+        { iconName: "leaf", title: "Contribution", body: "A disposition to serve — at home, in school, in the community." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "values-integration-academics": {
+    eyebrow: "About SSSGS",
+    title: "Values Integration with Academics",
+    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — language, math, science, social studies and the arts.",
+    breadcrumb: [aboutCrumb, { label: "Values & Academics", href: "/values-integration-academics" }],
+    features: {
+      sectionTitle: "How integration works",
+      items: [
+        { iconName: "book-open", title: "In language", body: "Story selection, discussion questions and writing prompts surface values naturally." },
+        { iconName: "flask", title: "In science", body: "Ethics, environment and responsibility framed alongside content." },
+        { iconName: "calculator", title: "In math", body: "Honest effort, peer support and reasoning aloud are built into the practice." },
+        { iconName: "globe", title: "In social studies", body: "Empathy for context, fairness, and multiple perspectives." },
+      ],
+      cols: 2,
+      tone: "cream",
+    },
+  },
+
+  "management-governance": {
+    eyebrow: "About SSSGS",
+    title: "Management & Governance",
+    lead: "Transparent, parent-aligned governance — clear roles, regular communication, and an accountable structure.",
+    breadcrumb: [aboutCrumb, { label: "Management & Governance", href: "/management-governance" }],
+    intro: [
+      "SSSGS operates with a clear governance structure: a board responsible for direction and oversight, a leadership team running the school day-to-day, and parent communication channels for input and questions.",
+    ],
+    features: {
+      sectionTitle: "How it's structured",
+      items: [
+        { iconName: "school", title: "Board", body: "Sets long-term direction, monitors institutional health and ensures accountability." },
+        { iconName: "users", title: "School leadership", body: "Principal and senior team run the academic and operational day-to-day." },
+        { iconName: "users", title: "Parent voice", body: "Channels for parent input — formal meetings and informal check-ins." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "parent-community": {
+    eyebrow: "About SSSGS",
+    title: "Parent Community",
+    lead: "An active parent community that supports the school, supports each other, and supports children growing up.",
+    breadcrumb: [aboutCrumb, { label: "Parent Community", href: "/parent-community" }],
+    features: {
+      sectionTitle: "How parents engage",
+      items: [
+        { iconName: "calendar", title: "Regular meetings", body: "Term-wise PTM (parent-teacher meetings) plus topic-specific sessions." },
+        { iconName: "chat", title: "Communication", body: "Email, app and WhatsApp groups keep families informed and connected." },
+        { icon: "🎉", title: "Events & celebrations", body: "Annual day, sports day, cultural events — parents are a core part of school life." },
+      ],
+      cols: 3,
+      tone: "cream",
+    },
+  },
+
+  "student-support": {
+    eyebrow: "Academics",
+    title: "Student Support",
+    lead: "Every child needs different support at different times. SSSGS provides academic, social and emotional support woven into the school day.",
+    breadcrumb: [academicsCrumb, { label: "Student Support", href: "/student-support" }],
+    features: {
+      sectionTitle: "Layers of support",
+      items: [
+        { iconName: "document", title: "Academic", body: "Targeted help for children working on specific skills or catching up after transitions." },
+        { iconName: "handshake", title: "Pastoral", body: "Homeroom teachers and counsellors as the first line of support for every child." },
+        { icon: "🧘", title: "Wellbeing", body: "Mindfulness practices, conversations about difficulty, and quiet time when needed." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "technology-lms": {
+    eyebrow: "Academics",
+    title: "Technology & LMS",
+    lead: "Technology that helps parents and students stay informed — homework, results, schedules and communication in one place.",
+    breadcrumb: [academicsCrumb, { label: "Technology & LMS", href: "/technology-lms" }],
+    features: {
+      sectionTitle: "What the LMS supports",
+      items: [
+        { iconName: "calendar", title: "Schedule & attendance", body: "Daily timetable and attendance visible to parents in real time." },
+        { iconName: "book-open", title: "Homework & resources", body: "Assignments posted, materials shared, deadlines tracked." },
+        { iconName: "trending-up", title: "Assessment results", body: "Progress reports and formative results available throughout the term." },
+        { iconName: "chat", title: "Parent–teacher channel", body: "A direct line to homeroom teachers and subject leads." },
+      ],
+      cols: 2,
+    },
+  },
+
+  "enrichment-activities": {
+    eyebrow: "Academics",
+    title: "Enrichment Activities",
+    lead: "Programs that go beyond the core curriculum — phonics classes, abacus and Vedic maths, Olympiad coaching, and more.",
+    breadcrumb: [academicsCrumb, { label: "Enrichment", href: "/enrichment-activities" }],
+    features: {
+      sectionTitle: "Programs available",
+      items: [
+        { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy program for foundational reading." },
+        { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-math acceleration through abacus and Vedic techniques." },
+        { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific olympiad preparation for Grades 3–8." },
+        { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programs across visual, music and dance." },
+      ],
+      cols: 2,
+      tone: "cream",
+    },
+    followUp: {
+      links: [
+        { label: "Phonics Classes", href: "/phonics-classes" },
+        { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" },
+        { label: "Olympiad", href: "/olympiad" },
+      ],
+      body: ["Each enrichment program runs alongside the core curriculum, with its own teaching team and outcomes."],
+    },
+  },
+
+  "phonics-classes": {
+    eyebrow: "Enrichment",
+    title: "Phonics Classes",
+    lead: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
+    breadcrumb: [resourcesCrumb, { label: "Phonics", href: "/phonics-classes" }],
+    features: {
+      sectionTitle: "Phonics at SSSGS",
+      items: [
+        { iconName: "book-open", title: "Phoneme awareness", body: "Hearing and discriminating the sounds that make up words." },
+        { iconName: "book-open", title: "Decoding", body: "Mapping sounds to letters, blending and segmenting to read and spell." },
+        { iconName: "chat", title: "Fluency", body: "Reading aloud with expression and at appropriate pace." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "abacus-vedic-maths": {
+    eyebrow: "Enrichment",
+    title: "Abacus & Vedic Maths",
+    lead: "Mental-math acceleration through abacus practice and Vedic techniques — children develop speed, accuracy and confidence with numbers.",
+    breadcrumb: [resourcesCrumb, { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" }],
+    features: {
+      sectionTitle: "Why it works",
+      items: [
+        { icon: "⚡", title: "Mental computation", body: "Structured practice builds neural pathways for fast arithmetic." },
+        { iconName: "target", title: "Confidence with numbers", body: "Children stop fearing math when they feel competent." },
+        { iconName: "lightbulb", title: "Cross-subject benefit", body: "Number sense supports problem-solving in science and beyond." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "olympiad": {
+    eyebrow: "Enrichment",
+    title: "Olympiad Coaching",
+    lead: "Subject-specific olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
+    breadcrumb: [resourcesCrumb, { label: "Olympiad", href: "/olympiad" }],
+    features: {
+      sectionTitle: "How coaching works",
+      items: [
+        { iconName: "calculator", title: "Math olympiad", body: "Problem-solving techniques beyond the regular curriculum." },
+        { iconName: "flask", title: "Science olympiad", body: "Conceptual depth and tricky application questions." },
+        { iconName: "book-open", title: "English olympiad", body: "Vocabulary, comprehension and grammar at depth." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "non-academic": {
+    eyebrow: "Campus Life",
+    title: "Non-Academic Activities",
+    lead: "Beyond the classroom — sport, arts, community service and the spaces where children grow as people.",
+    breadcrumb: [campusCrumb, { label: "Non-Academic", href: "/non-academic" }],
+    features: {
+      sectionTitle: "Areas of activity",
+      items: [
+        { iconName: "palette", title: "Arts & culture", body: "Visual arts, music, dance, drama and creative writing." },
+        { iconName: "play", title: "Sport & movement", body: "Team sports, yoga, athletics and free play." },
+        { iconName: "handshake", title: "Community service", body: "Age-appropriate service projects and reflective conversations about them." },
+      ],
+      cols: 3,
+    },
+  },
+
+  "school-uniform-and-transportation": {
+    eyebrow: "Campus",
+    title: "Uniform & Transportation",
+    lead: "Practical details — uniform requirements, where to obtain them, and the school transport routes available.",
+    breadcrumb: [campusCrumb, { label: "Uniform & Transport", href: "/school-uniform-and-transportation" }],
+    features: {
+      sectionTitle: "What to expect",
+      items: [
+        { icon: "👕", title: "Uniform", body: "Standard school uniform required for all students. Details and supplier info shared at registration." },
+        { icon: "🎽", title: "PE uniform", body: "Separate PE kit for sports days; same supplier and ordering process." },
+        { iconName: "map-pin", title: "Transport routes", body: "School transport serves many parts of Singapore; office can advise availability for your area." },
+        { iconName: "credit-card", title: "Fees & logistics", body: "Uniform and transport are billed separately from tuition — see the fee structure for details." },
+      ],
+      cols: 2,
+    },
+  },
+};

@@ -17,6 +17,7 @@ import OpenHouseModal from "@/components/OpenHouseModal";
 import PwaInstall from "@/components/PwaInstall";
 import SwRegister from "@/components/SwRegister";
 import SearchDialog from "@/components/SearchDialog";
+import RecentTracker from "@/components/RecentTracker";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PwaInstall />
           <SwRegister />
           <SearchDialog />
+          <RecentTracker />
         </ToastProvider>
       </body>
     </html>

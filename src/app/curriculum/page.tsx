@@ -1,10 +1,13 @@
 import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
+import CourseJsonLd from "@/components/CourseJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
 
 export const metadata = {
   title: "Curriculum",
   description: "NCERT-aligned, integrated curriculum at SSSGS Singapore — structured progression, conceptual depth, and applied learning across Grades 1–8.",
+  alternates: { canonical: "/curriculum" },
 };
 
 const pillars = [
@@ -58,6 +61,20 @@ export default function Page() {
       ctaTitle="See the curriculum in action"
       ctaSubtitle="Book a campus tour and sit in on a class."
     >
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Academics", href: "/academics" },
+          { label: "Curriculum", href: "/curriculum" },
+        ]}
+      />
+      <CourseJsonLd
+        name="NCERT-aligned Integrated Curriculum (Grades 1–8)"
+        description="A structured, NCERT-aligned curriculum integrating language, math, science, social studies, ICT, the arts and values education from Grade 1 to Grade 8."
+        path="/curriculum"
+        grades="Grades 1–8"
+      />
+
       {/* Four pillars — big numbered cards */}
       <ContentSection flush eyebrow="Pillars" title="Four guiding principles">
         <div className="grid sm:grid-cols-2 gap-3">

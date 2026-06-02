@@ -8,6 +8,7 @@ import { ctaInquire } from "@/data/nav";
 export const metadata = {
   title: "Admission Process",
   description: "A clear six-step admission journey at Sri Sathya Sai Global School, Singapore.",
+  alternates: { canonical: "/admission-process" },
 };
 
 const steps: TimelineItem[] = [

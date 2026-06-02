@@ -2,6 +2,7 @@ import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
 import Icon from "@/components/Icon";
 import CTAStrip from "@/components/CTAStrip";
+import Search404Trigger from "@/components/Search404Trigger";
 
 const popular = [
   { label: "About SSSGS",            href: "/about-us",            icon: "school" as const },
@@ -49,6 +50,7 @@ export default function NotFound() {
                 <Icon name="arrow-left" size={15} />
                 Back to home
               </Link>
+              <Search404Trigger />
               <Link href="/contact-us" className="btn-secondary">
                 Contact us
                 <Icon name="arrow-right" size={15} />

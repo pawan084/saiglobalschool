@@ -8,6 +8,7 @@ import { ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: "Inquire / Book a Tour",
   description: "Book a campus tour or send an admission inquiry to Sri Sathya Sai Global School Singapore.",
+  alternates: { canonical: "/inquire-book-a-tour" },
 };
 
 const whatHappens = [
@@ -52,8 +53,9 @@ export default function Page() {
         <FormCard
           title="Admission inquiry"
           subtitle="All fields marked * are required."
+          source="inquire"
           fields={[
-            { name: "parent_name", label: "Parent name", required: true },
+            { name: "name", label: "Parent name", required: true },
             { name: "email", label: "Email", type: "email", required: true },
             { name: "phone", label: "Phone / WhatsApp", required: true },
             { name: "grade", label: "Child's current grade", type: "select",

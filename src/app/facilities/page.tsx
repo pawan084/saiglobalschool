@@ -6,6 +6,7 @@ import FeatureGrid from "@/components/FeatureGrid";
 export const metadata = {
   title: "Facilities",
   description: "Built for safe, focused learning — overview of SSSGS facilities.",
+  alternates: { canonical: "/facilities" },
 };
 
 const facilities = [

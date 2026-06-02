@@ -3,6 +3,7 @@ import Image from "next/image";
 import FeatureBlock from "@/components/FeatureBlock";
 import StatsCounter from "@/components/StatsCounter";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
+import RecentlyViewed from "@/components/RecentlyViewed";
 import Icon from "@/components/Icon";
 import { homeHero } from "@/data/sections";
 import { ctaInquire, ctaWhatsApp } from "@/data/nav";
@@ -255,6 +256,8 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <TestimonialsGrid items={testimonials} />
 
+      {/* RECENTLY VIEWED (only renders if user has history) */}
+      <RecentlyViewed />
 
       {/* BIG CTA */}
       <section className="relative py-14 lg:py-20 bg-[var(--brand-navy)] text-white overflow-hidden">

@@ -5,6 +5,7 @@ import CTAStrip from "@/components/CTAStrip";
 export const metadata = {
   title: "Admissions",
   description: "Admission process, entry requirements, fees, registration and open house information for SSSGS Singapore.",
+  alternates: { canonical: "/admissions" },
 };
 
 export default function Page() {

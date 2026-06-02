@@ -5,6 +5,7 @@ import CTAStrip from "@/components/CTAStrip";
 export const metadata = {
   title: "Academics",
   description: "NCERT-aligned curriculum, learning labs, assessments and enrichment programs at SSSGS.",
+  alternates: { canonical: "/academics" },
 };
 
 export default function Page() {

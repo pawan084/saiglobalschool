@@ -6,6 +6,7 @@ import FeatureGrid from "@/components/FeatureGrid";
 export const metadata = {
   title: "Vision & Mission",
   description: "Vision and mission of Sri Sathya Sai Global School — Head, Heart and Hand.",
+  alternates: { canonical: "/vision-mission" },
 };
 
 const values = [

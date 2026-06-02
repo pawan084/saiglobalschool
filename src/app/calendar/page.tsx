@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "School Calendar",
   description: "Academic calendar and holiday list for SSSGS Singapore.",
+  alternates: { canonical: "/calendar" },
 };
 
 const terms = [

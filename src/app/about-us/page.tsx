@@ -5,6 +5,7 @@ import CTAStrip from "@/components/CTAStrip";
 export const metadata = {
   title: "About Us",
   description: "Vision, mission, faculty, governance and the values that shape Sri Sathya Sai Global School.",
+  alternates: { canonical: "/about-us" },
 };
 
 export default function Page() {

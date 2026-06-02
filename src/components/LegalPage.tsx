@@ -2,6 +2,8 @@ import PageHero from "./PageHero";
 import CTAStrip from "./CTAStrip";
 import RevealOnScroll from "./RevealOnScroll";
 import BreadcrumbJsonLd from "./BreadcrumbJsonLd";
+import ReadingProgress from "./ReadingProgress";
+import SharePage from "./SharePage";
 import Link from "next/link";
 
 export type LegalSection = {
@@ -29,6 +31,7 @@ export default function LegalPage({
 }: Props) {
   return (
     <>
+      <ReadingProgress />
       <BreadcrumbJsonLd items={[{ label: "Home", href: "/" }, ...breadcrumb]} />
       <PageHero eyebrow={eyebrow} title={title} lead={lead} breadcrumb={breadcrumb} tone="cream" />
 
@@ -99,6 +102,7 @@ export default function LegalPage({
                 Contact us →
               </Link>
             </div>
+            <SharePage title={title} />
           </article>
         </RevealOnScroll>
       </div>

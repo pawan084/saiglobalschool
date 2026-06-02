@@ -21,6 +21,8 @@ type Props = {
   fields: Field[];
   submitLabel?: string;
   sideContent?: React.ReactNode;
+  /** Tag the submission so the inquiry-receiver can route it (e.g. "inquire", "contact"). */
+  source?: string;
 };
 
 export default function FormCard({
@@ -29,21 +31,59 @@ export default function FormCard({
   fields,
   submitLabel = "Submit",
   sideContent,
+  source = "form",
 }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [reference, setReference] = useState<string | null>(null);
   const toast = useToast();
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy) return;
+    const data = new FormData(e.currentTarget);
+    const payload: Record<string, FormDataEntryValue | string> = { source };
+    data.forEach((v, k) => {
+      payload[k] = v;
+    });
+    setBusy(true);
+    try {
+      const res = await fetch("/api/inquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.ok) {
+        toast.show(json.error || "Couldn't send right now. Please try again.", "error");
+        return;
+      }
+      setSubmitted(true);
+      setReference(json.reference);
+      toast.show("Thanks — we'll be in touch within one business day.", "success");
+    } catch {
+      toast.show("Network hiccup. Please try again.", "error");
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
       <form
         className="lg:col-span-2 relative rounded-2xl bg-white border border-[var(--brand-rule)] p-6 lg:p-8 overflow-hidden"
         style={{ boxShadow: "var(--shadow-sm)" }}
-        onSubmit={(e) => {
-          e.preventDefault();
-          setSubmitted(true);
-          toast.show("Thanks — we'll be in touch within one business day.", "success");
-        }}
+        onSubmit={onSubmit}
       >
+        {/* Honeypot */}
+        <input
+          type="text"
+          name="honey"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden
+          className="absolute opacity-0 pointer-events-none w-0 h-0"
+        />
         {/* Decorative corner orb */}
         <span
           aria-hidden
@@ -74,6 +114,12 @@ export default function FormCard({
                   Thanks — we&rsquo;ll be in touch within one business day. For urgent
                   questions, WhatsApp us.
                 </p>
+                {reference && (
+                  <div className="mt-2 inline-flex items-center gap-2 px-2 py-1 rounded-full bg-white border border-[var(--brand-rule)] text-[11px]">
+                    <span className="text-slate-500">Reference</span>
+                    <span className="font-mono text-[var(--brand-navy)] font-bold">{reference}</span>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -87,10 +133,11 @@ export default function FormCard({
           <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
             <button
               type="submit"
-              className="btn-primary"
+              disabled={busy || submitted}
+              className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {submitLabel}
-              <Icon name="arrow-right" size={15} />
+              {busy ? "Sending…" : submitted ? "Sent" : submitLabel}
+              {!busy && !submitted && <Icon name="arrow-right" size={15} />}
             </button>
             <div className="inline-flex items-center gap-2 text-[12px] text-slate-500">
               <Icon name="lock" size={12} className="text-[var(--brand-primary)]" />

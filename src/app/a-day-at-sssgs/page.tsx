@@ -6,6 +6,7 @@ import Timeline, { type TimelineItem } from "@/components/Timeline";
 export const metadata = {
   title: "A Day at SSSGS",
   description: "From morning circle to closing reflection — the rhythm of a school day at Sri Sathya Sai Global School.",
+  alternates: { canonical: "/a-day-at-sssgs" },
 };
 
 const day: TimelineItem[] = [

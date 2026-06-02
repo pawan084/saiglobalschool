@@ -5,6 +5,8 @@ import ContentSection from "@/components/ContentSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import JsonLd from "@/components/JsonLd";
 import Icon from "@/components/Icon";
+import ReadingProgress from "@/components/ReadingProgress";
+import SharePage from "@/components/SharePage";
 import { news } from "@/data/news";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -64,6 +66,7 @@ export default async function Page(
       ctaTitle="Want updates by email?"
       ctaSubtitle="Subscribe in the footer for our monthly digest."
     >
+      <ReadingProgress />
       <BreadcrumbJsonLd
         items={[
           { label: "Home", href: "/" },
@@ -121,6 +124,7 @@ export default async function Page(
               .
             </p>
           </div>
+          <SharePage title={post.title.replace(/&rsquo;/g, "'")} url={`${SITE_URL}/news/${slug}`} />
         </div>
 
         {related.length > 0 && (

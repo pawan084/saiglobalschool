@@ -6,6 +6,7 @@ import Icon from "@/components/Icon";
 export const metadata = {
   title: "Faculty",
   description: "Meet the educators who shape learning at Sri Sathya Sai Global School, Singapore.",
+  alternates: { canonical: "/faculty" },
 };
 
 const faculty: Person[] = [

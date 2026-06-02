@@ -5,6 +5,7 @@ import CTAStrip from "@/components/CTAStrip";
 export const metadata = {
   title: "Campus Life",
   description: "Facilities, daily school life, CCAs and the spaces that make SSSGS a second home.",
+  alternates: { canonical: "/campus" },
 };
 
 export default function Page() {

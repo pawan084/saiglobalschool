@@ -5,6 +5,7 @@ import CTAStrip from "@/components/CTAStrip";
 export const metadata = {
   title: "Resources",
   description: "Parent handbook, school calendar, FAQs and enrichment programs at SSSGS.",
+  alternates: { canonical: "/resources" },
 };
 
 export default function Page() {

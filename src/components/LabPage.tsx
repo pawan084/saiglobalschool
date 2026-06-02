@@ -3,6 +3,8 @@ import Link from "next/link";
 import InnerPageShell from "./InnerPageShell";
 import ContentSection from "./ContentSection";
 import Icon from "./Icon";
+import CourseJsonLd from "./CourseJsonLd";
+import BreadcrumbJsonLd from "./BreadcrumbJsonLd";
 import type { Feature } from "./FeatureGrid";
 
 type IconName = React.ComponentProps<typeof Icon>["name"];
@@ -46,6 +48,21 @@ export default function LabPage({
       ctaTitle={`Want to see the ${subject} Lab?`}
       ctaSubtitle="Book a campus tour and visit our learning labs in person."
     >
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Academics", href: "/academics" },
+          { label: "Learning Labs", href: "/learning-labs" },
+          { label: `${subject} Lab`, href },
+        ]}
+      />
+      <CourseJsonLd
+        name={`${subject} Lab — Grades 1–8`}
+        description={hero.lead}
+        path={href}
+        grades="Grades 1–8"
+      />
+
       {/* Image + quote band */}
       <ContentSection flush>
         <div className="grid lg:grid-cols-5 gap-5 items-stretch">

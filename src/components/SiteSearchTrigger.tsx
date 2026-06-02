@@ -2,7 +2,7 @@
 
 import Icon from "./Icon";
 
-export default function Search404Trigger() {
+export default function SiteSearchTrigger() {
   return (
     <button
       type="button"

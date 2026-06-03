@@ -87,4 +87,11 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Wrap with @next/bundle-analyzer when `npm run analyze` runs.
+// The env flag means production builds without `ANALYZE=true` stay untouched.
+import withBundleAnalyzerImport from "@next/bundle-analyzer";
+const withBundleAnalyzer = withBundleAnalyzerImport({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withBundleAnalyzer(nextConfig);

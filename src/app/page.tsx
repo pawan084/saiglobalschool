@@ -85,9 +85,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 1 — Right Fit (mist) */}
+      {/* SECTION 1 — Right Fit (mist) — LCP candidate when the page scrolls past the hero */}
       <FeatureBlock
         tone="mist"
+        priorityFeatured
         title="Is Sri Sathya Sai Global School the Right Fit for Your Child?"
         intro="Every child joins school with a different story. SSSGS supports families seeking academic continuity, personal attention, and a caring transition into a structured international school environment."
         featured={{

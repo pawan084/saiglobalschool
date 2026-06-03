@@ -37,11 +37,14 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean) {
 
     function getFocusable(): HTMLElement[] {
       if (!container) return [];
-      return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-        (el) =>
-          // visible / not aria-hidden
-          el.offsetParent !== null && el.getAttribute("aria-hidden") !== "true"
-      );
+      return Array.from(
+        container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((el) => {
+        if (el.hidden) return false;
+        if (el.getAttribute("aria-hidden") === "true") return false;
+        if ("disabled" in el && (el as HTMLButtonElement).disabled) return false;
+        return true;
+      });
     }
 
     // Initial focus

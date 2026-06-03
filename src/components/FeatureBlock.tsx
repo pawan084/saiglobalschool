@@ -28,6 +28,8 @@ type Props = {
   items: [Card, Card, Card] | Card[];
   /** Background variant: white, mist (cool pastel), cream (warm pastel) */
   tone?: "white" | "mist" | "cream";
+  /** Mark this block's featured image as the LCP candidate (first FeatureBlock on the page only). */
+  priorityFeatured?: boolean;
 };
 
 const toneClasses = {
@@ -49,6 +51,7 @@ export default function FeatureBlock({
   featured,
   items,
   tone = "white",
+  priorityFeatured = false,
 }: Props) {
   const orb = orbBgs[tone];
   return (
@@ -117,6 +120,7 @@ export default function FeatureBlock({
                 alt={featured.imageAlt ?? featured.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority={priorityFeatured}
                 className={`${featured.imageFit === "contain" ? "object-contain p-6" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]} transition-transform duration-700`}
               />
               {/* Soft vignette */}

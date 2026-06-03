@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# SSSGS pre-commit hook
+#
+# Activated automatically via `npm install` (the `prepare` script in
+# package.json runs `git config core.hooksPath .githooks`). To activate
+# manually after the first clone:
+#
+#   git config core.hooksPath .githooks
+#
+# Skip the hook for a one-off commit with `git commit --no-verify`.
+
+set -e
+
+# Only check files that are actually staged (added/modified, not deleted).
+STAGED_TS_TSX=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$' || true)
+
+if [ -z "$STAGED_TS_TSX" ]; then
+  echo "[pre-commit] no .ts/.tsx files staged — skipping checks."
+  exit 0
+fi
+
+echo "[pre-commit] linting staged files…"
+# shellcheck disable=SC2086
+npx eslint --max-warnings 0 $STAGED_TS_TSX
+
+echo "[pre-commit] typechecking project (full pass — fast incrementally)…"
+npx tsc --noEmit --pretty false
+
+echo "[pre-commit] ✓ all checks passed"

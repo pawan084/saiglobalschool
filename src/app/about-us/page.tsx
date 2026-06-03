@@ -26,7 +26,7 @@ export default function Page() {
           title: "Vision, Mission and the SSSGS way.",
           body:
             "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults. Our values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
-          image: "/img/p1-vision.png",
+          image: "/img/p1-vision.jpg",
           href: "/vision-mission",
         }}
         items={[
@@ -69,13 +69,13 @@ export default function Page() {
           {
             title: "Human Excellence",
             body: "Competence, character and contribution on equal footing — the SSSGS pedagogy puts all three at the heart of teaching.",
-            image: "/img/art-cca.png",
+            image: "/img/art-cca.jpg",
             href: "/human-excellence",
           },
           {
             title: "Values Integration & Academics",
             body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from language to math.",
-            image: "/img/7621-1.png",
+            image: "/img/7621-1.jpg",
             href: "/values-integration-academics",
           },
           {

@@ -59,14 +59,14 @@ export default function Page() {
           title: "Phonics, Abacus, Olympiad — focused enrichment programs.",
           body:
             "Structured early-literacy work, mental-math acceleration through abacus and Vedic techniques, and subject-specific Olympiad preparation. Each program has its own teaching team and outcomes.",
-          image: "/img/7389-1.png",
+          image: "/img/7389-1.jpg",
           href: "/enrichment-activities",
         }}
         items={[
           {
             title: "Phonics Classes",
             body: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
-            image: "/img/7389-1.png",
+            image: "/img/7389-1.jpg",
             href: "/phonics-classes",
           },
           {
@@ -78,7 +78,7 @@ export default function Page() {
           {
             title: "Olympiad Coaching",
             body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
-            image: "/img/debate.png",
+            image: "/img/debate.jpg",
             href: "/olympiad",
           },
         ]}

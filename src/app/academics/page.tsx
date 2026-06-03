@@ -39,13 +39,13 @@ export default function Page() {
           {
             title: "Academic Pathway",
             body: "Clear grade-by-grade progression: foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8.",
-            image: "/img/548-1.png",
+            image: "/img/548-1.jpg",
             href: "/academic-pathway",
           },
           {
             title: "Assessment Structure",
             body: "Daily formative checks, weekly reviews, term assessments and oral & project work — for learning, not just of learning.",
-            image: "/img/7621-1.png",
+            image: "/img/7621-1.jpg",
             href: "/assessment-structure",
           },
         ]}
@@ -66,7 +66,7 @@ export default function Page() {
           {
             title: "Science & Maths Labs",
             body: "Hands-on experiments and visual modelling. Children learn to think like scientists and reason like mathematicians.",
-            image: "/img/labs-science.png",
+            image: "/img/labs-science.jpg",
             href: "/science-lab",
           },
           {
@@ -78,7 +78,7 @@ export default function Page() {
           {
             title: "CCAs & Enrichment",
             body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
-            image: "/img/art-cca.png",
+            image: "/img/art-cca.jpg",
             href: "/cca",
           },
         ]}

@@ -130,7 +130,7 @@ export default function Home() {
           title: "A Complete Learning Environment for Confident Growth",
           body:
             "Sri Sathya Sai Global School combines experienced educators, structured classroom learning, and application-based teaching to help children build strong academic foundations. Students learn through clear guidance, regular feedback, and practical classroom experiences that make concepts easier to understand and apply.",
-          image: "/img/labs-science.png",
+          image: "/img/labs-science.jpg",
           href: "/about-us",
         }}
         items={[
@@ -199,7 +199,7 @@ export default function Home() {
           title: "A day at SSSGS — from morning circle to closing reflection.",
           body:
             "Eight blocks that make up a school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection — designed so children leave with both skills and stories.",
-          image: "/img/7621-1.png",
+          image: "/img/7621-1.jpg",
           href: "/a-day-at-sssgs",
         }}
         items={[
@@ -212,7 +212,7 @@ export default function Home() {
           {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.png",
+            image: "/img/art-cca.jpg",
             href: "/cca",
           },
           {
@@ -233,7 +233,7 @@ export default function Home() {
           title: "Admission process: clear, supportive, parent-friendly.",
           body:
             "Inquire → meet the team → assess → register. Each step has a single point of contact, transparent timelines, and clear expectations. Transitions from CBSE, ICSE, Cambridge, IB and local curricula handled without disruption.",
-          image: "/img/p1-vision.png",
+          image: "/img/p1-vision.jpg",
           imagePosition: "top",
           href: "/admission-process",
         }}
@@ -247,7 +247,7 @@ export default function Home() {
           {
             title: "Fee Structure",
             body: "Transparent annual fee breakdown for Primary (Grades 1–5) and Secondary (Grades 6–8). Indicative annual totals shown.",
-            image: "/img/548-1.png",
+            image: "/img/548-1.jpg",
             href: "/fee-structure",
           },
           {

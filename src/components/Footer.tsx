@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigation, ctaInquire, ctaWhatsApp } from "@/data/nav";
+import { navigation, ctaWhatsApp } from "@/data/nav";
 import { site } from "@/data/site";
 import TrustBadges from "./TrustBadges";
 import Icon from "./Icon";

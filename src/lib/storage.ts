@@ -8,7 +8,8 @@
 export function safeGet(key: string, fallback: string | null = null): string | null {
   try {
     if (typeof window === "undefined") return fallback;
-    return window.localStorage.getItem(key);
+    const v = window.localStorage.getItem(key);
+    return v === null ? fallback : v;
   } catch {
     return fallback;
   }

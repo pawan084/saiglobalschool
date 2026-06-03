@@ -122,7 +122,6 @@ export default async function Image() {
               “The End of Education is Character.”
             </div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logoSrc}
             width={240}

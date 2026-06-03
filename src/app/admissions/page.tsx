@@ -26,7 +26,7 @@ export default function Page() {
           title: "Admission process: clear, supportive, parent-friendly.",
           body:
             "Inquire → meet the team → assess → register. Mid-year admissions welcome. Transitions from CBSE, ICSE, Cambridge, IB and local-curriculum schools handled without academic disruption.",
-          image: "/img/p1-vision.png",
+          image: "/img/p1-vision.jpg",
           href: "/admission-process",
         }}
         items={[
@@ -61,7 +61,7 @@ export default function Page() {
           title: "Fee Structure — Primary & Secondary, indicative annual totals.",
           body:
             "Transparent annual fee breakdown for Grades 1–8. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
-          image: "/img/548-1.png",
+          image: "/img/548-1.jpg",
           href: "/fee-structure",
         }}
         items={[
@@ -75,7 +75,7 @@ export default function Page() {
           {
             title: "Refund Policy",
             body: "CPE-Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
-            image: "/img/7621-1.png",
+            image: "/img/7621-1.jpg",
             href: "/refund-policy",
           },
           {

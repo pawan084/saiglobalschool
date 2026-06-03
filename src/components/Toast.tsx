@@ -45,7 +45,7 @@ export function useToast() {
   const ctx = useContext(ToastCtx);
   if (!ctx) {
     // Fallback no-op so component trees outside the provider don't crash.
-    return { show: (..._args: unknown[]) => {} };
+    return { show: () => {} };
   }
   return ctx;
 }

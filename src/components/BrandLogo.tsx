@@ -14,6 +14,10 @@ type Props = {
  */
 export default function BrandLogo({ size = 56, className = "" }: Props) {
   return (
+    // Plain <img> is intentional: the asset is 328 KB and we use it at many
+    // different widths; routing it through next/image would 400 on widths
+    // outside the default set without us adding every one to the allowlist.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/logo.png"
       alt="Sri Sathya Sai Global School"

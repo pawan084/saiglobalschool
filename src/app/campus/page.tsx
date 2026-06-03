@@ -45,7 +45,7 @@ export default function Page() {
           {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.png",
+            image: "/img/art-cca.jpg",
             href: "/cca",
           },
         ]}

@@ -3,7 +3,7 @@ import ContentSection from "@/components/ContentSection";
 import NewsCard from "@/components/NewsCard";
 
 const labs = [
-  { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/labs-science.png", lead: "Hands-on experiments, structured enquiry, evidence-led thinking." },
+  { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/labs-science.jpg", lead: "Hands-on experiments, structured enquiry, evidence-led thinking." },
   { title: "Language Lab — read, speak, write", href: "/language-lab", eyebrow: "Language", image: "/img/lab-english_jpg.jpg", lead: "Phonics, vocabulary, fluency, public speaking and writing." },
   { title: "Maths Lab — visualise, model, prove", href: "/maths-lab", eyebrow: "Maths", image: "/img/lab-maths1_jpg.jpg", lead: "Manipulatives, models and reasoning aloud across the math curriculum." },
   { title: "ICT Lab — digital literacy from Grade 1", href: "/ict-lab", eyebrow: "ICT", image: "/img/lsp07302_jpg.jpg", lead: "Typing, online safety, productivity tools and computational thinking." },

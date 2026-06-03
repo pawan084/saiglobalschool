@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { safeGet, safeSet } from "@/lib/storage";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 /**
  * Triggers a "save your place" prompt when the user moves the cursor toward the
@@ -66,6 +67,8 @@ export default function ExitIntentCapture() {
     setVisible(false);
   }
 
+  const trapRef = useFocusTrap<HTMLDivElement>(visible);
+
   if (!visible) return null;
 
   return (
@@ -79,6 +82,7 @@ export default function ExitIntentCapture() {
       }}
     >
       <div
+        ref={trapRef}
         className="relative w-full max-w-[440px] rounded-2xl bg-white border border-[var(--brand-rule)] p-6 lg:p-7"
         style={{ boxShadow: "0 36px 64px -16px rgba(11,29,51,0.50)" }}
       >

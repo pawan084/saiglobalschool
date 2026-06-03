@@ -5,6 +5,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
 import { safeGetJson, safeSetJson, safeRemove } from "@/lib/storage";
+import { fetchWithTimeout } from "@/lib/fetch";
 
 const STORAGE_KEY = "sssgs:apply-draft";
 
@@ -150,7 +151,7 @@ export default function ApplyWizard() {
     }
     setBusy(true);
     try {
-      const res = await fetch("/api/apply", {
+      const res = await fetchWithTimeout("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(state),

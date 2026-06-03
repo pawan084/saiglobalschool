@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Icon from "./Icon";
 import { FACULTY, type FacultyMember } from "@/data/faculty";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 export default function FacultyGrid() {
   const [selected, setSelected] = useState<FacultyMember | null>(null);
+  const trapRef = useFocusTrap<HTMLDivElement>(!!selected);
 
   // Close modal on ESC
   useEffect(() => {
@@ -93,6 +95,7 @@ export default function FacultyGrid() {
           }}
         >
           <div
+            ref={trapRef}
             className="relative w-full max-w-[540px] rounded-3xl bg-white border border-[var(--brand-rule)] overflow-hidden"
             style={{ boxShadow: "0 40px 80px -20px rgba(11,29,51,0.55)" }}
           >

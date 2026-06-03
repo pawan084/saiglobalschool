@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
+import { fetchWithTimeout } from "@/lib/fetch";
 
 export default function NewsletterSignup() {
   const { show } = useToast();
@@ -15,7 +16,7 @@ export default function NewsletterSignup() {
     if (busy) return;
     setBusy(true);
     try {
-      const res = await fetch("/api/newsletter", {
+      const res = await fetchWithTimeout("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, honey }),

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 import Icon from "./Icon";
 
 /**
@@ -113,10 +114,13 @@ export default function SearchDialog() {
     }
   }
 
+  const trapRef = useFocusTrap<HTMLDivElement>(open);
+
   if (!open) return null;
 
   return (
     <div
+      ref={trapRef}
       role="dialog"
       aria-modal="true"
       aria-label="Search SSSGS"

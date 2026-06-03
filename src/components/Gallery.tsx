@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import Icon from "./Icon";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 export type GalleryItem = { src: string; alt: string; caption?: string };
 
@@ -13,6 +14,7 @@ type Props = {
 
 export default function Gallery({ items, cols = 3 }: Props) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const trapRef = useFocusTrap<HTMLDivElement>(openIdx !== null);
   const colsClass = {
     2: "sm:grid-cols-2",
     3: "sm:grid-cols-2 md:grid-cols-3",
@@ -90,6 +92,7 @@ export default function Gallery({ items, cols = 3 }: Props) {
 
       {openIdx !== null && (
         <div
+          ref={trapRef}
           className="fixed inset-0 z-[100] bg-[rgba(11,29,51,0.94)] backdrop-blur-sm flex items-center justify-center p-4 lg:p-8"
           role="dialog"
           aria-modal="true"

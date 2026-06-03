@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
+import { fetchWithTimeout } from "@/lib/fetch";
 
 /**
  * Visual tour-slot picker for Open House / private tour booking.
@@ -83,7 +84,7 @@ export default function TourSlotPicker() {
     }
     setBusy(true);
     try {
-      const res = await fetch("/api/inquire", {
+      const res = await fetchWithTimeout("/api/inquire", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

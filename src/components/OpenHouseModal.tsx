@@ -5,6 +5,7 @@ import Link from "next/link";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
 import { safeGet, safeSet } from "@/lib/storage";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 /**
  * Open-house promotional modal.
@@ -58,6 +59,8 @@ export default function OpenHouseModal() {
     return () => document.removeEventListener("keydown", onKey);
   }, [visible]);
 
+  const trapRef = useFocusTrap<HTMLDivElement>(visible);
+
   if (!visible) return null;
 
   function dismiss() {
@@ -81,6 +84,7 @@ export default function OpenHouseModal() {
       }}
     >
       <div
+        ref={trapRef}
         className="relative w-full max-w-[480px] rounded-3xl overflow-hidden bg-white border border-[var(--brand-rule)]"
         style={{ boxShadow: "0 40px 80px -20px rgba(11,29,51,0.55)" }}
       >

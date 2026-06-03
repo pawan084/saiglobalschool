@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
+import { fetchWithTimeout } from "@/lib/fetch";
 
 export default function EventRsvpForm({
   slug,
@@ -26,7 +27,7 @@ export default function EventRsvpForm({
     if (busy) return;
     setBusy(true);
     try {
-      const res = await fetch("/api/inquire", {
+      const res = await fetchWithTimeout("/api/inquire", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

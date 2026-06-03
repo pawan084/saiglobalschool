@@ -1,23 +1,28 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsStrip from "@/components/NewsStrip";
-import ChatBot from "@/components/ChatBot";
 import FloatingMobileCTA from "@/components/FloatingMobileCTA";
 import { ToastProvider } from "@/components/Toast";
 import { site } from "@/data/site";
 import { SITE_URL } from "@/lib/site-url";
 import SkipToContent from "@/components/SkipToContent";
-import AccessibilityMenu from "@/components/AccessibilityMenu";
-import CookieConsent from "@/components/CookieConsent";
 import OrgJsonLd from "@/components/OrgJsonLd";
-import OpenHouseModal from "@/components/OpenHouseModal";
-import PwaInstall from "@/components/PwaInstall";
-import SwRegister from "@/components/SwRegister";
-import SearchDialog from "@/components/SearchDialog";
 import RecentTracker from "@/components/RecentTracker";
+
+// Non-critical client-only widgets — lazy-load so they don't bloat the
+// initial JS payload of every page. They render after the rest of the
+// page is interactive.
+const ChatBot = dynamic(() => import("@/components/ChatBot"));
+const AccessibilityMenu = dynamic(() => import("@/components/AccessibilityMenu"));
+const CookieConsent = dynamic(() => import("@/components/CookieConsent"));
+const OpenHouseModal = dynamic(() => import("@/components/OpenHouseModal"));
+const PwaInstall = dynamic(() => import("@/components/PwaInstall"));
+const SwRegister = dynamic(() => import("@/components/SwRegister"));
+const SearchDialog = dynamic(() => import("@/components/SearchDialog"));
 
 const inter = Inter({
   subsets: ["latin"],

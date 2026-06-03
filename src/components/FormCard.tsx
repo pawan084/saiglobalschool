@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
+import { fetchWithTimeout } from "@/lib/fetch";
 
 type Field = {
   name: string;
@@ -48,7 +49,7 @@ export default function FormCard({
     });
     setBusy(true);
     try {
-      const res = await fetch("/api/inquire", {
+      const res = await fetchWithTimeout("/api/inquire", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

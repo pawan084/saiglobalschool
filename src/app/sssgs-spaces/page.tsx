@@ -7,6 +7,7 @@ import Link from "next/link";
 export const metadata = {
   title: "SSSGS Spaces",
   description: "Classrooms, labs, library and learning spaces at Sri Sathya Sai Global School.",
+  alternates: { canonical: "/sssgs-spaces" },
 };
 
 const gallery: GalleryItem[] = [

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
+import { safeGet, safeSet } from "@/lib/storage";
 
 /**
  * Triggers a "save your place" prompt when the user moves the cursor toward the
@@ -16,7 +17,7 @@ const SUPPRESS_DAYS = 14;
 
 function shouldShow(): boolean {
   if (typeof window === "undefined") return false;
-  const raw = localStorage.getItem(STORAGE_KEY);
+  const raw = safeGet(STORAGE_KEY);
   if (!raw) return true;
   try {
     const ms = Date.now() - new Date(raw).getTime();
@@ -61,7 +62,7 @@ export default function ExitIntentCapture() {
   }, [armed]);
 
   function dismiss() {
-    localStorage.setItem(STORAGE_KEY, new Date().toISOString());
+    safeSet(STORAGE_KEY, new Date().toISOString());
     setVisible(false);
   }
 

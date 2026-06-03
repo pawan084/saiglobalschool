@@ -5,6 +5,7 @@ import FeatureGrid from "@/components/FeatureGrid";
 export const metadata = {
   title: "Co-Curricular Activities",
   description: "CCAs at SSSGS — music, art, sport, debate and more.",
+  alternates: { canonical: "/cca" },
 };
 
 const ccas = [

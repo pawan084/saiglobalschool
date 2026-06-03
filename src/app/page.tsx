@@ -8,6 +8,13 @@ import Icon from "@/components/Icon";
 import { homeHero } from "@/data/sections";
 import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 
+export const metadata = {
+  title: { absolute: "Sri Sathya Sai Global School | Singapore" },
+  description:
+    "An NCERT-aligned, values-rooted international school in Singapore for Grades 1–8. Small-group learning, experienced educators, mid-year admissions welcome.",
+  alternates: { canonical: "/" },
+};
+
 const stats = [
   { value: 8, label: "Grades — 1 to 8" },
   { value: 4, label: "Specialist Labs" },

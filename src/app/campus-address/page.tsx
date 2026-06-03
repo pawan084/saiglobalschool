@@ -7,6 +7,7 @@ import { ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: "Campus Address",
   description: "How to find Sri Sathya Sai Global School in Singapore — directions, transport and contact details.",
+  alternates: { canonical: "/campus-address" },
 };
 
 export default function Page() {

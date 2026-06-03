@@ -8,17 +8,19 @@ type Props = {
   className?: string;
 };
 
+/** Default to shown when the IntersectionObserver API isn't available
+ *  (server-rendering or very old browsers). This keeps content visible
+ *  without needing a setState-in-effect on mount. */
+const ioSupported = (): boolean =>
+  typeof IntersectionObserver !== "undefined";
+
 export default function RevealOnScroll({ children, delay = 0, className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(() => !ioSupported());
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setShown(true);
-      return;
-    }
+    if (!el || !ioSupported()) return;
     const obs = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

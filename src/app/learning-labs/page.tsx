@@ -12,6 +12,7 @@ const labs = [
 export const metadata = {
   title: "Learning Labs",
   description: "Four learning labs at SSSGS — Language, Science, Maths and ICT — where children apply, build and explore.",
+  alternates: { canonical: "/learning-labs" },
 };
 
 export default function Page() {

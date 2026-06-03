@@ -4,6 +4,9 @@ import ContentSection from "@/components/ContentSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Icon from "@/components/Icon";
 import { events } from "@/data/events";
+import { buildTimeNow } from "@/lib/clock";
+
+export const revalidate = 3600;
 
 export const metadata = {
   title: "School Calendar",
@@ -68,7 +71,7 @@ const TERM_TONE: Record<string, string> = {
 
 export default function Page() {
   const upcoming = events
-    .filter((e) => +new Date(e.endsAt) >= Date.now())
+    .filter((e) => +new Date(e.endsAt) >= buildTimeNow())
     .sort((a, b) => +new Date(a.startsAt) - +new Date(b.startsAt))
     .slice(0, 5);
 

@@ -9,6 +9,7 @@ export const metadata = {
   title: "Accreditation",
   description:
     "Sri Sathya Sai Global School's registrations, certifications and commitments — and how to verify them.",
+  alternates: { canonical: "/accreditation" },
 };
 
 const items: {

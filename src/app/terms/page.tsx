@@ -5,6 +5,7 @@ export const metadata = {
   title: "Terms of Use",
   description:
     "Terms governing your use of the Sri Sathya Sai Global School website and online services.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function Page() {

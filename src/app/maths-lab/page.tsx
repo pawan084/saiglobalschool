@@ -3,6 +3,7 @@ import LabPage from "@/components/LabPage";
 export const metadata = {
   title: "Maths Lab",
   description: "Visualise, model, prove — the SSSGS Maths Lab makes abstract concepts tangible.",
+  alternates: { canonical: "/maths-lab" },
 };
 
 export default function Page() {

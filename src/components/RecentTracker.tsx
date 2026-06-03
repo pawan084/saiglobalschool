@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { searchIndex } from "@/data/search-index";
+import { safeGetJson, safeSetJson } from "@/lib/storage";
 
 /**
  * Logs recent route visits to localStorage. Paired with RecentlyViewed which reads
@@ -25,14 +26,9 @@ export default function RecentTracker() {
 
   useEffect(() => {
     if (!pathname || !isTrackable(pathname)) return;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const arr: string[] = raw ? JSON.parse(raw) : [];
-      const next = [pathname, ...arr.filter((p) => p !== pathname)].slice(0, MAX_ITEMS);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      /* ignore */
-    }
+    const arr = safeGetJson<string[]>(STORAGE_KEY, []);
+    const next = [pathname, ...arr.filter((p) => p !== pathname)].slice(0, MAX_ITEMS);
+    safeSetJson(STORAGE_KEY, next);
   }, [pathname]);
 
   return null;

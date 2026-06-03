@@ -7,6 +7,7 @@ export const metadata = {
   title: "Curriculum comparison",
   description:
     "How SSSGS compares with CBSE, ICSE and IB across structure, assessment, languages and pace.",
+  alternates: { canonical: "/curriculum/comparison" },
 };
 
 type Row = {

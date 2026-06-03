@@ -7,6 +7,7 @@ export const metadata = {
   title: "Grade-fit quiz",
   description:
     "Quick 5-question quiz to suggest the most likely grade band for your child at SSSGS.",
+  alternates: { canonical: "/grade-fit" },
 };
 
 export default function Page() {

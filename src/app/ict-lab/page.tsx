@@ -3,6 +3,7 @@ import LabPage from "@/components/LabPage";
 export const metadata = {
   title: "ICT Lab",
   description: "Digital literacy from Grade 1 — typing, coding, online safety, and creative tools.",
+  alternates: { canonical: "/ict-lab" },
 };
 
 export default function Page() {

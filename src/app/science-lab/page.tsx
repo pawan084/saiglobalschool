@@ -3,6 +3,7 @@ import LabPage from "@/components/LabPage";
 export const metadata = {
   title: "Science Lab",
   description: "Hands-on experiments and structured enquiry in the SSSGS Science Lab.",
+  alternates: { canonical: "/science-lab" },
 };
 
 export default function Page() {

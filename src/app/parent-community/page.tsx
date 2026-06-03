@@ -6,6 +6,7 @@ const data = simplePages["parent-community"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/parent-community" },
 };
 
 export default function Page() {

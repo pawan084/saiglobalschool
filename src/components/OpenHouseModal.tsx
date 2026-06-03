@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
+import { safeGet, safeSet } from "@/lib/storage";
 
 /**
  * Open-house promotional modal.
@@ -20,7 +21,7 @@ const SUPPRESS_PATHS = ["/open-house", "/inquire-book-a-tour", "/apply"];
 function shouldShow(): boolean {
   if (typeof window === "undefined") return false;
   if (SUPPRESS_PATHS.some((p) => window.location.pathname.startsWith(p))) return false;
-  const raw = localStorage.getItem(STORAGE_KEY);
+  const raw = safeGet(STORAGE_KEY);
   if (!raw) return true;
   try {
     const { at } = JSON.parse(raw) as { at: string };
@@ -32,10 +33,7 @@ function shouldShow(): boolean {
 }
 
 function suppress(reason: "dismiss" | "rsvp") {
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({ at: new Date().toISOString(), reason })
-  );
+  safeSet(STORAGE_KEY, JSON.stringify({ at: new Date().toISOString(), reason }));
 }
 
 export default function OpenHouseModal() {

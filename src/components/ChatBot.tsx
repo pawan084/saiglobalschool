@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
+import { safeGetJson, safeSetJson, safeRemove } from "@/lib/storage";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -23,7 +24,9 @@ const LEAD_AFTER = 4; // user turns
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const [messages, setMessages] = useState<Msg[]>(() =>
+    safeGetJson<Msg[]>(STORAGE_KEY, []).slice(-20)
+  );
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -36,32 +39,15 @@ export default function ChatBot() {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, sending]);
 
-  // Hydrate history from localStorage
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as Msg[];
-        if (Array.isArray(parsed)) setMessages(parsed.slice(-20));
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
   // Persist on change (skip the streaming "assistant: ''" placeholder)
   useEffect(() => {
     if (!messages.length) {
-      localStorage.removeItem(STORAGE_KEY);
+      safeRemove(STORAGE_KEY);
       return;
     }
     const last = messages[messages.length - 1];
     if (last.role === "assistant" && !last.content) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-20)));
-    } catch {
-      /* ignore */
-    }
+    safeSetJson(STORAGE_KEY, messages.slice(-20));
   }, [messages]);
 
   // Focus input when chat opens

@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Refund Policy",
   description: "Refund policy of Sri Sathya Sai Global School, Singapore — terms, timelines and process.",
+  alternates: { canonical: "/refund-policy" },
 };
 
 const sections = [

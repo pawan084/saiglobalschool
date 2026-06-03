@@ -6,6 +6,7 @@ const data = simplePages["human-excellence"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/human-excellence" },
 };
 
 export default function Page() {

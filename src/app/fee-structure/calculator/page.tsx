@@ -8,6 +8,7 @@ export const metadata = {
   title: "Fee calculator",
   description:
     "Estimate your annual outlay at SSSGS by grade and optional add-ons. Indicative only — please confirm with admissions.",
+  alternates: { canonical: "/fee-structure/calculator" },
 };
 
 export default function Page() {

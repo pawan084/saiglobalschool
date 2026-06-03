@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
+import { safeGet, safeSet } from "@/lib/storage";
 
 /**
  * PwaInstall — surfaces an install affordance once the browser fires
@@ -27,7 +28,7 @@ export default function PwaInstall() {
       // iOS
       (window.navigator as unknown as { standalone?: boolean }).standalone === true;
     if (isStandalone) return;
-    if (localStorage.getItem(STORAGE_DISMISS)) return;
+    if (safeGet(STORAGE_DISMISS)) return;
 
     const isIOS =
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
@@ -52,12 +53,12 @@ export default function PwaInstall() {
     if (!deferred) return;
     await deferred.prompt();
     await deferred.userChoice;
-    localStorage.setItem(STORAGE_DISMISS, new Date().toISOString());
+    safeSet(STORAGE_DISMISS, new Date().toISOString());
     setDeferred(null);
   }
 
   function dismiss() {
-    localStorage.setItem(STORAGE_DISMISS, new Date().toISOString());
+    safeSet(STORAGE_DISMISS, new Date().toISOString());
     setDeferred(null);
     setShowIOS(false);
   }

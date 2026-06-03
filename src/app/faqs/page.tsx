@@ -7,6 +7,7 @@ import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 export const metadata = {
   title: "FAQs",
   description: "Frequently asked questions about admissions, curriculum, fees and daily life at SSSGS.",
+  alternates: { canonical: "/faqs" },
 };
 
 const faqs: FAQ[] = [

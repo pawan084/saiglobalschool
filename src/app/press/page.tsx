@@ -10,6 +10,7 @@ export const metadata = {
   title: "Press kit",
   description:
     "Brand assets, boilerplate and media contact for Sri Sathya Sai Global School, Singapore.",
+  alternates: { canonical: "/press" },
 };
 
 const facts: { label: string; value: string }[] = [

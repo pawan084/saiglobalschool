@@ -61,12 +61,12 @@ function inSgtWindow(): { online: boolean; nextOpen?: string } {
 }
 
 export default function LiveOnlineIndicator({ className = "" }: { className?: string }) {
-  const [state, setState] = useState<{ online: boolean; nextOpen?: string }>({
-    online: false,
-  });
+  // Lazy initialize from current time (single computation on first render).
+  const [state, setState] = useState<{ online: boolean; nextOpen?: string }>(() =>
+    inSgtWindow()
+  );
 
   useEffect(() => {
-    setState(inSgtWindow());
     const id = setInterval(() => setState(inSgtWindow()), 60_000);
     return () => clearInterval(id);
   }, []);

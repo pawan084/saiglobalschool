@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
+import { safeGet, safeSet } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:cookie-consent";
 
@@ -13,16 +14,15 @@ export default function CookieConsent() {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
+      if (!safeGet(STORAGE_KEY)) setVisible(true);
     }, 1100);
     return () => clearTimeout(t);
   }, []);
 
   function decide(value: Consent) {
-    localStorage.setItem(STORAGE_KEY, value);
-    localStorage.setItem("sssgs:cookie-consent-at", new Date().toISOString());
+    safeSet(STORAGE_KEY, value);
+    safeSet("sssgs:cookie-consent-at", new Date().toISOString());
     setVisible(false);
-    // Hook for downstream code: window dispatch
     window.dispatchEvent(new CustomEvent("sssgs:consent", { detail: { value } }));
   }
 

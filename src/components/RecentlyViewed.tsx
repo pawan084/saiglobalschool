@@ -1,27 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
+import { safeGetJson } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:recent-paths";
 
-export default function RecentlyViewed() {
-  const [items, setItems] = useState<SearchEntry[]>([]);
+function readItems(): SearchEntry[] {
+  const paths = safeGetJson<string[]>(STORAGE_KEY, []);
+  return paths
+    .map((p) => searchIndex.find((s) => s.href === p))
+    .filter((x): x is SearchEntry => !!x)
+    .slice(0, 4);
+}
 
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const paths: string[] = raw ? JSON.parse(raw) : [];
-      const found = paths
-        .map((p) => searchIndex.find((s) => s.href === p))
-        .filter((x): x is SearchEntry => !!x);
-      setItems(found.slice(0, 4));
-    } catch {
-      /* ignore */
-    }
-  }, []);
+export default function RecentlyViewed() {
+  // Lazy initializer reads localStorage on first render (no setState-in-effect).
+  const [items] = useState<SearchEntry[]>(() => readItems());
 
   if (!items.length) return null;
 

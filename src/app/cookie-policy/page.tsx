@@ -4,6 +4,7 @@ export const metadata = {
   title: "Cookie Policy",
   description:
     "How Sri Sathya Sai Global School uses cookies and similar technologies on this website.",
+  alternates: { canonical: "/cookie-policy" },
 };
 
 export default function Page() {

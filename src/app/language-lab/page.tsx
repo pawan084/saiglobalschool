@@ -3,6 +3,7 @@ import LabPage from "@/components/LabPage";
 export const metadata = {
   title: "Language Lab",
   description: "Read, speak, write with confidence — structured language learning at SSSGS.",
+  alternates: { canonical: "/language-lab" },
 };
 
 export default function Page() {

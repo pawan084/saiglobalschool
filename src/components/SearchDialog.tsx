@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
 import Icon from "./Icon";
 
@@ -31,6 +31,13 @@ export default function SearchDialog() {
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  // Reset query + cursor when closing so the dialog is fresh on next open.
+  const closeDialog = useCallback(() => {
+    setOpen(false);
+    setQ("");
+    setCursor(0);
+  }, []);
+
   // Open hotkey
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -38,19 +45,16 @@ export default function SearchDialog() {
         e.preventDefault();
         setOpen((v) => !v);
       } else if (open && e.key === "Escape") {
-        setOpen(false);
+        closeDialog();
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, closeDialog]);
 
   useEffect(() => {
     if (open) {
       requestAnimationFrame(() => inputRef.current?.focus());
-    } else {
-      setQ("");
-      setCursor(0);
     }
   }, [open]);
 
@@ -88,13 +92,11 @@ export default function SearchDialog() {
       .map((x) => x.e);
   }, [q]);
 
-  // Keep cursor in range
-  useEffect(() => {
-    if (cursor >= results.length) setCursor(Math.max(0, results.length - 1));
-  }, [results, cursor]);
+  // Keep cursor in range using derived state (cheaper + lint-clean)
+  const safeCursor = Math.min(cursor, Math.max(0, results.length - 1));
 
   function go(entry: SearchEntry) {
-    setOpen(false);
+    closeDialog();
     router.push(entry.href);
   }
 
@@ -105,9 +107,9 @@ export default function SearchDialog() {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setCursor((c) => Math.max(0, c - 1));
-    } else if (e.key === "Enter" && results[cursor]) {
+    } else if (e.key === "Enter" && results[safeCursor]) {
       e.preventDefault();
-      go(results[cursor]);
+      go(results[safeCursor]);
     }
   }
 
@@ -120,7 +122,7 @@ export default function SearchDialog() {
       aria-label="Search SSSGS"
       className="fixed inset-0 z-[85] bg-black/40 backdrop-blur-sm grid items-start justify-center p-4 pt-[12vh]"
       onClick={(e) => {
-        if (e.target === e.currentTarget) setOpen(false);
+        if (e.target === e.currentTarget) closeDialog();
       }}
     >
       <div
@@ -144,7 +146,7 @@ export default function SearchDialog() {
             ESC
           </kbd>
           <button
-            onClick={() => setOpen(false)}
+            onClick={() => closeDialog()}
             aria-label="Close"
             className="sm:hidden grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
           >
@@ -169,7 +171,7 @@ export default function SearchDialog() {
               onClick={() => go(r)}
               onMouseEnter={() => setCursor(i)}
               className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-xl transition ${
-                i === cursor ? "bg-[var(--brand-cream)]" : "hover:bg-slate-50"
+                i === safeCursor ? "bg-[var(--brand-cream)]" : "hover:bg-slate-50"
               }`}
             >
               <span className="grid place-items-center h-8 w-8 rounded-lg bg-white border border-[var(--brand-rule)] text-[var(--brand-primary)] shrink-0">
@@ -194,7 +196,7 @@ export default function SearchDialog() {
           </div>
           <Link
             href="/contact-us"
-            onClick={() => setOpen(false)}
+            onClick={() => closeDialog()}
             className="font-bold text-[var(--brand-primary)] hover:underline"
           >
             Can&rsquo;t find it? Ask us →

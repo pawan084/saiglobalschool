@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
+import { safeGetJson, safeSetJson, safeRemove } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:apply-draft";
 
@@ -62,41 +63,34 @@ const STEPS = [
   { id: 5, label: "Review" },
 ];
 
-function load(): FormState | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    return { ...empty, ...(JSON.parse(raw) as Partial<FormState>) };
-  } catch {
-    return null;
-  }
-}
-
-function save(state: FormState) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+function loadDraft(): FormState | null {
+  const partial = safeGetJson<Partial<FormState> | null>(STORAGE_KEY, null);
+  if (!partial) return null;
+  return { ...empty, ...partial };
 }
 
 export default function ApplyWizard() {
   const { show } = useToast();
-  const [state, setState] = useState<FormState>(empty);
+  // Lazy initializer hydrates from storage on first render (no setState-in-effect).
+  const [state, setState] = useState<FormState>(() => loadDraft() ?? empty);
   const [step, setStep] = useState(1);
   const [busy, setBusy] = useState(false);
   const [submitted, setSubmitted] = useState<{ reference: string } | null>(null);
-
+  // Show the "restored" toast once on mount if a draft was hydrated.
+  const restoredOnceRef = useRef(false);
   useEffect(() => {
-    const saved = load();
-    if (saved) {
-      setState(saved);
+    if (restoredOnceRef.current) return;
+    restoredOnceRef.current = true;
+    if (state !== empty && (state.parentName || state.parentEmail || state.childName)) {
       show("Draft restored from this device.", "info");
     }
-    // We intentionally show the toast only on mount with a saved draft.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Auto-save on change (debounced via microtask)
   useEffect(() => {
     if (submitted) return;
-    save(state);
+    safeSetJson(STORAGE_KEY, state);
   }, [state, submitted]);
 
   const progress = useMemo(() => (step - 1) / (STEPS.length - 1), [step]);
@@ -141,7 +135,7 @@ export default function ApplyWizard() {
 
   function clearDraft() {
     if (confirm("Clear this saved draft? You can't undo this.")) {
-      localStorage.removeItem(STORAGE_KEY);
+      safeRemove(STORAGE_KEY);
       setState(empty);
       setStep(1);
       show("Draft cleared.", "info");
@@ -167,7 +161,7 @@ export default function ApplyWizard() {
         return;
       }
       setSubmitted({ reference: data.reference });
-      localStorage.removeItem(STORAGE_KEY);
+      safeRemove(STORAGE_KEY);
       show("Application submitted successfully.", "success");
     } catch {
       show("Network hiccup. Please try again.", "error");

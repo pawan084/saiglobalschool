@@ -6,6 +6,7 @@ const data = simplePages["non-academic"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/non-academic" },
 };
 
 export default function Page() {

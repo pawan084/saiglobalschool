@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
@@ -66,9 +66,11 @@ export default function TourSlotPicker() {
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<{ reference: string } | null>(null);
 
-  useEffect(() => {
-    setHour(null); // reset hour when day changes
-  }, [day]);
+  // Picking a new day resets the hour selection.
+  function pickDay(iso: string) {
+    setDay(iso);
+    setHour(null);
+  }
 
   const dayObj = days.find((d) => d.iso === day);
 
@@ -178,7 +180,7 @@ export default function TourSlotPicker() {
               <button
                 key={d.iso}
                 type="button"
-                onClick={() => setDay(d.iso)}
+                onClick={() => pickDay(d.iso)}
                 aria-pressed={sel}
                 className={`rounded-xl py-2 text-center border transition ${
                   sel

@@ -8,6 +8,7 @@ export const metadata = {
   title: "Apply now",
   description:
     "Apply for admission to Sri Sathya Sai Global School. A short, multi-step form — save and resume on this device anytime.",
+  alternates: { canonical: "/apply" },
 };
 
 export default function Page() {

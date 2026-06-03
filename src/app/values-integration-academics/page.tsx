@@ -6,6 +6,7 @@ const data = simplePages["values-integration-academics"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/values-integration-academics" },
 };
 
 export default function Page() {

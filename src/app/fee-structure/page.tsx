@@ -7,6 +7,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Fee Structure",
   description: "Annual fee structure for Primary (Grades 1–5) and Secondary (Grades 6–8) at SSSGS Singapore.",
+  alternates: { canonical: "/fee-structure" },
 };
 
 const primary: FeeRow[] = [

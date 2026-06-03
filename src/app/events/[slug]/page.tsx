@@ -8,6 +8,9 @@ import Icon from "@/components/Icon";
 import EventRsvpForm from "./EventRsvpForm";
 import { events } from "@/data/events";
 import { SITE_URL } from "@/lib/site-url";
+import { buildTimeNow } from "@/lib/clock";
+
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -70,10 +73,10 @@ export default async function Page({
   const startD = new Date(ev.startsAt);
   const endD = new Date(ev.endsAt);
   const sameDay = startD.toDateString() === endD.toDateString();
-  const upcoming = +endD > Date.now();
+  const upcoming = +endD > buildTimeNow();
 
   const related = events
-    .filter((e) => e.slug !== slug && +new Date(e.endsAt) > Date.now())
+    .filter((e) => e.slug !== slug && +new Date(e.endsAt) > buildTimeNow())
     .slice(0, 3);
 
   return (

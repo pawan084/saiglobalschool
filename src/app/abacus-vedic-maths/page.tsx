@@ -6,6 +6,7 @@ const data = simplePages["abacus-vedic-maths"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/abacus-vedic-maths" },
 };
 
 export default function Page() {

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
+import { safeGet, safeSet } from "@/lib/storage";
 
 type FontScale = "base" | "lg" | "xl" | "xxl";
 type Contrast = "normal" | "high";
@@ -25,24 +26,20 @@ function applyToHtml(font: FontScale, contrast: Contrast) {
 }
 
 export default function AccessibilityMenu() {
+  // Lazy initializers read storage once on first render (no setState in effect).
   const [open, setOpen] = useState(false);
-  const [font, setFont] = useState<FontScale>("base");
-  const [contrast, setContrast] = useState<Contrast>("normal");
+  const [font, setFont] = useState<FontScale>(
+    () => (safeGet(STORAGE_FONT) as FontScale | null) ?? "base"
+  );
+  const [contrast, setContrast] = useState<Contrast>(
+    () => (safeGet(STORAGE_CONTRAST) as Contrast | null) ?? "normal"
+  );
   const panelRef = useRef<HTMLDivElement | null>(null);
 
-  // Hydrate from storage
+  // Persist + apply on change (side effect: DOM mutation + storage I/O)
   useEffect(() => {
-    const f = (localStorage.getItem(STORAGE_FONT) as FontScale | null) ?? "base";
-    const c = (localStorage.getItem(STORAGE_CONTRAST) as Contrast | null) ?? "normal";
-    setFont(f);
-    setContrast(c);
-    applyToHtml(f, c);
-  }, []);
-
-  // Persist + apply on change
-  useEffect(() => {
-    localStorage.setItem(STORAGE_FONT, font);
-    localStorage.setItem(STORAGE_CONTRAST, contrast);
+    safeSet(STORAGE_FONT, font);
+    safeSet(STORAGE_CONTRAST, contrast);
     applyToHtml(font, contrast);
   }, [font, contrast]);
 

@@ -6,6 +6,7 @@ const data = simplePages["phonics-classes"];
 export const metadata = {
   title: data.title,
   description: data.lead,
+  alternates: { canonical: "/phonics-classes" },
 };
 
 export default function Page() {

@@ -11,6 +11,7 @@ import { ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: "Contact Us",
   description: "Reach Sri Sathya Sai Global School — call, WhatsApp, email or visit our campus.",
+  alternates: { canonical: "/contact-us" },
 };
 
 type Channel = { iconName: "phone" | "chat" | "mail"; label: string; value: string; href: string; external?: boolean };

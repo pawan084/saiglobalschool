@@ -5,11 +5,16 @@ import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Icon from "@/components/Icon";
 import { events } from "@/data/events";
 import { SITE_URL } from "@/lib/site-url";
+import { buildTimeNow } from "@/lib/clock";
+
+// Keep "upcoming" reasonably fresh between deploys (re-render hourly).
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Events",
   description:
     "Open houses, parent–teacher meetings, performances, workshops and holidays at SSSGS.",
+  alternates: { canonical: "/events" },
 };
 
 function fmt(iso: string, withTime = false) {
@@ -40,7 +45,7 @@ const TONE: Record<string, string> = {
 
 export default function Page() {
   const upcoming = events
-    .filter((e) => +new Date(e.endsAt) >= Date.now())
+    .filter((e) => +new Date(e.endsAt) >= buildTimeNow())
     .sort((a, b) => +new Date(a.startsAt) - +new Date(b.startsAt));
 
   const jsonLd = upcoming.map((e) => ({

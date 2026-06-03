@@ -5,6 +5,7 @@ export const metadata = {
   title: "Privacy Policy",
   description:
     "How Sri Sathya Sai Global School collects, uses, and protects personal data — drafted in alignment with Singapore PDPA.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function Page() {

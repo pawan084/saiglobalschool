@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
+import { rateLimit, clientKey } from "@/lib/rate-limit";
 
 /**
- * Admission application receiver — currently logs to server console + returns a fake
- * tracking reference. Wire to your CRM / email when keys land; client contract is stable.
+ * Admission application receiver — currently logs a sanitized record + returns a
+ * tracking reference. Wire to your CRM / email when keys land; client contract
+ * is stable.
  */
+
+const MAX_FIELD_LEN = 500;
+const MAX_NOTES_LEN = 2000;
 
 function reference() {
   const ts = Date.now().toString(36).toUpperCase();
@@ -11,7 +16,41 @@ function reference() {
   return `SSSGS-${ts}-${rnd}`;
 }
 
+function cap(v: unknown, max: number): string {
+  if (typeof v !== "string") return "";
+  return v.slice(0, max);
+}
+
+/** Mask email so logs don't leak PII at INFO level. */
+function maskEmail(email: string): string {
+  const m = /^([^@]+)@(.+)$/.exec(email);
+  if (!m) return "[invalid]";
+  const local = m[1];
+  const domain = m[2];
+  const head = local.slice(0, 1);
+  const tail = local.length > 2 ? local.slice(-1) : "";
+  return `${head}***${tail}@${domain}`;
+}
+
 export async function POST(req: Request) {
+  // Rate limit per IP — 6 applications per 10 minutes is generous for a
+  // legitimate family but kills script abuse.
+  const key = clientKey(req);
+  const rl = rateLimit(`apply:${key}`, {
+    limit: 6,
+    windowMs: 10 * 60_000,
+    banMs: 20 * 60_000,
+  });
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please slow down." },
+      {
+        status: 429,
+        headers: { "retry-after": String(Math.ceil(rl.retryAfterMs / 1000)) },
+      }
+    );
+  }
+
   let body: Record<string, unknown> = {};
   try {
     body = await req.json();
@@ -19,21 +58,38 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
   }
 
-  if (typeof body["honey"] === "string" && body["honey"]) {
+  if (typeof body.honey === "string" && body.honey) {
     // Honeypot — silently OK
     return NextResponse.json({ ok: true, reference: reference() });
   }
 
-  const required = ["parentName", "parentEmail", "parentPhone", "childName", "childGrade"];
+  // Cap every field so giant blobs can't exhaust memory / log lines.
+  const data = {
+    parentName: cap(body.parentName, MAX_FIELD_LEN),
+    parentEmail: cap(body.parentEmail, MAX_FIELD_LEN),
+    parentPhone: cap(body.parentPhone, MAX_FIELD_LEN),
+    childName: cap(body.childName, MAX_FIELD_LEN),
+    childGrade: cap(body.childGrade, MAX_FIELD_LEN),
+    notes: cap(body.notes, MAX_NOTES_LEN),
+  };
+
+  const required = ["parentName", "parentEmail", "parentPhone", "childName", "childGrade"] as const;
   for (const k of required) {
-    if (!body[k]) {
+    if (!data[k]) {
       return NextResponse.json({ ok: false, error: `Missing field: ${k}` }, { status: 400 });
     }
   }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.parentEmail)) {
+    return NextResponse.json({ ok: false, error: "Valid email is required" }, { status: 400 });
+  }
 
-  // Stub: log essentials only (no PII at INFO level in real prod)
   const ref = reference();
-  console.log("[apply] received", { ref, email: body.parentEmail, grade: body.childGrade });
+  // Log only sanitized, non-PII fields at INFO level. Mask the email.
+  console.log("[apply] received", {
+    ref,
+    emailMasked: maskEmail(data.parentEmail),
+    grade: data.childGrade,
+  });
 
   return NextResponse.json({ ok: true, reference: ref });
 }

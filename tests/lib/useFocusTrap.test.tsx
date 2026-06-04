@@ -75,4 +75,98 @@ describe("useFocusTrap", () => {
     // body should be the active element (default)
     expect(document.activeElement).toBe(document.body);
   });
+
+  it("focuses the container itself when there are no focusable descendants", async () => {
+    function EmptyModal({ open }: { open: boolean }) {
+      const ref = useFocusTrap<HTMLDivElement>(open);
+      if (!open) return null;
+      return (
+        <div ref={ref} role="dialog" aria-label="Empty" data-testid="empty">
+          <p>Nothing to focus here.</p>
+        </div>
+      );
+    }
+    render(<EmptyModal open />);
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    // Hook sets tabindex="-1" on the container and focuses it
+    const container = document.querySelector<HTMLDivElement>("[data-testid='empty']")!;
+    expect(container.getAttribute("tabindex")).toBe("-1");
+    expect(document.activeElement).toBe(container);
+  });
+
+  it("Tab from outside the container snaps focus to the first focusable", async () => {
+    function Composed() {
+      const ref = useFocusTrap<HTMLDivElement>(true);
+      return (
+        <>
+          <button data-testid="outside">Outside</button>
+          <div ref={ref} role="dialog" aria-label="Trap">
+            <button data-testid="first">First</button>
+            <button data-testid="last">Last</button>
+          </div>
+        </>
+      );
+    }
+    const user = userEvent.setup();
+    render(<Composed />);
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    // Move focus outside the trap deliberately
+    document.querySelector<HTMLElement>("[data-testid='outside']")!.focus();
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("outside");
+    // Tab → trap pulls focus back to first
+    await user.tab();
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("first");
+  });
+
+  it("Shift+Tab from outside the container snaps focus to the last focusable", async () => {
+    function Composed() {
+      const ref = useFocusTrap<HTMLDivElement>(true);
+      return (
+        <>
+          <button data-testid="outside">Outside</button>
+          <div ref={ref} role="dialog" aria-label="Trap">
+            <button data-testid="first">First</button>
+            <button data-testid="last">Last</button>
+          </div>
+        </>
+      );
+    }
+    const user = userEvent.setup();
+    render(<Composed />);
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    document.querySelector<HTMLElement>("[data-testid='outside']")!.focus();
+    await user.tab({ shift: true });
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("last");
+  });
+
+  it("ignores non-Tab keys", async () => {
+    const user = userEvent.setup();
+    render(<Modal open />);
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("first");
+    await user.keyboard("a");
+    // Focus did not move because of a non-Tab key
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("first");
+  });
+
+  it("skips disabled buttons and aria-hidden nodes", async () => {
+    function Hidden({ open }: { open: boolean }) {
+      const ref = useFocusTrap<HTMLDivElement>(open);
+      if (!open) return null;
+      return (
+        <div ref={ref} role="dialog" aria-label="With hidden">
+          <button data-testid="real">Real</button>
+          <button data-testid="disabled" disabled>Disabled</button>
+          <button data-testid="aria-hidden" aria-hidden="true">Hidden</button>
+        </div>
+      );
+    }
+    const user = userEvent.setup();
+    render(<Hidden open />);
+    await new Promise((r) => requestAnimationFrame(() => r(undefined)));
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("real");
+    // Tabbing wraps back to real (the only focusable)
+    await user.tab();
+    expect(document.activeElement?.getAttribute("data-testid")).toBe("real");
+  });
 });

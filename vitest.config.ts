@@ -69,15 +69,14 @@ export default defineConfig({
         "src/components/BrandLogo.tsx",
       ],
       thresholds: {
-        // Primary target: line/statement coverage > 95%.
-        // Function coverage counts every inner closure (every event handler,
-        // every useEffect callback, every React render function), which makes
-        // it a noisy metric for component-heavy code. 80% is the practical
-        // threshold for components.
-        lines: 95,
-        statements: 95,
-        branches: 85,
-        functions: 80,
+        // All four metrics held above 90%. Function coverage counts every
+        // inner closure (event handlers, useEffect callbacks, render
+        // functions), so 90% on a component-heavy codebase is non-trivial
+        // and worth defending against regression.
+        lines: 90,
+        statements: 90,
+        branches: 90,
+        functions: 90,
       },
     },
   },

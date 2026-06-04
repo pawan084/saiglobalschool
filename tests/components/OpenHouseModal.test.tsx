@@ -52,4 +52,60 @@ describe("OpenHouseModal", () => {
     act(() => vi.advanceTimersByTime(15_000));
     expect(screen.queryByText(/see sssgs in motion/i)).not.toBeInTheDocument();
   });
+
+  it("Escape closes the modal and records suppression", () => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      value: { ...window.location, pathname: "/" },
+    });
+    localStorage.clear();
+    render(<OpenHouseModal />);
+    act(() => vi.advanceTimersByTime(15_000));
+    expect(screen.getByText(/see sssgs/i)).toBeInTheDocument();
+    act(() => {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    });
+    expect(screen.queryByText(/see sssgs in motion/i)).not.toBeInTheDocument();
+    expect(localStorage.getItem("sssgs:openhouse-modal")).toBeTruthy();
+  });
+
+  it("RSVP link records 'rsvp' suppression", () => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      value: { ...window.location, pathname: "/" },
+    });
+    localStorage.clear();
+    render(<OpenHouseModal />);
+    act(() => vi.advanceTimersByTime(15_000));
+    const rsvpLink = screen.getByRole("link", { name: /rsvp/i });
+    act(() => rsvpLink.click());
+    const stored = JSON.parse(localStorage.getItem("sssgs:openhouse-modal")!);
+    expect(stored.reason).toBe("rsvp");
+  });
+
+  it("clicking the backdrop dismisses the modal", () => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      value: { ...window.location, pathname: "/" },
+    });
+    localStorage.clear();
+    render(<OpenHouseModal />);
+    act(() => vi.advanceTimersByTime(15_000));
+    const dialog = screen.getByRole("dialog");
+    act(() => {
+      dialog.click();
+    });
+    expect(screen.queryByText(/see sssgs in motion/i)).not.toBeInTheDocument();
+  });
+
+  it("ignores malformed storage entries and shows again", () => {
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      value: { ...window.location, pathname: "/" },
+    });
+    localStorage.setItem("sssgs:openhouse-modal", "{not-json");
+    render(<OpenHouseModal />);
+    act(() => vi.advanceTimersByTime(15_000));
+    expect(screen.getByText(/see sssgs/i)).toBeInTheDocument();
+  });
 });

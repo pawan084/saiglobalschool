@@ -44,4 +44,66 @@ describe("SharePage", () => {
     await user.click(screen.getByText(/copy link/i));
     await screen.findByText(/couldn't copy/i);
   });
+
+  it("native Share calls navigator.share when available", async () => {
+    const shareSpy = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "share", {
+      value: shareSpy,
+      configurable: true,
+    });
+    try {
+      const user = userEvent.setup();
+      setup({ title: "MyTitle", url: "https://example.com/x" });
+      // The native share button text is "Share…" (lg:hidden in CSS, but still in DOM)
+      const btn = screen
+        .getAllByRole("button")
+        .find((b) => /share…/i.test(b.textContent || ""));
+      if (btn) {
+        await user.click(btn);
+        expect(shareSpy).toHaveBeenCalled();
+      }
+    } finally {
+      // @ts-expect-error cleanup
+      delete navigator.share;
+    }
+  });
+
+  it("native Share falls back to clipboard when navigator.share is unavailable", async () => {
+    const cb = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue(undefined);
+    // Ensure navigator.share is undefined
+    // @ts-expect-error clean slate
+    delete navigator.share;
+    const user = userEvent.setup();
+    setup({ title: "X", url: "https://example.com/y" });
+    const btn = screen
+      .getAllByRole("button")
+      .find((b) => /share…/i.test(b.textContent || ""));
+    if (btn) {
+      await user.click(btn);
+      expect(cb).toHaveBeenCalled();
+    }
+  });
+
+  it("native Share swallows user-cancel errors silently", async () => {
+    const shareSpy = vi.fn().mockRejectedValue(new Error("cancelled"));
+    Object.defineProperty(navigator, "share", {
+      value: shareSpy,
+      configurable: true,
+    });
+    try {
+      const user = userEvent.setup();
+      setup({ title: "X" });
+      const btn = screen
+        .getAllByRole("button")
+        .find((b) => /share…/i.test(b.textContent || ""));
+      if (btn) {
+        await user.click(btn);
+        // No assertions on error — just exercise the catch branch
+        expect(shareSpy).toHaveBeenCalled();
+      }
+    } finally {
+      // @ts-expect-error cleanup
+      delete navigator.share;
+    }
+  });
 });

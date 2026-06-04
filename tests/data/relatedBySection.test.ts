@@ -57,4 +57,19 @@ describe("relatedBySection", () => {
   it("getSectionMeta returns null for unknown slugs", () => {
     expect(getSectionMeta("does-not-exist")).toBeNull();
   });
+
+  it("getSidebarItems returns empty array for unknown slug", () => {
+    expect(getSidebarItems("not-a-real-slug")).toEqual([]);
+  });
+
+  it("getSidebarItems excludes the current page from its own sidebar", () => {
+    const items = getSidebarItems("vision-mission");
+    expect(items.every((c) => !c.href.endsWith("/vision-mission"))).toBe(true);
+  });
+
+  it("getRelatedBlock title references the section label", () => {
+    const block = getRelatedBlock("curriculum")!;
+    expect(block.title).toMatch(/More from .+/);
+    expect(block.satellites.length).toBeGreaterThanOrEqual(4);
+  });
 });

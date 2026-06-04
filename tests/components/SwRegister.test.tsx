@@ -29,4 +29,24 @@ describe("SwRegister", () => {
     await new Promise((r) => setTimeout(r, 30));
     expect(registerSpy).not.toHaveBeenCalled();
   });
+
+  it("does nothing if serviceWorker is missing from navigator", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    // @ts-expect-error simulating older browser
+    delete navigator.serviceWorker;
+    expect(() => render(<SwRegister />)).not.toThrow();
+  });
+
+  it("logs a warning when register() rejects", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    Object.defineProperty(navigator, "serviceWorker", {
+      configurable: true,
+      value: { register: vi.fn().mockRejectedValue(new Error("scope denied")) },
+    });
+    render(<SwRegister />);
+    await new Promise((r) => setTimeout(r, 30));
+    expect(warn).toHaveBeenCalledWith("[sw] register failed:", expect.any(Error));
+    warn.mockRestore();
+  });
 });

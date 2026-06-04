@@ -84,6 +84,34 @@ describe("EventRsvpForm", () => {
     expect(group).toBeInTheDocument();
   });
 
+  it("ArrowDown advances the radio selection (alias for ArrowRight)", async () => {
+    const user = userEvent.setup();
+    setup();
+    const radios = screen.getAllByRole("radio");
+    radios[1].focus(); // "2"
+    await user.keyboard("{ArrowDown}");
+    expect(radios[2]).toHaveAttribute("aria-checked", "true");
+  });
+
+  it("ArrowUp moves backward (alias for ArrowLeft)", async () => {
+    const user = userEvent.setup();
+    setup();
+    const radios = screen.getAllByRole("radio");
+    radios[1].focus();
+    await user.keyboard("{ArrowUp}");
+    expect(radios[0]).toHaveAttribute("aria-checked", "true");
+  });
+
+  it("non-arrow keys inside the radiogroup do nothing", async () => {
+    const user = userEvent.setup();
+    setup();
+    const radios = screen.getAllByRole("radio");
+    radios[1].focus();
+    await user.keyboard("a");
+    // Selection still "2"
+    expect(radios[1]).toHaveAttribute("aria-checked", "true");
+  });
+
   it("submits successfully and shows confirmation", async () => {
     vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response(JSON.stringify({ ok: true, reference: "INQ-OPEN" }), { status: 200 })

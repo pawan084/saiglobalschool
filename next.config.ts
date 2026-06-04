@@ -1,53 +1,16 @@
 import type { NextConfig } from "next";
 
 /**
- * Content-Security-Policy
+ * Static security headers.
  *
- * Hash- and source-based policy that keeps the site fully static-prerenderable
- * (no per-request nonce). The trade-off vs nonce-based CSP:
+ * The Content-Security-Policy is now generated per-request by `proxy.ts`
+ * with a fresh nonce. Setting it here too would result in two CSP headers
+ * (the browser uses the intersection — the most restrictive policy wins),
+ * so we keep CSP out of this file entirely.
  *
- *   - We must allow 'unsafe-inline' for styles (Next.js inlines critical CSS
- *     and Tailwind utility classes mean inline `style="..."` attributes are
- *     common). Mitigated by also keeping X-Frame-Options + Referrer-Policy.
- *   - We allow 'unsafe-inline' for scripts so React Server Component flight
- *     payloads (which Next.js inlines as <script>) can execute. The other
- *     hardening (no-eval in prod, frame-ancestors 'none') still blocks the
- *     most common XSS escalation paths.
- *
- * If you ever move to dynamic rendering (e.g. add auth pages), switch to
- * nonce-based CSP via `proxy.ts` for strict 'strict-dynamic' enforcement.
+ * Everything below is non-CSP hardening that doesn't need per-request state.
  */
-const isDev = process.env.NODE_ENV === "development";
-
-const csp = [
-  "default-src 'self'",
-  // Scripts: 'self' for our bundles + 'unsafe-inline' for RSC flight payloads.
-  // 'unsafe-eval' is only needed in dev for React's enhanced error stacks.
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
-  // Styles: 'unsafe-inline' covers Next.js critical CSS + Tailwind inline styles.
-  "style-src 'self' 'unsafe-inline'",
-  // Images: allow data: (Next.js blur placeholders) and our own origin.
-  "img-src 'self' blob: data:",
-  // Fonts loaded via next/font/google get inlined as same-origin URLs.
-  "font-src 'self' data:",
-  // Connect: API + WhatsApp + OpenAI streaming (the chat route is internal).
-  "connect-src 'self' https://wa.me",
-  // Embed protection: refuse to be framed anywhere.
-  "frame-ancestors 'none'",
-  // Forms: only submit to our own origin.
-  "form-action 'self'",
-  // Base URI: prevent <base> tag injection redirecting relative URLs.
-  "base-uri 'self'",
-  // Block legacy plugins.
-  "object-src 'none'",
-  // Upgrade plain HTTP requests to HTTPS in production.
-  !isDev ? "upgrade-insecure-requests" : "",
-]
-  .filter(Boolean)
-  .join("; ");
-
 const securityHeaders = [
-  { key: "Content-Security-Policy", value: csp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

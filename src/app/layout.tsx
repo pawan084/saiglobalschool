@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
+import { connection } from "next/server";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -96,7 +97,11 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Wait for an incoming request so proxy.ts can inject a per-request CSP
+  // nonce. Without this, Next.js statically prerenders the layout and the
+  // nonce-aware <script>/<style> attributes never get applied.
+  await connection();
   return (
     <html lang="en-SG" className={`${inter.variable} ${display.variable}`}>
       <body className="min-h-screen flex flex-col bg-white antialiased">

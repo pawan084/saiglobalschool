@@ -5,6 +5,8 @@ import Link from "next/link";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
 import { fetchWithTimeout } from "@/lib/fetch";
+import DarkField from "./form/DarkField";
+import DarkSelect from "./form/DarkSelect";
 
 /**
  * Visual tour-slot picker for Open House / private tour booking.
@@ -191,7 +193,7 @@ export default function TourSlotPicker() {
               >
                 <div
                   className={`text-[9.5px] uppercase tracking-[0.14em] font-bold ${
-                    sel ? "text-[var(--brand-accent)]" : "text-slate-400"
+                    sel ? "text-[var(--brand-accent)]" : "text-slate-500"
                   }`}
                 >
                   {d.weekday}
@@ -229,7 +231,7 @@ export default function TourSlotPicker() {
                         ? "bg-[var(--brand-accent)] text-white border-[var(--brand-accent)]"
                         : open
                         ? "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)] hover:border-[var(--brand-accent)]"
-                        : "bg-slate-50 border-slate-100 text-slate-300 cursor-not-allowed"
+                        : "bg-slate-50 border-slate-100 text-slate-500 cursor-not-allowed"
                     }`}
                   >
                     {fmtSlot(h)}
@@ -320,63 +322,3 @@ export default function TourSlotPicker() {
   );
 }
 
-function DarkField({
-  label,
-  value,
-  onChange,
-  type = "text",
-  required,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="block text-[11px] uppercase tracking-[0.14em] font-bold text-[var(--brand-accent)] mb-1">
-        {label}
-        {required && <span> *</span>}
-      </label>
-      <input
-        type={type}
-        value={value}
-        required={required}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-white/10 border border-white/15 rounded-lg px-3 py-2 text-[13px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40"
-      />
-    </div>
-  );
-}
-
-function DarkSelect({
-  label,
-  value,
-  onChange,
-  options,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  options: string[];
-}) {
-  return (
-    <div>
-      <label className="block text-[11px] uppercase tracking-[0.14em] font-bold text-[var(--brand-accent)] mb-1">
-        {label}
-      </label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-white/10 border border-white/15 rounded-lg px-3 py-2 text-[13px] text-white focus:outline-none focus:border-white/40"
-      >
-        {options.map((o) => (
-          <option key={o} value={o} className="text-[var(--brand-navy)]">
-            {o || "Select…"}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}

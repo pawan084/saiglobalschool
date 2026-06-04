@@ -70,7 +70,10 @@ body {
   letter-spacing: -0.012em;
 }
 .news-eyebrow {
-  @apply text-[11px] font-bold tracking-[0.14em] uppercase text-[var(--brand-accent)];
+  /* --brand-accent (#ea580c) on white was ~3.5:1 — below AA for small text.
+   * --brand-accent-dark (#b04205) is ~6.0:1 and visually still reads as the
+   * brand orange in uppercase. */
+  @apply text-[11px] font-bold tracking-[0.14em] uppercase text-[var(--brand-accent-dark)];
 }
 .news-lead {
   @apply text-[14.5px] text-slate-600 leading-relaxed;

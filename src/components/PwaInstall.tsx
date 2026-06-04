@@ -30,10 +30,7 @@ export default function PwaInstall() {
     if (isStandalone) return;
     if (safeGet(STORAGE_DISMISS)) return;
 
-    const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-      // @ts-expect-error MSStream is non-standard, only present in old IE/Edge
-      !window.MSStream;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     if (isIOS) {
       // Delay so it doesn't compete with cookie banner / open-house modal
@@ -75,7 +72,7 @@ export default function PwaInstall() {
       <button
         onClick={dismiss}
         aria-label="Dismiss"
-        className="absolute top-2 right-2 grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
+        className="absolute top-2 right-2 grid place-items-center h-7 w-7 rounded-full text-slate-500 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
       >
         <Icon name="close" size={12} />
       </button>

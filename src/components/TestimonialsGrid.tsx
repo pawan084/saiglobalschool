@@ -1,4 +1,9 @@
-import type { Testimonial } from "./Testimonials";
+export type Testimonial = {
+  quote: string;
+  author: string;
+  role?: string;
+  grade?: string;
+};
 
 type Props = {
   items: Testimonial[];

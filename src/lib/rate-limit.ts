@@ -54,10 +54,55 @@ export function rateLimit(
   return { allowed: true, retryAfterMs: 0, remaining: opts.limit - bucket.hits.length };
 }
 
+/**
+ * Trusted IP headers, in priority order.
+ *
+ * Each platform terminates TLS at its own edge and sets its own non-spoofable
+ * header. Reading those FIRST means an attacker can't bypass rate limits by
+ * forging `x-forwarded-for` — those edge headers are stripped by the edge if
+ * the client tries to forge them.
+ *
+ *  - `x-vercel-forwarded-for`  → Vercel (set by their edge after stripping XFF)
+ *  - `cf-connecting-ip`        → Cloudflare
+ *  - `fly-client-ip`           → Fly.io
+ *  - `x-real-ip`               → nginx default, also Netlify
+ *  - `x-forwarded-for`         → generic fallback (DO trust only behind a known proxy)
+ *
+ * Order matters: the first match wins. `x-forwarded-for` is last so any
+ * platform that adds its own header takes precedence over the spoofable one.
+ */
+const TRUSTED_IP_HEADERS = [
+  "x-vercel-forwarded-for",
+  "cf-connecting-ip",
+  "fly-client-ip",
+  "x-real-ip",
+  "x-forwarded-for",
+] as const;
+
+/** Tiny FNV-1a hash so the UA fallback doesn't leak the raw string into log keys. */
+function fnv1a(s: string): string {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0;
+  }
+  return h.toString(36);
+}
+
 export function clientKey(req: Request): string {
-  const fwd = req.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0].trim();
-  const real = req.headers.get("x-real-ip");
-  if (real) return real.trim();
+  for (const name of TRUSTED_IP_HEADERS) {
+    const v = req.headers.get(name);
+    if (!v) continue;
+    // x-forwarded-for can be a comma list — first is the client.
+    const ip = v.split(",")[0].trim();
+    if (ip) return ip;
+  }
+  // No platform header — degrade gracefully. Using a literal "anon" collapses
+  // every anonymous client into one bucket, which means one attacker DoS's
+  // rate-limiting for everyone. Hash UA + Accept-Language as a cheap proxy
+  // for client identity so unique-looking clients land in different buckets.
+  const ua = req.headers.get("user-agent") || "";
+  const lang = req.headers.get("accept-language") || "";
+  if (ua || lang) return `ua-${fnv1a(`${ua}|${lang}`)}`;
   return "anon";
 }

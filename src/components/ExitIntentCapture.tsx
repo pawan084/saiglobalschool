@@ -89,7 +89,7 @@ export default function ExitIntentCapture() {
         <button
           onClick={dismiss}
           aria-label="Close"
-          className="absolute top-3 right-3 grid place-items-center h-8 w-8 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
+          className="absolute top-3 right-3 grid place-items-center h-8 w-8 rounded-full text-slate-500 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
         >
           <Icon name="close" size={13} />
         </button>

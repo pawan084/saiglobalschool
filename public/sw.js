@@ -39,6 +39,25 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+// Pages that may receive PII in query strings (event RSVPs, fee calculator
+// pre-fills, apply-with-grade pre-fills, etc.). Never cache these — a shared
+// device could otherwise show a prior visitor's submission state on Back.
+const NEVER_CACHE_PATHS = [
+  "/apply",
+  "/inquire-book-a-tour",
+  "/contact-us",
+  "/open-house",
+  "/grade-fit",
+  "/fee-structure/calculator",
+];
+
+function isPiiSensitive(url) {
+  if (url.search) return true; // any query string is a flag (?event=..., ?g=..., ?from=...)
+  if (NEVER_CACHE_PATHS.includes(url.pathname)) return true;
+  if (url.pathname.startsWith("/events/")) return true; // RSVP pages
+  return false;
+}
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   // Only GET, only same-origin
@@ -55,8 +74,10 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Documents: network-first with offline fallback
+  // Documents: network-first with offline fallback.
+  // For PII-sensitive routes, pass through to the network entirely — never cache.
   if (req.mode === "navigate" || (req.headers.get("accept") || "").includes("text/html")) {
+    if (isPiiSensitive(url)) return;
     event.respondWith(networkFirst(req, PAGES));
     return;
   }

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { navigation, ctaInquire } from "@/data/nav";
+import { useEffect, useId, useRef, useState } from "react";
+import { navigation, ctaInquire, type NavItem } from "@/data/nav";
 import { site } from "@/data/site";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
@@ -21,7 +21,6 @@ function isItemActive(
 }
 
 export default function Header() {
-  const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() || "/";
@@ -48,6 +47,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-4 lg:gap-5 group shrink-0">
             <BrandLogo
               size={scrolled ? 64 : 92}
+              priority
               className="shrink-0 transition-[width,height] drop-shadow-sm"
             />
             <div className="flex flex-col leading-tight">
@@ -98,9 +98,12 @@ export default function Header() {
               <Icon name="arrow-right" size={14} />
             </Link>
             <button
+              type="button"
               onClick={() => setMobile((v) => !v)}
+              aria-label={mobile ? "Close menu" : "Open menu"}
+              aria-expanded={mobile}
+              aria-controls="mobile-nav"
               className="lg:hidden p-2 -mr-1 text-slate-700"
-              aria-label="Toggle menu"
             >
               <Icon name={mobile ? "close" : "menu"} size={22} />
             </button>
@@ -109,63 +112,17 @@ export default function Header() {
       </div>
 
       {/* Nav band */}
-      <nav className="hidden lg:block border-t border-[var(--brand-rule)] bg-[var(--brand-cream)]/30">
+      <nav aria-label="Primary" className="hidden lg:block border-t border-[var(--brand-rule)] bg-[var(--brand-cream)]/30">
         <div className="section-shell flex items-center justify-center gap-0">
-          {navigation.map((item) => {
-            const active = isItemActive(pathname, item);
-            return (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => setOpen(item.label)}
-                onMouseLeave={() => setOpen(null)}
-              >
-                <Link
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`nav-link-anim block px-4 py-3 text-[12.5px] font-bold tracking-[0.06em] uppercase transition-colors ${
-                    active
-                      ? "text-[var(--brand-primary)]"
-                      : "text-[var(--brand-navy)] hover:text-[var(--brand-primary)]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.children && open === item.label && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 z-10">
-                    <div className="w-64 bg-white rounded-lg border border-[var(--brand-rule)] shadow-[var(--shadow-lg)] py-1.5 overflow-hidden">
-                      {item.children.map((c) => {
-                        const childActive = pathname === c.href;
-                        return (
-                          <Link
-                            key={c.href}
-                            href={c.href}
-                            aria-current={childActive ? "page" : undefined}
-                            className={`flex items-center justify-between gap-2 px-4 py-2 text-[13.5px] transition-colors ${
-                              childActive
-                                ? "bg-[var(--brand-primary-tint)] text-[var(--brand-primary)] font-bold"
-                                : "text-slate-700 hover:bg-[var(--brand-cream)] hover:text-[var(--brand-accent)]"
-                            }`}
-                          >
-                            <span className="truncate">{c.label}</span>
-                            {childActive && (
-                              <Icon name="check" size={14} className="text-[var(--brand-primary)] shrink-0" />
-                            )}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {navigation.map((item) => (
+            <DesktopNavItem key={item.label} item={item} pathname={pathname} />
+          ))}
         </div>
       </nav>
 
       {/* Mobile drawer */}
       {mobile && (
-        <div className="lg:hidden border-t border-[var(--brand-rule)] bg-white">
+        <nav aria-label="Primary mobile" id="mobile-nav" className="lg:hidden border-t border-[var(--brand-rule)] bg-white">
           <div className="section-shell py-3 max-h-[70vh] overflow-y-auto">
             {navigation.map((item) => {
               const active = isItemActive(pathname, item);
@@ -221,9 +178,195 @@ export default function Header() {
               {ctaInquire.label}
             </Link>
           </div>
-        </div>
+        </nav>
       )}
     </header>
+  );
+}
+
+/* ───────────────────────── Desktop nav item ─────────────────────────
+ * Hover (mouse) and disclosure button (keyboard) both open the submenu.
+ * The parent <Link> still navigates to the section index on click.
+ * Submenu wiring follows WAI-ARIA Authoring Practices "Disclosure" pattern
+ * — these are navigation links, not application menu items, so we use
+ *   aria-haspopup="true" on a button rather than role="menu".
+ * ───────────────────────────────────────────────────────────────── */
+function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string }) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const panelId = useId();
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const active = isItemActive(pathname, item);
+  const hasChildren = !!item.children?.length;
+
+  // Close when focus leaves the whole container (covers Tab past last item)
+  // and on Escape (returns focus to button).
+  useEffect(() => {
+    if (!open) return;
+    const el = containerRef.current;
+    function onFocusOut(e: FocusEvent) {
+      if (!el?.contains(e.relatedTarget as Node | null)) setOpen(false);
+    }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
+    el?.addEventListener("focusout", onFocusOut);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      el?.removeEventListener("focusout", onFocusOut);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  // Close the menu on route change so a navigation click doesn't leave stale UI.
+  // React 19 prefers "adjusting state during render" over setState-in-effect
+  // for this kind of prop-derived reset.
+  const [openedAtPath, setOpenedAtPath] = useState(pathname);
+  if (pathname !== openedAtPath) {
+    setOpenedAtPath(pathname);
+    if (open) setOpen(false);
+  }
+
+  function clearHoverClose() {
+    if (hoverCloseTimer.current) {
+      clearTimeout(hoverCloseTimer.current);
+      hoverCloseTimer.current = null;
+    }
+  }
+  function scheduleHoverClose() {
+    clearHoverClose();
+    // Small grace period so darting the mouse between trigger and panel
+    // doesn't flicker.
+    hoverCloseTimer.current = setTimeout(() => setOpen(false), 120);
+  }
+
+  function focusChildAt(idx: number) {
+    const links = panelRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]");
+    if (!links?.length) return;
+    const i = (idx + links.length) % links.length;
+    links[i]?.focus();
+  }
+
+  function onButtonKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (!hasChildren) return;
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpen(true);
+      // Wait a frame so the panel exists.
+      requestAnimationFrame(() => focusChildAt(0));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setOpen(true);
+      requestAnimationFrame(() => focusChildAt(-1));
+    }
+  }
+
+  function onPanelKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    const links = Array.from(panelRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? []);
+    if (!links.length) return;
+    const idx = links.indexOf(document.activeElement as HTMLAnchorElement);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      focusChildAt(idx + 1);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      focusChildAt(idx - 1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      focusChildAt(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      focusChildAt(links.length - 1);
+    }
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative"
+      onMouseEnter={() => {
+        if (!hasChildren) return;
+        clearHoverClose();
+        setOpen(true);
+      }}
+      onMouseLeave={() => {
+        if (!hasChildren) return;
+        scheduleHoverClose();
+      }}
+    >
+      <div className="flex items-center">
+        <Link
+          href={item.href}
+          aria-current={active ? "page" : undefined}
+          className={`nav-link-anim block py-3 text-[12.5px] font-bold tracking-[0.06em] uppercase transition-colors ${
+            hasChildren ? "pl-4 pr-1" : "px-4"
+          } ${
+            active
+              ? "text-[var(--brand-primary)]"
+              : "text-[var(--brand-navy)] hover:text-[var(--brand-primary)]"
+          }`}
+        >
+          {item.label}
+        </Link>
+        {hasChildren && (
+          <button
+            ref={buttonRef}
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={open}
+            aria-controls={panelId}
+            aria-label={`${item.label} submenu`}
+            onClick={() => setOpen((o) => !o)}
+            onKeyDown={onButtonKeyDown}
+            className={`pr-3 py-3 -ml-1 text-[var(--brand-navy)] hover:text-[var(--brand-primary)] transition-colors ${
+              active ? "text-[var(--brand-primary)]" : ""
+            }`}
+          >
+            <Icon
+              name="chevron-down"
+              size={12}
+              className={`transition-transform ${open ? "rotate-180" : ""}`}
+            />
+          </button>
+        )}
+      </div>
+      {hasChildren && open && (
+        <div
+          id={panelId}
+          ref={panelRef}
+          onKeyDown={onPanelKeyDown}
+          className="absolute left-1/2 -translate-x-1/2 top-full pt-1 z-10"
+        >
+          <div className="w-64 bg-white rounded-lg border border-[var(--brand-rule)] shadow-[var(--shadow-lg)] py-1.5 overflow-hidden">
+            {item.children!.map((c) => {
+              const childActive = pathname === c.href;
+              return (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  aria-current={childActive ? "page" : undefined}
+                  className={`flex items-center justify-between gap-2 px-4 py-2 text-[13.5px] transition-colors ${
+                    childActive
+                      ? "bg-[var(--brand-primary-tint)] text-[var(--brand-primary)] font-bold"
+                      : "text-slate-700 hover:bg-[var(--brand-cream)] hover:text-[var(--brand-accent)]"
+                  }`}
+                >
+                  <span className="truncate">{c.label}</span>
+                  {childActive && (
+                    <Icon name="check" size={14} className="text-[var(--brand-primary)] shrink-0" />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

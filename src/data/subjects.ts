@@ -257,7 +257,7 @@ export const SUBJECTS: Subject[] = [
     icon: "heart",
     blurb: "Sathya · Dharma · Shanti · Prema · Ahimsa, woven into daily life.",
     intro:
-      "Values education is not a separate subject — it&rsquo;s a way every subject is taught. The five values frame classroom culture, peer interaction and reflection.",
+      "Values education is not a separate subject — it’s a way every subject is taught. The five values frame classroom culture, peer interaction and reflection.",
     bands: [
       {
         band: "Grades 1–2",

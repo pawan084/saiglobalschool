@@ -43,4 +43,42 @@ describe("/api/apply", () => {
     const res = await POST(r);
     expect(res.status).toBe(400);
   });
+
+  it("rejects cross-origin POSTs with 403", async () => {
+    const r = new Request("http://localhost/api/apply", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        origin: "https://evil.example.com",
+      },
+      body: JSON.stringify({
+        parentName: "Alice",
+        parentEmail: "alice@example.com",
+        parentPhone: "12345678",
+        childName: "Bob",
+        childGrade: "Grade 3",
+      }),
+    });
+    const res = await POST(r);
+    expect(res.status).toBe(403);
+  });
+
+  it("accepts same-origin POSTs (Origin matches host)", async () => {
+    const r = new Request("http://localhost/api/apply", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        origin: "http://localhost",
+      },
+      body: JSON.stringify({
+        parentName: "Alice",
+        parentEmail: "alice@example.com",
+        parentPhone: "12345678",
+        childName: "Bob",
+        childGrade: "Grade 3",
+      }),
+    });
+    const res = await POST(r);
+    expect(res.status).toBe(200);
+  });
 });

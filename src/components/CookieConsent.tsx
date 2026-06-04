@@ -51,11 +51,11 @@ export default function CookieConsent() {
         </span>
         <div className="flex-1">
           <div className="font-display text-[15px] font-bold text-[var(--brand-navy)]">
-            We value your privacy
+            About cookies on this site
           </div>
           <p className="text-[12.5px] text-slate-600 mt-0.5 leading-snug">
-            We use essential cookies to run this site, plus optional analytics to improve your experience.
-            See our{" "}
+            We use only essential cookies and local storage to run this site —
+            no analytics, no advertising. See our{" "}
             <Link href="/privacy" className="text-[var(--brand-primary)] hover:underline font-bold">
               Privacy Policy
             </Link>{" "}
@@ -67,13 +67,7 @@ export default function CookieConsent() {
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <button onClick={() => decide("accepted")} className="btn-primary !py-2 !px-4 text-[13px]">
-              Accept all
-            </button>
-            <button
-              onClick={() => decide("rejected")}
-              className="btn-secondary !py-2 !px-4 text-[13px]"
-            >
-              Essential only
+              Got it
             </button>
           </div>
         </div>

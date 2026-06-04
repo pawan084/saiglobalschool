@@ -46,6 +46,9 @@ export default function CourseJsonLd({
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "in-person",
+      // Required by Google's Course rich-result spec (May 2024).
+      // ~5 hours of structured class time per subject per week across grade bands.
+      courseWorkload: "PT5H",
       courseSchedule: {
         "@type": "Schedule",
         repeatFrequency: "P1W",

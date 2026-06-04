@@ -32,12 +32,14 @@ export default function NewsStrip() {
           Live
         </span>
 
-        {/* Marquee */}
+        {/* Marquee — pauses on hover and when a child link is focused
+            so users can read or tab through without it sliding away.
+            motion-reduce zeroes the animation entirely. */}
         <div className="overflow-hidden flex-1 relative">
-          <div className="flex gap-10 whitespace-nowrap animate-[scroll_60s_linear_infinite] motion-reduce:animate-none">
-            {[...announcements, ...announcements].map((a, i) => (
+          <div className="flex gap-10 whitespace-nowrap animate-[scroll_60s_linear_infinite] hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:animate-none">
+            {announcements.map((a, i) => (
               <Link
-                key={i}
+                key={`a-${i}`}
                 href={a.href}
                 className="inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors"
               >
@@ -47,6 +49,23 @@ export default function NewsStrip() {
                 <span className="tracking-wide">{a.text}</span>
               </Link>
             ))}
+            {/* Visual duplicate so the marquee can loop seamlessly.
+                Hidden from AT and removed from the tab order. */}
+            <div aria-hidden="true" className="inline-flex gap-10" inert>
+              {announcements.map((a, i) => (
+                <Link
+                  key={`b-${i}`}
+                  href={a.href}
+                  tabIndex={-1}
+                  className="inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors"
+                >
+                  <span className="text-[var(--brand-accent)]">
+                    <Icon name="sparkle" size={11} />
+                  </span>
+                  <span className="tracking-wide">{a.text}</span>
+                </Link>
+              ))}
+            </div>
           </div>
           {/* Edge fades */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[var(--brand-navy)] to-transparent" />

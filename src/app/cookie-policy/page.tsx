@@ -36,14 +36,15 @@ export default function Page() {
                 <li><strong>Strictly necessary:</strong> Required for the site to function — load
                   pages, remember your accessibility preferences, secure your session. These cannot
                   be disabled.</li>
-                <li><strong>Performance & analytics:</strong> Help us understand how visitors use
-                  the site (which pages, how long, which referrals). Aggregated and anonymised.
-                  Disabled by default until you accept.</li>
-                <li><strong>Functional:</strong> Remember choices you make — language preferences,
-                  whether the cookie banner has been dismissed, whether you have completed an
-                  open-house RSVP.</li>
+                <li><strong>Functional:</strong> Remember choices you make — accessibility
+                  settings, whether the cookie banner has been dismissed, whether you have
+                  completed an open-house RSVP.</li>
               </ul>
-              <p>We do not currently use targeting or advertising cookies.</p>
+              <p>
+                We do not currently load analytics, performance, advertising, or targeting cookies.
+                If that changes we will update this page and present a renewed consent prompt
+                <em> before</em> any non-essential cookie is set.
+              </p>
             </>
           ),
         },
@@ -79,7 +80,7 @@ export default function Page() {
                 <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Chrome</a>,{" "}
                 <a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a>,{" "}
                 <a href="https://support.mozilla.org/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer">Firefox</a>, and{" "}
-                <a href="https://support.microsoft.com/topic/d7d719c4-7ddc-2474-fc16-0a1aac72b5e2" target="_blank" rel="noopener noreferrer">Edge</a>.
+                <a href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Edge</a>.
               </p>
             </>
           ),

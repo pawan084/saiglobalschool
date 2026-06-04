@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
 import { site } from "@/data/site";
 
@@ -177,7 +178,7 @@ export default function Page() {
           body: (
             <>
               <p>
-                See our <a href="/cookie-policy">Cookie Policy</a> for how cookies and similar
+                See our <Link href="/cookie-policy">Cookie Policy</Link> for how cookies and similar
                 technologies are used on this website, including how to manage your preferences.
               </p>
             </>

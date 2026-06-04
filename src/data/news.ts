@@ -19,7 +19,7 @@ export const news: NewsPost[] = [
   },
   {
     slug: "values-integration-update",
-    title: "How we&rsquo;re integrating values into every subject",
+    title: "How we’re integrating values into every subject",
     excerpt:
       "A short tour through the framework that links Sathya, Dharma, Shanti, Prema and Ahimsa to the daily classroom.",
     date: "2026-05-15",
@@ -37,7 +37,7 @@ export const news: NewsPost[] = [
   {
     slug: "parent-pulse-march",
     title: "Parent Pulse: feedback from the March survey",
-    excerpt: "85% satisfaction across academics; we&rsquo;re acting on feedback around CCA timing and the transport pickup window.",
+    excerpt: "85% satisfaction across academics; we’re acting on feedback around CCA timing and the transport pickup window.",
     date: "2026-04-10",
     category: "Community",
     readMin: 4,

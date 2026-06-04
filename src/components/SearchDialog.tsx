@@ -2,28 +2,17 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
+import { score } from "@/lib/search";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import Icon from "./Icon";
 
 /**
  * SearchDialog — Cmd/Ctrl+K to open, fuzzy substring rank with section/tag weighting.
  * Designed to be light: index lives client-side, no network.
+ * Scoring is shared with /search via @/lib/search so both stay in sync.
  */
-
-function score(entry: SearchEntry, q: string): number {
-  const t = entry.title.toLowerCase();
-  const s = entry.section.toLowerCase();
-  const tag = entry.tags.toLowerCase();
-  let best = 0;
-  if (t.startsWith(q)) best = 100;
-  else if (t.includes(q)) best = 70;
-  else if (tag.includes(q)) best = 45;
-  else if (s.includes(q)) best = 25;
-  // Reward shorter titles slightly so "Apply" beats "Application Process Form"
-  return best - Math.min(t.length, 50) * 0.1;
-}
 
 export default function SearchDialog() {
   const router = useRouter();
@@ -31,6 +20,10 @@ export default function SearchDialog() {
   const [q, setQ] = useState("");
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  // Stable IDs for the combobox/listbox wiring. Each result option gets
+  // `${listboxId}-opt-${i}` and aria-activedescendant points to the cursor.
+  const listboxId = useId();
+  const statusId = `${listboxId}-status`;
 
   // Reset query + cursor when closing so the dialog is fresh on next open.
   const closeDialog = useCallback(() => {
@@ -145,6 +138,13 @@ export default function SearchDialog() {
             placeholder="Search SSSGS — fees, curriculum, admissions…"
             className="flex-1 bg-transparent outline-none text-[15px] text-[var(--brand-navy)] placeholder:text-slate-400"
             aria-label="Search"
+            role="combobox"
+            aria-expanded={results.length > 0}
+            aria-controls={listboxId}
+            aria-autocomplete="list"
+            aria-activedescendant={
+              results[safeCursor] ? `${listboxId}-opt-${safeCursor}` : undefined
+            }
           />
           <kbd className="hidden sm:inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded border border-[var(--brand-rule)] text-slate-500">
             ESC
@@ -152,26 +152,34 @@ export default function SearchDialog() {
           <button
             onClick={() => closeDialog()}
             aria-label="Close"
-            className="sm:hidden grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
+            className="sm:hidden grid place-items-center h-7 w-7 rounded-full text-slate-500 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
           >
             <Icon name="close" size={13} />
           </button>
         </div>
 
-        <div className="max-h-[60vh] overflow-y-auto p-2">
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Search results"
+          className="max-h-[60vh] overflow-y-auto p-2"
+        >
           {results.length === 0 && (
-            <div className="px-3 py-8 text-center text-[13px] text-slate-500">
+            <div id={statusId} role="status" aria-live="polite" className="px-3 py-8 text-center text-[13px] text-slate-500">
               Nothing matched. Try a shorter or different word.
             </div>
           )}
           {!q && results.length > 0 && (
-            <div className="px-3 pt-2 pb-1 text-[10.5px] uppercase tracking-[0.14em] font-bold text-slate-400">
+            <div className="px-3 pt-2 pb-1 text-[10.5px] uppercase tracking-[0.14em] font-bold text-slate-500">
               Popular destinations
             </div>
           )}
           {results.map((r, i) => (
             <button
               key={r.href}
+              id={`${listboxId}-opt-${i}`}
+              role="option"
+              aria-selected={i === safeCursor}
               onClick={() => go(r)}
               onMouseEnter={() => setCursor(i)}
               className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-xl transition ${

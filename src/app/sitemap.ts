@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site-url";
+import { news } from "@/data/news";
+import { events } from "@/data/events";
+import { SUBJECTS } from "@/data/subjects";
 
 type Cfg = {
   path: string;
@@ -86,10 +89,34 @@ const ROUTES: Cfg[] = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return ROUTES.map(({ path, changeFrequency, priority }) => ({
+
+  const staticEntries = ROUTES.map(({ path, changeFrequency, priority }) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency,
     priority,
   }));
+
+  const newsEntries = news.map((p) => ({
+    url: `${SITE_URL}/news/${p.slug}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.55,
+  }));
+
+  const eventEntries = events.map((e) => ({
+    url: `${SITE_URL}/events/${e.slug}`,
+    lastModified: new Date(e.startsAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  const subjectEntries = SUBJECTS.map((s) => ({
+    url: `${SITE_URL}/curriculum/${s.id}`,
+    lastModified,
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...newsEntries, ...eventEntries, ...subjectEntries];
 }

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
 import { fetchWithTimeout } from "@/lib/fetch";
+import DarkField from "@/components/form/DarkField";
 
 export default function EventRsvpForm({
   slug,
@@ -21,6 +22,24 @@ export default function EventRsvpForm({
   const [honey, setHoney] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<{ reference: string } | null>(null);
+  const guestsGroupId = useId();
+  const guestsLabelId = `${guestsGroupId}-label`;
+  const guestsRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const GUEST_OPTIONS = [1, 2, 3, 4];
+
+  function onGuestsKey(e: React.KeyboardEvent<HTMLDivElement>) {
+    const idx = GUEST_OPTIONS.indexOf(guests);
+    let next = idx;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (idx + 1) % GUEST_OPTIONS.length;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (idx - 1 + GUEST_OPTIONS.length) % GUEST_OPTIONS.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = GUEST_OPTIONS.length - 1;
+    else return;
+    e.preventDefault();
+    setGuests(GUEST_OPTIONS[next]);
+    guestsRefs.current[next]?.focus();
+  }
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -109,29 +128,42 @@ export default function EventRsvpForm({
         <p className="text-[12px] text-white/65 mt-1">It&rsquo;s free. We&rsquo;ll send confirmation by email.</p>
 
         <div className="mt-4 space-y-2.5">
-          <FieldDark label="Your name" value={name} onChange={setName} required />
-          <FieldDark label="Email" type="email" value={email} onChange={setEmail} required />
-          <FieldDark label="Phone / WhatsApp" value={phone} onChange={setPhone} />
+          <DarkField label="Your name" value={name} onChange={setName} required />
+          <DarkField label="Email" type="email" value={email} onChange={setEmail} required />
+          <DarkField label="Phone / WhatsApp" value={phone} onChange={setPhone} />
           <div>
-            <label className="block text-[11px] uppercase tracking-[0.14em] font-bold text-[var(--brand-accent)] mb-1">
+            <div id={guestsLabelId} className="block text-[11px] uppercase tracking-[0.14em] font-bold text-[var(--brand-accent)] mb-1">
               Guests
-            </label>
-            <div className="flex items-center gap-1">
-              {[1, 2, 3, 4].map((g) => (
-                <button
-                  key={g}
-                  type="button"
-                  onClick={() => setGuests(g)}
-                  aria-pressed={guests === g}
-                  className={`h-9 w-9 rounded-lg text-[13px] font-bold border transition ${
-                    guests === g
-                      ? "bg-white text-[var(--brand-navy)] border-white"
-                      : "bg-transparent text-white/80 border-white/20 hover:border-white/50"
-                  }`}
-                >
-                  {g}
-                </button>
-              ))}
+            </div>
+            <div
+              role="radiogroup"
+              aria-labelledby={guestsLabelId}
+              onKeyDown={onGuestsKey}
+              className="flex items-center gap-1"
+            >
+              {GUEST_OPTIONS.map((g, i) => {
+                const selected = guests === g;
+                return (
+                  <button
+                    key={g}
+                    ref={(el) => {
+                      guestsRefs.current[i] = el;
+                    }}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    tabIndex={selected ? 0 : -1}
+                    onClick={() => setGuests(g)}
+                    className={`h-9 w-9 rounded-lg text-[13px] font-bold border transition ${
+                      selected
+                        ? "bg-white text-[var(--brand-navy)] border-white"
+                        : "bg-transparent text-white/80 border-white/20 hover:border-white/50"
+                    }`}
+                  >
+                    {g}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -168,34 +200,3 @@ export default function EventRsvpForm({
   );
 }
 
-function FieldDark({
-  label,
-  value,
-  onChange,
-  type = "text",
-  required,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-}) {
-  const id = `e-${label.toLowerCase().replace(/[^a-z]+/g, "-")}`;
-  return (
-    <div>
-      <label htmlFor={id} className="block text-[11px] uppercase tracking-[0.14em] font-bold text-[var(--brand-accent)] mb-1">
-        {label}
-        {required && <span> *</span>}
-      </label>
-      <input
-        id={id}
-        type={type}
-        value={value}
-        required={required}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-white/10 border border-white/15 rounded-lg px-3 py-2 text-[13px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40"
-      />
-    </div>
-  );
-}

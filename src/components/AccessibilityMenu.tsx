@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Icon from "./Icon";
 import { safeGet, safeSet } from "@/lib/storage";
 
@@ -101,7 +102,7 @@ export default function AccessibilityMenu() {
             <button
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
+              className="grid place-items-center h-7 w-7 rounded-full text-slate-500 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition"
             >
               <Icon name="close" size={13} />
             </button>
@@ -159,7 +160,7 @@ export default function AccessibilityMenu() {
           </button>
 
           <div className="mt-3 pt-3 border-t border-[var(--brand-rule)] text-[11px] text-slate-500 leading-relaxed">
-            Preferences are saved on this device. Need help? Reach out via <a href="/contact-us" className="text-[var(--brand-primary)] hover:underline font-bold">Contact us</a>.
+            Preferences are saved on this device. Need help? Reach out via <Link href="/contact-us" className="text-[var(--brand-primary)] hover:underline font-bold">Contact us</Link>.
           </div>
         </div>
       )}

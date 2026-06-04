@@ -34,6 +34,30 @@ export default function ChatBot() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<unknown>(null);
+  // Tracks the in-flight chat request so we can cancel it when the user
+  // closes the panel, starts a new conversation, fires another send, or
+  // unmounts the component. Otherwise OpenAI keeps streaming (and billing)
+  // until completion even if no one is reading.
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(true);
+
+  // Abort any in-flight stream on unmount.
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      abortRef.current?.abort();
+    };
+  }, []);
+
+  // Abort when the panel closes — there's no UI to consume the rest of
+  // the stream, so cutting the connection saves tokens + bandwidth.
+  useEffect(() => {
+    if (!open && abortRef.current) {
+      abortRef.current.abort();
+      abortRef.current = null;
+    }
+  }, [open]);
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -104,17 +128,28 @@ export default function ChatBot() {
     const userMsg: Msg = { role: "user", content: text.trim() };
     if (!userMsg.content) return;
 
+    // Cancel any previous in-flight stream before starting a new one.
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    const { signal } = controller;
+
     const nextHistory = [...messages, userMsg];
     setMessages([...nextHistory, { role: "assistant", content: "" }]);
     setInput("");
     setSending(true);
     setError(null);
 
+    const safeSet = <T,>(updater: (prev: T) => T, setter: (u: (p: T) => T) => void) => {
+      if (mountedRef.current && !signal.aborted) setter(updater);
+    };
+
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ messages: nextHistory, honey: "" }),
+        signal,
       });
 
       if (res.status === 429) {
@@ -129,23 +164,53 @@ export default function ChatBot() {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let acc = "";
-      for (;;) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        acc += decoder.decode(value, { stream: true });
-        setMessages((prev) => {
-          const copy = [...prev];
-          copy[copy.length - 1] = { role: "assistant", content: acc };
-          return copy;
-        });
+      try {
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (signal.aborted) {
+            await reader.cancel().catch(() => {});
+            break;
+          }
+          acc += decoder.decode(value, { stream: true });
+          safeSet<Msg[]>(
+            (prev) => {
+              const copy = [...prev];
+              copy[copy.length - 1] = { role: "assistant", content: acc };
+              return copy;
+            },
+            setMessages
+          );
+        }
+      } finally {
+        // Ensure the underlying network connection is released if we exit
+        // the loop for any reason (abort, error, completion already calls .cancel a no-op).
+        reader.releaseLock?.();
       }
     } catch (e) {
-      const msg = e instanceof Error ? e.message : "Something went wrong.";
-      setError(msg);
-      setMessages((prev) => prev.slice(0, -1));
+      // AbortError is expected when the user closes the panel, switches
+      // conversations, unmounts, or fires another send. Don't surface it.
+      const isAbort =
+        e instanceof DOMException && e.name === "AbortError";
+      if (!isAbort && mountedRef.current) {
+        const msg = e instanceof Error ? e.message : "Something went wrong.";
+        setError(msg);
+      }
+      // Drop the empty assistant placeholder either way — no half-rendered turn.
+      if (mountedRef.current) {
+        setMessages((prev) => (prev.length && prev[prev.length - 1].role === "assistant" && !prev[prev.length - 1].content ? prev.slice(0, -1) : prev));
+      }
     } finally {
-      setSending(false);
+      if (mountedRef.current) setSending(false);
+      if (abortRef.current === controller) abortRef.current = null;
     }
+  }
+
+  function newConversation() {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setMessages([]);
+    setError(null);
   }
 
   const showWelcome = messages.length === 0;
@@ -224,10 +289,7 @@ export default function ChatBot() {
                 </div>
               </div>
               <button
-                onClick={() => {
-                  setMessages([]);
-                  setError(null);
-                }}
+                onClick={newConversation}
                 aria-label="Start new conversation"
                 title="New conversation"
                 className="h-8 w-8 grid place-items-center rounded-full text-white/85 hover:text-white hover:bg-white/10 transition"

@@ -22,7 +22,13 @@ describe("ApplyWizard", () => {
     const user = userEvent.setup();
     setup();
     await user.click(screen.getByText(/continue/i));
-    expect(await screen.findByText(/please enter the parent name/i)).toBeInTheDocument();
+    // Error is announced both inline (role=alert next to the field) and in the toast.
+    const alerts = await screen.findAllByRole("alert");
+    expect(alerts.some((el) => /please enter the parent name/i.test(el.textContent || ""))).toBe(true);
+    // Inline error is wired to the field via aria-describedby / aria-invalid.
+    const nameInput = screen.getByLabelText(/^full name/i);
+    expect(nameInput).toHaveAttribute("aria-invalid", "true");
+    expect(nameInput.getAttribute("aria-describedby")).toBe("apply-parentName-err");
   });
 
   it("advances to step 2 with valid data", async () => {

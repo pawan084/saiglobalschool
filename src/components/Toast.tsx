@@ -151,7 +151,7 @@ function ToastBubble({
       <button
         onClick={close}
         aria-label="Dismiss"
-        className="grid place-items-center h-7 w-7 rounded-full text-slate-400 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition shrink-0 -mr-1"
+        className="grid place-items-center h-7 w-7 rounded-full text-slate-500 hover:text-[var(--brand-navy)] hover:bg-[var(--brand-cream)] transition shrink-0 -mr-1"
       >
         <Icon name="close" size={13} />
       </button>

@@ -26,7 +26,7 @@ const items: {
     iconName: "shield",
     verify: {
       label: "Verify on CPE",
-      href: "https://www.cpe.edu.sg/peis",
+      href: "https://www.tpgateway.gov.sg/resources/information-for-private-education-institutions-(peis)/pei-listing",
     },
   },
   {

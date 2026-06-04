@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { maskEmail } from "@/lib/log";
 
 /**
  * Admission application receiver — currently logs a sanitized record + returns a
@@ -9,6 +10,22 @@ import { rateLimit, clientKey } from "@/lib/rate-limit";
 
 const MAX_FIELD_LEN = 500;
 const MAX_NOTES_LEN = 2000;
+
+/** Same-origin check: rejects cross-origin POSTs to thwart CSRF / scraping.
+ *  Browsers send Origin on every cross-origin write. Same-origin browser POSTs
+ *  send Origin = our host. Server-to-server requests typically have no Origin
+ *  — those we let through (rate limiting + honeypot still apply). */
+function isAllowedOrigin(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return true; // no Origin → not a browser cross-origin write
+  try {
+    const reqUrl = new URL(req.url);
+    const originUrl = new URL(origin);
+    return reqUrl.host === originUrl.host;
+  } catch {
+    return false;
+  }
+}
 
 function reference() {
   const ts = Date.now().toString(36).toUpperCase();
@@ -21,18 +38,11 @@ function cap(v: unknown, max: number): string {
   return v.slice(0, max);
 }
 
-/** Mask email so logs don't leak PII at INFO level. */
-function maskEmail(email: string): string {
-  const m = /^([^@]+)@(.+)$/.exec(email);
-  if (!m) return "[invalid]";
-  const local = m[1];
-  const domain = m[2];
-  const head = local.slice(0, 1);
-  const tail = local.length > 2 ? local.slice(-1) : "";
-  return `${head}***${tail}@${domain}`;
-}
-
 export async function POST(req: Request) {
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ ok: false, error: "Forbidden" }, { status: 403 });
+  }
+
   // Rate limit per IP — 6 applications per 10 minutes is generous for a
   // legitimate family but kills script abuse.
   const key = clientKey(req);

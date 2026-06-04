@@ -50,7 +50,8 @@ type IconName =
   | "user-check"
   | "handshake"
   | "ribbon"
-  | "microphone";
+  | "microphone"
+  | "chevron-down";
 
 type Props = {
   name: IconName;
@@ -114,6 +115,7 @@ const PATHS: Record<IconName, React.ReactNode> = {
   handshake: <path d="M11 17l-3-3-2 2-3-3 7-7 3 3M14 14l3 3 2-2 3 3-7 7-3-3" />,
   ribbon: <path d="M9 21l3-2 3 2-1-6h-4z M7 3h10a3 3 0 0 1 3 3v6a8 8 0 0 1-16 0V6a3 3 0 0 1 3-3z" />,
   microphone: <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8" />,
+  "chevron-down": <path d="M6 9l6 6 6-6" />,
 };
 
 export default function Icon({

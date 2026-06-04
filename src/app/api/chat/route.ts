@@ -3,8 +3,7 @@ import { schoolContext } from "@/lib/schoolContext";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
-
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+export const dynamic = "force-dynamic";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -69,30 +68,64 @@ export async function POST(req: Request) {
     });
   }
 
+  // Lazy init so the constructor only ever runs after the env-var guard above
+  // — keeps test imports clean and avoids carrying a bad key through cold starts.
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
   try {
-    const stream = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      stream: true,
-      temperature: 0.4,
-      max_tokens: 350,
-      messages: [
-        { role: "system", content: schoolContext },
-        ...trimmed,
-      ],
-    });
+    // Pass the request's AbortSignal so a client disconnect (panel close,
+    // unmount, navigation away) actually stops the upstream OpenAI call
+    // instead of letting it run to completion on our dime.
+    const stream = await client.chat.completions.create(
+      {
+        model: "gpt-4o-mini",
+        stream: true,
+        temperature: 0.4,
+        max_tokens: 350,
+        messages: [
+          { role: "system", content: schoolContext },
+          ...trimmed,
+        ],
+      },
+      { signal: req.signal }
+    );
 
     const encoder = new TextEncoder();
     const readable = new ReadableStream({
       async start(controller) {
         try {
           for await (const chunk of stream) {
+            if (req.signal.aborted) break;
             const delta = chunk.choices?.[0]?.delta?.content ?? "";
             if (delta) controller.enqueue(encoder.encode(delta));
           }
           controller.close();
         } catch (e) {
-          controller.error(e);
+          // Client disconnect surfaces here as an AbortError — that's
+          // expected, swallow it cleanly. Everything else gets logged
+          // server-side; we never leak SDK error text to the browser.
+          const isAbort = e instanceof Error && e.name === "AbortError";
+          if (!isAbort) {
+            console.error("[chat] stream error:", e);
+            try {
+              controller.error(e);
+            } catch {
+              // controller may already be closed
+            }
+          } else {
+            try {
+              controller.close();
+            } catch {
+              // already closed
+            }
+          }
         }
+      },
+      cancel() {
+        // Browser cancelled the response stream — abort the OpenAI iterator
+        // by signalling on the underlying request's controller. The for-await
+        // above will reject with AbortError and unwind.
+        stream.controller?.abort?.();
       },
     });
 
@@ -104,10 +137,15 @@ export async function POST(req: Request) {
       },
     });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : "Unknown error";
-    return new Response(JSON.stringify({ error: msg }), {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
+    // Don't echo upstream error messages — they can reveal API key prefixes,
+    // org IDs, model availability, etc. Log server-side, return generic.
+    console.error("[chat] upstream error:", err);
+    return new Response(
+      JSON.stringify({ error: "The assistant is temporarily unavailable. Please try again shortly." }),
+      {
+        status: 503,
+        headers: { "content-type": "application/json" },
+      }
+    );
   }
 }

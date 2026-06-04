@@ -102,7 +102,7 @@ export default function LabPage({
               <span className="absolute top-3 left-3 h-9 w-9 grid place-items-center rounded-lg bg-[var(--brand-primary-tint)] text-[var(--brand-primary)]">
                 {p.iconName ? <Icon name={p.iconName as IconName} size={18} /> : <Icon name="arrow-right" size={18} />}
               </span>
-              <span className="absolute top-3 right-3 text-[11px] font-bold text-slate-400">
+              <span className="absolute top-3 right-3 text-[11px] font-bold text-slate-500">
                 0{i + 1}
               </span>
               <h3 className="font-bold text-[var(--brand-navy)]">{p.title}</h3>

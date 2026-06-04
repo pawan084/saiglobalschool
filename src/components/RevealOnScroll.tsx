@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 type Props = {
   children: React.ReactNode;
@@ -16,16 +17,22 @@ const ioSupported = (): boolean =>
 
 export default function RevealOnScroll({ children, delay = 0, className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(() => !ioSupported());
+  const [observed, setObserved] = useState(() => !ioSupported());
+  const reduced = useReducedMotion();
+  // Reduced-motion users get content immediately (no fade-in delay, no
+  // risk of blank above-the-fold content) — derive `shown` rather than
+  // calling setState inside the effect.
+  const shown = reduced || observed;
 
   useEffect(() => {
+    if (reduced) return; // nothing to observe; `shown` already derives true
     const el = ref.current;
     if (!el || !ioSupported()) return;
     const obs = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setTimeout(() => setShown(true), delay);
+            setTimeout(() => setObserved(true), delay);
             obs.disconnect();
             break;
           }
@@ -35,7 +42,7 @@ export default function RevealOnScroll({ children, delay = 0, className = "" }: 
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [delay]);
+  }, [delay, reduced]);
 
   return (
     <div

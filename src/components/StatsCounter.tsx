@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 export type Stat = {
   value: number;
@@ -22,11 +23,13 @@ function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-function useCountUp(target: number, start: boolean, durationMs: number) {
+function useCountUp(target: number, start: boolean, durationMs: number, reduced: boolean) {
   const [n, setN] = useState(0);
   const rafRef = useRef<number | null>(null);
   useEffect(() => {
-    if (!start) return;
+    // Reduced-motion users skip animation entirely; the return value below
+    // derives the displayed number, so the effect doesn't need to setState.
+    if (!start || reduced) return;
     const t0 = performance.now();
     const tick = (now: number) => {
       const p = Math.min(1, (now - t0) / durationMs);
@@ -37,13 +40,16 @@ function useCountUp(target: number, start: boolean, durationMs: number) {
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [target, start, durationMs]);
-  return n;
+  }, [target, start, durationMs, reduced]);
+  // Derive the displayed value: reduced-motion → jump to target, otherwise
+  // use the RAF-driven n. Keeps the effect free of setState-in-effect lint.
+  return start && reduced ? target : n;
 }
 
 export default function StatsCounter({ items, durationMs = 1600 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const reduced = useReducedMotion();
   useEffect(() => {
     if (!ref.current || typeof IntersectionObserver === "undefined") {
       setVisible(true);
@@ -69,7 +75,7 @@ export default function StatsCounter({ items, durationMs = 1600 }: Props) {
       style={{ boxShadow: "var(--shadow-md)" }}
     >
       {items.map((s, i) => (
-        <StatCell key={i} item={s} visible={visible} duration={durationMs} isLast={i === items.length - 1} />
+        <StatCell key={i} item={s} visible={visible} duration={durationMs} reduced={reduced} isLast={i === items.length - 1} />
       ))}
     </div>
   );
@@ -79,14 +85,16 @@ function StatCell({
   item,
   visible,
   duration,
+  reduced,
   isLast,
 }: {
   item: Stat;
   visible: boolean;
   duration: number;
+  reduced: boolean;
   isLast: boolean;
 }) {
-  const n = useCountUp(item.value, visible, duration);
+  const n = useCountUp(item.value, visible, duration, reduced);
   return (
     <div
       className={`relative px-6 py-7 lg:py-8 ${

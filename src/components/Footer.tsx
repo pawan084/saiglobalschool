@@ -155,11 +155,19 @@ export default function Footer() {
       {/* ── Accreditation strip ─────────────────────────────── */}
       <div className="relative border-t border-white/10">
         <div className="section-shell py-7">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
-              Accreditation
-            </span>
-            <span className="h-px flex-1 bg-white/10" />
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-3 flex-1">
+              <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                Accreditation
+              </span>
+              <span className="h-px flex-1 bg-white/10" />
+            </div>
+            <Link
+              href="/accreditation"
+              className="text-[11px] font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
+            >
+              See all registrations →
+            </Link>
           </div>
           <TrustBadges />
         </div>
@@ -175,6 +183,7 @@ export default function Footer() {
             <Link href="/refund-policy"          className="hover:text-white transition-colors">Refund Policy</Link>
             <Link href="/parent-student-handbook" className="hover:text-white transition-colors">Handbook</Link>
             <Link href="/faqs"                    className="hover:text-white transition-colors">FAQs</Link>
+            <Link href="/press"                   className="hover:text-white transition-colors">Press</Link>
             <Link href="/contact-us"              className="hover:text-white transition-colors">Contact</Link>
             <Link href="/privacy"                 className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms"                   className="hover:text-white transition-colors">Terms</Link>

@@ -45,6 +45,7 @@ const supportingPrograms = [
   { title: "Assessment Structure", body: "Daily formative + term summative + oral & project work.", href: "/assessment-structure" },
   { title: "Academic Pathway", body: "Detailed grade-by-grade progression and outcomes.", href: "/academic-pathway" },
   { title: "Courses Offered", body: "All subjects across primary and middle school.", href: "/courses-offered" },
+  { title: "Curriculum comparison", body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB for transitioning families.", href: "/curriculum/comparison" },
 ];
 
 export default function Page() {

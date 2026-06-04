@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import Link from "next/link";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
 import { fetchWithTimeout } from "@/lib/fetch";
@@ -145,6 +146,13 @@ export default function FormCard({
               <span>Your details stay private</span>
             </div>
           </div>
+          <p className="mt-3 text-[12px] text-slate-500 leading-snug">
+            By submitting you accept our{" "}
+            <Link href="/privacy" className="text-[var(--brand-primary)] hover:underline font-bold">
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </div>
       </form>
 
@@ -158,15 +166,18 @@ export default function FormCard({
 }
 
 function FieldGroup({ field: f }: { field: Field }) {
+  const id = useId();
   const span = f.fullWidth || f.type === "textarea" ? "sm:col-span-2" : "";
   return (
     <div className={span}>
-      <label className="block text-[12px] font-bold uppercase tracking-[0.06em] text-slate-600 mb-1.5">
+      <label htmlFor={id} className="block text-[12px] font-bold uppercase tracking-[0.06em] text-slate-600 mb-1.5">
         {f.label}
-        {f.required && <span className="text-[var(--brand-accent)]"> *</span>}
+        {f.required && <span className="text-[var(--brand-accent)]" aria-hidden> *</span>}
+        {f.required && <span className="sr-only"> (required)</span>}
       </label>
       {f.type === "textarea" ? (
         <textarea
+          id={id}
           name={f.name}
           required={f.required}
           rows={4}
@@ -174,7 +185,7 @@ function FieldGroup({ field: f }: { field: Field }) {
           className="form-input w-full"
         />
       ) : f.type === "select" ? (
-        <select name={f.name} required={f.required} className="form-input w-full">
+        <select id={id} name={f.name} required={f.required} className="form-input w-full">
           <option value="">Select…</option>
           {f.options?.map((o) => (
             <option key={o} value={o}>
@@ -184,6 +195,7 @@ function FieldGroup({ field: f }: { field: Field }) {
         </select>
       ) : (
         <input
+          id={id}
           type={f.type || "text"}
           name={f.name}
           required={f.required}

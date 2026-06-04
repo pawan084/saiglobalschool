@@ -65,6 +65,13 @@ export default function Page() {
             Personalised settling-in support helps each child adapt to routines, peers and teachers — academic continuity is our priority.
           </p>
         </div>
+        <p className="mt-4 text-[13.5px] text-slate-600">
+          Not sure which grade your child belongs in?{" "}
+          <Link href="/grade-fit" className="text-[var(--brand-primary)] font-bold hover:underline">
+            Take the 60-second grade-fit quiz
+          </Link>{" "}
+          — we suggest a grade band based on age and prior schooling.
+        </p>
         <div className="mt-4 flex flex-wrap gap-2">
           <Link href="/admission-process" className="px-5 py-2.5 rounded-full bg-[var(--brand-accent)] text-white text-[13px] font-bold hover:bg-[var(--brand-accent-dark)] transition">
             Start admission

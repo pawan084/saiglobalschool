@@ -12,10 +12,12 @@ import { SITE_URL } from "@/lib/site-url";
 import SkipToContent from "@/components/SkipToContent";
 import OrgJsonLd from "@/components/OrgJsonLd";
 import RecentTracker from "@/components/RecentTracker";
+import DeferredClient from "@/components/DeferredClient";
 
-// Non-critical client-only widgets — lazy-load so they don't bloat the
-// initial JS payload of every page. They render after the rest of the
-// page is interactive.
+// Non-critical client-only widgets — gated behind <DeferredClient> so their
+// JS chunks don't even fetch until the browser is idle OR the user interacts
+// (whichever comes first). The ⌘K search dialog also wakes on its
+// "sssgs:open-search" event so the header search button never misses.
 const ChatBot = dynamic(() => import("@/components/ChatBot"));
 const AccessibilityMenu = dynamic(() => import("@/components/AccessibilityMenu"));
 const CookieConsent = dynamic(() => import("@/components/CookieConsent"));
@@ -108,13 +110,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
           <FloatingMobileCTA />
-          <ChatBot />
-          <AccessibilityMenu />
-          <CookieConsent />
-          <OpenHouseModal />
-          <PwaInstall />
-          <SwRegister />
-          <SearchDialog />
+          <DeferredClient>
+            <ChatBot />
+            <AccessibilityMenu />
+            <CookieConsent />
+            <OpenHouseModal />
+            <PwaInstall />
+            <SwRegister />
+            <SearchDialog />
+          </DeferredClient>
           <RecentTracker />
         </ToastProvider>
       </body>

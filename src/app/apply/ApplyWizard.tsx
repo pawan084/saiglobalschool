@@ -77,6 +77,7 @@ export default function ApplyWizard() {
   const [step, setStep] = useState(1);
   const [busy, setBusy] = useState(false);
   const [submitted, setSubmitted] = useState<{ reference: string } | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   // Show the "restored" toast once on mount if a draft was hydrated.
   const restoredOnceRef = useRef(false);
   useEffect(() => {
@@ -98,31 +99,54 @@ export default function ApplyWizard() {
 
   function patch(p: Partial<FormState>) {
     setState((s) => ({ ...s, ...p }));
+    // Clear errors for fields the user is editing
+    const keys = Object.keys(p);
+    if (keys.some((k) => errors[k])) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        for (const k of keys) delete next[k];
+        return next;
+      });
+    }
   }
 
-  function canAdvance(): { ok: boolean; msg?: string } {
+  /** Validate current step. Populates per-field errors and returns the first invalid field name. */
+  function validateStep(): { ok: boolean; firstField?: string; msg?: string } {
+    const e: Record<string, string> = {};
     if (step === 1) {
-      if (!state.parentName.trim()) return { ok: false, msg: "Please enter the parent name." };
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.parentEmail)) return { ok: false, msg: "Please enter a valid email." };
-      if (state.parentPhone.replace(/[^\d]/g, "").length < 7) return { ok: false, msg: "Please enter a contact number." };
+      if (!state.parentName.trim()) e.parentName = "Please enter the parent name.";
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.parentEmail)) e.parentEmail = "Please enter a valid email.";
+      if (state.parentPhone.replace(/[^\d]/g, "").length < 7) e.parentPhone = "Please enter a contact number.";
     }
     if (step === 2) {
-      if (!state.childName.trim()) return { ok: false, msg: "Please enter the child's name." };
-      if (!state.childDob) return { ok: false, msg: "Please enter date of birth." };
+      if (!state.childName.trim()) e.childName = "Please enter the child's name.";
+      if (!state.childDob) e.childDob = "Please enter date of birth.";
     }
     if (step === 3) {
-      if (!state.childGrade) return { ok: false, msg: "Please select a grade." };
+      if (!state.childGrade) e.childGrade = "Please select a grade.";
     }
     if (step === 5) {
-      if (!state.consent) return { ok: false, msg: "Please confirm the privacy consent." };
+      if (!state.consent) e.consent = "Please confirm the privacy consent.";
     }
-    return { ok: true };
+    setErrors(e);
+    const firstField = Object.keys(e)[0];
+    return { ok: !firstField, firstField, msg: firstField ? e[firstField] : undefined };
+  }
+
+  function focusField(name: string) {
+    // The Field/Select primitives render id={`apply-${name}`} on the control.
+    // The consent checkbox uses id="apply-consent".
+    requestAnimationFrame(() => {
+      const el = document.getElementById(`apply-${name}`);
+      if (el && "focus" in el) (el as HTMLElement).focus();
+    });
   }
 
   function next() {
-    const v = canAdvance();
+    const v = validateStep();
     if (!v.ok) {
       show(v.msg!, "error");
+      if (v.firstField) focusField(v.firstField);
       return;
     }
     setStep((s) => Math.min(STEPS.length, s + 1));
@@ -144,9 +168,10 @@ export default function ApplyWizard() {
   }
 
   async function submit() {
-    const v = canAdvance();
+    const v = validateStep();
     if (!v.ok) {
       show(v.msg!, "error");
+      if (v.firstField) focusField(v.firstField);
       return;
     }
     setBusy(true);
@@ -269,7 +294,14 @@ export default function ApplyWizard() {
       </aside>
 
       {/* Form */}
-      <section
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (step < STEPS.length) next();
+          else submit();
+        }}
+        noValidate
+        aria-label="Application form"
         className="rounded-3xl bg-white border border-[var(--brand-rule)] p-5 lg:p-8 relative"
         style={{ boxShadow: "var(--shadow-md)" }}
       >
@@ -304,10 +336,11 @@ export default function ApplyWizard() {
 
         {step === 1 && (
           <Step title="Parent / guardian details" subtitle="We'll respond to this contact.">
-            <Field label="Full name" value={state.parentName} onChange={(v) => patch({ parentName: v })} required />
-            <Field label="Email" type="email" value={state.parentEmail} onChange={(v) => patch({ parentEmail: v })} required />
-            <Field label="Phone / WhatsApp" value={state.parentPhone} onChange={(v) => patch({ parentPhone: v })} required />
+            <Field name="parentName" label="Full name" value={state.parentName} onChange={(v) => patch({ parentName: v })} required error={errors.parentName} />
+            <Field name="parentEmail" label="Email" type="email" value={state.parentEmail} onChange={(v) => patch({ parentEmail: v })} required error={errors.parentEmail} />
+            <Field name="parentPhone" label="Phone / WhatsApp" value={state.parentPhone} onChange={(v) => patch({ parentPhone: v })} required error={errors.parentPhone} />
             <Select
+              name="relation"
               label="Relation to child"
               value={state.relation}
               onChange={(v) => patch({ relation: v })}
@@ -318,35 +351,40 @@ export default function ApplyWizard() {
 
         {step === 2 && (
           <Step title="About your child">
-            <Field label="Full name" value={state.childName} onChange={(v) => patch({ childName: v })} required />
-            <Field label="Date of birth" type="date" value={state.childDob} onChange={(v) => patch({ childDob: v })} required />
+            <Field name="childName" label="Full name" value={state.childName} onChange={(v) => patch({ childName: v })} required error={errors.childName} />
+            <Field name="childDob" label="Date of birth" type="date" value={state.childDob} onChange={(v) => patch({ childDob: v })} required error={errors.childDob} />
             <Select
+              name="childGender"
               label="Gender"
               value={state.childGender}
               onChange={(v) => patch({ childGender: v })}
               options={["", "Female", "Male", "Prefer not to say"]}
             />
-            <Field label="Nationality" value={state.childNationality} onChange={(v) => patch({ childNationality: v })} />
+            <Field name="childNationality" label="Nationality" value={state.childNationality} onChange={(v) => patch({ childNationality: v })} />
           </Step>
         )}
 
         {step === 3 && (
           <Step title="Schooling & intake">
             <Select
+              name="childGrade"
               label="Grade applying for"
               value={state.childGrade}
               onChange={(v) => patch({ childGrade: v })}
               options={["", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8"]}
               required
+              error={errors.childGrade}
             />
             <Select
+              name="intakeTerm"
               label="Preferred intake term"
               value={state.intakeTerm}
               onChange={(v) => patch({ intakeTerm: v })}
               options={["", "Term 1 (April)", "Term 2 (July)", "Term 3 (October)", "Mid-term / ASAP"]}
             />
-            <Field label="Previous school" value={state.prevSchool} onChange={(v) => patch({ prevSchool: v })} />
+            <Field name="prevSchool" label="Previous school" value={state.prevSchool} onChange={(v) => patch({ prevSchool: v })} />
             <Select
+              name="prevCurriculum"
               label="Previous curriculum"
               value={state.prevCurriculum}
               onChange={(v) => patch({ prevCurriculum: v })}
@@ -382,33 +420,45 @@ export default function ApplyWizard() {
           >
             <ReviewBlock state={state} />
             <Field
+              name="notes"
               label="Anything we should know? (optional)"
               type="textarea"
               value={state.notes}
               onChange={(v) => patch({ notes: v })}
             />
-            <label className="mt-2 flex items-start gap-3 text-[13px] text-slate-700 leading-relaxed cursor-pointer">
-              <input
-                type="checkbox"
-                checked={state.consent}
-                onChange={(e) => patch({ consent: e.target.checked })}
-                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
-              />
-              <span>
-                I consent to SSSGS contacting me about this application and processing my
-                personal data in line with the{" "}
-                <Link href="/privacy" className="text-[var(--brand-primary)] hover:underline font-bold">
-                  Privacy Policy
-                </Link>
-                .
-              </span>
-            </label>
+            <div className="mt-2 sm:col-span-2">
+              <label className="flex items-start gap-3 text-[13px] text-slate-700 leading-relaxed cursor-pointer">
+                <input
+                  id="apply-consent"
+                  type="checkbox"
+                  checked={state.consent}
+                  onChange={(e) => patch({ consent: e.target.checked })}
+                  aria-invalid={errors.consent ? true : undefined}
+                  aria-describedby={errors.consent ? "apply-consent-err" : undefined}
+                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[var(--brand-primary)] focus:ring-[var(--brand-primary)]"
+                />
+                <span>
+                  I consent to SSSGS contacting me about this application and processing my
+                  personal data in line with the{" "}
+                  <Link href="/privacy" className="text-[var(--brand-primary)] hover:underline font-bold">
+                    Privacy Policy
+                  </Link>
+                  .
+                </span>
+              </label>
+              {errors.consent && (
+                <p id="apply-consent-err" role="alert" className="mt-1 ml-7 text-[12px] text-[#b91c1c]">
+                  {errors.consent}
+                </p>
+              )}
+            </div>
           </Step>
         )}
 
         {/* Footer actions */}
         <div className="mt-6 flex items-center justify-between gap-3 pt-5 border-t border-[var(--brand-rule)]">
           <button
+            type="button"
             onClick={back}
             disabled={step === 1}
             className="btn-secondary !py-2 !px-4 text-[13px] disabled:opacity-40 disabled:cursor-not-allowed"
@@ -420,18 +470,18 @@ export default function ApplyWizard() {
             Saved automatically to this device.
           </span>
           {step < STEPS.length ? (
-            <button onClick={next} className="btn-primary !py-2 !px-4 text-[13px]">
+            <button type="submit" className="btn-primary !py-2 !px-4 text-[13px]">
               Continue
               <Icon name="arrow-right" size={13} />
             </button>
           ) : (
-            <button onClick={submit} disabled={busy} className="btn-primary !py-2 !px-4 text-[13px]">
+            <button type="submit" disabled={busy} className="btn-primary !py-2 !px-4 text-[13px]">
               {busy ? "Submitting…" : "Submit application"}
               {!busy && <Icon name="check" size={13} />}
             </button>
           )}
         </div>
-      </section>
+      </form>
     </div>
   );
 }
@@ -452,81 +502,99 @@ function Step({ title, subtitle, children }: { title: string; subtitle?: string;
 }
 
 function Field({
+  name,
   label,
   value,
   onChange,
   type = "text",
   required,
+  error,
 }: {
+  name: string;
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
   required?: boolean;
+  error?: string;
 }) {
-  const id = `f-${label.toLowerCase().replace(/[^a-z]+/g, "-")}`;
+  const id = `apply-${name}`;
+  const errId = `${id}-err`;
+  const labelEl = (
+    <label htmlFor={id} className="block text-[12px] font-bold text-[var(--brand-navy)] mb-1">
+      {label}
+      {required && <span className="text-[var(--brand-accent)]" aria-hidden> *</span>}
+      {required && <span className="sr-only"> (required)</span>}
+    </label>
+  );
+  const errorEl = error ? (
+    <p id={errId} role="alert" className="mt-1 text-[12px] text-[#b91c1c]">
+      {error}
+    </p>
+  ) : null;
+  const common = {
+    id,
+    name,
+    required,
+    value,
+    "aria-invalid": error ? (true as const) : undefined,
+    "aria-describedby": error ? errId : undefined,
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => onChange(e.target.value),
+    className: `form-input w-full${error ? " border-[#b91c1c]" : ""}`,
+  };
   if (type === "textarea") {
     return (
       <div className="sm:col-span-2">
-        <label htmlFor={id} className="block text-[12px] font-bold text-[var(--brand-navy)] mb-1">
-          {label}
-          {required && <span className="text-[var(--brand-accent)]"> *</span>}
-        </label>
-        <textarea
-          id={id}
-          rows={3}
-          required={required}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="form-input w-full"
-        />
+        {labelEl}
+        <textarea rows={3} {...common} />
+        {errorEl}
       </div>
     );
   }
   return (
     <div>
-      <label htmlFor={id} className="block text-[12px] font-bold text-[var(--brand-navy)] mb-1">
-        {label}
-        {required && <span className="text-[var(--brand-accent)]"> *</span>}
-      </label>
-      <input
-        id={id}
-        type={type}
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="form-input w-full"
-      />
+      {labelEl}
+      <input type={type} {...common} />
+      {errorEl}
     </div>
   );
 }
 
 function Select({
+  name,
   label,
   value,
   onChange,
   options,
   required,
+  error,
 }: {
+  name: string;
   label: string;
   value: string;
   onChange: (v: string) => void;
   options: string[];
   required?: boolean;
+  error?: string;
 }) {
-  const id = `s-${label.toLowerCase().replace(/[^a-z]+/g, "-")}`;
+  const id = `apply-${name}`;
+  const errId = `${id}-err`;
   return (
     <div>
       <label htmlFor={id} className="block text-[12px] font-bold text-[var(--brand-navy)] mb-1">
         {label}
-        {required && <span className="text-[var(--brand-accent)]"> *</span>}
+        {required && <span className="text-[var(--brand-accent)]" aria-hidden> *</span>}
+        {required && <span className="sr-only"> (required)</span>}
       </label>
       <select
         id={id}
+        name={name}
         value={value}
         required={required}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errId : undefined}
         onChange={(e) => onChange(e.target.value)}
-        className="form-input w-full"
+        className={`form-input w-full${error ? " border-[#b91c1c]" : ""}`}
       >
         {options.map((o) => (
           <option key={o} value={o}>
@@ -534,6 +602,11 @@ function Select({
           </option>
         ))}
       </select>
+      {error && (
+        <p id={errId} role="alert" className="mt-1 text-[12px] text-[#b91c1c]">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

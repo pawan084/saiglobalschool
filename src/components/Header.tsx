@@ -41,25 +41,25 @@ export default function Header() {
       }`}
     >
       {/* Brand band */}
-      <div className={`section-shell transition-[padding] ${scrolled ? "py-2.5" : "py-4 lg:py-5"}`}>
-        <div className="flex items-center justify-between gap-4">
+      <div className={`section-shell transition-[padding] ${scrolled ? "py-2.5" : "py-3 lg:py-5"}`}>
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-4 lg:gap-5 group shrink-0">
+          <Link href="/" className="flex min-w-0 flex-1 items-center gap-3 lg:gap-5 group lg:flex-none">
             <BrandLogo
-              size={scrolled ? 64 : 92}
+              size={scrolled ? 56 : 64}
               priority
               className="shrink-0 transition-[width,height] drop-shadow-sm"
             />
-            <div className="flex flex-col leading-tight">
+            <div className="flex min-w-0 flex-col leading-tight">
               <span
                 className={`font-display font-bold text-[var(--brand-navy)] tracking-tight transition-[font-size] ${
-                  scrolled ? "text-[19px] lg:text-[22px]" : "text-[22px] lg:text-[28px]"
+                  scrolled ? "text-[18px] sm:text-[20px] lg:text-[22px]" : "text-[20px] sm:text-[22px] lg:text-[28px]"
                 } group-hover:text-[var(--brand-primary)]`}
               >
                 Sri Sathya Sai Global School
               </span>
               <span
-                className={`font-display italic text-[var(--brand-accent)] tracking-wide transition-[font-size] ${
+                className={`truncate font-display italic text-[var(--brand-accent)] tracking-wide transition-[font-size] ${
                   scrolled ? "text-[11px] lg:text-[12px]" : "text-[12px] lg:text-[14px]"
                 }`}
               >
@@ -369,4 +369,3 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
     </div>
   );
 }
-

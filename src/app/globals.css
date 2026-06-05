@@ -55,6 +55,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Display / news headlines */
 .font-display {
   font-family: var(--font-display), Georgia, "Times New Roman", serif;
@@ -134,7 +139,7 @@ body {
 
 /* Mobile-CTA spacing */
 @media (max-width: 1023px) {
-  body { padding-bottom: 64px; }
+  body { padding-bottom: 88px; }
 }
 
 /* Ticker scroll */
@@ -441,4 +446,3 @@ html[data-contrast="high"] .text-white\/90 { color: #ffffff !important; }
   transform: translateY(-1px);
   box-shadow: 0 14px 32px -10px rgba(11,29,51,0.36);
 }
-

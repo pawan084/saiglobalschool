@@ -23,7 +23,7 @@ export default function BrandLogo({
       sizes={`${size}px`}
       priority={priority}
       className={className}
-      style={{ display: "block", width: size, height: size }}
+      style={{ display: "block", width: size, height: "auto" }}
     />
   );
 }

@@ -4,7 +4,6 @@ import { site } from "@/data/site";
 import TrustBadges from "./TrustBadges";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
-import NewsletterSignup from "./NewsletterSignup";
 
 export default function Footer() {
   const navCols = navigation.filter((n) => n.children).slice(0, 5);
@@ -125,11 +124,6 @@ export default function Footer() {
                 <Icon name={s.name} size={14} />
               </a>
             ))}
-          </div>
-
-          {/* Newsletter */}
-          <div className="mt-7 p-4 rounded-2xl bg-white/[0.03] border border-white/10 max-w-sm">
-            <NewsletterSignup />
           </div>
         </div>
 

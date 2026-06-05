@@ -15,17 +15,16 @@ describe("FloatingMobileCTA", () => {
   it("hides on scroll-down past 200px and shows again on scroll-up", () => {
     const { container } = render(<FloatingMobileCTA />);
     const bar = container.firstChild as HTMLElement;
-    expect(bar.className).toContain("translate-y-0");
+    expect(bar.className).toContain("translate-y-[120%]");
 
     Object.defineProperty(window, "scrollY", { configurable: true, value: 250 });
     act(() => window.dispatchEvent(new Event("scroll")));
     Object.defineProperty(window, "scrollY", { configurable: true, value: 300 });
     act(() => window.dispatchEvent(new Event("scroll")));
-    // Bar may now have hidden style
-    expect(typeof bar.className).toBe("string");
+    expect(bar.className).toContain("translate-y-[120%]");
 
-    Object.defineProperty(window, "scrollY", { configurable: true, value: 0 });
+    Object.defineProperty(window, "scrollY", { configurable: true, value: 180 });
     act(() => window.dispatchEvent(new Event("scroll")));
-    expect(typeof bar.className).toBe("string");
+    expect(bar.className).toContain("translate-y-0");
   });
 });

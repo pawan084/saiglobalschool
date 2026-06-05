@@ -1,50 +1,42 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
 import { safeGet } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:recent-paths";
-const EMPTY: SearchEntry[] = [];
 
-// useSyncExternalStore requires getSnapshot to return a referentially-stable
-// value when nothing changed, so we memoise on the raw stored string.
-let cachedRaw: string | null = null;
-let cachedItems: SearchEntry[] = EMPTY;
+function subscribe() {
+  return () => {};
+}
 
-function getSnapshot(): SearchEntry[] {
-  const raw = safeGet(STORAGE_KEY) ?? "";
-  if (raw === cachedRaw) return cachedItems;
-  cachedRaw = raw;
-  let paths: string[] = [];
+function getSnapshot() {
+  return safeGet(STORAGE_KEY, "[]") ?? "[]";
+}
+
+function getServerSnapshot() {
+  return "[]";
+}
+
+function itemsFromSnapshot(snapshot: string): SearchEntry[] {
+  let paths: string[];
   try {
-    paths = raw ? (JSON.parse(raw) as string[]) : [];
+    paths = JSON.parse(snapshot) as string[];
   } catch {
     paths = [];
   }
-  cachedItems = paths
+
+  return paths
     .map((p) => searchIndex.find((s) => s.href === p))
     .filter((x): x is SearchEntry => !!x)
     .slice(0, 4);
-  return cachedItems;
-}
-
-// Server (and the hydration render) always see an empty list, so the server
-// HTML and the first client render agree — no hydration mismatch. After
-// hydration, React reads getSnapshot and fills in the visitor's real history.
-function getServerSnapshot(): SearchEntry[] {
-  return EMPTY;
-}
-
-function subscribe(onChange: () => void): () => void {
-  window.addEventListener("storage", onChange);
-  return () => window.removeEventListener("storage", onChange);
 }
 
 export default function RecentlyViewed() {
-  const items = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const items = useMemo(() => itemsFromSnapshot(snapshot), [snapshot]);
 
   if (!items.length) return null;
 

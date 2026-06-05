@@ -48,7 +48,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--brand-navy)]/30 via-transparent to-[var(--brand-navy)]/65" />
           <div className="grain-overlay" />
         </div>
-        <div className="section-shell relative py-24 lg:py-32">
+        <div className="section-shell relative flex min-h-[calc(100svh-150px)] items-center py-14 sm:py-20 lg:min-h-0 lg:py-32">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-[11px] font-bold tracking-[0.14em] uppercase mb-7">
               <span className="relative flex h-1.5 w-1.5">

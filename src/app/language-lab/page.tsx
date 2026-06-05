@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "Language Lab — read, speak, write, with confidence",
         lead: "Structured language work across reading, speaking, listening and writing — phonics, vocabulary, comprehension, public speaking and creative writing.",
-        image: "/img/lab-english_jpg.jpg",
+        image: "/img/home/learning-labs/language-lab.jpg",
       }}
       quote={{ text: "The limits of my language mean the limits of my world.", author: "Ludwig Wittgenstein" }}
       pillars={[

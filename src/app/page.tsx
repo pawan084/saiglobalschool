@@ -36,7 +36,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[var(--brand-navy)] text-white">
         <div className="absolute inset-0">
           <Image
-            src="/hero-banner.avif"
+            src="/img/home/hero/homepage-hero-banner.avif"
             alt="A peaceful environment for learning and growth at SSSGS"
             fill
             priority
@@ -87,29 +87,29 @@ export default function Home() {
         featured={{
           title: "A smooth landing for families on the move.",
           body:
-            "Mid-year start? Switching curriculum? We help children settle in with personal attention, clear routines and academic guidance — so the move feels smooth, not stressful.",
-          image: "/img/7621-1.jpg",
+            "From mid-year admissions to curriculum changes, we support children moving from different schools, countries, or learning systems. At SSSGS, children can continue their Indian curriculum journey with confidence while adapting smoothly to a caring international school environment. Our teachers help each child settle in with personal attention, clear routines, and academic guidance.",
+          image: "/img/home/right-fit/relocating-families.jpg",
           href: "/admission-process",
         }}
         items={[
           {
-            title: "Coming from another school",
-            body: "Children moving from CBSE, ICSE, Cambridge, IB or local schools land in a familiar academic framework with personal support.",
-            image: "/img/lsp07578_jpg.jpg",
+            title: "Families in Transition",
+            body: "Students entering from different education systems are supported through a structured curriculum and familiar academic frameworks to ease adjustment.",
+            image: "/img/home/right-fit/families-in-transition.jpg",
             imagePosition: "top",
             href: "/entry-requirements",
           },
           {
-            title: "Settling in, not catching up",
-            body: "New children get guided support to find friends, learn the routines, and feel at home — usually within the first few weeks.",
-            image: "/img/lsp07438_jpg.jpg",
+            title: "Personalised Settling-in Support",
+            body: "Children in transition may feel shy or behind; personalised settling-in support helps them adapt to routines, peers, teachers, and assessments.",
+            image: "/img/home/right-fit/settling-in-support.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
           {
-            title: "Curriculum continuity",
-            body: "Move between CBSE, ICSE, Cambridge, IB or local curriculum without losing academic ground. Our NCERT-aligned core makes the bridge.",
-            image: "/img/7406-1.jpg",
+            title: "Curriculum Continuity Support",
+            body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
+            image: "/img/home/right-fit/curriculum-continuity.jpg",
             href: "/curriculum",
           },
           {
@@ -144,28 +144,28 @@ export default function Home() {
         featured={{
           title: "A learning environment built for confident growth.",
           body:
-            "Experienced teachers, small-group classrooms, and lab-based application across every subject — so children build strong foundations and the confidence to use them.",
-          image: "/img/labs-science.jpg",
+            "Sri Sathya Sai Global School combines experienced educators, structured classroom learning, and application-based teaching to help children build strong academic foundations. Students learn through clear guidance, regular feedback, and practical classroom experiences that make concepts easier to understand and apply.",
+          image: "/img/home/why-sssgs/school-ai-learning-environment.avif",
           href: "/about-us",
         }}
         items={[
           {
-            title: "Experienced educators",
-            body: "Teachers with deep subject expertise who know every child by name — present, accountable, and in it for the long term.",
-            image: "/img/lsp07600_jpg.jpg",
+            title: "Experienced Educators",
+            body: "Our teaching team includes educators with diverse academic experience, delivering structured & consistent classroom instruction.",
+            image: "/img/home/why-sssgs/experienced-educators.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
-            title: "Personalised learning support",
-            body: "Structured feedback, progress tracking and individual guidance — every child gets the attention to grow at their own pace.",
-            image: "/img/lab-english_jpg.jpg",
+            title: "Personalized Learning Support",
+            body: "Students receive guided academic support through structured feedback, progress tracking, and adaptive learning tools.",
+            image: "/img/home/why-sssgs/personalized-learning-support.jpg",
             href: "/student-support",
           },
           {
-            title: "Application-based learning",
-            body: "Concepts become real in our four labs — children build, observe, debate and present, not just listen.",
-            image: "/img/ss1_edited.jpg",
+            title: "Application-Based Learning",
+            body: "Students engage in practical, experiment-based learning across applied subjects to strengthen conceptual understanding.",
+            image: "/img/home/why-sssgs/application-based-learning.jpg",
             href: "/learning-labs",
           },
           {
@@ -244,7 +244,7 @@ export default function Home() {
                 />
               </svg>
               <Image
-                src="/img/sssvvp3_2.jpg"
+                src="/img/home/hands-on-learning/sssvv-hands-on-learning.jpg"
                 alt="SSSGS students engaged in a hands-on Sri Sathya Sai Vidya Vahini learning activity"
                 width={1200}
                 height={800}

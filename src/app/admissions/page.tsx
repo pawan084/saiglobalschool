@@ -45,28 +45,28 @@ export default function Page() {
         featured={{
           title: "A four-step process. One point of contact.",
           body:
-            "Inquire → meet the team → assess → register. Mid-year admissions welcome. Transitions from CBSE, ICSE, Cambridge, IB or local schools handled without disruption.",
-          image: "/img/p1-vision.jpg",
+            "Inquire → meet the team → assess → register. Mid-year admissions welcome. Transitions from CBSE, ICSE, Cambridge, IB and local-curriculum schools handled without academic disruption.",
+          image: "/img/navbar/admissions/admission-process.jpg",
           href: "/admission-process",
         }}
         items={[
           {
-            title: "Entry requirements",
-            body: "Age criteria and a grade-appropriate assessment for entry from Grade 1 through Grade 8.",
-            image: "/img/7406-1.jpg",
+            title: "Entry Requirements",
+            body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
+            image: "/img/navbar/admissions/entry-requirements.jpg",
             href: "/entry-requirements",
           },
           {
             title: "Registration",
-            body: "PEI Singapore registration steps, required documents, and the operational basics of joining SSSGS.",
-            image: "/img/lsp07578_jpg.jpg",
+            body: "PEI Singapore registration details, required documents, and the operational basics of joining SSSGS.",
+            image: "/img/navbar/admissions/open-house.jpg",
             imagePosition: "top",
             href: "/registration",
           },
           {
-            title: "Inquire or book a tour",
-            body: "Start the conversation. A quick inquiry or a campus tour — we reply within one business day.",
-            image: "/img/lsp07438_jpg.jpg",
+            title: "Inquire / Book a Tour",
+            body: "Start the conversation. Send a quick inquiry or book a campus tour — we'll reply within one business day.",
+            image: "/img/navbar/admissions/admissions-support.jpg",
             imagePosition: "top",
             href: "/inquire-book-a-tour",
           },
@@ -102,28 +102,28 @@ export default function Page() {
         featured={{
           title: "Fees, dates and policies — published, not buried.",
           body:
-            "Transparent annual fees for Grades 1–8. Tuition billed monthly; lab, CCA and books per annum. Refunds follow CPE Singapore guidelines.",
-          image: "/img/548-1.jpg",
+            "Transparent annual fee breakdown for Grades 1–8. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
+          image: "/img/navbar/admissions/fee-structure.jpg",
           href: "/fee-structure",
         }}
         items={[
           {
-            title: "Open house",
-            body: "Meet our Principal and educators in person. Explore the curriculum, walk the campus, ask the team anything.",
-            image: "/img/lsp07600_jpg.jpg",
+            title: "Open House",
+            body: "Meet our Principal and educators in person — explore the curriculum, ask about admissions, tour the campus.",
+            image: "/img/navbar/admissions/registration.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
-            title: "Refund policy",
-            body: "CPE-Singapore-aligned terms — cooling-off, withdrawal, and how refunds are processed. No surprises.",
-            image: "/img/7621-1.jpg",
+            title: "Refund Policy",
+            body: "CPE-Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
+            image: "/img/navbar/admissions/assessment.jpg",
             href: "/refund-policy",
           },
           {
-            title: "Contact us",
-            body: "Call, WhatsApp, email or visit. One business day, every time — no automated runaround.",
-            image: "/img/lsp07288_jpg.jpg",
+            title: "Contact Us",
+            body: "Call, WhatsApp, email or visit. The admissions team responds within one business day, every time.",
+            image: "/img/navbar/admissions/student-readiness.jpg",
             imagePosition: "top",
             href: "/contact-us",
           },

@@ -45,29 +45,29 @@ export default function Page() {
         featured={{
           title: "Head, Heart and Hand — the SSSGS way.",
           body:
-            "Knowledge, compassion and purposeful action — woven together so children grow into confident, contributing adults. Five anchoring values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
-          image: "/img/p1-vision.jpg",
+            "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults. Our values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
+          image: "/img/navbar/about/about-us/vision-mission.jpg",
           href: "/vision-mission",
         }}
         items={[
           {
-            title: "Management & governance",
-            body: "Transparent, parent-aligned governance — clear roles, regular communication, an accountable structure.",
-            image: "/img/lsp07288_jpg.jpg",
+            title: "Management & Governance",
+            body: "Transparent, parent-aligned governance — clear roles, regular communication, and an accountable structure.",
+            image: "/img/navbar/about/about-us/school-values.jpg",
             imagePosition: "top",
             href: "/management-governance",
           },
           {
-            title: "Faculty who stay",
-            body: "Experienced educators with deep subject expertise — they know every child by name and stay long enough to know them well.",
-            image: "/img/lsp07578_jpg.jpg",
+            title: "Faculty",
+            body: "Experienced educators with subject expertise and a values-led teaching practice — they know every child by name.",
+            image: "/img/navbar/about/about-us/management-governance.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
-            title: "A parent community",
-            body: "An active parent community that supports the school, each other, and children growing up — through every stage.",
-            image: "/img/lsp07600_jpg.jpg",
+            title: "Parent Community",
+            body: "An active parent community that supports the school, supports each other, and supports children growing up.",
+            image: "/img/navbar/about/about-us/faculty.jpg",
             imagePosition: "top",
             href: "/parent-community",
           },
@@ -102,27 +102,27 @@ export default function Page() {
         featured={{
           title: "Character, threaded through every day.",
           body:
-            "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — it sits alongside academic learning in every grade, every day.",
-          image: "/img/original-2.jpg",
+            "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — character development sits alongside academic learning in every grade, every day.",
+          image: "/img/navbar/about/about-us/human-excellence.jpg",
           href: "/character-development",
         }}
         items={[
           {
-            title: "Human excellence",
-            body: "Competence, character and contribution — given equal footing in the way SSSGS teaches.",
-            image: "/img/art-cca.jpg",
+            title: "Human Excellence",
+            body: "Competence, character and contribution on equal footing — the SSSGS pedagogy puts all three at the heart of teaching.",
+            image: "/img/navbar/about/about-us/co-curricular-activities.jpg",
             href: "/human-excellence",
           },
           {
-            title: "Values in every subject",
-            body: "Values aren't an extra subject. They are integrated into the way every subject is taught — from language to math.",
-            image: "/img/7621-1.jpg",
+            title: "Values Integration & Academics",
+            body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from language to math.",
+            image: "/img/navbar/about/about-us/classroom-learning.jpg",
             href: "/values-integration-academics",
           },
           {
-            title: "Parent–student handbook",
-            body: "Policies, expectations, support channels and the rhythms of SSSGS life — everything in one place.",
-            image: "/img/lsp07438_jpg.jpg",
+            title: "Parent-Student Handbook",
+            body: "Policies, expectations, support channels and the rhythms of SSSGS life — everything you need in one place.",
+            image: "/img/navbar/about/about-us/parent-support.jpg",
             imagePosition: "top",
             href: "/parent-student-handbook",
           },

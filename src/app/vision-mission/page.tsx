@@ -46,7 +46,7 @@ export default function Page() {
           </div>
           <div className="relative aspect-square rounded-md overflow-hidden">
             <Image
-              src="/img/p1-vision.jpg"
+              src="/img/navbar/about/vision-mission/vision-mission.jpg"
               alt="SSSGS vision: light bulb on the path"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"

@@ -45,27 +45,27 @@ export default function Page() {
         featured={{
           title: "NCERT-aligned, integrated, hands-on.",
           body:
-            "Concept-led teaching with structured progression and conceptual depth — built for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
-          image: "/img/7389-1.jpg",
+            "Concept-led teaching combined with structured progression, conceptual clarity and foundational skill development. Designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
+          image: "/img/navbar/academics/curriculum.jpg",
           href: "/curriculum",
         }}
         items={[
           {
-            title: "Courses offered",
-            body: "Languages, math, science, social studies, ICT, arts, PE and value education — across primary and middle school.",
-            image: "/img/7406-1.jpg",
+            title: "Courses Offered",
+            body: "Subjects across primary and middle school: languages, mathematics, science, social studies, ICT, arts, PE and value education.",
+            image: "/img/navbar/academics/academic-support.jpg",
             href: "/courses-offered",
           },
           {
-            title: "Academic pathway",
-            body: "Foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8 — a clear grade-by-grade map.",
-            image: "/img/548-1.jpg",
+            title: "Academic Pathway",
+            body: "Clear grade-by-grade progression: foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8.",
+            image: "/img/navbar/academics/academic-pathway.jpg",
             href: "/academic-pathway",
           },
           {
-            title: "Assessment structure",
-            body: "Daily formative checks, weekly reviews and term assessments — assessment for learning, not just of it.",
-            image: "/img/7621-1.jpg",
+            title: "Assessment Structure",
+            body: "Daily formative checks, weekly reviews, term assessments and oral & project work — for learning, not just of learning.",
+            image: "/img/navbar/academics/assessment-structure.jpg",
             href: "/assessment-structure",
           },
           {
@@ -98,27 +98,21 @@ export default function Page() {
         featured={{
           title: "Application beats memorisation.",
           body:
-            "Children apply what they learnt in the classroom — make, build, observe, debate, model. Lab sessions are timetabled, not optional.",
-          image: "/img/lab-english_jpg.jpg",
+            "Each lab gives children a regular, structured chance to apply what they've learnt in the classroom — to make, build, observe, debate or model. Lab sessions are timetabled, not optional.",
+          image: "/img/navbar/academics/language-lab.jpg",
           href: "/learning-labs",
         }}
         items={[
           {
-            title: "Science Lab",
-            body: "Hands-on experiments, structured enquiry, and a culture of asking questions — children learn to think like scientists.",
-            image: "/img/labs-science.jpg",
+            title: "Science & Maths Labs",
+            body: "Hands-on experiments and visual modelling. Children learn to think like scientists and reason like mathematicians.",
+            image: "/img/navbar/academics/science-lab.jpg",
             href: "/science-lab",
           },
           {
-            title: "Maths Lab",
-            body: "Number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
-            image: "/img/lab-maths1_jpg.jpg",
-            href: "/maths-lab",
-          },
-          {
-            title: "Language Lab",
-            body: "Read, speak, write with confidence — vocabulary, phonics and oral fluency built into every week.",
-            image: "/img/lab-english_jpg.jpg",
+            title: "Language & ICT Labs",
+            body: "Read, speak, write with confidence — and develop digital literacy from Grade 1 with online safety baked in.",
+            image: "/img/navbar/academics/language-lab.jpg",
             href: "/language-lab",
           },
           {
@@ -130,7 +124,7 @@ export default function Page() {
           {
             title: "Co-curricular activities",
             body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
-            image: "/img/art-cca.jpg",
+            image: "/img/navbar/academics/co-curricular-activities.jpg",
             href: "/cca",
           },
           {

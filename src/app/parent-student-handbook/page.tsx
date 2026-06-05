@@ -159,7 +159,7 @@ export default function Page() {
               <div className="mt-6 p-3 rounded-2xl bg-white border border-[var(--brand-rule)]">
                 <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100">
                   <Image
-                    src="/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg"
+                    src="/img/navbar/resources/parent-student-handbook/handbook-cover.jpg"
                     alt="Parent–Student Handbook cover"
                     fill
                     sizes="240px"

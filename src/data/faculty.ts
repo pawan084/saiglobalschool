@@ -15,7 +15,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "principal",
     name: "Mausumi Mukherjee",
     role: "Principal & Mathematics",
-    image: "/img/lsp07578_jpg.jpg",
+    image: "/img/navbar/about/faculty/principal.jpg",
     short: "Three decades of teaching maths and leading schools across India and Singapore.",
     qualifications: [
       "M.Sc. Mathematics",
@@ -33,7 +33,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "hod-science",
     name: "Pousali Bhattacharya",
     role: "HOD & Science",
-    image: "/img/lsp07600_jpg.jpg",
+    image: "/img/navbar/about/faculty/primary-teacher.jpg",
     short: "Hands-on science teacher who believes lab work is where the learning sticks.",
     qualifications: [
       "M.Sc. Biotechnology",
@@ -51,7 +51,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "admissions-art",
     name: "Moumita Mazumdar",
     role: "Admissions Lead & Art",
-    image: "/img/lsp07438_jpg.jpg",
+    image: "/img/navbar/about/faculty/language-teacher.jpg",
     short: "Front door of the school — and the studio teacher who runs Annual Day art.",
     qualifications: [
       "M.A. Fine Arts",
@@ -64,7 +64,7 @@ export const FACULTY: FacultyMember[] = [
     ],
     teaches: ["Art — Grades 5–8"],
   },
-  // NOTE: The three entries below use real staff portraits (lsp07288/07305/07302) but
+  // NOTE: The three entries below use real staff portraits but
   // placeholder "Subject Lead" names. The original site's faculty page named six teachers —
   // Mausumi Mukherjee, Pousali Bhattacharya, Moumita Mazumdar (the first three above, correctly
   // mapped) plus Uma Balachandar (English & Social Studies) and two Primary teachers
@@ -74,7 +74,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-language",
     name: "Subject Lead",
     role: "Language",
-    image: "/img/lsp07288_jpg.jpg",
+    image: "/img/navbar/about/faculty/science-teacher.jpg",
     short: "Reading, writing and oral fluency taught as a craft.",
     qualifications: ["M.A. English Literature", "B.Ed.", "Cambridge CELTA"],
     bio: [
@@ -87,7 +87,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-social",
     name: "Subject Lead",
     role: "Social Studies",
-    image: "/img/lsp07305_jpg.jpg",
+    image: "/img/navbar/about/faculty/maths-teacher.jpg",
     short: "Maps, primary sources, and structured discussion across history and civics.",
     qualifications: ["M.A. History", "B.Ed."],
     bio: [
@@ -100,7 +100,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-ict",
     name: "Subject Lead",
     role: "ICT",
-    image: "/img/lsp07302_jpg.jpg",
+    image: "/img/navbar/about/faculty/ict-teacher.jpg",
     short: "Digital literacy, computational thinking, and online safety from Grade 1.",
     qualifications: ["B.E. Computer Science", "Google Educator certification"],
     bio: [

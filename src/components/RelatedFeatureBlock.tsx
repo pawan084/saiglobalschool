@@ -7,7 +7,7 @@ type Props = {
   tone?: "white" | "mist" | "cream";
 };
 
-const FALLBACK_IMAGE = "/img/school_edited.jpg";
+const FALLBACK_IMAGE = "/img/home/hero/school-campus.jpg";
 
 export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
   const items = getSidebarItems(slug);

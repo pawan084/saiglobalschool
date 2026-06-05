@@ -45,8 +45,8 @@ export default function Page() {
         featured={{
           title: "Morning circle to closing reflection — eight blocks.",
           body:
-            "Two academic blocks, a lab session, mealtime & reflection, CCAs, closing reflection. Children leave with both skills and stories.",
-          image: "/img/breaks_jpg.jpg",
+            "Eight blocks make up the school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection. Children leave with both skills and stories.",
+          image: "/img/navbar/campus/a-day-at-sssgs.jpg",
           href: "/a-day-at-sssgs",
         }}
         items={[
@@ -58,20 +58,20 @@ export default function Page() {
           },
           {
             title: "Facilities",
-            body: "Bright classrooms, specialist labs, library, performing-arts spaces and activity zones — safe and focused.",
-            image: "/img/school_edited.jpg",
+            body: "Built for safe, focused learning — bright classrooms, specialist labs, library, performing-arts spaces and activity zones.",
+            image: "/img/navbar/campus/school-campus.jpg",
             href: "/facilities",
           },
           {
-            title: "Learning labs",
-            body: "Four dedicated labs — language, science, maths and ICT — turn classroom concepts into hands-on application.",
-            image: "/img/labs-science.jpg",
-            href: "/learning-labs",
+            title: "SSSGS Spaces",
+            body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
+            image: "/img/navbar/campus/classroom-spaces.jpg",
+            href: "/sssgs-spaces",
           },
           {
-            title: "Co-curricular activities",
-            body: "Music, visual arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.jpg",
+            title: "Co-Curricular Activities",
+            body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
+            image: "/img/navbar/campus/co-curricular-activities.jpg",
             href: "/cca",
           },
           {
@@ -97,27 +97,27 @@ export default function Page() {
         featured={{
           title: "The practical stuff, handled.",
           body:
-            "Uniform suppliers, bus routes across Singapore, calendar, mealtimes — the details that make school life predictable for families.",
-          image: "/img/ss1_edited.jpg",
+            "Uniform suppliers, bus routes across Singapore, calendar, mealtimes, and the day-to-day details that make school life predictable for families.",
+          image: "/img/navbar/campus/class-in-session.jpg",
           href: "/school-uniform-and-transportation",
         }}
         items={[
           {
-            title: "Campus address",
-            body: "Where SSSGS is, how to reach us, parking and drop-off — the basics of getting here, on time.",
-            image: "/img/school_edited.jpg",
+            title: "Campus Address",
+            body: "Where SSSGS is, how to reach us, parking and drop-off arrangements — the basics of getting here.",
+            image: "/img/navbar/campus/school-campus.jpg",
             href: "/campus-address",
           },
           {
-            title: "School calendar",
-            body: "Term dates, holidays and major school events — plan family travel around the academic year.",
-            image: "/img/holidays_jpg.jpg",
+            title: "School Calendar",
+            body: "Term dates, holidays and major school events — plan family travel and key moments around the academic year.",
+            image: "/img/navbar/campus/school-calendar.jpg",
             href: "/calendar",
           },
           {
-            title: "Parent community",
-            body: "An active community that supports the school, each other, and children growing up at SSSGS.",
-            image: "/img/lsp07600_jpg.jpg",
+            title: "Parent Community",
+            body: "An active parent community that supports the school, each other, and children growing up at SSSGS.",
+            image: "/img/navbar/campus/campus-life.jpg",
             href: "/parent-community",
           },
           {

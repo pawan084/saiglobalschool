@@ -36,13 +36,13 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[var(--brand-navy)] text-white">
         <div className="absolute inset-0">
           <Image
-            src="/img/home/hero/homepage-hero-banner.avif"
-            alt="A peaceful environment for learning and growth at SSSGS"
+            src="/img/home/hero/school-campus.jpg"
+            alt="The Sri Sathya Sai Global School campus"
             fill
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ objectPosition: "center 30%" }}
+            style={{ objectPosition: "center 40%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-navy)] via-[var(--brand-navy)]/80 to-[var(--brand-navy)]/20" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--brand-navy)]/30 via-transparent to-[var(--brand-navy)]/65" />

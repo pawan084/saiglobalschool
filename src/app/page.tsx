@@ -32,7 +32,7 @@ const testimonials = [
 export default function Home() {
   return (
     <>
-      {/* HERO — cinematic, editorial */}
+      {/* FOLD 1 — PROMISE: Hero */}
       <section className="relative overflow-hidden bg-[var(--brand-navy)] text-white">
         <div className="absolute inset-0">
           <Image
@@ -78,19 +78,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-12 lg:py-14 bg-white">
-        <div className="section-shell">
-          <StatsCounter items={stats} />
-        </div>
-      </section>
-
-      {/* SECTION 1 — Right Fit (mist) — LCP candidate when the page scrolls past the hero */}
+      {/* FOLD 2 — NEED: Right Fit (mist) — LCP candidate when the page scrolls past the hero */}
       <FeatureBlock
         tone="mist"
         priorityFeatured
         title="Is Sri Sathya Sai Global School the Right Fit for Your Child?"
-        intro="Every child joins school with a different story. SSSGS supports families seeking academic continuity, personal attention, and a caring transition into a structured international school environment."
+        intro="Every child joins school with a different story — a move, a transition, a search for a school that listens. These are the situations parents most often describe to us."
         featured={{
           title: "Seamless Transition for Relocating Families.",
           body:
@@ -122,11 +115,11 @@ export default function Home() {
         ]}
       />
 
-      {/* SECTION 2 — Why SSSGS (mist deeper) */}
+      {/* FOLD 3 — SOLUTION: How SSSGS answers (cream) */}
       <FeatureBlock
-        tone="mist"
-        title="Why Sri Sathya Sai Global School?"
-        intro="Sri Sathya Sai Global School offers a structured academic environment supported by experienced educators, small-group learning, and applied, lab-based instruction across core subjects."
+        tone="cream"
+        title="How Sri Sathya Sai Global School answers these needs"
+        intro="Experienced educators, small-group learning, and applied lab-based instruction across core subjects — guided by a teaching philosophy we call Sri Sathya Sai Vidya Vahini."
         featured={{
           title: "A Complete Learning Environment for Confident Growth",
           body:
@@ -157,117 +150,89 @@ export default function Home() {
         ]}
       />
 
-      {/* SECTION 3 — Academics (cream) */}
-      <FeatureBlock
-        tone="cream"
-        title="Academics that go beyond the textbook"
-        intro="An NCERT-aligned integrated curriculum, structured progression, and four dedicated labs — language, science, math and ICT — where children apply what they learn."
-        featured={{
-          title: "Curriculum, Pathway, Assessment — all aligned.",
-          body:
-            "From phonics in Grade 1 to lab-based projects in Grade 8, our academic pathway is built around conceptual clarity, consistent feedback, and outcomes that travel with the child across schools and curricula.",
-          image: "/img/548-1.jpg",
-          href: "/curriculum",
-        }}
-        items={[
-          {
-            title: "Courses Offered",
-            body: "Subjects across primary and middle school: languages, math, science, social studies, ICT, arts, PE and value education.",
-            image: "/img/7406-1.jpg",
-            href: "/courses-offered",
-          },
-          {
-            title: "Academic Pathway",
-            body: "A clear grade-by-grade progression from foundations in Grades 1–2 to depth and synthesis in Grades 6–8.",
-            image: "/img/lab-english_jpg.jpg",
-            href: "/academic-pathway",
-          },
-          {
-            title: "Assessment Structure",
-            body: "Daily formative checks, weekly reviews, term assessments and oral & project work — assessment is for learning, not just of it.",
-            image: "/img/ss1_edited.jpg",
-            href: "/assessment-structure",
-          },
-        ]}
-      />
+      {/* FOLD 4 — PROOF: SSSVV Hands-on Learning */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#e6ecf9] via-[#eef0fc] to-[#f3eafa] py-20 lg:py-24">
+        {/* Decorative asterisk top-left */}
+        <svg
+          aria-hidden
+          viewBox="0 0 48 48"
+          className="absolute top-10 left-6 lg:left-12 w-10 h-10 lg:w-12 lg:h-12 text-[var(--brand-navy)] opacity-70"
+          fill="none"
+        >
+          <g stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <line x1="24" y1="4" x2="24" y2="44" />
+            <line x1="4" y1="24" x2="44" y2="24" />
+            <line x1="10" y1="10" x2="38" y2="38" />
+            <line x1="10" y1="38" x2="38" y2="10" />
+          </g>
+        </svg>
 
-      {/* SECTION 4 — Campus Life (mist) */}
-      <FeatureBlock
-        tone="mist"
-        title="Campus Life that rounds the whole child"
-        intro="Structured rhythms, lab work, CCAs, mealtime conversations, and reflection — every day at SSSGS develops more than just academics."
-        featured={{
-          title: "A day at SSSGS — from morning circle to closing reflection.",
-          body:
-            "Eight blocks that make up a school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection — designed so children leave with both skills and stories.",
-          image: "/img/7621-1.jpg",
-          href: "/a-day-at-sssgs",
-        }}
-        items={[
-          {
-            title: "Facilities & Spaces",
-            body: "Bright classrooms, four learning labs, library, performing-arts spaces and activity zones — built around how children actually learn.",
-            image: "/img/school_edited.jpg",
-            href: "/sssgs-spaces",
-          },
-          {
-            title: "Co-Curricular Activities",
-            body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.jpg",
-            href: "/cca",
-          },
-          {
-            title: "Uniform & Transport",
-            body: "Practical details — uniform requirements, where to obtain them, and the school transport routes available across Singapore.",
-            image: "/img/ss1_edited.jpg",
-            href: "/school-uniform-and-transportation",
-          },
-        ]}
-      />
+        <div className="section-shell relative">
+          <h2 className="font-display text-center text-[32px] sm:text-[42px] lg:text-[56px] leading-[1.05] font-bold tracking-tight text-[var(--brand-navy)] max-w-4xl mx-auto">
+            Hands-on Learning by<br className="hidden sm:block" /> Sri Sathya Sai Vidya Vahini (SSSVV)
+          </h2>
 
-      {/* SECTION 5 — Admissions (cream) */}
-      <FeatureBlock
-        tone="cream"
-        title="Admissions, made transparent."
-        intro="A clear, supportive six-step admission journey. Mid-year admissions welcome; we walk every family through every step from inquiry to first day."
-        featured={{
-          title: "Admission process: clear, supportive, parent-friendly.",
-          body:
-            "Inquire → meet the team → assess → register. Each step has a single point of contact, transparent timelines, and clear expectations. Transitions from CBSE, ICSE, Cambridge, IB and local curricula handled without disruption.",
-          image: "/img/p1-vision.jpg",
-          imagePosition: "top",
-          href: "/admission-process",
-        }}
-        items={[
-          {
-            title: "Entry Requirements",
-            body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
-            image: "/img/7621-1.jpg",
-            href: "/entry-requirements",
-          },
-          {
-            title: "Fee Structure",
-            body: "Transparent annual fee breakdown for Primary (Grades 1–5) and Secondary (Grades 6–8). Indicative annual totals shown.",
-            image: "/img/548-1.jpg",
-            href: "/fee-structure",
-          },
-          {
-            title: "Open House & Tours",
-            body: "Meet our Principal, see classrooms in session, ask the admissions team — both Open House and private tours available.",
-            image: "/img/lsp07578_jpg.jpg",
-            imagePosition: "top",
-            href: "/open-house",
-          },
-        ]}
-      />
+          <div className="mt-12 lg:mt-16 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div className="relative">
+              <p className="text-[15px] lg:text-[16px] leading-relaxed text-slate-700">
+                At Sri Sathya Sai Global School, learning goes beyond textbooks. Through the learning approach inspired by Sri Sathya Sai Vidya Vahini, children engage with stories, activities, values, and real-life applications that make learning meaningful.
+              </p>
+              <p className="mt-4 text-[15px] lg:text-[16px] leading-relaxed text-slate-700">
+                Lessons are designed to help students connect ideas with everyday life, build curiosity, develop confidence, and grow with character.
+              </p>
+              <h3 className="mt-10 text-[24px] lg:text-[30px] font-bold text-[var(--brand-navy)] tracking-tight">
+                Learning with Stories
+              </h3>
+              <p className="mt-3 text-[15px] lg:text-[16px] leading-relaxed text-slate-700">
+                Every lesson comes alive through stories that inspire values, build understanding, and stay with students beyond the classroom.
+              </p>
+            </div>
 
-      {/* TESTIMONIALS */}
-      <TestimonialsGrid items={testimonials} />
+            <div className="relative">
+              {/* Decorative squiggle */}
+              <svg
+                aria-hidden
+                viewBox="0 0 32 80"
+                className="absolute -left-6 lg:-left-10 top-1/2 -translate-y-1/2 w-6 lg:w-8 h-auto text-[var(--brand-navy)] opacity-70"
+                fill="none"
+              >
+                <path
+                  d="M16 4 Q 28 18, 14 32 T 18 60 Q 20 70, 10 76"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+              <Image
+                src="/img/sssvvp3_2.jpg"
+                alt="SSSGS students engaged in a hands-on Sri Sathya Sai Vidya Vahini learning activity"
+                width={1200}
+                height={800}
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="w-full h-auto rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOLD 5 — TRUST: Stats + Testimonials */}
+      <section className="py-10 lg:py-12 bg-white">
+        <div className="section-shell">
+          <StatsCounter items={stats} />
+        </div>
+      </section>
+      <TestimonialsGrid
+        items={testimonials}
+        title="What parents tell us"
+        intro="Settled days, growing confidence, learning that stays — what families share with us in their own words."
+      />
 
       {/* RECENTLY VIEWED (only renders if user has history) */}
       <RecentlyViewed />
 
-      {/* BIG CTA */}
+      {/* FOLD 6 — ACTION: Navy CTA */}
       <section className="relative py-14 lg:py-20 bg-[var(--brand-navy)] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]" aria-hidden>
           <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-[var(--brand-accent)] blur-3xl" />

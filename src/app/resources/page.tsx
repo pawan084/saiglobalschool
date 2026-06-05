@@ -1,5 +1,8 @@
 import PageHero from "@/components/PageHero";
 import FeatureBlock from "@/components/FeatureBlock";
+import FeatureGrid from "@/components/FeatureGrid";
+import ContentSection from "@/components/ContentSection";
+import TrustBadges from "@/components/TrustBadges";
 import CTAStrip from "@/components/CTAStrip";
 
 export const metadata = {
@@ -8,16 +11,33 @@ export const metadata = {
   alternates: { canonical: "/resources" },
 };
 
+const parentResourceNeeds = [
+  { iconName: "book-open",  title: "Policies in plain English",     body: "Parents want to know how the school actually runs — discipline, communication, support — without reading legalese." },
+  { iconName: "calendar",   title: "Term dates and key events",     body: "When the terms start, when holidays fall, and when the major school moments happen — planned around the family year." },
+  { iconName: "list-check", title: "Answers to common questions",   body: "The five or six things every prospective family asks — covered up front so you don't have to chase the answer." },
+  { iconName: "sparkle",    title: "Enrichment beyond the syllabus", body: "Phonics, abacus and Olympiad coaching that extend what's taught in the classroom — without doubling the workload." },
+];
+
 export default function Page() {
   return (
     <>
+      {/* FOLD 1 — PROMISE */}
       <PageHero
         eyebrow="Resources"
-        title="Resources for Parents"
+        title="Everything parents need, gathered in one place"
         lead="Policies, the academic calendar, parent-student handbook, frequently asked questions and the enrichment programs that complement classroom learning."
         breadcrumb={[{ label: "Resources", href: "/resources" }]}
       />
 
+      {/* FOLD 2 — NEED */}
+      <ContentSection eyebrow="What parents come here for" title="The four reasons families open this page" tone="white">
+        <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
+          Most parents land on the Resources page with a specific question — about a policy, a date, or a programme. Each is one click away.
+        </p>
+        <FeatureGrid items={parentResourceNeeds} cols={4} />
+      </ContentSection>
+
+      {/* FOLD 3 — SOLUTION */}
       <FeatureBlock
         tone="mist"
         title="Everything you need, in one place."
@@ -51,10 +71,11 @@ export default function Page() {
         ]}
       />
 
+      {/* FOLD 4 — PROOF */}
       <FeatureBlock
         tone="cream"
-        title="Enrichment that goes beyond the classroom."
-        intro="Programs that extend the core curriculum — early literacy through phonics, mental-math via abacus, and Olympiad preparation for Grades 3–8."
+        title="Enrichment that extends what's taught in class."
+        intro="Programs that go beyond the core curriculum — early literacy through phonics, mental-math via abacus, and Olympiad preparation for Grades 3–8."
         featured={{
           title: "Phonics, Abacus, Olympiad — focused enrichment programs.",
           body:
@@ -84,7 +105,19 @@ export default function Page() {
         ]}
       />
 
-      <CTAStrip />
+      {/* FOLD 5 — TRUST */}
+      <ContentSection eyebrow="The framework behind every resource" title="Standards parents can rely on" tone="white">
+        <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
+          Every policy, programme and resource is shaped by the framework SSSGS operates within — CPE Singapore registration, NCERT-aligned curriculum, and small-group teaching.
+        </p>
+        <TrustBadges variant="inline" />
+      </ContentSection>
+
+      {/* FOLD 6 — ACTION */}
+      <CTAStrip
+        title="Question we haven't answered?"
+        subtitle="Talk to the admissions team directly — call, WhatsApp or send a quick message."
+      />
     </>
   );
 }

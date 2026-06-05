@@ -1,6 +1,8 @@
 import Link from "next/link";
 import InnerPageShell from "@/components/InnerPageShell";
 import ContentSection from "@/components/ContentSection";
+import FeatureGrid from "@/components/FeatureGrid";
+import TrustBadges from "@/components/TrustBadges";
 import FormCard from "@/components/FormCard";
 import Icon from "@/components/Icon";
 import LiveOnlineIndicator from "@/components/LiveOnlineIndicator";
@@ -22,14 +24,21 @@ const channels: Channel[] = [
   { iconName: "mail", label: "Email", value: site.email, href: `mailto:${site.email}` },
 ];
 
+const reasons = [
+  { iconName: "graduation", title: "Admissions & enrolment",      body: "Mid-year admissions, entry requirements, the assessment process, or moving from another curriculum." },
+  { iconName: "credit-card", title: "Fees & policies",            body: "Fee structure, payment schedules, refund terms aligned with CPE Singapore, and what's included." },
+  { iconName: "map-pin",     title: "Tour or open house visit",   body: "Book a 45-minute campus visit, attend the next open house, or arrange a personalised walk-through." },
+  { iconName: "book-open",   title: "Curriculum & learning",      body: "Questions about NCERT alignment, the four learning labs, assessment style, or character development." },
+];
+
 export default function Page() {
   return (
     <InnerPageShell
       slug="contact-us"
       hero={{
         eyebrow: "Contact",
-        title: "Get in touch with us",
-        lead: "Whether you're exploring admissions or want to learn more about the school, we'd love to hear from you.",
+        title: "Talk to the team that talks to your child every day",
+        lead: "Admissions, curriculum, fees or a campus visit — reach the SSSGS team in whichever way suits you. We reply within one business day, every time.",
         breadcrumb: [{ label: "Contact", href: "/contact-us" }],
       }}
       ctaTitle="Prefer a quick chat?"
@@ -41,11 +50,18 @@ export default function Page() {
           { label: "Contact", href: "/contact-us" },
         ]}
       />
-      <ContentSection flush>
+
+      {/* FOLD 2 — NEED */}
+      <ContentSection flush eyebrow="What brings you here" title="The four reasons families usually get in touch">
+        <FeatureGrid items={reasons} cols={2} />
+      </ContentSection>
+
+      {/* FOLD 3 — SOLUTION: contact channels */}
+      <ContentSection flush eyebrow="The fastest ways to reach us" title="Pick the channel that suits you">
         <div className="mb-5">
           <LiveOnlineIndicator />
         </div>
-        <div className="grid sm:grid-cols-3 gap-3 mb-8">
+        <div className="grid sm:grid-cols-3 gap-3">
           {channels.map((c) => (
             <a
               key={c.label}
@@ -62,7 +78,18 @@ export default function Page() {
             </a>
           ))}
         </div>
+      </ContentSection>
 
+      {/* FOLD 4 — PROOF: trust signals */}
+      <ContentSection flush eyebrow="A registered, accountable institution" title="Why your message lands in the right hands">
+        <p className="text-[15px] text-slate-700 mb-5 leading-relaxed">
+          SSSGS operates as a CPE-Singapore-registered Private Education Institution. The admissions and operations team are accountable, named, and respond within one business day.
+        </p>
+        <TrustBadges variant="inline" />
+      </ContentSection>
+
+      {/* FOLD 5 — ACTION: form */}
+      <ContentSection flush eyebrow="Send us a message" title="Tell us about your family, your child, and what you're looking for">
         <FormCard
           title="Send us a message"
           subtitle="We respond within one business day."

@@ -12,19 +12,28 @@ import { site } from "@/data/site";
  * obscure content the visitor is actively reading; reappears on scroll up.
  */
 export default function FloatingMobileCTA() {
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
     let lastY = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
+      if (y < 120) {
+        setHidden(true);
+        lastY = y;
+        return;
+      }
       // Hide if scrolling down past 200px; show again on any upward movement
       if (y - lastY > 6 && y > 200) setHidden(true);
       else if (lastY - y > 4) setHidden(false);
       lastY = y;
     };
+    const raf = window.requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -34,7 +43,7 @@ export default function FloatingMobileCTA() {
       }`}
     >
       <div
-        className="mx-2 mb-2 rounded-2xl border border-[var(--brand-rule)] bg-white/95 backdrop-blur px-3 py-2.5 flex items-center gap-2"
+        className="mx-auto mb-2 w-[calc(100%-1rem)] max-w-[430px] rounded-2xl border border-[var(--brand-rule)] bg-white/95 backdrop-blur px-3 py-2.5 flex items-center gap-2"
         style={{ boxShadow: "0 12px 32px -10px rgba(11,29,51,0.30)" }}
       >
         <a

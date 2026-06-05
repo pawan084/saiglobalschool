@@ -1,15 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
-import { safeGetJson } from "@/lib/storage";
+import { safeGet } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:recent-paths";
 
-function readItems(): SearchEntry[] {
-  const paths = safeGetJson<string[]>(STORAGE_KEY, []);
+function subscribe() {
+  return () => {};
+}
+
+function getSnapshot() {
+  return safeGet(STORAGE_KEY, "[]") ?? "[]";
+}
+
+function getServerSnapshot() {
+  return "[]";
+}
+
+function itemsFromSnapshot(snapshot: string): SearchEntry[] {
+  let paths: string[];
+  try {
+    paths = JSON.parse(snapshot) as string[];
+  } catch {
+    paths = [];
+  }
+
   return paths
     .map((p) => searchIndex.find((s) => s.href === p))
     .filter((x): x is SearchEntry => !!x)
@@ -17,8 +35,8 @@ function readItems(): SearchEntry[] {
 }
 
 export default function RecentlyViewed() {
-  // Lazy initializer reads localStorage on first render (no setState-in-effect).
-  const [items] = useState<SearchEntry[]>(() => readItems());
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const items = useMemo(() => itemsFromSnapshot(snapshot), [snapshot]);
 
   if (!items.length) return null;
 

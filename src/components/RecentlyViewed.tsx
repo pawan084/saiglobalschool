@@ -1,24 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { searchIndex, type SearchEntry } from "@/data/search-index";
-import { safeGetJson } from "@/lib/storage";
+import { safeGet } from "@/lib/storage";
 
 const STORAGE_KEY = "sssgs:recent-paths";
+const EMPTY: SearchEntry[] = [];
 
-function readItems(): SearchEntry[] {
-  const paths = safeGetJson<string[]>(STORAGE_KEY, []);
-  return paths
+// useSyncExternalStore requires getSnapshot to return a referentially-stable
+// value when nothing changed, so we memoise on the raw stored string.
+let cachedRaw: string | null = null;
+let cachedItems: SearchEntry[] = EMPTY;
+
+function getSnapshot(): SearchEntry[] {
+  const raw = safeGet(STORAGE_KEY) ?? "";
+  if (raw === cachedRaw) return cachedItems;
+  cachedRaw = raw;
+  let paths: string[] = [];
+  try {
+    paths = raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    paths = [];
+  }
+  cachedItems = paths
     .map((p) => searchIndex.find((s) => s.href === p))
     .filter((x): x is SearchEntry => !!x)
     .slice(0, 4);
+  return cachedItems;
+}
+
+// Server (and the hydration render) always see an empty list, so the server
+// HTML and the first client render agree — no hydration mismatch. After
+// hydration, React reads getSnapshot and fills in the visitor's real history.
+function getServerSnapshot(): SearchEntry[] {
+  return EMPTY;
+}
+
+function subscribe(onChange: () => void): () => void {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
 }
 
 export default function RecentlyViewed() {
-  // Lazy initializer reads localStorage on first render (no setState-in-effect).
-  const [items] = useState<SearchEntry[]>(() => readItems());
+  const items = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (!items.length) return null;
 

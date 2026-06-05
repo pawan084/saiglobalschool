@@ -9,15 +9,16 @@ type Props = {
   className?: string;
 };
 
-/** Default to shown when the IntersectionObserver API isn't available
- *  (server-rendering or very old browsers). This keeps content visible
- *  without needing a setState-in-effect on mount. */
 const ioSupported = (): boolean =>
   typeof IntersectionObserver !== "undefined";
 
 export default function RevealOnScroll({ children, delay = 0, className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [observed, setObserved] = useState(() => !ioSupported());
+  // Start hidden on BOTH server and first client render so the two agree (no
+  // hydration mismatch). The IntersectionObserver below reveals it after mount;
+  // the `.reveal-on-scroll` CSS rule forces visibility when JS is off or motion
+  // is reduced, so content is never stuck hidden.
+  const [observed, setObserved] = useState(false);
   const reduced = useReducedMotion();
   // Reduced-motion users get content immediately (no fade-in delay, no
   // risk of blank above-the-fold content) — derive `shown` rather than
@@ -47,7 +48,7 @@ export default function RevealOnScroll({ children, delay = 0, className = "" }: 
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 will-change-transform ${
+      className={`reveal-on-scroll ${className} transition-all duration-700 will-change-transform ${
         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >

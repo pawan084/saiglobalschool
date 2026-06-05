@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
 
@@ -14,14 +14,28 @@ type Props = {
   url?: string;
 };
 
+function subscribe(onChange: () => void): () => void {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+}
+const getClientUrl = (): string => window.location.href;
+const getServerUrl = (): string => "";
+
 export default function SharePage({ title, url }: Props) {
   const { show } = useToast();
   const [copied, setCopied] = useState(false);
 
+  // Read the live URL via an external store so the server render and the first
+  // client render agree (both empty when no `url` prop), then it populates
+  // after hydration — avoids a mismatch on the share-link href attributes.
+  const currentUrl = useSyncExternalStore(subscribe, getClientUrl, getServerUrl);
+  const resolved = url ?? currentUrl;
+
+  // Click handlers run only on the client; read the live URL so a copy/share
+  // works even if a tap lands in the brief window before hydration settles.
   function effectiveUrl() {
     if (url) return url;
-    if (typeof window === "undefined") return "";
-    return window.location.href;
+    return typeof window === "undefined" ? "" : window.location.href;
   }
 
   async function copy() {
@@ -49,7 +63,7 @@ export default function SharePage({ title, url }: Props) {
     }
   }
 
-  const u = encodeURIComponent(effectiveUrl());
+  const u = encodeURIComponent(resolved);
   const t = encodeURIComponent(title);
 
   return (

@@ -310,6 +310,18 @@ html[data-contrast="high"] .text-white\/90 { color: #ffffff !important; }
   }
 }
 
+/* RevealOnScroll fades content in via IntersectionObserver, so its elements
+   start hidden (opacity:0) on both server and client — keeping SSR and the
+   first client render identical (no hydration mismatch). When JS is
+   unavailable or the user prefers reduced motion, force the content visible
+   so it can never stay hidden. Pure CSS, so it needs no React state. */
+@media (scripting: none), (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ── Print styles ─────────────────────────────────────────
    Goal: a branded, readable single-document print when a parent
    prints a policy, fee sheet, calendar, or handbook section.

@@ -108,11 +108,58 @@ describe("clientKey", () => {
     expect(clientKey(req)).toBe("9.9.9.9");
   });
 
-  it("uses x-forwarded-for as last platform-header resort", () => {
+  it("uses x-forwarded-for as last platform-header resort (behind a trusted proxy)", () => {
     const req = new Request("http://localhost/", {
       headers: { "x-forwarded-for": "1.2.3.4, 5.6.7.8" },
     });
     expect(clientKey(req)).toBe("1.2.3.4");
+  });
+
+  describe("anti-spoofing: proxy headers untrusted without RATE_LIMIT_TRUST_PROXY", () => {
+    const prev = process.env.RATE_LIMIT_TRUST_PROXY;
+    beforeEach(() => {
+      delete process.env.RATE_LIMIT_TRUST_PROXY;
+    });
+    afterEach(() => {
+      process.env.RATE_LIMIT_TRUST_PROXY = prev;
+    });
+
+    it("ignores a forged x-forwarded-for and does NOT bucket by it", () => {
+      const req = new Request("http://localhost/", {
+        headers: { "x-forwarded-for": "1.2.3.4", "user-agent": "UA", "accept-language": "en" },
+      });
+      const key = clientKey(req);
+      expect(key).not.toBe("1.2.3.4");
+      expect(key).toMatch(/^ua-/); // falls through to the UA fingerprint
+    });
+
+    it("ignores a forged x-real-ip", () => {
+      const req = new Request("http://localhost/", {
+        headers: { "x-real-ip": "9.9.9.9", "user-agent": "UA" },
+      });
+      expect(clientKey(req)).not.toBe("9.9.9.9");
+    });
+
+    it("an attacker rotating x-forwarded-for cannot escape its bucket", () => {
+      const a = clientKey(
+        new Request("http://localhost/", {
+          headers: { "x-forwarded-for": "1.1.1.1", "user-agent": "UA", "accept-language": "en" },
+        })
+      );
+      const b = clientKey(
+        new Request("http://localhost/", {
+          headers: { "x-forwarded-for": "2.2.2.2", "user-agent": "UA", "accept-language": "en" },
+        })
+      );
+      expect(a).toBe(b); // same UA → same bucket regardless of forged XFF
+    });
+
+    it("still trusts non-spoofable platform-edge headers", () => {
+      const req = new Request("http://localhost/", {
+        headers: { "x-vercel-forwarded-for": "5.5.5.5", "x-forwarded-for": "1.2.3.4" },
+      });
+      expect(clientKey(req)).toBe("5.5.5.5");
+    });
   });
 
   it("never returns the literal 'anon' bucket when UA/lang are present", () => {

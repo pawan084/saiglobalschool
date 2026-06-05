@@ -55,29 +55,39 @@ export function rateLimit(
 }
 
 /**
- * Trusted IP headers, in priority order.
+ * Non-spoofable platform-edge IP headers, in priority order.
  *
- * Each platform terminates TLS at its own edge and sets its own non-spoofable
- * header. Reading those FIRST means an attacker can't bypass rate limits by
- * forging `x-forwarded-for` — those edge headers are stripped by the edge if
- * the client tries to forge them.
+ * Each of these platforms terminates TLS at its own edge and OVERWRITES the
+ * header with the real client IP after stripping anything the client sent, so
+ * a client cannot forge them. These are always trusted.
  *
- *  - `x-vercel-forwarded-for`  → Vercel (set by their edge after stripping XFF)
+ *  - `x-vercel-forwarded-for`  → Vercel
  *  - `cf-connecting-ip`        → Cloudflare
  *  - `fly-client-ip`           → Fly.io
- *  - `x-real-ip`               → nginx default, also Netlify
- *  - `x-forwarded-for`         → generic fallback (DO trust only behind a known proxy)
- *
- * Order matters: the first match wins. `x-forwarded-for` is last so any
- * platform that adds its own header takes precedence over the spoofable one.
  */
-const TRUSTED_IP_HEADERS = [
+const EDGE_IP_HEADERS = [
   "x-vercel-forwarded-for",
   "cf-connecting-ip",
   "fly-client-ip",
-  "x-real-ip",
-  "x-forwarded-for",
 ] as const;
+
+/**
+ * Reverse-proxy headers (`x-real-ip`, `x-forwarded-for`). On a bare host — or a
+ * proxy that doesn't sanitise them — a client can forge these and rotate a
+ * fresh value per request to land in a new bucket every time, defeating the
+ * limiter on cost-bearing endpoints (e.g. the OpenAI-backed chat route).
+ *
+ * So we trust them ONLY when the operator explicitly declares a sanitising
+ * proxy is in front, via `RATE_LIMIT_TRUST_PROXY=1`. That deployment contract:
+ * the proxy must replace (not merely append) these headers with the real
+ * client IP. Absent the flag, forged proxy headers are ignored and the client
+ * falls through to the UA fingerprint below.
+ */
+const PROXY_IP_HEADERS = ["x-real-ip", "x-forwarded-for"] as const;
+
+function firstIp(value: string): string {
+  return value.split(",")[0].trim();
+}
 
 /** Tiny FNV-1a hash so the UA fallback doesn't leak the raw string into log keys. */
 function fnv1a(s: string): string {
@@ -90,14 +100,24 @@ function fnv1a(s: string): string {
 }
 
 export function clientKey(req: Request): string {
-  for (const name of TRUSTED_IP_HEADERS) {
+  // 1) Non-spoofable platform-edge headers — always trusted.
+  for (const name of EDGE_IP_HEADERS) {
     const v = req.headers.get(name);
     if (!v) continue;
-    // x-forwarded-for can be a comma list — first is the client.
-    const ip = v.split(",")[0].trim();
+    const ip = firstIp(v);
     if (ip) return ip;
   }
-  // No platform header — degrade gracefully. Using a literal "anon" collapses
+  // 2) Reverse-proxy headers — forgeable on a bare host, so only trusted when
+  //    the operator declares a sanitising proxy via RATE_LIMIT_TRUST_PROXY=1.
+  if (process.env.RATE_LIMIT_TRUST_PROXY === "1") {
+    for (const name of PROXY_IP_HEADERS) {
+      const v = req.headers.get(name);
+      if (!v) continue;
+      const ip = firstIp(v);
+      if (ip) return ip;
+    }
+  }
+  // No trusted IP source — degrade gracefully. Using a literal "anon" collapses
   // every anonymous client into one bucket, which means one attacker DoS's
   // rate-limiting for everyone. Hash UA + Accept-Language as a cheap proxy
   // for client identity so unique-looking clients land in different buckets.

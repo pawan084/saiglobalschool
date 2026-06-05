@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { schoolContext } from "@/lib/schoolContext";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { isAllowedOrigin } from "@/lib/origin";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,6 +12,15 @@ const MAX_TURNS = 10;
 const MAX_USER_LEN = 1500;
 
 export async function POST(req: Request) {
+  // Same-origin gate — this route spends real money on the OpenAI API, so
+  // reject cross-origin browser POSTs (CSRF / third-party automation).
+  if (!isAllowedOrigin(req)) {
+    return new Response(
+      JSON.stringify({ error: "Forbidden" }),
+      { status: 403, headers: { "content-type": "application/json" } }
+    );
+  }
+
   if (!process.env.OPENAI_API_KEY) {
     return new Response(
       JSON.stringify({ error: "Server missing OPENAI_API_KEY env var" }),

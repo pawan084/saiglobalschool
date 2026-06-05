@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { isAllowedOrigin } from "@/lib/origin";
 import { maskEmail } from "@/lib/log";
 
 /**
@@ -10,22 +11,6 @@ import { maskEmail } from "@/lib/log";
 
 const MAX_FIELD_LEN = 500;
 const MAX_NOTES_LEN = 2000;
-
-/** Same-origin check: rejects cross-origin POSTs to thwart CSRF / scraping.
- *  Browsers send Origin on every cross-origin write. Same-origin browser POSTs
- *  send Origin = our host. Server-to-server requests typically have no Origin
- *  — those we let through (rate limiting + honeypot still apply). */
-function isAllowedOrigin(req: Request): boolean {
-  const origin = req.headers.get("origin");
-  if (!origin) return true; // no Origin → not a browser cross-origin write
-  try {
-    const reqUrl = new URL(req.url);
-    const originUrl = new URL(origin);
-    return reqUrl.host === originUrl.host;
-  } catch {
-    return false;
-  }
-}
 
 function reference() {
   const ts = Date.now().toString(36).toUpperCase();

@@ -3,6 +3,12 @@ import React from "react";
 import { vi, afterEach, beforeEach } from "vitest";
 import { cleanup } from "@testing-library/react";
 
+// Emulate running behind a sanitising reverse proxy so clientKey() trusts the
+// x-forwarded-for header the API tests use for per-IP rate-limit bucketing.
+// In production this is opt-in; clientKey ignores forged proxy headers by
+// default — see tests/lib/rate-limit.test.ts for the default-secure behaviour.
+process.env.RATE_LIMIT_TRUST_PROXY = "1";
+
 afterEach(() => cleanup());
 
 class MockIntersectionObserver {

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { isAllowedOrigin } from "@/lib/origin";
 import { maskEmail } from "@/lib/log";
 
 /**
@@ -32,6 +33,10 @@ function boundedInt(v: unknown, max: number): number | undefined {
 }
 
 export async function POST(req: Request) {
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ ok: false, error: "Forbidden" }, { status: 403 });
+  }
+
   // Rate limit per IP — 8 submissions per 5 minutes
   const key = clientKey(req);
   const rl = rateLimit(`inquire:${key}`, { limit: 8, windowMs: 5 * 60_000, banMs: 10 * 60_000 });

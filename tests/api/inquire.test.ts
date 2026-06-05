@@ -18,6 +18,20 @@ describe("/api/inquire", () => {
     expect(json.reference).toMatch(/^INQ-/);
   });
 
+  it("rejects a cross-origin POST with 403 (CSRF guard)", async () => {
+    const r = new Request("http://localhost/api/inquire", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "10.0.0.9",
+        origin: "https://evil.example",
+      },
+      body: JSON.stringify({ name: "Mallory", email: "m@evil.example" }),
+    });
+    const res = await POST(r);
+    expect(res.status).toBe(403);
+  });
+
   it("400 on missing name", async () => {
     const res = await POST(req({ email: "a@example.com" }, "10.0.0.2"));
     expect(res.status).toBe(400);

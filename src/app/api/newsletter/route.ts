@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { isAllowedOrigin } from "@/lib/origin";
 import { maskEmail } from "@/lib/log";
 
 /**
@@ -11,6 +12,10 @@ import { maskEmail } from "@/lib/log";
 const MAX_EMAIL_LEN = 254; // RFC 5321 upper bound
 
 export async function POST(req: Request) {
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ ok: false, error: "Forbidden" }, { status: 403 });
+  }
+
   const key = clientKey(req);
   const rl = rateLimit(`newsletter:${key}`, {
     limit: 5,

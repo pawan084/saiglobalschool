@@ -71,7 +71,7 @@ export default function Page() {
       hero={{
         eyebrow: "Resources",
         title: "Events",
-        lead: "What&rsquo;s next at SSSGS. RSVP for what interests you and add it straight to your calendar.",
+        lead: "What’s next at SSSGS. RSVP for what interests you and add it straight to your calendar.",
         breadcrumb: [
           { label: "Resources", href: "/resources" },
           { label: "Events", href: "/events" },

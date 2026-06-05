@@ -33,7 +33,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "hod-science",
     name: "Pousali Bhattacharya",
     role: "HOD & Science",
-    image: "/img/navbar/about/faculty/primary-teacher.jpg",
+    image: "/img/navbar/about/faculty/hod-science.jpg",
     short: "Hands-on science teacher who believes lab work is where the learning sticks.",
     qualifications: [
       "M.Sc. Biotechnology",
@@ -51,7 +51,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "admissions-art",
     name: "Moumita Mazumdar",
     role: "Admissions Lead & Art",
-    image: "/img/navbar/about/faculty/language-teacher.jpg",
+    image: "/img/navbar/about/faculty/admissions-art.jpg",
     short: "Front door of the school — and the studio teacher who runs Annual Day art.",
     qualifications: [
       "M.A. Fine Arts",
@@ -74,7 +74,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-language",
     name: "Subject Lead",
     role: "Language",
-    image: "/img/navbar/about/faculty/science-teacher.jpg",
+    image: "/img/navbar/about/faculty/lead-language.jpg",
     short: "Reading, writing and oral fluency taught as a craft.",
     qualifications: ["M.A. English Literature", "B.Ed.", "Cambridge CELTA"],
     bio: [
@@ -87,7 +87,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-social",
     name: "Subject Lead",
     role: "Social Studies",
-    image: "/img/navbar/about/faculty/maths-teacher.jpg",
+    image: "/img/navbar/about/faculty/lead-social.jpg",
     short: "Maps, primary sources, and structured discussion across history and civics.",
     qualifications: ["M.A. History", "B.Ed."],
     bio: [
@@ -100,7 +100,7 @@ export const FACULTY: FacultyMember[] = [
     slug: "lead-ict",
     name: "Subject Lead",
     role: "ICT",
-    image: "/img/navbar/about/faculty/ict-teacher.jpg",
+    image: "/img/navbar/about/faculty/lead-ict.jpg",
     short: "Digital literacy, computational thinking, and online safety from Grade 1.",
     qualifications: ["B.E. Computer Science", "Google Educator certification"],
     bio: [

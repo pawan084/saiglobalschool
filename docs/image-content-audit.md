@@ -102,3 +102,25 @@ This is **not** a renaming problem like the faculty folder (where the photo was 
 1. **Real photography** for the genuinely-missing subjects (open house, campus tour, fees/finance, refunds, uniform & transport, phonics, olympiad, contact desk). Code cannot manufacture these.
 2. **Repoint within the existing pool** — replace the worst offenders (screenshots, garbled banners, clear subject errors) with the cleanest real classroom photos already present. Improves those cards but reuses the same photos more.
 3. **Leave the lab icons** as intentional design.
+
+---
+
+## Applied fix (Option A — 2026-06-05)
+
+Replaced the 10 genuinely broken-looking card assets in place (file bytes
+overwritten with a clean real photo that fits each slot; filenames/refs
+unchanged, so every card using them is fixed with no code change):
+
+| Slot (now shows) | Was | Now |
+|---|---|---|
+| `home/campus-life/a-day-at-sssgs.jpg`, `navbar/campus/a-day-at-sssgs.jpg` | "School Breaks" table screenshot | Solar-system science classroom |
+| `home/resources-for-parents/school-calendar.jpg`, `navbar/campus/school-calendar.jpg`, `navbar/resources/school-calendar.jpg` | "School Holidays" table screenshot | School campus building |
+| `home/about-sssgs/parent-student-handbook.jpg`, `navbar/resources/parent-student-handbook.jpg`, `navbar/resources/parent-student-handbook/handbook-cover.jpg` | "WELCOME TO SSSGS" baked-text banner | Reading & Language Arts class |
+| `home/academics/technology-lms.jpg` | Marketing banner with baked-in text | "Today's Learning Objectives" class |
+| `home/learning-labs/enrichment-activities.jpg` | AI image with garbled "Adapsive Learning" text | Debate competition |
+
+**Deliberately left as-is:**
+- **Hero banner** `home/hero/homepage-hero-banner.avif` — baked-in headline text, but no clean full-bleed replacement exists in the repo. Needs a real wide hero photo.
+- **Lab clip-art icons** (microscope / "Aa" / protractor) — thematic and matching the original Wix design; intentional.
+- **Staff portraits on people-cards** (management-governance, faculty, parent-support, contact) — acceptable.
+- The remaining subject-level gaps (true open-house / campus-tour / fees / refund / phonics / olympiad photos) still need **real photography**; reusing the ~20-image pool further would not improve them.

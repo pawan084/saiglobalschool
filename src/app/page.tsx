@@ -112,6 +112,27 @@ export default function Home() {
             image: "/img/7406-1.jpg",
             href: "/curriculum",
           },
+          {
+            title: "Mid-year Admissions",
+            body: "Mid-year admissions are welcomed across Grades 1 to 8 — with a clear process, transparent timeline and personalised onboarding.",
+            image: "/img/lsp07568_jpg.jpg",
+            imagePosition: "top",
+            href: "/admission-process",
+          },
+          {
+            title: "Grade Fit Check",
+            body: "A grade-appropriate, low-pressure assessment helps us place your child where they will thrive — not just where the calendar suggests.",
+            image: "/img/lsp07484_jpg.jpg",
+            imagePosition: "top",
+            href: "/grade-fit",
+          },
+          {
+            title: "Parent Community Onboarding",
+            body: "An active parent community supports new families — making the social transition as smooth as the academic one.",
+            image: "/img/lsp07600_jpg.jpg",
+            imagePosition: "top",
+            href: "/parent-community",
+          },
         ]}
       />
 
@@ -146,6 +167,24 @@ export default function Home() {
             body: "Students engage in practical, experiment-based learning across applied subjects to strengthen conceptual understanding.",
             image: "/img/ss1_edited.jpg",
             href: "/learning-labs",
+          },
+          {
+            title: "NCERT-aligned Curriculum",
+            body: "An NCERT-aligned, integrated curriculum gives every child a recognised, rigorous academic backbone across Grades 1 to 8.",
+            image: "/img/7389-1.jpg",
+            href: "/curriculum",
+          },
+          {
+            title: "Character & Values Education",
+            body: "Character development sits alongside academics in every grade, every day — woven into routines, not bolted on.",
+            image: "/img/original-2.jpg",
+            href: "/character-development",
+          },
+          {
+            title: "Assessment for Learning",
+            body: "Daily formative checks, weekly reviews and term assessments — assessment that shapes teaching, not just grades.",
+            image: "/img/7621-1.jpg",
+            href: "/assessment-structure",
           },
         ]}
       />

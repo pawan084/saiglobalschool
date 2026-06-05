@@ -150,9 +150,9 @@ export default function FeatureBlock({
           </div>
         </article>
 
-        {/* Satellite row: 3 cards */}
+        {/* Satellite row: up to 6 cards (2 rows of 3) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-          {items.slice(0, 3).map((c) => (
+          {items.slice(0, 6).map((c) => (
             <SatelliteCard key={c.title} card={c} />
           ))}
         </div>

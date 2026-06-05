@@ -68,6 +68,26 @@ export default function Page() {
             image: "/img/lsp07578_jpg.jpg",
             href: "/contact-us",
           },
+          {
+            title: "News & Announcements",
+            body: "School news, parent updates and announcements — what&rsquo;s happening at SSSGS this week, this month and this term.",
+            image: "/img/lsp07568_jpg.jpg",
+            imagePosition: "top",
+            href: "/news",
+          },
+          {
+            title: "Press & Media",
+            body: "Coverage of SSSGS in the press, plus the school&rsquo;s own statements, releases and feature stories.",
+            image: "/img/lsp07288_jpg.jpg",
+            imagePosition: "top",
+            href: "/press",
+          },
+          {
+            title: "Events Calendar",
+            body: "Upcoming open houses, parent meetings, school showcases and community events — RSVP and add to your calendar.",
+            image: "/img/holidays_jpg.jpg",
+            href: "/events",
+          },
         ]}
       />
 
@@ -101,6 +121,24 @@ export default function Page() {
             body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
             image: "/img/debate.jpg",
             href: "/olympiad",
+          },
+          {
+            title: "All Enrichment Activities",
+            body: "The full enrichment programme overview — how each module slots alongside the core curriculum without overloading children.",
+            image: "/img/7389-1.jpg",
+            href: "/enrichment-activities",
+          },
+          {
+            title: "Student Support",
+            body: "Personalised academic and emotional support — settling-in help, learning-needs support and one-to-one guidance.",
+            image: "/img/7406-1.jpg",
+            href: "/student-support",
+          },
+          {
+            title: "Non-Academic Programmes",
+            body: "CCA, sport, performance, service and other non-academic programmes that round out a child&rsquo;s development.",
+            image: "/img/art-cca.jpg",
+            href: "/non-academic",
           },
         ]}
       />

@@ -68,6 +68,24 @@ export default function Page() {
             image: "/img/art-cca.jpg",
             href: "/cca",
           },
+          {
+            title: "Learning Labs",
+            body: "Four dedicated labs — Language, Science, Maths and ICT — turn classroom concepts into hands-on application.",
+            image: "/img/labs-science.jpg",
+            href: "/learning-labs",
+          },
+          {
+            title: "Library & Reading",
+            body: "Curated collection across grade levels, with quiet corners for sustained reading and discussion.",
+            image: "/img/lab-english_jpg.jpg",
+            href: "/sssgs-spaces",
+          },
+          {
+            title: "Performing Arts Spaces",
+            body: "Spaces for music, drama, dance and visual art — children explore expression every week, not just on special occasions.",
+            image: "/img/art-cca.jpg",
+            href: "/cca",
+          },
         ]}
       />
 
@@ -101,6 +119,25 @@ export default function Page() {
             body: "An active parent community that supports the school, each other, and children growing up at SSSGS.",
             image: "/img/lsp07600_jpg.jpg",
             href: "/parent-community",
+          },
+          {
+            title: "Open House",
+            body: "Meet our Principal and educators in person — explore the curriculum, see classrooms in session, and ask questions.",
+            image: "/img/lsp07600_jpg.jpg",
+            imagePosition: "top",
+            href: "/open-house",
+          },
+          {
+            title: "A Day at SSSGS",
+            body: "Eight blocks from morning circle to closing reflection — see what an average day looks like for your child.",
+            image: "/img/breaks_jpg.jpg",
+            href: "/a-day-at-sssgs",
+          },
+          {
+            title: "Facilities Overview",
+            body: "Bright classrooms, four specialist labs, library, performing-arts spaces and activity zones — built around how children actually learn.",
+            image: "/img/school_edited.jpg",
+            href: "/facilities",
           },
         ]}
       />

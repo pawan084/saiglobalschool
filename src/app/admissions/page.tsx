@@ -65,10 +65,31 @@ export default function Page() {
           },
           {
             title: "Inquire / Book a Tour",
-            body: "Start the conversation. Send a quick inquiry or book a campus tour — we'll reply within one business day.",
+            body: "Start the conversation. Send a quick inquiry or book a campus tour — we&rsquo;ll reply within one business day.",
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/inquire-book-a-tour",
+          },
+          {
+            title: "Grade Fit Check",
+            body: "A grade-appropriate, low-pressure assessment to understand your child — not to filter them out.",
+            image: "/img/lsp07484_jpg.jpg",
+            imagePosition: "top",
+            href: "/grade-fit",
+          },
+          {
+            title: "Apply Online",
+            body: "Start your admissions application online — submit details, upload documents and track progress in one place.",
+            image: "/img/lsp07568_jpg.jpg",
+            imagePosition: "top",
+            href: "/apply",
+          },
+          {
+            title: "Admissions FAQs",
+            body: "Quick answers to the questions every prospective family asks about admissions, fees, timelines and transitions.",
+            image: "/img/lsp07438_jpg.jpg",
+            imagePosition: "top",
+            href: "/faqs",
           },
         ]}
       />
@@ -105,6 +126,25 @@ export default function Page() {
             image: "/img/lsp07288_jpg.jpg",
             imagePosition: "top",
             href: "/contact-us",
+          },
+          {
+            title: "Fee Calculator",
+            body: "Estimate your annual fees by grade band and component — tuition, lab, CCA and books — before you commit.",
+            image: "/img/7406-1.jpg",
+            href: "/fee-structure/calculator",
+          },
+          {
+            title: "Calendar & Events",
+            body: "Term dates, school events and the next open house — plan family travel and key moments around the academic year.",
+            image: "/img/holidays_jpg.jpg",
+            href: "/calendar",
+          },
+          {
+            title: "Accreditation",
+            body: "How SSSGS is registered with CPE Singapore, what the PEI accreditation covers, and what it means for your family.",
+            image: "/img/p1-vision.jpg",
+            imagePosition: "top",
+            href: "/accreditation",
           },
         ]}
       />

@@ -15,7 +15,7 @@ export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
   if (!meta || items.length < 4) return null;
 
   const featured = items[0];
-  const satellites = items.slice(1, 4);
+  const satellites = items.slice(1, 7);
 
   return (
     <FeatureBlock

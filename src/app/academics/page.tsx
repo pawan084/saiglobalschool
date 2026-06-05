@@ -68,6 +68,25 @@ export default function Page() {
             image: "/img/7621-1.jpg",
             href: "/assessment-structure",
           },
+          {
+            title: "Curriculum Comparison",
+            body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB — for families managing a transition between curricula.",
+            image: "/img/7389-1.jpg",
+            href: "/curriculum/comparison",
+          },
+          {
+            title: "Technology & LMS",
+            body: "How parents and students use the school&rsquo;s learning management system to track homework, grades and communication.",
+            image: "/img/img-4c416e73.jpg",
+            href: "/technology-lms",
+          },
+          {
+            title: "Student Support & Enrichment",
+            body: "Personalised academic support, structured feedback and progress tracking — children grow at their own pace, with help when needed.",
+            image: "/img/lsp07484_jpg.jpg",
+            imagePosition: "top",
+            href: "/student-support",
+          },
         ]}
       />
 
@@ -101,6 +120,24 @@ export default function Page() {
             body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
             image: "/img/art-cca.jpg",
             href: "/cca",
+          },
+          {
+            title: "Maths Lab",
+            body: "Hands-on number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
+            image: "/img/lab-maths1_jpg.jpg",
+            href: "/maths-lab",
+          },
+          {
+            title: "ICT Lab",
+            body: "Digital literacy from Grade 1 with online safety baked in — children become confident, considered users of technology.",
+            image: "/img/img-4c416e73.jpg",
+            href: "/ict-lab",
+          },
+          {
+            title: "Olympiad Coaching",
+            body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
+            image: "/img/debate.jpg",
+            href: "/olympiad",
           },
         ]}
       />

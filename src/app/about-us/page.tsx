@@ -71,6 +71,26 @@ export default function Page() {
             imagePosition: "top",
             href: "/parent-community",
           },
+          {
+            title: "Vision & Mission",
+            body: "Head, Heart and Hand — the philosophical foundation that shapes every choice at SSSGS, from curriculum to culture.",
+            image: "/img/p1-vision.jpg",
+            imagePosition: "top",
+            href: "/vision-mission",
+          },
+          {
+            title: "Accreditation",
+            body: "CPE-Singapore registration, NCERT alignment, and the external standards SSSGS is held to as a Private Education Institution.",
+            image: "/img/original-2.jpg",
+            href: "/accreditation",
+          },
+          {
+            title: "Character Development",
+            body: "Character isn&rsquo;t a class — it&rsquo;s the way the whole school runs, from morning routines to closing reflections.",
+            image: "/img/lsp07568_jpg.jpg",
+            imagePosition: "top",
+            href: "/character-development",
+          },
         ]}
       />
 
@@ -105,6 +125,24 @@ export default function Page() {
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/parent-student-handbook",
+          },
+          {
+            title: "A Day at SSSGS",
+            body: "Eight blocks — from morning circle to closing reflection — showing how character and academics live together every day.",
+            image: "/img/breaks_jpg.jpg",
+            href: "/a-day-at-sssgs",
+          },
+          {
+            title: "SSSGS Spaces",
+            body: "Classrooms, labs, library, performing-arts spaces and reflection corners — every space is built around how children actually learn.",
+            image: "/img/school_edited.jpg",
+            href: "/sssgs-spaces",
+          },
+          {
+            title: "Co-Curricular Activities",
+            body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
+            image: "/img/art-cca.jpg",
+            href: "/cca",
           },
         ]}
       />

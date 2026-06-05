@@ -39,7 +39,7 @@ export default function Page() {
           {
             title: "SSSGS Spaces",
             body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
-            image: "/img/lsp07568_jpg.jpg",
+            image: "/img/7621-1.jpg",
             href: "/sssgs-spaces",
           },
           {

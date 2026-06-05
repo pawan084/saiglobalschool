@@ -49,7 +49,7 @@ export const homeHeroSatellites: CardSpec[] = [
     title: "Curriculum & academic pathway, Grade 1 to 8",
     href: "/curriculum",
     eyebrow: "Academics",
-    image: "/img/grade1-8_edited.jpg",
+    image: "/img/7389-1.jpg",
   },
 ];
 
@@ -94,7 +94,7 @@ export const homeSections: SectionSpec[] = [
     ],
     extras: [
       { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/sssvvp3_2.jpg" },
-      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/lsp07568_jpg.jpg", imagePosition: "top" as const },
+      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/original-2.jpg" },
       { title: "Read the parent–student handbook", href: "/parent-student-handbook",    eyebrow: "Handbook",  image: "/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg" },
       { title: "FAQs from prospective families",  href: "/faqs",                         eyebrow: "FAQ",       image: "/img/lsp07438_jpg.jpg", imagePosition: "top" as const },
     ],
@@ -110,14 +110,14 @@ export const homeSections: SectionSpec[] = [
       eyebrow: "Curriculum",
       lead:
         "Concept-led teaching, foundational skills, and age-appropriate progression across Grades 1–8 — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
-      image: "/img/grade1-8_edited.jpg",
+      image: "/img/7389-1.jpg",
     },
     satellites: [
       {
         title: "Courses offered across primary and middle school",
         href: "/courses-offered",
         eyebrow: "Courses",
-        image: "/img/g1_edited.jpg",
+        image: "/img/548-1.jpg",
       },
       {
         title: "Academic pathway, Grade 1 to Grade 8",
@@ -174,7 +174,7 @@ export const homeSections: SectionSpec[] = [
         title: "ICT Lab: digital literacy from Grade 1",
         href: "/ict-lab",
         eyebrow: "ICT",
-        image: "/img/lsp07302_jpg.jpg",
+        image: "/img/7621-2.jpg",
       },
       {
         title: "Enrichment activities across subjects",
@@ -252,7 +252,7 @@ export const homeSections: SectionSpec[] = [
         title: "Fee structure for Grades 1–8",
         href: "/fee-structure",
         eyebrow: "Fees",
-        image: "/img/primary1-5.jpg",
+        image: "/img/school_edited.jpg",
       },
       {
         title: "Open House — meet faculty in person",
@@ -310,7 +310,7 @@ export const homeSections: SectionSpec[] = [
       { title: "Abacus & Vedic Maths classes",    href: "/abacus-vedic-maths",  eyebrow: "Maths",   image: "/img/lab-maths1_jpg.jpg" },
       { title: "Refund policy details",            href: "/refund-policy",       eyebrow: "Policy",  image: "/img/7406-1.jpg" },
       { title: "Contact us anytime",               href: "/contact-us",          eyebrow: "Contact", image: "/img/lsp07305_jpg.jpg", imagePosition: "top" as const },
-      { title: "WhatsApp the admissions desk",     href: "https://wa.me/6580830971", eyebrow: "Chat", image: "/img/lsp07568_jpg.jpg", imagePosition: "top" as const },
+      { title: "WhatsApp the admissions desk",     href: "https://wa.me/6580830971", eyebrow: "Chat", image: "/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg" },
     ],
   },
 ];

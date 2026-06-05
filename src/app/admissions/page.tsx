@@ -33,7 +33,7 @@ export default function Page() {
           {
             title: "Entry Requirements",
             body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
-            image: "/img/grade1-8_edited.jpg",
+            image: "/img/7406-1.jpg",
             href: "/entry-requirements",
           },
           {

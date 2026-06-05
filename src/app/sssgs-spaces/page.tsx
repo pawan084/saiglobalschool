@@ -12,10 +12,10 @@ export const metadata = {
 
 const gallery: GalleryItem[] = [
   { src: "/img/school_edited.jpg", alt: "Campus building", caption: "The SSSGS campus" },
-  { src: "/img/lsp07568_jpg.jpg", alt: "Classroom", caption: "Bright, well-organised classrooms" },
+  { src: "/img/7621-1.jpg", alt: "Classroom", caption: "Bright, well-organised classrooms" },
   { src: "/img/labs-science.jpg", alt: "Science Lab", caption: "Hands-on science learning" },
   { src: "/img/lab-english_jpg.jpg", alt: "Language Lab", caption: "Language Lab in session" },
-  { src: "/img/grade1-8_edited.jpg", alt: "Students at work", caption: "Students at work" },
+  { src: "/img/sssvvp3_2.jpg", alt: "Students at work", caption: "Students at work" },
   { src: "/img/ss1_edited.jpg", alt: "In session", caption: "A class in session" },
 ];
 

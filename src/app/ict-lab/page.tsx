@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "ICT Lab — digital literacy from Grade 1",
         lead: "Typing fluency, online safety, productivity tools and an introduction to computational thinking — children become confident, responsible digital citizens.",
-        image: "/img/lsp07302_jpg.jpg",
+        image: "/img/7621-2.jpg",
       }}
       quote={{ text: "Everyone should learn to program a computer, because it teaches you how to think.", author: "Steve Jobs" }}
       pillars={[

@@ -62,7 +62,7 @@ export default function Page() {
           title: "Character development, threaded through daily life.",
           body:
             "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — character development sits alongside academic learning in every grade, every day.",
-          image: "/img/lsp07568_jpg.jpg",
+          image: "/img/original-2.jpg",
           href: "/character-development",
         }}
         items={[

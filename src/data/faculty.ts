@@ -64,6 +64,12 @@ export const FACULTY: FacultyMember[] = [
     ],
     teaches: ["Art — Grades 5–8"],
   },
+  // NOTE: The three entries below use real staff portraits (lsp07288/07305/07302) but
+  // placeholder "Subject Lead" names. The original site's faculty page named six teachers —
+  // Mausumi Mukherjee, Pousali Bhattacharya, Moumita Mazumdar (the first three above, correctly
+  // mapped) plus Uma Balachandar (English & Social Studies) and two Primary teachers
+  // (Prasanthi Siram, Sharmila Banu). The exact photo↔name pairing for these three was not
+  // captioned in the archive — confirm names/roles with the school before publishing.
   {
     slug: "lead-language",
     name: "Subject Lead",
@@ -98,8 +104,8 @@ export const FACULTY: FacultyMember[] = [
     short: "Digital literacy, computational thinking, and online safety from Grade 1.",
     qualifications: ["B.E. Computer Science", "Google Educator certification"],
     bio: [
-      "Our ICT Lead designs the digital-literacy curriculum end-to-end, from typing posture in Grade 1 to Python and HTML/CSS at Grade 7–8. He maintains the device fleet and the classroom safety filters.",
-      "He also runs an after-school coding club for students who want to go further.",
+      "Our ICT Lead designs the digital-literacy curriculum end-to-end, from typing posture in Grade 1 to Python and HTML/CSS at Grade 7–8. She maintains the device fleet and the classroom safety filters.",
+      "She also runs an after-school coding club for students who want to go further.",
     ],
     teaches: ["ICT — All grades", "Coding club"],
   },

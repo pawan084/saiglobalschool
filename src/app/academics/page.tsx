@@ -26,14 +26,14 @@ export default function Page() {
           title: "Curriculum: NCERT-aligned, integrated, hands-on.",
           body:
             "Concept-led teaching combined with structured progression, conceptual clarity and foundational skill development. Designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
-          image: "/img/grade1-8_edited.jpg",
+          image: "/img/7389-1.jpg",
           href: "/curriculum",
         }}
         items={[
           {
             title: "Courses Offered",
             body: "Subjects across primary and middle school: languages, mathematics, science, social studies, ICT, arts, PE and value education.",
-            image: "/img/grade1-8_edited.jpg",
+            image: "/img/7406-1.jpg",
             href: "/courses-offered",
           },
           {

@@ -95,7 +95,7 @@ export default function Home() {
           title: "Seamless Transition for Relocating Families.",
           body:
             "From mid-year admissions to curriculum changes, we support children moving from different schools, countries, or learning systems. At SSSGS, children can continue their Indian curriculum journey with confidence while adapting smoothly to a caring international school environment. Our teachers help each child settle in with personal attention, clear routines, and academic guidance.",
-          image: "/img/grade1-8_edited.jpg",
+          image: "/img/7621-1.jpg",
           href: "/admission-process",
         }}
         items={[
@@ -116,7 +116,7 @@ export default function Home() {
           {
             title: "Curriculum Continuity Support",
             body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
-            image: "/img/lsp07568_jpg.jpg",
+            image: "/img/7406-1.jpg",
             href: "/curriculum",
           },
         ]}
@@ -166,14 +166,14 @@ export default function Home() {
           title: "Curriculum, Pathway, Assessment — all aligned.",
           body:
             "From phonics in Grade 1 to lab-based projects in Grade 8, our academic pathway is built around conceptual clarity, consistent feedback, and outcomes that travel with the child across schools and curricula.",
-          image: "/img/grade1-8_edited.jpg",
+          image: "/img/548-1.jpg",
           href: "/curriculum",
         }}
         items={[
           {
             title: "Courses Offered",
             body: "Subjects across primary and middle school: languages, math, science, social studies, ICT, arts, PE and value education.",
-            image: "/img/grade1-8_edited.jpg",
+            image: "/img/7406-1.jpg",
             href: "/courses-offered",
           },
           {
@@ -242,7 +242,7 @@ export default function Home() {
           {
             title: "Entry Requirements",
             body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
-            image: "/img/grade1-8_edited.jpg",
+            image: "/img/7621-1.jpg",
             href: "/entry-requirements",
           },
           {

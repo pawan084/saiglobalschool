@@ -74,20 +74,20 @@ export default function Page() {
           {
             title: "Five anchoring values",
             body: "Sathya, Dharma, Shanti, Prema, Ahimsa — five values that shape culture, conduct and every classroom routine.",
-            image: "/img/original-2.jpg",
+            image: "/img/home/about-sssgs/human-excellence.jpg",
             imagePosition: "top",
             href: "/vision-mission",
           },
           {
             title: "Accreditation",
             body: "CPE-Singapore registration, NCERT alignment, and the external standards SSSGS is held to as a PEI.",
-            image: "/img/lsp07568_jpg.jpg",
+            image: "/img/home/admissions/admission-process.jpg",
             href: "/accreditation",
           },
           {
             title: "Character development",
             body: "Character isn't a class. It's the way the whole school runs, from morning routines to closing reflections.",
-            image: "/img/7406-1.jpg",
+            image: "/img/home/academics/student-support.jpg",
             imagePosition: "top",
             href: "/character-development",
           },
@@ -129,19 +129,19 @@ export default function Page() {
           {
             title: "A day at SSSGS",
             body: "Eight blocks — morning circle to closing reflection — showing how character and academics live together.",
-            image: "/img/breaks_jpg.jpg",
+            image: "/img/home/campus-life/a-day-at-sssgs.jpg",
             href: "/a-day-at-sssgs",
           },
           {
             title: "Our spaces",
             body: "Classrooms, labs, library, performing-arts spaces and reflection corners — built around how children actually learn.",
-            image: "/img/school_edited.jpg",
+            image: "/img/home/admissions/fee-structure.jpg",
             href: "/sssgs-spaces",
           },
           {
             title: "Co-curricular activities",
             body: "Music, visual arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.jpg",
+            image: "/img/home/academics/co-curricular-activities.jpg",
             href: "/cca",
           },
         ]}

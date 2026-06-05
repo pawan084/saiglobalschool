@@ -71,21 +71,21 @@ export default function Page() {
           {
             title: "News & announcements",
             body: "School news, parent updates and announcements — what's happening at SSSGS this week and this term.",
-            image: "/img/lsp07568_jpg.jpg",
+            image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/news",
           },
           {
             title: "Press & media",
             body: "Coverage of SSSGS in the press, plus the school's own statements, releases and feature stories.",
-            image: "/img/lsp07288_jpg.jpg",
+            image: "/img/navbar/about/about-us/school-values.jpg",
             imagePosition: "top",
             href: "/press",
           },
           {
             title: "Events calendar",
             body: "Upcoming open houses, parent meetings, school showcases — RSVP and add to your calendar.",
-            image: "/img/holidays_jpg.jpg",
+            image: "/img/home/resources-for-parents/school-calendar.jpg",
             href: "/events",
           },
         ]}
@@ -125,19 +125,19 @@ export default function Page() {
           {
             title: "Technology & LMS",
             body: "Parents and students track homework, grades and communication through one learning management system.",
-            image: "/img/img-4c416e73.jpg",
+            image: "/img/home/academics/technology-lms.jpg",
             href: "/technology-lms",
           },
           {
             title: "Student support",
             body: "Personalised academic and emotional support — settling-in help, learning-needs support, one-to-one guidance.",
-            image: "/img/7406-1.jpg",
+            image: "/img/home/academics/student-support.jpg",
             href: "/student-support",
           },
           {
             title: "Non-academic programmes",
             body: "CCA, sport, performance and service — programmes that round out a child's development beyond the syllabus.",
-            image: "/img/art-cca.jpg",
+            image: "/img/home/academics/co-curricular-activities.jpg",
             href: "/non-academic",
           },
         ]}

@@ -53,7 +53,7 @@ export default function Page() {
           {
             title: "SSSGS spaces",
             body: "Classrooms, labs, library and reflection corners — every space is built around how children actually learn.",
-            image: "/img/7621-1.jpg",
+            image: "/img/home/academics/assessment-structure.jpg",
             href: "/sssgs-spaces",
           },
           {
@@ -77,13 +77,13 @@ export default function Page() {
           {
             title: "Library & reading corners",
             body: "Curated collection across grade levels with quiet corners for sustained reading and discussion.",
-            image: "/img/lab-english_jpg.jpg",
+            image: "/img/home/learning-labs/language-lab.jpg",
             href: "/sssgs-spaces",
           },
           {
             title: "A day at SSSGS",
             body: "Walk through the eight blocks that shape a school day — and see how character and academics live together.",
-            image: "/img/breaks_jpg.jpg",
+            image: "/img/home/campus-life/a-day-at-sssgs.jpg",
             href: "/a-day-at-sssgs",
           },
         ]}
@@ -123,21 +123,21 @@ export default function Page() {
           {
             title: "Open house",
             body: "Meet the Principal and educators in person — see classrooms in session, ask anything.",
-            image: "/img/lsp07600_jpg.jpg",
+            image: "/img/home/about-sssgs/faculty.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
             title: "Upcoming events",
             body: "Open houses, parent meetings, school showcases — RSVP and add to your calendar.",
-            image: "/img/lsp07568_jpg.jpg",
+            image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/events",
           },
           {
             title: "School news",
             body: "What's happening at SSSGS this week, this month, this term — straight from the school.",
-            image: "/img/7621-1.jpg",
+            image: "/img/home/academics/assessment-structure.jpg",
             href: "/news",
           },
         ]}

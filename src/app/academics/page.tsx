@@ -71,19 +71,19 @@ export default function Page() {
           {
             title: "Curriculum comparison",
             body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB — for families managing a curriculum transition.",
-            image: "/img/7389-1.jpg",
+            image: "/img/home/academics/curriculum.jpg",
             href: "/curriculum/comparison",
           },
           {
             title: "Technology & LMS",
             body: "Parents and students track homework, grades and communication through one learning management system.",
-            image: "/img/img-4c416e73.jpg",
+            image: "/img/home/academics/technology-lms.jpg",
             href: "/technology-lms",
           },
           {
             title: "Student support",
             body: "Personalised academic support, structured feedback and progress tracking — every child grows at their own pace.",
-            image: "/img/lsp07484_jpg.jpg",
+            image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
@@ -118,7 +118,7 @@ export default function Page() {
           {
             title: "ICT Lab",
             body: "Digital literacy from Grade 1 with online safety baked in — confident, considered users of technology.",
-            image: "/img/img-4c416e73.jpg",
+            image: "/img/home/academics/technology-lms.jpg",
             href: "/ict-lab",
           },
           {
@@ -130,7 +130,7 @@ export default function Page() {
           {
             title: "Olympiad coaching",
             body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
-            image: "/img/debate.jpg",
+            image: "/img/home/resources-for-parents/olympiad.jpg",
             href: "/olympiad",
           },
         ]}

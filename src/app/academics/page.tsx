@@ -110,6 +110,12 @@ export default function Page() {
             href: "/science-lab",
           },
           {
+            title: "Maths Lab",
+            body: "Number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
+            image: "/img/home/learning-labs/maths-lab.jpg",
+            href: "/maths-lab",
+          },
+          {
             title: "Language & ICT Labs",
             body: "Read, speak, write with confidence — and develop digital literacy from Grade 1 with online safety baked in.",
             image: "/img/navbar/academics/language-lab.jpg",

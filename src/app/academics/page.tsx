@@ -43,46 +43,46 @@ export default function Page() {
         title="A curriculum that travels with the child."
         intro="NCERT-aligned, integrated, hands-on. Structured academic progression, conceptual clarity and applied learning across every grade."
         featured={{
-          title: "Curriculum: NCERT-aligned, integrated, hands-on.",
+          title: "NCERT-aligned, integrated, hands-on.",
           body:
-            "Concept-led teaching combined with structured progression, conceptual clarity and foundational skill development. Designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
+            "Concept-led teaching with structured progression and conceptual depth — built for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
           image: "/img/7389-1.jpg",
           href: "/curriculum",
         }}
         items={[
           {
-            title: "Courses Offered",
-            body: "Subjects across primary and middle school: languages, mathematics, science, social studies, ICT, arts, PE and value education.",
+            title: "Courses offered",
+            body: "Languages, math, science, social studies, ICT, arts, PE and value education — across primary and middle school.",
             image: "/img/7406-1.jpg",
             href: "/courses-offered",
           },
           {
-            title: "Academic Pathway",
-            body: "Clear grade-by-grade progression: foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8.",
+            title: "Academic pathway",
+            body: "Foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8 — a clear grade-by-grade map.",
             image: "/img/548-1.jpg",
             href: "/academic-pathway",
           },
           {
-            title: "Assessment Structure",
-            body: "Daily formative checks, weekly reviews, term assessments and oral & project work — for learning, not just of learning.",
+            title: "Assessment structure",
+            body: "Daily formative checks, weekly reviews and term assessments — assessment for learning, not just of it.",
             image: "/img/7621-1.jpg",
             href: "/assessment-structure",
           },
           {
-            title: "Curriculum Comparison",
-            body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB — for families managing a transition between curricula.",
+            title: "Curriculum comparison",
+            body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB — for families managing a curriculum transition.",
             image: "/img/7389-1.jpg",
             href: "/curriculum/comparison",
           },
           {
             title: "Technology & LMS",
-            body: "How parents and students use the school&rsquo;s learning management system to track homework, grades and communication.",
+            body: "Parents and students track homework, grades and communication through one learning management system.",
             image: "/img/img-4c416e73.jpg",
             href: "/technology-lms",
           },
           {
-            title: "Student Support & Enrichment",
-            body: "Personalised academic support, structured feedback and progress tracking — children grow at their own pace, with help when needed.",
+            title: "Student support",
+            body: "Personalised academic support, structured feedback and progress tracking — every child grows at their own pace.",
             image: "/img/lsp07484_jpg.jpg",
             imagePosition: "top",
             href: "/student-support",
@@ -96,45 +96,45 @@ export default function Page() {
         title="Where learning gets hands-on."
         intro="Concepts become real in our four learning labs and through enrichment programmes that take children well beyond the textbook."
         featured={{
-          title: "Learning Labs — application beats memorisation.",
+          title: "Application beats memorisation.",
           body:
-            "Each lab gives children a regular, structured chance to apply what they've learnt in the classroom — to make, build, observe, debate or model. Lab sessions are timetabled, not optional.",
+            "Children apply what they learnt in the classroom — make, build, observe, debate, model. Lab sessions are timetabled, not optional.",
           image: "/img/lab-english_jpg.jpg",
           href: "/learning-labs",
         }}
         items={[
           {
-            title: "Science & Maths Labs",
-            body: "Hands-on experiments and visual modelling. Children learn to think like scientists and reason like mathematicians.",
+            title: "Science Lab",
+            body: "Hands-on experiments, structured enquiry, and a culture of asking questions — children learn to think like scientists.",
             image: "/img/labs-science.jpg",
             href: "/science-lab",
           },
           {
-            title: "Language & ICT Labs",
-            body: "Read, speak, write with confidence — and develop digital literacy from Grade 1 with online safety baked in.",
+            title: "Maths Lab",
+            body: "Number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
+            image: "/img/lab-maths1_jpg.jpg",
+            href: "/maths-lab",
+          },
+          {
+            title: "Language Lab",
+            body: "Read, speak, write with confidence — vocabulary, phonics and oral fluency built into every week.",
             image: "/img/lab-english_jpg.jpg",
             href: "/language-lab",
           },
           {
-            title: "CCAs & Enrichment",
+            title: "ICT Lab",
+            body: "Digital literacy from Grade 1 with online safety baked in — confident, considered users of technology.",
+            image: "/img/img-4c416e73.jpg",
+            href: "/ict-lab",
+          },
+          {
+            title: "Co-curricular activities",
             body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
             image: "/img/art-cca.jpg",
             href: "/cca",
           },
           {
-            title: "Maths Lab",
-            body: "Hands-on number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
-            image: "/img/lab-maths1_jpg.jpg",
-            href: "/maths-lab",
-          },
-          {
-            title: "ICT Lab",
-            body: "Digital literacy from Grade 1 with online safety baked in — children become confident, considered users of technology.",
-            image: "/img/img-4c416e73.jpg",
-            href: "/ict-lab",
-          },
-          {
-            title: "Olympiad Coaching",
+            title: "Olympiad coaching",
             body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
             image: "/img/debate.jpg",
             href: "/olympiad",

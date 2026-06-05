@@ -43,48 +43,48 @@ export default function Page() {
         title="A day at SSSGS — designed end to end."
         intro="Structured rhythms, classroom learning, lab work, CCAs, mealtime conversations, and reflection. Every day rounds the whole child."
         featured={{
-          title: "From morning circle to closing reflection.",
+          title: "Morning circle to closing reflection — eight blocks.",
           body:
-            "Eight blocks make up the school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection. Children leave with both skills and stories.",
+            "Two academic blocks, a lab session, mealtime & reflection, CCAs, closing reflection. Children leave with both skills and stories.",
           image: "/img/breaks_jpg.jpg",
           href: "/a-day-at-sssgs",
         }}
         items={[
           {
-            title: "Facilities",
-            body: "Built for safe, focused learning — bright classrooms, specialist labs, library, performing-arts spaces and activity zones.",
-            image: "/img/school_edited.jpg",
-            href: "/facilities",
-          },
-          {
-            title: "SSSGS Spaces",
-            body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
+            title: "SSSGS spaces",
+            body: "Classrooms, labs, library and reflection corners — every space is built around how children actually learn.",
             image: "/img/7621-1.jpg",
             href: "/sssgs-spaces",
           },
           {
-            title: "Co-Curricular Activities",
-            body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/art-cca.jpg",
-            href: "/cca",
+            title: "Facilities",
+            body: "Bright classrooms, specialist labs, library, performing-arts spaces and activity zones — safe and focused.",
+            image: "/img/school_edited.jpg",
+            href: "/facilities",
           },
           {
-            title: "Learning Labs",
-            body: "Four dedicated labs — Language, Science, Maths and ICT — turn classroom concepts into hands-on application.",
+            title: "Learning labs",
+            body: "Four dedicated labs — language, science, maths and ICT — turn classroom concepts into hands-on application.",
             image: "/img/labs-science.jpg",
             href: "/learning-labs",
           },
           {
-            title: "Library & Reading",
-            body: "Curated collection across grade levels, with quiet corners for sustained reading and discussion.",
+            title: "Co-curricular activities",
+            body: "Music, visual arts, sport, speech & debate, environment & service — every child finds their thing.",
+            image: "/img/art-cca.jpg",
+            href: "/cca",
+          },
+          {
+            title: "Library & reading corners",
+            body: "Curated collection across grade levels with quiet corners for sustained reading and discussion.",
             image: "/img/lab-english_jpg.jpg",
             href: "/sssgs-spaces",
           },
           {
-            title: "Performing Arts Spaces",
-            body: "Spaces for music, drama, dance and visual art — children explore expression every week, not just on special occasions.",
-            image: "/img/art-cca.jpg",
-            href: "/cca",
+            title: "A day at SSSGS",
+            body: "Walk through the eight blocks that shape a school day — and see how character and academics live together.",
+            image: "/img/breaks_jpg.jpg",
+            href: "/a-day-at-sssgs",
           },
         ]}
       />
@@ -95,49 +95,50 @@ export default function Page() {
         title="A campus that supports the whole life of a child."
         intro="Beyond timetable blocks, life at SSSGS includes settled routines, practical conveniences, and the parent community that surrounds it all."
         featured={{
-          title: "Uniform, transport, schedules — the practical stuff handled.",
+          title: "The practical stuff, handled.",
           body:
-            "Uniform suppliers, bus routes across Singapore, calendar, mealtimes, and the day-to-day details that make school life predictable for families.",
+            "Uniform suppliers, bus routes across Singapore, calendar, mealtimes — the details that make school life predictable for families.",
           image: "/img/ss1_edited.jpg",
           href: "/school-uniform-and-transportation",
         }}
         items={[
           {
-            title: "Campus Address",
-            body: "Where SSSGS is, how to reach us, parking and drop-off arrangements — the basics of getting here.",
+            title: "Campus address",
+            body: "Where SSSGS is, how to reach us, parking and drop-off — the basics of getting here, on time.",
             image: "/img/school_edited.jpg",
             href: "/campus-address",
           },
           {
-            title: "School Calendar",
-            body: "Term dates, holidays and major school events — plan family travel and key moments around the academic year.",
+            title: "School calendar",
+            body: "Term dates, holidays and major school events — plan family travel around the academic year.",
             image: "/img/holidays_jpg.jpg",
             href: "/calendar",
           },
           {
-            title: "Parent Community",
-            body: "An active parent community that supports the school, each other, and children growing up at SSSGS.",
+            title: "Parent community",
+            body: "An active community that supports the school, each other, and children growing up at SSSGS.",
             image: "/img/lsp07600_jpg.jpg",
             href: "/parent-community",
           },
           {
-            title: "Open House",
-            body: "Meet our Principal and educators in person — explore the curriculum, see classrooms in session, and ask questions.",
+            title: "Open house",
+            body: "Meet the Principal and educators in person — see classrooms in session, ask anything.",
             image: "/img/lsp07600_jpg.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
-            title: "A Day at SSSGS",
-            body: "Eight blocks from morning circle to closing reflection — see what an average day looks like for your child.",
-            image: "/img/breaks_jpg.jpg",
-            href: "/a-day-at-sssgs",
+            title: "Upcoming events",
+            body: "Open houses, parent meetings, school showcases — RSVP and add to your calendar.",
+            image: "/img/lsp07568_jpg.jpg",
+            imagePosition: "top",
+            href: "/events",
           },
           {
-            title: "Facilities Overview",
-            body: "Bright classrooms, four specialist labs, library, performing-arts spaces and activity zones — built around how children actually learn.",
-            image: "/img/school_edited.jpg",
-            href: "/facilities",
+            title: "School news",
+            body: "What's happening at SSSGS this week, this month, this term — straight from the school.",
+            image: "/img/7621-1.jpg",
+            href: "/news",
           },
         ]}
       />

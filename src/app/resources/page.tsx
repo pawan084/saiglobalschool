@@ -43,48 +43,48 @@ export default function Page() {
         title="Everything you need, in one place."
         intro="The Parent–Student Handbook, the academic calendar, and the FAQs from prospective families — bookmarked for quick reference."
         featured={{
-          title: "Parent-Student Handbook — everything you need in one place.",
+          title: "Parent–student handbook — everything in one place.",
           body:
-            "Policies, expectations, support channels, and the rhythms of SSSGS life — written for parents and shared openly. Plus supplemental guides on transitions, settling-in, and learning approaches.",
+            "Policies, expectations, support channels and the rhythms of SSSGS life — written for parents, shared openly. Plus guides on transitions, settling-in and learning.",
           image: "/img/1599a2_39e7dbd515d14373b77f9a6d0140fa2e_mv2.jpg",
           href: "/parent-student-handbook",
         }}
         items={[
           {
-            title: "School Calendar",
-            body: "Term dates, public holidays and major school events for the current academic year — plus a downloadable PDF.",
+            title: "School calendar",
+            body: "Term dates, public holidays and major school events for the academic year — plus a downloadable PDF.",
             image: "/img/holidays_jpg.jpg",
             href: "/calendar",
           },
           {
             title: "FAQs",
-            body: "Quick answers to the most common questions from prospective families about admissions, curriculum, fees and daily life.",
+            body: "Quick answers from prospective families — admissions, curriculum, fees, daily life. All in one place.",
             image: "/img/lsp07438_jpg.jpg",
             href: "/faqs",
           },
           {
-            title: "Contact the Office",
-            body: "Reach the admissions and operations team by phone, WhatsApp or email — replies within one business day.",
+            title: "Contact the office",
+            body: "Reach admissions and operations by phone, WhatsApp or email — replies within one business day.",
             image: "/img/lsp07578_jpg.jpg",
             href: "/contact-us",
           },
           {
-            title: "News & Announcements",
-            body: "School news, parent updates and announcements — what&rsquo;s happening at SSSGS this week, this month and this term.",
+            title: "News & announcements",
+            body: "School news, parent updates and announcements — what's happening at SSSGS this week and this term.",
             image: "/img/lsp07568_jpg.jpg",
             imagePosition: "top",
             href: "/news",
           },
           {
-            title: "Press & Media",
-            body: "Coverage of SSSGS in the press, plus the school&rsquo;s own statements, releases and feature stories.",
+            title: "Press & media",
+            body: "Coverage of SSSGS in the press, plus the school's own statements, releases and feature stories.",
             image: "/img/lsp07288_jpg.jpg",
             imagePosition: "top",
             href: "/press",
           },
           {
-            title: "Events Calendar",
-            body: "Upcoming open houses, parent meetings, school showcases and community events — RSVP and add to your calendar.",
+            title: "Events calendar",
+            body: "Upcoming open houses, parent meetings, school showcases — RSVP and add to your calendar.",
             image: "/img/holidays_jpg.jpg",
             href: "/events",
           },
@@ -97,46 +97,46 @@ export default function Page() {
         title="Enrichment that extends what's taught in class."
         intro="Programs that go beyond the core curriculum — early literacy through phonics, mental-math via abacus, and Olympiad preparation for Grades 3–8."
         featured={{
-          title: "Phonics, Abacus, Olympiad — focused enrichment programs.",
+          title: "Phonics, abacus, Olympiad — focused enrichment.",
           body:
-            "Structured early-literacy work, mental-math acceleration through abacus and Vedic techniques, and subject-specific Olympiad preparation. Each program has its own teaching team and outcomes.",
+            "Structured early-literacy work, mental-math acceleration, and subject-specific Olympiad prep. Each programme has its own teaching team and outcomes.",
           image: "/img/7389-1.jpg",
           href: "/enrichment-activities",
         }}
         items={[
           {
-            title: "Phonics Classes",
-            body: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
+            title: "Phonics classes",
+            body: "Structured early-literacy — children build the foundation for fluent, confident reading.",
             image: "/img/7389-1.jpg",
             href: "/phonics-classes",
           },
           {
-            title: "Abacus & Vedic Maths",
-            body: "Mental-math acceleration through abacus practice and Vedic techniques — speed, accuracy and confidence with numbers.",
+            title: "Abacus & Vedic maths",
+            body: "Mental-math acceleration through abacus and Vedic techniques — speed, accuracy, confidence with numbers.",
             image: "/img/lab-maths1_jpg.jpg",
             href: "/abacus-vedic-maths",
           },
           {
-            title: "Olympiad Coaching",
+            title: "Olympiad coaching",
             body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
             image: "/img/debate.jpg",
             href: "/olympiad",
           },
           {
-            title: "All Enrichment Activities",
-            body: "The full enrichment programme overview — how each module slots alongside the core curriculum without overloading children.",
-            image: "/img/7389-1.jpg",
-            href: "/enrichment-activities",
+            title: "Technology & LMS",
+            body: "Parents and students track homework, grades and communication through one learning management system.",
+            image: "/img/img-4c416e73.jpg",
+            href: "/technology-lms",
           },
           {
-            title: "Student Support",
-            body: "Personalised academic and emotional support — settling-in help, learning-needs support and one-to-one guidance.",
+            title: "Student support",
+            body: "Personalised academic and emotional support — settling-in help, learning-needs support, one-to-one guidance.",
             image: "/img/7406-1.jpg",
             href: "/student-support",
           },
           {
-            title: "Non-Academic Programmes",
-            body: "CCA, sport, performance, service and other non-academic programmes that round out a child&rsquo;s development.",
+            title: "Non-academic programmes",
+            body: "CCA, sport, performance and service — programmes that round out a child's development beyond the syllabus.",
             image: "/img/art-cca.jpg",
             href: "/non-academic",
           },

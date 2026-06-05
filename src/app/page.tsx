@@ -85,50 +85,50 @@ export default function Home() {
         title="Is Sri Sathya Sai Global School the Right Fit for Your Child?"
         intro="Every child joins school with a different story — a move, a transition, a search for a school that listens. These are the situations parents most often describe to us."
         featured={{
-          title: "Seamless Transition for Relocating Families.",
+          title: "A smooth landing for families on the move.",
           body:
-            "From mid-year admissions to curriculum changes, we support children moving from different schools, countries, or learning systems. At SSSGS, children can continue their Indian curriculum journey with confidence while adapting smoothly to a caring international school environment. Our teachers help each child settle in with personal attention, clear routines, and academic guidance.",
+            "Mid-year start? Switching curriculum? We help children settle in with personal attention, clear routines and academic guidance — so the move feels smooth, not stressful.",
           image: "/img/7621-1.jpg",
           href: "/admission-process",
         }}
         items={[
           {
-            title: "Families in Transition",
-            body: "Students entering from different education systems are supported through a structured curriculum and familiar academic frameworks to ease adjustment.",
+            title: "Coming from another school",
+            body: "Children moving from CBSE, ICSE, Cambridge, IB or local schools land in a familiar academic framework with personal support.",
             image: "/img/lsp07578_jpg.jpg",
             imagePosition: "top",
             href: "/entry-requirements",
           },
           {
-            title: "Personalised Settling-in Support",
-            body: "Children in transition may feel shy or behind; personalised settling-in support helps them adapt to routines, peers, teachers, and assessments.",
+            title: "Settling in, not catching up",
+            body: "New children get guided support to find friends, learn the routines, and feel at home — usually within the first few weeks.",
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
           {
-            title: "Curriculum Continuity Support",
-            body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
+            title: "Curriculum continuity",
+            body: "Move between CBSE, ICSE, Cambridge, IB or local curriculum without losing academic ground. Our NCERT-aligned core makes the bridge.",
             image: "/img/7406-1.jpg",
             href: "/curriculum",
           },
           {
-            title: "Mid-year Admissions",
-            body: "Mid-year admissions are welcomed across Grades 1 to 8 — with a clear process, transparent timeline and personalised onboarding.",
+            title: "Mid-year admissions welcome",
+            body: "Join Grades 1 to 8 at any point in the academic year. Clear process, fast timelines, personalised onboarding.",
             image: "/img/lsp07568_jpg.jpg",
             imagePosition: "top",
             href: "/admission-process",
           },
           {
-            title: "Grade Fit Check",
-            body: "A grade-appropriate, low-pressure assessment helps us place your child where they will thrive — not just where the calendar suggests.",
+            title: "Grade-fit assessment",
+            body: "A low-pressure check places your child where they will thrive — not just where the calendar says they should be.",
             image: "/img/lsp07484_jpg.jpg",
             imagePosition: "top",
             href: "/grade-fit",
           },
           {
-            title: "Parent Community Onboarding",
-            body: "An active parent community supports new families — making the social transition as smooth as the academic one.",
+            title: "A parent community that helps",
+            body: "An active parent community makes the social transition as smooth as the academic one — for the whole family.",
             image: "/img/lsp07600_jpg.jpg",
             imagePosition: "top",
             href: "/parent-community",
@@ -142,47 +142,47 @@ export default function Home() {
         title="How Sri Sathya Sai Global School answers these needs"
         intro="Experienced educators, small-group learning, and applied lab-based instruction across core subjects — guided by a teaching philosophy we call Sri Sathya Sai Vidya Vahini."
         featured={{
-          title: "A Complete Learning Environment for Confident Growth",
+          title: "A learning environment built for confident growth.",
           body:
-            "Sri Sathya Sai Global School combines experienced educators, structured classroom learning, and application-based teaching to help children build strong academic foundations. Students learn through clear guidance, regular feedback, and practical classroom experiences that make concepts easier to understand and apply.",
+            "Experienced teachers, small-group classrooms, and lab-based application across every subject — so children build strong foundations and the confidence to use them.",
           image: "/img/labs-science.jpg",
           href: "/about-us",
         }}
         items={[
           {
-            title: "Experienced Educators",
-            body: "Our teaching team includes educators with diverse academic experience, delivering structured & consistent classroom instruction.",
+            title: "Experienced educators",
+            body: "Teachers with deep subject expertise who know every child by name — present, accountable, and in it for the long term.",
             image: "/img/lsp07600_jpg.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
-            title: "Personalized Learning Support",
-            body: "Students receive guided academic support through structured feedback, progress tracking, and adaptive learning tools.",
+            title: "Personalised learning support",
+            body: "Structured feedback, progress tracking and individual guidance — every child gets the attention to grow at their own pace.",
             image: "/img/lab-english_jpg.jpg",
             href: "/student-support",
           },
           {
-            title: "Application-Based Learning",
-            body: "Students engage in practical, experiment-based learning across applied subjects to strengthen conceptual understanding.",
+            title: "Application-based learning",
+            body: "Concepts become real in our four labs — children build, observe, debate and present, not just listen.",
             image: "/img/ss1_edited.jpg",
             href: "/learning-labs",
           },
           {
-            title: "NCERT-aligned Curriculum",
-            body: "An NCERT-aligned, integrated curriculum gives every child a recognised, rigorous academic backbone across Grades 1 to 8.",
+            title: "NCERT-aligned curriculum",
+            body: "A recognised, rigorous academic backbone across Grades 1 to 8 — built for continuity through CBSE, ICSE, Cambridge or IB.",
             image: "/img/7389-1.jpg",
             href: "/curriculum",
           },
           {
-            title: "Character & Values Education",
-            body: "Character development sits alongside academics in every grade, every day — woven into routines, not bolted on.",
+            title: "Character & values, threaded through",
+            body: "Character isn't a class. It shows up in daily routines, in conversations, and in the way every subject is taught.",
             image: "/img/original-2.jpg",
             href: "/character-development",
           },
           {
-            title: "Assessment for Learning",
-            body: "Daily formative checks, weekly reviews and term assessments — assessment that shapes teaching, not just grades.",
+            title: "Assessment for learning",
+            body: "Daily formative checks, weekly reviews and term assessments — designed to shape teaching, not just produce grades.",
             image: "/img/7621-1.jpg",
             href: "/assessment-structure",
           },

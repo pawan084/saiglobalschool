@@ -43,50 +43,50 @@ export default function Page() {
         title="Admissions, made transparent."
         intro="Each step has a single point of contact, clear timelines, and explicit expectations — so you always know what's next."
         featured={{
-          title: "Admission process: clear, supportive, parent-friendly.",
+          title: "A four-step process. One point of contact.",
           body:
-            "Inquire → meet the team → assess → register. Mid-year admissions welcome. Transitions from CBSE, ICSE, Cambridge, IB and local-curriculum schools handled without academic disruption.",
+            "Inquire → meet the team → assess → register. Mid-year admissions welcome. Transitions from CBSE, ICSE, Cambridge, IB or local schools handled without disruption.",
           image: "/img/p1-vision.jpg",
           href: "/admission-process",
         }}
         items={[
           {
-            title: "Entry Requirements",
-            body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
+            title: "Entry requirements",
+            body: "Age criteria and a grade-appropriate assessment for entry from Grade 1 through Grade 8.",
             image: "/img/7406-1.jpg",
             href: "/entry-requirements",
           },
           {
             title: "Registration",
-            body: "PEI Singapore registration details, required documents, and the operational basics of joining SSSGS.",
+            body: "PEI Singapore registration steps, required documents, and the operational basics of joining SSSGS.",
             image: "/img/lsp07578_jpg.jpg",
             imagePosition: "top",
             href: "/registration",
           },
           {
-            title: "Inquire / Book a Tour",
-            body: "Start the conversation. Send a quick inquiry or book a campus tour — we&rsquo;ll reply within one business day.",
+            title: "Inquire or book a tour",
+            body: "Start the conversation. A quick inquiry or a campus tour — we reply within one business day.",
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/inquire-book-a-tour",
           },
           {
-            title: "Grade Fit Check",
-            body: "A grade-appropriate, low-pressure assessment to understand your child — not to filter them out.",
+            title: "Grade-fit assessment",
+            body: "A low-pressure check to understand your child and place them where they will thrive.",
             image: "/img/lsp07484_jpg.jpg",
             imagePosition: "top",
             href: "/grade-fit",
           },
           {
-            title: "Apply Online",
-            body: "Start your admissions application online — submit details, upload documents and track progress in one place.",
+            title: "Apply online",
+            body: "Submit details, upload documents and track your application in one place — no paperwork shuffle.",
             image: "/img/lsp07568_jpg.jpg",
             imagePosition: "top",
             href: "/apply",
           },
           {
             title: "Admissions FAQs",
-            body: "Quick answers to the questions every prospective family asks about admissions, fees, timelines and transitions.",
+            body: "Quick answers to the questions every prospective family asks — admissions, fees, timelines, transitions.",
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/faqs",
@@ -100,48 +100,48 @@ export default function Page() {
         title="The concrete details parents care about."
         intro="Transparent fees, refund terms aligned with CPE Singapore, and chances to meet the team in person before you decide."
         featured={{
-          title: "Fee Structure — Primary & Secondary, indicative annual totals.",
+          title: "Fees, dates and policies — published, not buried.",
           body:
-            "Transparent annual fee breakdown for Grades 1–8. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
+            "Transparent annual fees for Grades 1–8. Tuition billed monthly; lab, CCA and books per annum. Refunds follow CPE Singapore guidelines.",
           image: "/img/548-1.jpg",
           href: "/fee-structure",
         }}
         items={[
           {
-            title: "Open House",
-            body: "Meet our Principal and educators in person — explore the curriculum, ask about admissions, tour the campus.",
+            title: "Open house",
+            body: "Meet our Principal and educators in person. Explore the curriculum, walk the campus, ask the team anything.",
             image: "/img/lsp07600_jpg.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
-            title: "Refund Policy",
-            body: "CPE-Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
+            title: "Refund policy",
+            body: "CPE-Singapore-aligned terms — cooling-off, withdrawal, and how refunds are processed. No surprises.",
             image: "/img/7621-1.jpg",
             href: "/refund-policy",
           },
           {
-            title: "Contact Us",
-            body: "Call, WhatsApp, email or visit. The admissions team responds within one business day, every time.",
+            title: "Contact us",
+            body: "Call, WhatsApp, email or visit. One business day, every time — no automated runaround.",
             image: "/img/lsp07288_jpg.jpg",
             imagePosition: "top",
             href: "/contact-us",
           },
           {
-            title: "Fee Calculator",
-            body: "Estimate your annual fees by grade band and component — tuition, lab, CCA and books — before you commit.",
+            title: "Fee calculator",
+            body: "Estimate annual fees by grade band — tuition, lab, CCA and books — before you commit.",
             image: "/img/7406-1.jpg",
             href: "/fee-structure/calculator",
           },
           {
-            title: "Calendar & Events",
-            body: "Term dates, school events and the next open house — plan family travel and key moments around the academic year.",
+            title: "Calendar & events",
+            body: "Term dates, school events and the next open house — plan family travel around the academic year.",
             image: "/img/holidays_jpg.jpg",
             href: "/calendar",
           },
           {
             title: "Accreditation",
-            body: "How SSSGS is registered with CPE Singapore, what the PEI accreditation covers, and what it means for your family.",
+            body: "CPE-Singapore registration, what PEI accreditation covers, and what it means for your family.",
             image: "/img/p1-vision.jpg",
             imagePosition: "top",
             href: "/accreditation",

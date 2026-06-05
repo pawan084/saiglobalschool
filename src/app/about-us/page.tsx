@@ -43,51 +43,51 @@ export default function Page() {
         title="What SSSGS stands for."
         intro="Education that harmonises Head, Heart and Hand — uniting knowledge, compassion and purposeful action. The people and principles behind it:"
         featured={{
-          title: "Vision, Mission and the SSSGS way.",
+          title: "Head, Heart and Hand — the SSSGS way.",
           body:
-            "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults. Our values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
+            "Knowledge, compassion and purposeful action — woven together so children grow into confident, contributing adults. Five anchoring values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
           image: "/img/p1-vision.jpg",
           href: "/vision-mission",
         }}
         items={[
           {
-            title: "Management & Governance",
-            body: "Transparent, parent-aligned governance — clear roles, regular communication, and an accountable structure.",
+            title: "Management & governance",
+            body: "Transparent, parent-aligned governance — clear roles, regular communication, an accountable structure.",
             image: "/img/lsp07288_jpg.jpg",
             imagePosition: "top",
             href: "/management-governance",
           },
           {
-            title: "Faculty",
-            body: "Experienced educators with subject expertise and a values-led teaching practice — they know every child by name.",
+            title: "Faculty who stay",
+            body: "Experienced educators with deep subject expertise — they know every child by name and stay long enough to know them well.",
             image: "/img/lsp07578_jpg.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
-            title: "Parent Community",
-            body: "An active parent community that supports the school, supports each other, and supports children growing up.",
+            title: "A parent community",
+            body: "An active parent community that supports the school, each other, and children growing up — through every stage.",
             image: "/img/lsp07600_jpg.jpg",
             imagePosition: "top",
             href: "/parent-community",
           },
           {
-            title: "Vision & Mission",
-            body: "Head, Heart and Hand — the philosophical foundation that shapes every choice at SSSGS, from curriculum to culture.",
-            image: "/img/p1-vision.jpg",
+            title: "Five anchoring values",
+            body: "Sathya, Dharma, Shanti, Prema, Ahimsa — five values that shape culture, conduct and every classroom routine.",
+            image: "/img/original-2.jpg",
             imagePosition: "top",
             href: "/vision-mission",
           },
           {
             title: "Accreditation",
-            body: "CPE-Singapore registration, NCERT alignment, and the external standards SSSGS is held to as a Private Education Institution.",
-            image: "/img/original-2.jpg",
+            body: "CPE-Singapore registration, NCERT alignment, and the external standards SSSGS is held to as a PEI.",
+            image: "/img/lsp07568_jpg.jpg",
             href: "/accreditation",
           },
           {
-            title: "Character Development",
-            body: "Character isn&rsquo;t a class — it&rsquo;s the way the whole school runs, from morning routines to closing reflections.",
-            image: "/img/lsp07568_jpg.jpg",
+            title: "Character development",
+            body: "Character isn't a class. It's the way the whole school runs, from morning routines to closing reflections.",
+            image: "/img/7406-1.jpg",
             imagePosition: "top",
             href: "/character-development",
           },
@@ -100,47 +100,47 @@ export default function Page() {
         title="Character at the centre — visible in everyday life."
         intro="Character isn't a class. It shows up in routines, conversations, the way conflict is handled, and the moments children pause to reflect."
         featured={{
-          title: "Character development, threaded through daily life.",
+          title: "Character, threaded through every day.",
           body:
-            "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — character development sits alongside academic learning in every grade, every day.",
+            "Bhagawan Sri Sathya Sai Baba taught that the end of education is character. We take that seriously — it sits alongside academic learning in every grade, every day.",
           image: "/img/original-2.jpg",
           href: "/character-development",
         }}
         items={[
           {
-            title: "Human Excellence",
-            body: "Competence, character and contribution on equal footing — the SSSGS pedagogy puts all three at the heart of teaching.",
+            title: "Human excellence",
+            body: "Competence, character and contribution — given equal footing in the way SSSGS teaches.",
             image: "/img/art-cca.jpg",
             href: "/human-excellence",
           },
           {
-            title: "Values Integration & Academics",
-            body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from language to math.",
+            title: "Values in every subject",
+            body: "Values aren't an extra subject. They are integrated into the way every subject is taught — from language to math.",
             image: "/img/7621-1.jpg",
             href: "/values-integration-academics",
           },
           {
-            title: "Parent-Student Handbook",
-            body: "Policies, expectations, support channels and the rhythms of SSSGS life — everything you need in one place.",
+            title: "Parent–student handbook",
+            body: "Policies, expectations, support channels and the rhythms of SSSGS life — everything in one place.",
             image: "/img/lsp07438_jpg.jpg",
             imagePosition: "top",
             href: "/parent-student-handbook",
           },
           {
-            title: "A Day at SSSGS",
-            body: "Eight blocks — from morning circle to closing reflection — showing how character and academics live together every day.",
+            title: "A day at SSSGS",
+            body: "Eight blocks — morning circle to closing reflection — showing how character and academics live together.",
             image: "/img/breaks_jpg.jpg",
             href: "/a-day-at-sssgs",
           },
           {
-            title: "SSSGS Spaces",
-            body: "Classrooms, labs, library, performing-arts spaces and reflection corners — every space is built around how children actually learn.",
+            title: "Our spaces",
+            body: "Classrooms, labs, library, performing-arts spaces and reflection corners — built around how children actually learn.",
             image: "/img/school_edited.jpg",
             href: "/sssgs-spaces",
           },
           {
-            title: "Co-Curricular Activities",
-            body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
+            title: "Co-curricular activities",
+            body: "Music, visual arts, sport, speech & debate, environment & service — every child finds their thing.",
             image: "/img/art-cca.jpg",
             href: "/cca",
           },

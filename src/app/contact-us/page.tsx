@@ -35,6 +35,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="contact-us"
+      showRelated={false}
       hero={{
         eyebrow: "Contact",
         title: "Talk to the team that talks to your child every day",

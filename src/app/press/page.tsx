@@ -28,6 +28,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="about-us"
+      showRelated={false}
       hero={{
         eyebrow: "Press",
         title: "Press kit",

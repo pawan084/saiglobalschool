@@ -1,6 +1,7 @@
 import InnerPageShell from "./InnerPageShell";
 import ContentSection from "./ContentSection";
 import FeatureGrid, { type Feature } from "./FeatureGrid";
+import Image from "next/image";
 import Link from "next/link";
 
 export type SimplePage = {
@@ -18,7 +19,77 @@ export type SimplePage = {
   };
 };
 
-export default function SimpleContentPage({ slug, data }: { slug: string; data: SimplePage }) {
+const pageImages: Record<string, { src: string; alt: string; position?: "center" | "top" | "bottom" }> = {
+  "academic-pathway": {
+    src: "/img/home/academics/academic-pathway.jpg",
+    alt: "Students progressing through the SSSGS academic pathway",
+  },
+  "assessment-structure": {
+    src: "/img/home/academics/assessment-structure.jpg",
+    alt: "Assessment and classroom feedback at SSSGS",
+  },
+  "courses-offered": {
+    src: "/img/home/academics/curriculum.jpg",
+    alt: "Courses and curriculum at SSSGS",
+  },
+  "parent-community": {
+    src: "/img/navbar/about/about-us/parent-support.jpg",
+    alt: "Parent community and support at SSSGS",
+    position: "top",
+  },
+  "student-support": {
+    src: "/img/home/academics/student-support.jpg",
+    alt: "Student support at SSSGS",
+    position: "top",
+  },
+  "technology-lms": {
+    src: "/img/home/academics/technology-lms.jpg",
+    alt: "Technology and LMS support at SSSGS",
+  },
+  "enrichment-activities": {
+    src: "/img/home/learning-labs/enrichment-activities.jpg",
+    alt: "Enrichment activities at SSSGS",
+  },
+  "phonics-classes": {
+    src: "/img/home/resources-for-parents/phonics-classes.jpg",
+    alt: "Phonics classes at SSSGS",
+  },
+  "abacus-vedic-maths": {
+    src: "/img/home/resources-for-parents/abacus-vedic-maths.jpg",
+    alt: "Abacus and Vedic Maths at SSSGS",
+  },
+  olympiad: {
+    src: "/img/home/resources-for-parents/olympiad.jpg",
+    alt: "Olympiad coaching at SSSGS",
+  },
+  "non-academic": {
+    src: "/img/home/campus-life/co-curricular-activities.jpg",
+    alt: "Non-academic activities at SSSGS",
+  },
+  "school-uniform-and-transportation": {
+    src: "/img/home/campus-life/uniform-transport.jpg",
+    alt: "School uniform and transportation at SSSGS",
+  },
+};
+
+const objectPosition = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+} as const;
+
+export default function SimpleContentPage({
+  slug,
+  data,
+  showRelated,
+}: {
+  slug: string;
+  data: SimplePage;
+  showRelated?: boolean;
+}) {
+  const image = pageImages[slug];
+  const introCopy = data.intro && data.intro.length > 0 ? data.intro : [data.lead];
+
   return (
     <InnerPageShell
       slug={slug}
@@ -28,13 +99,27 @@ export default function SimpleContentPage({ slug, data }: { slug: string; data: 
         lead: data.lead,
         breadcrumb: data.breadcrumb,
       }}
+      showRelated={showRelated}
     >
-      {data.intro && data.intro.length > 0 && (
+      {(introCopy.length > 0 || image) && (
         <ContentSection flush>
-          <div className="space-y-4 text-slate-700 leading-relaxed text-[15.5px]">
-            {data.intro.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+          <div className={`grid gap-6 ${image ? "lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.8fr)] lg:items-center" : ""}`}>
+            <div className="space-y-4 text-slate-700 leading-relaxed text-[15.5px]">
+              {introCopy.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            {image && (
+              <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-[var(--brand-rule)] bg-slate-100">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className={`object-cover ${objectPosition[image.position ?? "center"]}`}
+                />
+              </div>
+            )}
           </div>
         </ContentSection>
       )}

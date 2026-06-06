@@ -27,6 +27,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="faqs"
+      showRelated={false}
       hero={{
         eyebrow: "Resources",
         title: "Frequently Asked Questions",

@@ -14,6 +14,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="campus-address"
+      showRelated={false}
       hero={{
         eyebrow: "Campus",
         title: "Find the SSSGS campus",

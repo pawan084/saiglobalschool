@@ -15,6 +15,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="admissions"
+      showRelated={false}
       hero={{
         eyebrow: "Admissions",
         title: "Apply now",

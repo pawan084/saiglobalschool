@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { navigation, ctaWhatsApp } from "@/data/nav";
 import { site } from "@/data/site";
-import TrustBadges from "./TrustBadges";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
 
@@ -30,30 +29,6 @@ export default function Footer() {
           backgroundSize: "26px 26px",
         }}
       />
-
-      {/* ── Top "Stay connected" band — lighter so it doesn't compete with page CTAStrip */}
-      <div className="relative border-b border-white/10 bg-white/[0.02]">
-        <div className="section-shell py-8 lg:py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
-          <div className="flex items-center gap-4">
-            <span className="grid place-items-center h-11 w-11 rounded-full bg-[var(--brand-accent)]/15 border border-[var(--brand-accent)]/30 text-[var(--brand-accent)] shrink-0">
-              <Icon name="mail" size={18} />
-            </span>
-            <div className="leading-tight">
-              <div className="news-eyebrow text-[var(--brand-accent)]">Stay connected</div>
-              <div className="font-display text-[17px] lg:text-[19px] font-bold text-white mt-0.5">
-                Email · WhatsApp · Phone · Open House
-              </div>
-            </div>
-          </div>
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center gap-2 text-[13px] font-bold text-white/85 hover:text-white"
-          >
-            See all ways to reach us
-            <Icon name="arrow-right" size={14} />
-          </Link>
-        </div>
-      </div>
 
       {/* ── Main grid ──────────────────────────────────────── */}
       <div className="section-shell relative py-12 lg:py-16 grid gap-8 grid-cols-2 sm:grid-cols-3 lg:[grid-template-columns:minmax(0,1.5fr)_repeat(5,_minmax(0,1fr))]">
@@ -144,27 +119,6 @@ export default function Footer() {
             </ul>
           </div>
         ))}
-      </div>
-
-      {/* ── Accreditation strip ─────────────────────────────── */}
-      <div className="relative border-t border-white/10">
-        <div className="section-shell py-7">
-          <div className="flex items-center justify-between gap-3 mb-4">
-            <div className="flex items-center gap-3 flex-1">
-              <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                Accreditation
-              </span>
-              <span className="h-px flex-1 bg-white/10" />
-            </div>
-            <Link
-              href="/accreditation"
-              className="text-[11px] font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
-            >
-              See all registrations →
-            </Link>
-          </div>
-          <TrustBadges />
-        </div>
       </div>
 
       {/* ── Bottom bar ─────────────────────────────────────── */}

@@ -15,6 +15,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="fee-structure"
+      showRelated={false}
       hero={{
         eyebrow: "Fees",
         title: "Estimate your annual outlay",

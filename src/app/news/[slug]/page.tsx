@@ -53,6 +53,7 @@ export default async function Page(
   return (
     <InnerPageShell
       slug="resources"
+      showRelated={false}
       hero={{
         eyebrow: post.category,
         title: post.title.replace(/&rsquo;/g, "'"),

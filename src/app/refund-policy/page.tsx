@@ -20,6 +20,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="refund-policy"
+      showRelated={false}
       hero={{
         eyebrow: "Policies",
         title: "Refund Policy",

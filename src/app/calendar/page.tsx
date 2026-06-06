@@ -81,6 +81,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="calendar"
+      showRelated={false}
       hero={{
         eyebrow: "Resources",
         title: "School Calendar",

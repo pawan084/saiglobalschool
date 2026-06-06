@@ -27,6 +27,7 @@ export default function Page() {
   return (
     <InnerPageShell
       slug="inquire-book-a-tour"
+      showRelated={false}
       hero={{
         eyebrow: "Admissions",
         title: "Inquire or book a campus tour",

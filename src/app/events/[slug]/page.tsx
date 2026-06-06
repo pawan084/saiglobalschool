@@ -82,6 +82,7 @@ export default async function Page({
   return (
     <InnerPageShell
       slug="resources"
+      showRelated={false}
       hero={{
         eyebrow: ev.type,
         title: ev.title,

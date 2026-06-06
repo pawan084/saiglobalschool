@@ -17,6 +17,8 @@ type Props = {
   ctaSubtitle?: string;
   /** Background tone for the related-block (default "mist") */
   relatedTone?: "white" | "mist" | "cream";
+  /** Hide related cards on utility/action pages where the CTA should be the final action. */
+  showRelated?: boolean;
 };
 
 /**
@@ -33,6 +35,7 @@ export default function InnerPageShell({
   ctaTitle,
   ctaSubtitle,
   relatedTone = "mist",
+  showRelated = true,
 }: Props) {
   return (
     <>
@@ -42,7 +45,7 @@ export default function InnerPageShell({
         <RevealOnScroll>{children}</RevealOnScroll>
       </div>
 
-      <RelatedFeatureBlock slug={slug} tone={relatedTone} />
+      {showRelated && <RelatedFeatureBlock slug={slug} tone={relatedTone} />}
 
       <CTAStrip title={ctaTitle} subtitle={ctaSubtitle} />
     </>

@@ -10,5 +10,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <SimpleContentPage slug="school-uniform-and-transportation" data={data} />;
+  return <SimpleContentPage slug="school-uniform-and-transportation" data={data} showRelated={false} />;
 }

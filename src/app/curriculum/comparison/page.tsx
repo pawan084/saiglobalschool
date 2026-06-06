@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 export const metadata = {
   title: "Curriculum comparison",
   description:
-    "How SSSGS compares with CBSE, ICSE and IB across structure, assessment, languages and pace.",
+    "How SSSGS compares with CBSE, ICSE, Cambridge and IB across structure, assessment, languages and pace.",
   alternates: { canonical: "/curriculum/comparison" },
 };
 
@@ -15,6 +15,7 @@ type Row = {
   sssgs: string;
   cbse: string;
   icse: string;
+  cambridge: string;
   ib: string;
 };
 
@@ -24,6 +25,7 @@ const ROWS: Row[] = [
     sssgs: "NCERT-aligned, values-integrated",
     cbse: "NCERT",
     icse: "CISCE board",
+    cambridge: "Cambridge (CAIE) — Primary / Lower Secondary / IGCSE",
     ib: "International Baccalaureate (PYP/MYP)",
   },
   {
@@ -31,6 +33,7 @@ const ROWS: Row[] = [
     sssgs: "English",
     cbse: "Mostly English",
     icse: "English",
+    cambridge: "English",
     ib: "English (additional language required)",
   },
   {
@@ -38,6 +41,7 @@ const ROWS: Row[] = [
     sssgs: "Grades 1–8 today (expanding)",
     cbse: "Grades 1–12",
     icse: "Grades 1–10 (ISC up to 12)",
+    cambridge: "Grades 1–11 (IGCSE); A-Level to 13",
     ib: "Grades 1–12",
   },
   {
@@ -45,6 +49,7 @@ const ROWS: Row[] = [
     sssgs: "~1:20 average",
     cbse: "Often 1:30+",
     icse: "Often 1:30+",
+    cambridge: "Varies by school",
     ib: "Smaller (1:15–1:20 common)",
   },
   {
@@ -52,6 +57,7 @@ const ROWS: Row[] = [
     sssgs: "Continuous formative + structured term assessments",
     cbse: "Periodic + annual",
     icse: "Continuous + annual",
+    cambridge: "Checkpoint tests + IGCSE external exams",
     ib: "Criterion-based, project-heavy",
   },
   {
@@ -59,6 +65,7 @@ const ROWS: Row[] = [
     sssgs: "Welcome, with settling support",
     cbse: "Varies by school",
     icse: "Varies by school",
+    cambridge: "Varies by school",
     ib: "Possible, slot-dependent",
   },
   {
@@ -66,6 +73,7 @@ const ROWS: Row[] = [
     sssgs: "Built into every subject and routine",
     cbse: "Light unless school adds it",
     icse: "Light unless school adds it",
+    cambridge: "Light unless school adds it",
     ib: "Learner Profile traits; varies",
   },
   {
@@ -73,6 +81,7 @@ const ROWS: Row[] = [
     sssgs: "CCAs + enrichment (phonics, abacus, olympiad)",
     cbse: "School-dependent",
     icse: "School-dependent",
+    cambridge: "School-dependent",
     ib: "Action / Service integrated",
   },
   {
@@ -80,6 +89,7 @@ const ROWS: Row[] = [
     sssgs: "Strong for CBSE/ICSE families relocating to SG",
     cbse: "Strong within CBSE network",
     icse: "Strong within ICSE network",
+    cambridge: "Common for internationally-mobile families",
     ib: "Globally portable, exam-style differs",
   },
   {
@@ -87,6 +97,7 @@ const ROWS: Row[] = [
     sssgs: "Mid-range",
     cbse: "Generally lower",
     icse: "Mid-range",
+    cambridge: "Higher (international)",
     ib: "Highest",
   },
 ];
@@ -96,6 +107,7 @@ function MobileCard({ row }: { row: Row }) {
     { key: "sssgs", label: "SSSGS", tone: "bg-[var(--brand-primary-tint)] border-[var(--brand-primary)]/30 text-[var(--brand-primary-dark)]" },
     { key: "cbse", label: "CBSE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
     { key: "icse", label: "ICSE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
+    { key: "cambridge", label: "CAIE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
     { key: "ib", label: "IB", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
   ];
   return (
@@ -123,7 +135,7 @@ export default function Page() {
       slug="curriculum"
       hero={{
         eyebrow: "Compare",
-        title: "SSSGS vs CBSE, ICSE, IB",
+        title: "SSSGS vs CBSE, ICSE, Cambridge, IB",
         lead: "A practical at-a-glance comparison for families relocating or choosing between curricula. We focus on the questions parents actually ask.",
         breadcrumb: [
           { label: "Academics", href: "/academics" },
@@ -161,6 +173,7 @@ export default function Page() {
                 </th>
                 <th className="text-left px-4 py-3 font-bold text-slate-500 text-[11px] uppercase tracking-[0.14em]">CBSE</th>
                 <th className="text-left px-4 py-3 font-bold text-slate-500 text-[11px] uppercase tracking-[0.14em]">ICSE</th>
+                <th className="text-left px-4 py-3 font-bold text-slate-500 text-[11px] uppercase tracking-[0.14em]">Cambridge</th>
                 <th className="text-left px-4 py-3 font-bold text-slate-500 text-[11px] uppercase tracking-[0.14em]">IB</th>
               </tr>
             </thead>
@@ -173,6 +186,7 @@ export default function Page() {
                   </td>
                   <td className="align-top px-4 py-3 text-slate-700">{r.cbse}</td>
                   <td className="align-top px-4 py-3 text-slate-700">{r.icse}</td>
+                  <td className="align-top px-4 py-3 text-slate-700">{r.cambridge}</td>
                   <td className="align-top px-4 py-3 text-slate-700">{r.ib}</td>
                 </tr>
               ))}

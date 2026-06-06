@@ -81,7 +81,9 @@ export default async function Page(
           "@type": "Article",
           headline: post.title.replace(/&rsquo;/g, "'"),
           description: post.excerpt.replace(/&rsquo;/g, "'"),
+          image: `${SITE_URL}/opengraph-image`,
           datePublished: post.date,
+          dateModified: post.date,
           author: { "@type": "Organization", name: "Sri Sathya Sai Global School" },
           publisher: {
             "@type": "Organization",

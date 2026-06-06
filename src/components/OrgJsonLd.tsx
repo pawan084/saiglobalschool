@@ -16,9 +16,12 @@ export default function OrgJsonLd() {
     description: site.description,
     telephone: site.phone,
     email: site.email,
+    // NOTE: streetAddress/postalCode/geo are intentionally omitted — a real
+    // street address isn't in the project yet. A placeholder string is invalid
+    // structured data (worse than omitting), so add the real values here when
+    // the school provides them (and consider a `geo` lat/long for Map results).
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Visit the campus address page",
       addressLocality: "Singapore",
       addressCountry: "SG",
     },

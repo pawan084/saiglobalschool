@@ -22,7 +22,8 @@ export default async function Image() {
             "linear-gradient(135deg, #fff8eb 0%, #ffffff 45%, #eef0fc 100%)",
           padding: "72px 80px",
           position: "relative",
-          fontFamily: "Inter, system-ui, sans-serif",
+          // No custom font is loaded, so don't claim "Inter" — it falls back silently.
+          fontFamily: "system-ui, sans-serif",
         }}
       >
         {/* Decorative orbs */}

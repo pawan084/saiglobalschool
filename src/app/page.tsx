@@ -12,7 +12,10 @@ export const metadata = {
   title: { absolute: "Sri Sathya Sai Global School | Singapore" },
   description:
     "An NCERT-aligned, values-rooted international school in Singapore for Grades 1–8. Small-group learning, experienced educators, mid-year admissions welcome.",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/feed.xml" },
+  },
 };
 
 const stats = [

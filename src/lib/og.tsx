@@ -47,7 +47,9 @@ export async function buildOgImage({
             "linear-gradient(135deg, #fff8eb 0%, #ffffff 45%, #eef0fc 100%)",
           padding: "72px 80px",
           position: "relative",
-          fontFamily: "Inter, system-ui, sans-serif",
+          // No custom font is loaded into ImageResponse, so next/og renders with
+          // its bundled default — don't claim "Inter" (it would silently fall back).
+          fontFamily: "system-ui, sans-serif",
         }}
       >
         <div

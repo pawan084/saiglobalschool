@@ -55,7 +55,11 @@ export const metadata: Metadata = {
     "primary school singapore",
     "character development school",
   ],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    // Makes the RSS feed auto-discoverable by browsers and feed readers.
+    types: { "application/rss+xml": "/feed.xml" },
+  },
   openGraph: {
     type: "website",
     locale: "en_SG",

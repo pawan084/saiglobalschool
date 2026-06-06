@@ -9,7 +9,10 @@ export const metadata = {
   title: "News & stories",
   description:
     "Updates from SSSGS — admissions news, curriculum thinking, campus life and student achievements.",
-  alternates: { canonical: "/news" },
+  alternates: {
+    canonical: "/news",
+    types: { "application/rss+xml": "/feed.xml" },
+  },
 };
 
 const PAGE_SIZE = 6;

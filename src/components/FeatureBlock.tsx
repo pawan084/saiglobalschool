@@ -4,7 +4,7 @@ import Icon from "./Icon";
 
 type Card = {
   title: string;
-  body: string;
+  body?: string;
   image: string;
   imageAlt?: string;
   /** object-position for the image — useful for portraits (use "top") or full bleed. */
@@ -137,9 +137,11 @@ export default function FeatureBlock({
               <h3 className="text-[22px] lg:text-[27px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight">
                 {featured.title}
               </h3>
-              <p className="mt-4 text-[14.5px] leading-relaxed text-slate-600">
-                {featured.body}
-              </p>
+              {featured.body && (
+                <p className="mt-4 text-[14.5px] leading-relaxed text-slate-600 line-clamp-4">
+                  {featured.body}
+                </p>
+              )}
               <Link href={featured.href} className="learn-more-pill mt-7">
                 {featured.ctaLabel ?? "Learn more"}
                 <span className="learn-more-arrow">
@@ -182,10 +184,19 @@ function SatelliteCard({ card }: { card: Card }) {
       style={{ boxShadow: "var(--shadow-sm)" }}
     >
       <div className="p-6 pb-5 relative z-[1]">
-        <h4 className="text-[18px] lg:text-[19px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight">
+        {/* Reserve 2 lines for the title and clamp the body so every card in a
+            row keeps the same text height — otherwise the images below start at
+            different heights and the cards look ragged. */}
+        <h4 className="text-[18px] lg:text-[19px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight line-clamp-2 min-h-[2.6rem]">
           {card.title}
         </h4>
-        <p className="mt-3 text-[13.5px] leading-relaxed text-slate-600">{card.body}</p>
+        {/* Always reserve the body slot (even when empty) so the images below
+            line up across every card in the section, with or without a body. */}
+        <div className="mt-3 min-h-[2.7rem]">
+          {card.body && (
+            <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-2">{card.body}</p>
+          )}
+        </div>
       </div>
       <div className="px-5 pb-5 relative z-[1]">
         <div className={`relative aspect-[4/3] rounded-xl overflow-hidden ${

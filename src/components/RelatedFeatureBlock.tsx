@@ -30,7 +30,9 @@ export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
       }}
       items={satellites.map((s) => ({
         title: s.title,
-        body: s.lead ?? "More detail on this topic — click through to read.",
+        // Only show a body when the item has a real lead — otherwise every
+        // satellite card would repeat the same filler sentence.
+        body: s.lead,
         image: s.image ?? FALLBACK_IMAGE,
         href: s.href,
       }))}

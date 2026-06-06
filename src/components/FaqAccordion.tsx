@@ -11,6 +11,8 @@ export default function FaqAccordion({ items }: { items: FAQ[] }) {
     <div className="space-y-3">
       {items.map((item, i) => {
         const isOpen = open === i;
+        const btnId = `faq-q-${i}`;
+        const panelId = `faq-a-${i}`;
         return (
           <div
             key={i}
@@ -24,9 +26,11 @@ export default function FaqAccordion({ items }: { items: FAQ[] }) {
             }}
           >
             <button
+              id={btnId}
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full text-left px-5 lg:px-6 py-4 lg:py-5 flex items-center justify-between gap-4 group"
               aria-expanded={isOpen}
+              aria-controls={panelId}
             >
               <div className="flex items-start gap-3 lg:gap-4 flex-1">
                 <span className="font-display text-[14px] font-bold text-[var(--brand-accent)] tabular-nums shrink-0 pt-0.5">
@@ -52,6 +56,10 @@ export default function FaqAccordion({ items }: { items: FAQ[] }) {
               </span>
             </button>
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={btnId}
+              inert={!isOpen}
               className={`grid transition-all duration-300 ease-in-out ${
                 isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               }`}

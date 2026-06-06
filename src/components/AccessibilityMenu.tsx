@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { safeGet, safeSet } from "@/lib/storage";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 type FontScale = "base" | "lg" | "xl" | "xxl";
 type Contrast = "normal" | "high";
@@ -36,6 +37,9 @@ export default function AccessibilityMenu() {
     () => (safeGet(STORAGE_CONTRAST) as Contrast | null) ?? "normal"
   );
   const panelRef = useRef<HTMLDivElement | null>(null);
+  // Move focus into the dialog on open, trap Tab, and restore focus to the
+  // trigger on close — role="dialog" needs managed focus to be valid.
+  const trapRef = useFocusTrap<HTMLDivElement>(open);
 
   // Persist + apply on change (side effect: DOM mutation + storage I/O)
   useEffect(() => {
@@ -85,7 +89,9 @@ export default function AccessibilityMenu() {
 
       {open && (
         <div
+          ref={trapRef}
           role="dialog"
+          aria-modal="true"
           aria-label="Accessibility options"
           className="fixed left-4 bottom-[8.5rem] z-[71] w-[290px] rounded-2xl bg-white border border-[var(--brand-rule)] p-4"
           style={{ boxShadow: "0 22px 48px -16px rgba(11,29,51,0.30)" }}

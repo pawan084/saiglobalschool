@@ -24,6 +24,8 @@ export default function Header() {
   const [mobile, setMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() || "/";
+  const mobileBtnRef = useRef<HTMLButtonElement | null>(null);
+  const mobileNavRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,6 +33,26 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Mobile drawer: move focus inside on open, and let Escape close it and
+  // return focus to the toggle button.
+  useEffect(() => {
+    if (!mobile) return;
+    const raf = requestAnimationFrame(() => {
+      mobileNavRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+    });
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMobile(false);
+        mobileBtnRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [mobile]);
 
   return (
     <header
@@ -99,6 +121,7 @@ export default function Header() {
             </Link>
             <button
               type="button"
+              ref={mobileBtnRef}
               onClick={() => setMobile((v) => !v)}
               aria-label={mobile ? "Close menu" : "Open menu"}
               aria-expanded={mobile}
@@ -122,7 +145,7 @@ export default function Header() {
 
       {/* Mobile drawer */}
       {mobile && (
-        <nav aria-label="Primary mobile" id="mobile-nav" className="lg:hidden border-t border-[var(--brand-rule)] bg-white">
+        <nav ref={mobileNavRef} aria-label="Primary mobile" id="mobile-nav" className="lg:hidden border-t border-[var(--brand-rule)] bg-white">
           <div className="section-shell py-3 max-h-[70vh] overflow-y-auto">
             {navigation.map((item) => {
               const active = isItemActive(pathname, item);

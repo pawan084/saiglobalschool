@@ -172,6 +172,10 @@ export default function GradeFitQuiz() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      {/* Announce each new question to screen readers as the step advances. */}
+      <p className="sr-only" aria-live="polite">
+        {q.q}
+      </p>
       {/* Progress */}
       <div className="mb-6">
         <div className="flex justify-between text-[10.5px] uppercase tracking-[0.14em] font-bold text-slate-500">

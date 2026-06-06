@@ -219,7 +219,8 @@ export default function FeeCalculator() {
             className="absolute -top-16 -right-16 w-44 h-44 rounded-full opacity-25 pointer-events-none"
             style={{ background: "radial-gradient(closest-side, var(--brand-accent), transparent)" }}
           />
-          <div className="relative">
+          {/* Announce the recomputed estimate when grade/add-ons/currency change. */}
+          <div className="relative" aria-live="polite">
             <div className="text-[11px] uppercase tracking-[0.16em] font-bold text-[var(--brand-accent)]">
               Estimate · Grade {grade}
             </div>

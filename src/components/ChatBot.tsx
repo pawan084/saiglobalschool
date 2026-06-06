@@ -33,6 +33,7 @@ export default function ChatBot() {
   const [voiceState, setVoiceState] = useState<"idle" | "listening" | "unsupported">("idle");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const launcherRef = useRef<HTMLButtonElement>(null);
   const recognitionRef = useRef<unknown>(null);
   // Tracks the in-flight chat request so we can cancel it when the user
   // closes the panel, starts a new conversation, fires another send, or
@@ -62,6 +63,19 @@ export default function ChatBot() {
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, sending]);
+
+  // Escape closes the chat dialog and returns focus to the launcher button.
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        launcherRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   // Persist on change (skip the streaming "assistant: ''" placeholder)
   useEffect(() => {
@@ -219,6 +233,7 @@ export default function ChatBot() {
     <>
       {/* Floating launcher */}
       <button
+        ref={launcherRef}
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open chat"}
         className={`fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full grid place-items-center transition-transform hover:-translate-y-0.5 ${
@@ -249,6 +264,9 @@ export default function ChatBot() {
       {/* Panel */}
       {open && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Chat with Sri Sathya Sai Global School"
           className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[400px] h-[min(620px,calc(100vh-9rem))] bg-white rounded-2xl border border-[var(--brand-rule)] flex flex-col overflow-hidden"
           style={{ boxShadow: "0 30px 60px -20px rgba(15,23,42,0.32), 0 12px 24px -12px rgba(15,23,42,0.18)" }}
         >
@@ -309,6 +327,10 @@ export default function ChatBot() {
           {/* Body */}
           <div
             ref={scrollRef}
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+            aria-label="Conversation"
             className="flex-1 overflow-y-auto px-4 py-4 bg-gradient-to-b from-white via-[#f8fafc] to-white"
           >
             {showWelcome ? (

@@ -27,7 +27,7 @@ export default function TrustBadges({ variant = "footer" }: Props) {
             </span>
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-[0.1em] text-slate-400">{b.label}</div>
-              <div className="text-[13.5px] font-bold text-white leading-tight mt-0.5 truncate">{b.sub}</div>
+              <div className="text-[13.5px] font-bold text-white leading-tight mt-0.5">{b.sub}</div>
               <div className="text-[10.5px] text-slate-500 mt-0.5">{b.id}</div>
             </div>
           </div>

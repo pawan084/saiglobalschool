@@ -129,8 +129,7 @@ export default function Home() {
           {
             title: "A parent community that helps",
             body: "An active parent community makes the social transition as smooth as the academic one — for the whole family.",
-            image: "/img/home/about-sssgs/faculty.jpg",
-            imagePosition: "top",
+            image: "/img/home/campus-life/uniform-transport.jpg",
             href: "/parent-community",
           },
         ]}

@@ -47,9 +47,12 @@ const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 function dayOfYear(iso: string): number {
+  // A date-only ISO string ("2026-01-06") parses as UTC midnight, so compute the
+  // year start in UTC too — mixing a UTC instant with a local-time `new Date(y,0,0)`
+  // shifts every marker by a day on non-UTC hosts.
   const d = new Date(iso);
-  const start = new Date(d.getFullYear(), 0, 0);
-  return Math.floor((+d - +start) / 86400000);
+  const start = Date.UTC(d.getUTCFullYear(), 0, 0);
+  return Math.floor((d.getTime() - start) / 86400000);
 }
 
 function fmtRange(start: string, end: string) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 
@@ -77,15 +77,28 @@ export default function GradeFitQuiz() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [done, setDone] = useState(false);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const progress = useMemo(() => (step + (done ? 1 : 0)) / QUESTIONS.length, [step, done]);
   const result = useMemo(() => recommendedGrade(answers), [answers]);
 
+  useEffect(() => () => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+  }, []);
+
   function answer(qid: string, hint: number) {
     setAnswers((a) => ({ ...a, [qid]: hint }));
-    setTimeout(() => {
-      if (step + 1 >= QUESTIONS.length) setDone(true);
-      else setStep((s) => s + 1);
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    advanceTimer.current = setTimeout(() => {
+      // Decide from the latest step inside the updater, not a captured value, so
+      // two quick answers within the 200ms window can't both read a stale step.
+      setStep((s) => {
+        if (s + 1 >= QUESTIONS.length) {
+          setDone(true);
+          return s;
+        }
+        return s + 1;
+      });
     }, 200);
   }
 

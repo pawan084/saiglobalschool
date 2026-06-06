@@ -48,10 +48,11 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean) {
     }
 
     // Initial focus
+    let rafId = 0;
     const focusables = getFocusable();
     if (focusables.length > 0) {
       // Use rAF so the dialog has time to paint (avoids jumping past invisible-during-mount elements)
-      requestAnimationFrame(() => focusables[0]?.focus());
+      rafId = requestAnimationFrame(() => focusables[0]?.focus());
     } else {
       container.setAttribute("tabindex", "-1");
       container.focus();
@@ -79,6 +80,9 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean) {
 
     document.addEventListener("keydown", onKey);
     return () => {
+      // Cancel the pending initial-focus rAF so it can't steal focus into an
+      // element that is being unmounted if the trap closes within the same frame.
+      cancelAnimationFrame(rafId);
       document.removeEventListener("keydown", onKey);
       lastActiveRef.current?.focus?.();
     };

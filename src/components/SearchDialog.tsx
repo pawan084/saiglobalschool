@@ -97,10 +97,12 @@ export default function SearchDialog() {
   function handleKey(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setCursor((c) => Math.min(results.length - 1, c + 1));
+      // Clamp the stored cursor to the current result count first — it may be
+      // stale (larger) after the query narrowed the list.
+      setCursor((c) => Math.min(results.length - 1, Math.min(c, results.length - 1) + 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setCursor((c) => Math.max(0, c - 1));
+      setCursor((c) => Math.max(0, Math.min(c, results.length - 1) - 1));
     } else if (e.key === "Enter" && results[safeCursor]) {
       e.preventDefault();
       go(results[safeCursor]);

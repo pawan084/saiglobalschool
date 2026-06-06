@@ -39,7 +39,10 @@ function nextDays(n: number): Day[] {
     if (wd === 0) continue;
     const openSlots = wd === 6 ? [9, 10, 11] : SLOT_HOURS;
     out.push({
-      iso: d.toISOString().slice(0, 10),
+      // Build the day key from LOCAL fields so it matches the locally-derived
+      // weekday/dayNum shown to the user. toISOString() would use the UTC
+      // calendar date, which is off by one for users behind UTC in the evening.
+      iso: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
       date: d,
       weekday: d.toLocaleDateString("en-SG", { weekday: "short" }),
       monthShort: d.toLocaleDateString("en-SG", { month: "short" }),

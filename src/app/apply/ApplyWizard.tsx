@@ -260,6 +260,7 @@ export default function ApplyWizard() {
                 <button
                   onClick={() => s.id <= step && setStep(s.id)}
                   disabled={s.id > step}
+                  aria-current={s.id === step ? "step" : undefined}
                   className={`flex items-center gap-3 w-full px-3 py-2 rounded-xl text-left transition ${
                     s.id === step
                       ? "bg-[var(--brand-navy)] text-white"
@@ -305,6 +306,10 @@ export default function ApplyWizard() {
         className="rounded-3xl bg-white border border-[var(--brand-rule)] p-5 lg:p-8 relative"
         style={{ boxShadow: "var(--shadow-md)" }}
       >
+        {/* Announce step changes to screen readers. */}
+        <p className="sr-only" aria-live="polite">
+          Step {step} of {STEPS.length}: {STEPS[step - 1]?.label}
+        </p>
         {/* Mobile progress */}
         <div className="lg:hidden mb-5">
           <div className="flex justify-between text-[10.5px] uppercase tracking-[0.14em] font-bold text-slate-500">

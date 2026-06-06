@@ -64,6 +64,7 @@ export default function TourSlotPicker() {
   const days = useMemo(() => nextDays(14), []);
   const [day, setDay] = useState<string>(days[0]?.iso ?? "");
   const [hour, setHour] = useState<number | null>(null);
+  const [timeError, setTimeError] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -84,6 +85,7 @@ export default function TourSlotPicker() {
     e.preventDefault();
     if (busy) return;
     if (!hour) {
+      setTimeError(true);
       show("Please pick a time.", "error");
       return;
     }
@@ -179,7 +181,7 @@ export default function TourSlotPicker() {
           Weekdays 9 AM – 4 PM, Saturday mornings.
         </p>
 
-        <div className="mt-4 grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 gap-1.5">
+        <div role="group" aria-label="Choose a day" className="mt-4 grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 gap-1.5">
           {days.map((d) => {
             const sel = d.iso === day;
             return (
@@ -218,7 +220,12 @@ export default function TourSlotPicker() {
             <h3 className="font-display text-[20px] font-bold text-[var(--brand-navy)]">
               Pick a time
             </h3>
-            <div className="mt-3 grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+            <div
+              role="group"
+              aria-label="Choose a time"
+              aria-describedby={timeError ? "tour-time-error" : undefined}
+              className="mt-3 grid grid-cols-3 sm:grid-cols-6 gap-1.5"
+            >
               {SLOT_HOURS.map((h) => {
                 const open = dayObj.openSlots.includes(h);
                 const sel = h === hour;
@@ -227,7 +234,7 @@ export default function TourSlotPicker() {
                     key={h}
                     type="button"
                     disabled={!open}
-                    onClick={() => setHour(h)}
+                    onClick={() => { setHour(h); setTimeError(false); }}
                     aria-pressed={sel}
                     className={`rounded-lg py-2.5 text-[12.5px] font-bold border transition ${
                       sel
@@ -242,11 +249,15 @@ export default function TourSlotPicker() {
                 );
               })}
             </div>
-            {hour === null && (
+            {timeError ? (
+              <p id="tour-time-error" role="alert" className="mt-2 text-[11px] font-bold text-[#d4574d]">
+                Please pick a time to continue.
+              </p>
+            ) : hour === null ? (
               <p className="mt-2 text-[11px] text-slate-500">
                 All times shown in Singapore Time.
               </p>
-            )}
+            ) : null}
           </div>
         )}
       </div>

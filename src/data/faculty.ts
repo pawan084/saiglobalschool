@@ -75,10 +75,10 @@ export const FACULTY: FacultyMember[] = [
     name: "Subject Lead",
     role: "Language",
     image: "/img/navbar/about/faculty/lead-language.jpg",
-    short: "Reading, writing and oral fluency taught as a craft.",
+    short: "Reading, writing, listening and speaking — four-skill English instruction.",
     qualifications: ["M.A. English Literature", "B.Ed.", "Cambridge CELTA"],
     bio: [
-      "Our Language Lead oversees the English programme across Grades 1–8 — from phonics-based reading in early years to literary analysis and structured debate at the secondary stage.",
+      "Our Language Lead oversees the English programme across primary and middle school — from phonics-based reading in early years to literary analysis and structured debate at the secondary stage.",
       "She also runs the after-school phonics and reading-club enrichment for younger grades.",
     ],
     teaches: ["English — Grades 4–8", "Phonics enrichment"],

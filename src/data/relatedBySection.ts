@@ -34,7 +34,7 @@ export const sectionMeta: Record<
     ctaHref: "/inquire-book-a-tour",
     title: "Other Learning Labs.",
     intro:
-      "Language, science, math and ICT — each lab gives children a regular, structured chance to apply what they learn.",
+      "Science, maths, language, English and ICT — each lab gives children a regular, structured chance to apply what they learn.",
   },
   campus: {
     label: "Campus Life",
@@ -91,6 +91,7 @@ export const slugSection: Record<string, SectionKey> = {
   // Labs
   "learning-labs": "labs",
   "language-lab": "labs",
+  "english-lab": "labs",
   "science-lab": "labs",
   "maths-lab": "labs",
   "ict-lab": "labs",

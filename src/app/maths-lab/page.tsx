@@ -29,8 +29,9 @@ export default function Page() {
         "Real-world math: budgeting, measuring, scaling, building",
       ]}
       relatedLabs={[
-        { label: "Language Lab", href: "/language-lab" },
         { label: "Science Lab", href: "/science-lab" },
+        { label: "Language Lab", href: "/language-lab" },
+        { label: "English Lab", href: "/english-lab" },
         { label: "ICT Lab", href: "/ict-lab" },
         { label: "All Learning Labs", href: "/learning-labs" },
       ]}

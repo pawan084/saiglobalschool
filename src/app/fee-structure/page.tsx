@@ -43,7 +43,7 @@ export default function Page() {
       hero={{
         eyebrow: "Fees",
         title: "Fee Structure",
-        lead: "Transparent annual fee breakdown for Grades 1–8. Tables for Primary (Grades 1–5) and Secondary (Grades 6–8) below. Indicative figures — please confirm with admissions.",
+        lead: "Transparent annual fee breakdown for primary and middle school. Tables for Primary (Grades 1–5) and Secondary (Grades 6–8) below. Indicative figures — please confirm with admissions.",
         breadcrumb: [
           { label: "Admissions", href: "/admissions" },
           { label: "Fee Structure", href: "/fee-structure" },

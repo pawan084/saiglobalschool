@@ -11,7 +11,7 @@ import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: { absolute: "Sri Sathya Sai Global School | Singapore" },
   description:
-    "An NCERT-aligned, values-rooted international school in Singapore for Grades 1–8. Small-group learning, experienced educators, mid-year admissions welcome.",
+    "An NCERT-aligned, values-rooted international school in Singapore for primary and middle school. Small-group learning, experienced educators, mid-year admissions welcome.",
   alternates: {
     canonical: "/",
     types: { "application/rss+xml": "/feed.xml" },
@@ -19,8 +19,8 @@ export const metadata = {
 };
 
 const stats = [
-  { value: 8, label: "Grades — 1 to 8" },
-  { value: 4, label: "Specialist Labs" },
+  { value: 0, display: "1–8", label: "Primary & middle school" },
+  { value: 5, label: "Specialist Labs" },
   { value: 0, display: "1 : 20", label: "Teacher–Student" },
   { value: 2026, label: "PEI Reg. period" },
 ];
@@ -117,7 +117,7 @@ export default function Home() {
           },
           {
             title: "Mid-year admissions welcome",
-            body: "Join Grades 1 to 8 at any point in the academic year. Clear process, fast timelines, personalised onboarding.",
+            body: "Join at any point in the academic year across primary and middle school. Clear process, fast timelines, personalised onboarding.",
             image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/admission-process",
@@ -172,7 +172,7 @@ export default function Home() {
           },
           {
             title: "NCERT-aligned curriculum",
-            body: "A recognised, rigorous academic backbone across Grades 1 to 8 — built for continuity through CBSE, ICSE, Cambridge or IB.",
+            body: "A recognised, rigorous academic backbone across primary and middle school — built for continuity through CBSE, ICSE, Cambridge or IB.",
             image: "/img/home/academics/curriculum.jpg",
             href: "/curriculum",
           },

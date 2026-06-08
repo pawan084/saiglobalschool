@@ -8,7 +8,7 @@ const resourcesCrumb = { label: "Resources", href: "/resources" };
 export const simplePages: Record<string, SimplePage> = {
   "academic-pathway": {
     eyebrow: "Academics",
-    title: "Academic Pathway, Grade 1 to Grade 8",
+    title: "Academic Pathway",
     lead: "A structured academic pathway that takes children from foundational learning in Grade 1 through to confident, exam-ready learners in Grade 8.",
     breadcrumb: [academicsCrumb, { label: "Academic Pathway", href: "/academic-pathway" }],
     intro: [
@@ -18,8 +18,8 @@ export const simplePages: Record<string, SimplePage> = {
     features: {
       sectionTitle: "Pathway by grade band",
       items: [
-        { icon: "1", title: "Grades 1–2 — Foundations", body: "Phonics, early numeracy, motor skills, classroom routines and social skills." },
-        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building in language, math, science, social studies and ICT." },
+        { icon: "1", title: "Grades 1–2 — Foundations", body: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, second & third language, math, science, social studies and ICT." },
         { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
       ],
       cols: 3,
@@ -74,11 +74,13 @@ export const simplePages: Record<string, SimplePage> = {
     features: {
       sectionTitle: "Subjects across grades",
       items: [
-        { iconName: "book-open", title: "Languages", body: "English (medium of instruction), additional languages as part of curriculum." },
+        { iconName: "book-open", title: "English", body: "Medium of instruction. Four-skill English — reading, writing, listening and speaking — supported by the English Lab with CEFR alignment." },
+        { iconName: "book-open", title: "Second Language", body: "Reading, writing, listening and speaking across Grades 3–8." },
+        { iconName: "book-open", title: "Third Language", body: "Optional third language for higher grade bands; choice depends on yearly offerings." },
         { iconName: "calculator", title: "Mathematics", body: "Foundations through pre-algebra and geometry across the grade range." },
         { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in middle school." },
         { iconName: "globe", title: "Social Studies", body: "History, geography and civics with critical-thinking emphasis." },
-        { iconName: "monitor", title: "ICT", body: "Digital literacy from Grade 1, including online safety and computational thinking." },
+        { iconName: "monitor", title: "Information and Communication Technology", body: "Digital literacy from Grade 1, including online safety and computational thinking." },
         { iconName: "palette", title: "Art & Music", body: "Visual arts, music and performing arts in every grade." },
         { iconName: "play", title: "Physical Education", body: "Movement, sport and yoga integrated weekly." },
         { iconName: "sparkle", title: "Value Education", body: "Daily moments and dedicated sessions for character work." },
@@ -139,17 +141,21 @@ export const simplePages: Record<string, SimplePage> = {
   "values-integration-academics": {
     eyebrow: "About SSSGS",
     title: "Values Integration with Academics",
-    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — language, math, science, social studies and the arts.",
+    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — English, language, math, science, social studies, ICT, PE and the arts.",
     breadcrumb: [aboutCrumb, { label: "Values & Academics", href: "/values-integration-academics" }],
     features: {
       sectionTitle: "How integration works",
       items: [
-        { iconName: "book-open", title: "In language", body: "Story selection, discussion questions and writing prompts surface values naturally." },
-        { iconName: "flask", title: "In science", body: "Ethics, environment and responsibility framed alongside content." },
+        { iconName: "book-open", title: "In English", body: "Story selection, discussion questions and writing prompts surface values naturally." },
+        { iconName: "book-open", title: "In language", body: "Second and third language work draws on cultural stories that anchor values." },
         { iconName: "calculator", title: "In math", body: "Honest effort, peer support and reasoning aloud are built into the practice." },
+        { iconName: "flask", title: "In science", body: "Ethics, environment and responsibility framed alongside content." },
         { iconName: "globe", title: "In social studies", body: "Empathy for context, fairness, and multiple perspectives." },
+        { iconName: "monitor", title: "In ICT", body: "Digital citizenship, online ethics and respectful conduct in shared spaces." },
+        { iconName: "play", title: "In PE", body: "Teamwork, fair play, persistence and respect through group activities." },
+        { iconName: "palette", title: "In the arts", body: "Self-expression, listening to peers and care for shared materials." },
       ],
-      cols: 2,
+      cols: 4,
       tone: "cream",
     },
   },
@@ -284,7 +290,7 @@ export const simplePages: Record<string, SimplePage> = {
   "olympiad": {
     eyebrow: "Enrichment",
     title: "Olympiad Coaching",
-    lead: "Subject-specific olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
+    lead: "Subject-specific olympiad preparation for Grades 3–8 — math, science, English and general knowledge. Held after school hours, not during regular class time.",
     breadcrumb: [resourcesCrumb, { label: "Olympiad", href: "/olympiad" }],
     features: {
       sectionTitle: "How coaching works",

@@ -1,5 +1,7 @@
 export type SubjectId =
   | "english"
+  | "second-language"
+  | "third-language"
   | "mathematics"
   | "science"
   | "social-studies"
@@ -28,7 +30,7 @@ export const SUBJECTS: Subject[] = [
     id: "english",
     name: "English",
     icon: "book-open",
-    blurb: "Reading, writing and oral fluency, taught as a craft.",
+    blurb: "Reading, writing, listening and speaking — four-skill English from foundations to depth.",
     intro:
       "English is the medium of instruction at SSSGS. Across the grades, students move from phonics-based reading to literary analysis and persuasive writing, with structured oral and presentation work along the way.",
     bands: [
@@ -66,8 +68,88 @@ export const SUBJECTS: Subject[] = [
       },
     ],
     notes: [
-      "Supported by the Language Lab for structured oral practice and reading challenges.",
+      "Supported by the English Lab with NCERT plus CEFR-aligned instruction across all grades.",
       "Phonics enrichment available for Grades 1–5 as an after-school option.",
+    ],
+  },
+  {
+    id: "second-language",
+    name: "Second Language",
+    icon: "book-open",
+    blurb: "Four-skill instruction in a second language across all grade bands.",
+    intro:
+      "Students take a second language alongside English from Grade 1, with reading, writing, listening and speaking developed in parallel as the years progress.",
+    bands: [
+      {
+        band: "Grades 1–2",
+        label: "Foundations",
+        outcomes: [
+          "Letter-sound recognition and simple vocabulary",
+          "Greetings, names and everyday phrases",
+          "Songs, rhymes and movement-based learning",
+        ],
+      },
+      {
+        band: "Grades 3–5",
+        label: "Build",
+        outcomes: [
+          "Reading short passages with comprehension",
+          "Sentence-level writing on familiar topics",
+          "Listening to short stories and audio prompts",
+          "Conversational speaking in pairs and small groups",
+        ],
+      },
+      {
+        band: "Grades 6–8",
+        label: "Depth",
+        outcomes: [
+          "Reading longer texts across genres",
+          "Structured paragraph and essay writing",
+          "Listening to news and discussion segments",
+          "Presentations and structured oral exchanges",
+        ],
+      },
+    ],
+    notes: [
+      "Supported by the Language Lab for the four-skill component.",
+    ],
+  },
+  {
+    id: "third-language",
+    name: "Third Language",
+    icon: "book-open",
+    blurb: "Optional third language — exposure-led in early years, building toward functional fluency.",
+    intro:
+      "An additional language option offered alongside English and the second language — exposure-led through songs and stories in early grades, building toward reading, writing, listening and speaking by Grade 8.",
+    bands: [
+      {
+        band: "Grades 1–2",
+        label: "Foundations",
+        outcomes: [
+          "Introduced as exposure through songs and stories (where offered).",
+        ],
+      },
+      {
+        band: "Grades 3–5",
+        label: "Build",
+        outcomes: [
+          "Letter-sound recognition and core vocabulary",
+          "Simple sentence reading and writing",
+          "Conversational greetings and everyday exchanges",
+        ],
+      },
+      {
+        band: "Grades 6–8",
+        label: "Depth",
+        outcomes: [
+          "Short-form reading and writing across familiar topics",
+          "Listening comprehension of everyday audio",
+          "Speaking with confidence on familiar themes",
+        ],
+      },
+    ],
+    notes: [
+      "Choice of third language depends on offerings each academic year.",
     ],
   },
   {
@@ -210,7 +292,7 @@ export const SUBJECTS: Subject[] = [
   },
   {
     id: "ict",
-    name: "ICT & Computing",
+    name: "Information and Communication Technology",
     icon: "monitor",
     blurb: "Digital literacy, safety and computational thinking.",
     intro:

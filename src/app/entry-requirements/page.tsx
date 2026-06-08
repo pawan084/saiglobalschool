@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Entry Requirements",
-  description: "Age and assessment criteria for entry to Grades 1–8 at Sri Sathya Sai Global School, Singapore.",
+  description: "Age and assessment criteria for entry to primary and middle school at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/entry-requirements" },
 };
 

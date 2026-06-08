@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="About SSSGS"
         title="A school built around what your child becomes, not just what they learn"
-        lead="A values-rooted international school for Grades 1–8 in Singapore — experienced educators, holistic learning, and character development woven into every day."
+        lead="A values-rooted international school for primary and middle school in Singapore — experienced educators, holistic learning, and character development woven into every day."
         breadcrumb={[{ label: "About", href: "/about-us" }]}
       />
 
@@ -150,7 +150,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The credentials behind the philosophy" title="Registered, accredited, and accountable" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          A values-led school still has to meet rigorous external standards. SSSGS is a CPE-Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver Grades 1–8 with a 1:20 teacher–student ratio.
+          A values-led school still has to meet rigorous external standards. SSSGS is a CPE-Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

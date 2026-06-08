@@ -14,7 +14,7 @@ export const metadata = {
 const parentAcademicNeeds = [
   { iconName: "book-open",   title: "A curriculum we can trust",        body: "NCERT-aligned content with structured progression — recognisable, rigorous, and proven across India's leading schools." },
   { iconName: "compass",     title: "Continuity through transitions",   body: "Children moving in from CBSE, ICSE, Cambridge, IB or local schools are supported without academic disruption." },
-  { iconName: "flask",       title: "Learning that actually sticks",    body: "Four dedicated labs — language, science, math and ICT — turn classroom concepts into hands-on application." },
+  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, language, English and ICT — turn classroom concepts into hands-on application." },
   { iconName: "list-check",  title: "Assessment for learning",          body: "Daily formative checks, weekly reviews and term assessments — assessment that informs teaching, not just grades." },
 ];
 
@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="Academics"
         title="Academics that travel with your child"
-        lead="Concept-led, hands-on teaching across Grades 1 to 8 — designed for academic continuity through any prior curriculum and reinforced with daily lab and applied-learning sessions."
+        lead="Concept-led, hands-on teaching across primary and middle school — designed for academic continuity through any prior curriculum and reinforced with daily lab and applied-learning sessions."
         breadcrumb={[{ label: "Academics", href: "/academics" }]}
       />
 
@@ -94,7 +94,7 @@ export default function Page() {
       <FeatureBlock
         tone="cream"
         title="Where learning gets hands-on."
-        intro="Concepts become real in our four learning labs and through enrichment programmes that take children well beyond the textbook."
+        intro="Concepts become real in our five learning labs and through enrichment programmes that take children well beyond the textbook."
         featured={{
           title: "Application beats memorisation.",
           body:
@@ -104,8 +104,8 @@ export default function Page() {
         }}
         items={[
           {
-            title: "Science & Maths Labs",
-            body: "Hands-on experiments and visual modelling. Children learn to think like scientists and reason like mathematicians.",
+            title: "Science Lab",
+            body: "Hands-on experiments and structured enquiry — children learn to think like scientists, with report writing in the practical lab notebook.",
             image: "/img/navbar/academics/science-lab.jpg",
             href: "/science-lab",
           },
@@ -116,10 +116,16 @@ export default function Page() {
             href: "/maths-lab",
           },
           {
-            title: "Language & ICT Labs",
-            body: "Read, speak, write with confidence — and develop digital literacy from Grade 1 with online safety baked in.",
+            title: "Language Lab",
+            body: "Four-skill language work — reading, writing, listening and speaking — across second and third languages.",
             image: "/img/navbar/academics/language-lab.jpg",
             href: "/language-lab",
+          },
+          {
+            title: "English Lab",
+            body: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction.",
+            image: "/img/navbar/academics/language-lab.jpg",
+            href: "/english-lab",
           },
           {
             title: "ICT Lab",
@@ -129,13 +135,13 @@ export default function Page() {
           },
           {
             title: "Co-curricular activities",
-            body: "Music, arts, sport, debate, environment & service — plus phonics, abacus, Vedic maths and Olympiad coaching.",
+            body: "Music, arts, sport, debate, environment & service — every child finds their thing.",
             image: "/img/navbar/academics/co-curricular-activities.jpg",
             href: "/cca",
           },
           {
             title: "Olympiad coaching",
-            body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
+            body: "After-school Olympiad preparation for Grades 3–8 — math, science and English.",
             image: "/img/home/resources-for-parents/olympiad.jpg",
             href: "/olympiad",
           },

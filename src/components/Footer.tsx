@@ -75,7 +75,7 @@ export default function Footer() {
             &ldquo;The End of Education is Character.&rdquo;
           </p>
           <p className="mt-4 text-[13px] text-slate-400 leading-relaxed max-w-sm">
-            A values-rooted international school for Grades 1–8 in Singapore. Mid-year admissions welcome.
+            A values-rooted international school for primary and middle school in Singapore. Mid-year admissions welcome.
           </p>
 
           {/* Contact rows */}

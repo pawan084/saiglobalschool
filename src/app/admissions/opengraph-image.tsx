@@ -7,7 +7,7 @@ export const contentType = OG_CONTENT_TYPE;
 export default async function Image() {
   return buildOgImage({
     eyebrow: "Admissions",
-    title: "Join Grades 1 to 8",
+    title: "Join primary & middle school",
     subtitle: "NCERT-aligned curriculum · Values-rooted · Mid-year admissions welcome",
     accent: "navy",
   });

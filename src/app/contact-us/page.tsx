@@ -28,7 +28,7 @@ const reasons = [
   { iconName: "graduation", title: "Admissions & enrolment",      body: "Mid-year admissions, entry requirements, the assessment process, or moving from another curriculum." },
   { iconName: "credit-card", title: "Fees & policies",            body: "Fee structure, payment schedules, refund terms aligned with CPE Singapore, and what's included." },
   { iconName: "map-pin",     title: "Tour or open house visit",   body: "Book a 45-minute campus visit, attend the next open house, or arrange a personalised walk-through." },
-  { iconName: "book-open",   title: "Curriculum & learning",      body: "Questions about NCERT alignment, the four learning labs, assessment style, or character development." },
+  { iconName: "book-open",   title: "Curriculum & learning",      body: "Questions about NCERT alignment, the five learning labs, assessment style, or character development." },
 ];
 
 export default function Page() {

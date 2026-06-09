@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "English Lab — Cambridge-level reading, writing, listening and speaking",
         lead: "Four-skill English built on NCERT and enhanced by the Common European Framework of Reference for Languages (CEFR) for all grades — an international standard that measures English proficiency across six levels, from absolute beginner (A1) to fluent native (C2).",
-        image: "/img/photos-2026-06/tamil-lab.jpg",
+        image: "/img/home/learning-labs/language-lab.jpg",
       }}
       quote={{ text: "The limits of my language mean the limits of my world.", author: "Ludwig Wittgenstein" }}
       pillars={[

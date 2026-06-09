@@ -6,7 +6,7 @@ const labs = [
   { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/navbar/academics/learning-labs/science-lab.jpg", lead: "Hands-on experiments and structured enquiry, followed by report writing in the practical lab notebook." },
   { title: "Maths Lab — visualise, model, prove", href: "/maths-lab", eyebrow: "Maths", image: "/img/navbar/academics/learning-labs/maths-lab.jpg", lead: "Manipulatives, models and reasoning aloud across the Maths curriculum." },
   { title: "Language Lab — read, write, listen, speak", href: "/language-lab", eyebrow: "Language", image: "/img/photos-2026-06/tamil-lab.jpg", lead: "Four-skill language work across second and third languages — reading, writing, listening and speaking." },
-  { title: "English Lab — Cambridge & CEFR-aligned", href: "/english-lab", eyebrow: "English", image: "/img/photos-2026-06/tamil-lab.jpg", lead: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction." },
+  { title: "English Lab — Cambridge & CEFR-aligned", href: "/english-lab", eyebrow: "English", image: "/img/home/learning-labs/language-lab.jpg", lead: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction." },
   { title: "ICT Lab — digital literacy from Grade 1", href: "/ict-lab", eyebrow: "ICT", image: "/img/navbar/academics/learning-labs/ict-lab.jpg", lead: "Typing, online safety, productivity tools and computational thinking." },
 ];
 

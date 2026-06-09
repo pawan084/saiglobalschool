@@ -174,7 +174,7 @@ export const homeSections: SectionSpec[] = [
         title: "English Lab: Cambridge & CEFR-aligned",
         href: "/english-lab",
         eyebrow: "English",
-        image: "/img/photos-2026-06/tamil-lab.jpg",
+        image: "/img/home/learning-labs/language-lab.jpg",
       },
       {
         title: "ICT Lab: digital literacy from Grade 1",

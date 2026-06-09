@@ -124,7 +124,7 @@ export default function Page() {
           {
             title: "English Lab",
             body: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction.",
-            image: "/img/photos-2026-06/tamil-lab.jpg",
+            image: "/img/home/learning-labs/language-lab.jpg",
             href: "/english-lab",
           },
           {

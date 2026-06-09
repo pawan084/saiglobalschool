@@ -9,7 +9,7 @@ export const simplePages: Record<string, SimplePage> = {
   "academic-pathway": {
     eyebrow: "Academics",
     title: "Academic Pathway",
-    lead: "A structured academic pathway that takes children from foundational learning in Grade 1 through to confident, exam-ready learners in Grade 8.",
+    lead: "A structured academic pathway that takes children from foundational learning in the primary years through to confident, exam-ready learners by the end of middle school.",
     breadcrumb: [academicsCrumb, { label: "Academic Pathway", href: "/academic-pathway" }],
     intro: [
       "The SSSGS academic pathway is built around clear, age-appropriate progression. Each grade builds on the last with structured content, formative assessment and reinforcement through lab and applied work.",

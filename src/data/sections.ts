@@ -89,7 +89,7 @@ export const homeSections: SectionSpec[] = [
         title: "Character development, threaded through daily life",
         href: "/character-development",
         eyebrow: "Character",
-        image: "/img/home/about-sssgs/character-development.jpg",
+        image: "/img/photos-2026-06/home-character-values-2.jpg",
       },
     ],
     extras: [

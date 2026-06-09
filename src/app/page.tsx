@@ -19,7 +19,7 @@ export const metadata = {
 };
 
 const stats = [
-  { value: 0, display: "1–8", label: "Primary & middle school" },
+  { value: 9, label: "Subjects taught" },
   { value: 5, label: "Specialist Labs" },
   { value: 0, display: "1 : 20", label: "Teacher–Student" },
   { value: 2026, label: "PEI Reg. period" },

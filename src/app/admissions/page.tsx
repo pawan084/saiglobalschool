@@ -52,7 +52,7 @@ export default function Page() {
         items={[
           {
             title: "Entry Requirements",
-            body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
+            body: "Age criteria and grade-appropriate assessment for entry across primary and middle school.",
             image: "/img/navbar/admissions/entry-requirements.jpg",
             href: "/entry-requirements",
           },

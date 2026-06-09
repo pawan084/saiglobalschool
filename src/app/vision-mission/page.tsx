@@ -67,7 +67,29 @@ export default function Page() {
         </div>
       </ContentSection>
 
-      <ContentSection flush eyebrow="Our Values" title="The five pillars of Sathya Sai education">
+      <ContentSection flush eyebrow="Our Faculty" title="Experienced, values-led educators">
+        <div className="grid lg:grid-cols-2 gap-6 items-center">
+          <div className="relative aspect-[4/3] rounded-md overflow-hidden">
+            <Image
+              src="/img/photos-2026-06/vision-mission-faculty.jpg"
+              alt="SSSGS faculty — experienced, values-led educators"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="text-slate-700 leading-relaxed space-y-3 text-[15px]">
+            <p>
+              Our teaching team brings subject expertise, classroom experience and a values-led practice — educators who know every child by name and stay long enough to make that knowledge count.
+            </p>
+            <p>
+              Faculty growth is continuous: regular subject reviews, peer observation, and structured development time keep our teaching current and our values practice consistent across grades.
+            </p>
+          </div>
+        </div>
+      </ContentSection>
+
+      <ContentSection flush tone="cream" eyebrow="Our Values" title="The five pillars of Sathya Sai education">
         <FeatureGrid items={values} cols={3} />
       </ContentSection>
     </InnerPageShell>

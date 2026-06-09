@@ -56,15 +56,15 @@ export default function FeatureBlock({
   const orb = orbBgs[tone];
   return (
     <section className={`${toneClasses[tone]} relative overflow-hidden py-10 lg:py-14`}>
-      {/* Decorative gradient orbs */}
+      {/* Decorative gradient orbs — subtle slow drift gives the page quiet life. */}
       <span
         aria-hidden
-        className="absolute -top-32 -left-24 w-[460px] h-[460px] rounded-full pointer-events-none"
+        className="absolute -top-32 -left-24 w-[460px] h-[460px] rounded-full pointer-events-none orb-drift-a"
         style={{ background: orb.a }}
       />
       <span
         aria-hidden
-        className="absolute -bottom-32 -right-24 w-[520px] h-[520px] rounded-full pointer-events-none"
+        className="absolute -bottom-32 -right-24 w-[520px] h-[520px] rounded-full pointer-events-none orb-drift-b"
         style={{ background: orb.b }}
       />
       {/* Subtle grid texture */}
@@ -108,7 +108,7 @@ export default function FeatureBlock({
 
         {/* Featured card */}
         <article
-          className="card-fancy relative rounded-[22px] bg-white border border-[var(--brand-rule)] overflow-hidden mb-6 transition"
+          className="card-fancy group relative rounded-[22px] bg-white border border-[var(--brand-rule)] overflow-hidden mb-6 transition"
           style={{ boxShadow: "var(--shadow-sm)" }}
         >
           <div className="grid md:grid-cols-2 items-stretch">
@@ -121,7 +121,7 @@ export default function FeatureBlock({
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority={priorityFeatured}
-                className={`${featured.imageFit === "contain" ? "object-contain p-6" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]} transition-transform duration-700`}
+                className={`${featured.imageFit === "contain" ? "object-contain p-6" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]} transition-transform duration-700 group-hover:scale-[1.03]`}
               />
               {/* Soft vignette */}
               <div

@@ -11,15 +11,15 @@ export default function CTAStrip({
 }) {
   return (
     <section className="relative overflow-hidden bg-[var(--brand-navy)] text-white py-12 lg:py-14">
-      {/* Decorative orbs */}
+      {/* Decorative orbs — subtle slow drift */}
       <span
         aria-hidden
-        className="absolute -top-32 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none opacity-[0.18]"
+        className="absolute -top-32 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none opacity-[0.18] orb-drift-a"
         style={{ background: "radial-gradient(closest-side, var(--brand-accent), transparent)" }}
       />
       <span
         aria-hidden
-        className="absolute -bottom-32 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none opacity-[0.16]"
+        className="absolute -bottom-32 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none opacity-[0.16] orb-drift-b"
         style={{ background: "radial-gradient(closest-side, var(--brand-primary), transparent)" }}
       />
       {/* Faint dot grid */}

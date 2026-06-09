@@ -44,7 +44,7 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover ken-burns"
             style={{ objectPosition: "center 40%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-navy)] via-[var(--brand-navy)]/80 to-[var(--brand-navy)]/20" />

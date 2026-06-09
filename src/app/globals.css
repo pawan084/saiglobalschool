@@ -148,6 +148,59 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/* Hero ken-burns — slow, almost imperceptible camera push for cinematic
+   feel on still hero images. ~20 s loop so it never feels like motion the
+   user is supposed to track. */
+@keyframes ken-burns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  50%  { transform: scale(1.06) translate(-0.5%, -0.5%); }
+  100% { transform: scale(1)    translate(0, 0); }
+}
+.ken-burns {
+  animation: ken-burns 22s ease-in-out infinite;
+  transform-origin: 50% 45%;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns { animation: none; }
+}
+
+/* Decorative orb drift — slow large-radius float for the gradient orbs
+   that sit behind FeatureBlock / CTAStrip headlines. Adds life to
+   otherwise static decoration. */
+@keyframes orb-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-12px, 10px) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+.orb-drift-a { animation: orb-drift 14s ease-in-out infinite; }
+.orb-drift-b { animation: orb-drift 18s ease-in-out infinite reverse; }
+@media (prefers-reduced-motion: reduce) {
+  .orb-drift-a, .orb-drift-b { animation: none; }
+}
+
+/* btn-primary shine sweep on hover — subtle highlight that travels across
+   the button. Makes the primary CTA feel "alive" without being distracting. */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.32) 50%, transparent 70%);
+  transform: translateX(-110%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover::after { transform: translateX(110%); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary::after { transition: none; transform: translateX(-110%); }
+}
+
 /* Pause the news strip when the explicit pause button is toggled.
    The NewsStripPauseButton client component sets data-newsstrip-paused
    on the body; WCAG 2.2.2 requires this user-initiated stop control. */

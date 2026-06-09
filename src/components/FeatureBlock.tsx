@@ -55,7 +55,7 @@ export default function FeatureBlock({
 }: Props) {
   const orb = orbBgs[tone];
   return (
-    <section className={`${toneClasses[tone]} relative overflow-hidden py-16 lg:py-20`}>
+    <section className={`${toneClasses[tone]} relative overflow-hidden py-10 lg:py-14`}>
       {/* Decorative gradient orbs */}
       <span
         aria-hidden
@@ -81,7 +81,7 @@ export default function FeatureBlock({
 
       <div className="section-shell relative">
         {/* Header split: title left, intro right */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-10 mb-10 lg:mb-14">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-10 mb-6 lg:mb-8">
           <div>
             <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-bold leading-[1.12] tracking-tight text-[var(--brand-navy)]">
               {title}

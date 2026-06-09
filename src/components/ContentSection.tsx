@@ -26,7 +26,7 @@ export default function ContentSection({
   flush,
 }: Props) {
   // Flush = inside the InnerPageShell column (no horizontal shell); standalone = normal section
-  const pad = flush ? "py-5 first:pt-0 last:pb-0" : "py-10 lg:py-14";
+  const pad = flush ? "py-5 first:pt-0 last:pb-0" : "py-7 lg:py-10";
   // Apply background tone via a wrapper rather than the section so flush sections inside the shell
   // can paint cream/muted backgrounds across the column width.
   const wrapClasses = `${pad} ${tones[tone]} ${flush && tone !== "white" ? "px-4 -mx-4 rounded" : ""}`;

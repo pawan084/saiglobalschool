@@ -14,7 +14,7 @@ export const metadata = {
 const parentAcademicNeeds = [
   { iconName: "book-open",   title: "A curriculum we can trust",        body: "NCERT-aligned content with structured progression — recognisable, rigorous, and proven across India's leading schools." },
   { iconName: "compass",     title: "Continuity through transitions",   body: "Children moving in from CBSE, ICSE, Cambridge, IB or local schools are supported without academic disruption." },
-  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, language, English and ICT — turn classroom concepts into hands-on application." },
+  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, Tamil, English and ICT — turn classroom concepts into hands-on application." },
   { iconName: "list-check",  title: "Assessment for learning",          body: "Daily formative checks, weekly reviews and term assessments — assessment that informs teaching, not just grades." },
 ];
 
@@ -46,26 +46,26 @@ export default function Page() {
           title: "NCERT-aligned, integrated, hands-on.",
           body:
             "Concept-led teaching combined with structured progression, conceptual clarity and foundational skill development. Designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transitions.",
-          image: "/img/navbar/academics/curriculum.jpg",
+          image: "/img/photos-2026-06/academics-ncert.jpg",
           href: "/curriculum",
         }}
         items={[
           {
             title: "Courses Offered",
             body: "Subjects across primary and middle school: languages, mathematics, science, social studies, ICT, arts, PE and value education.",
-            image: "/img/navbar/academics/academic-support.jpg",
+            image: "/img/photos-2026-06/academics-courses.jpg",
             href: "/courses-offered",
           },
           {
             title: "Academic Pathway",
             body: "Clear grade-by-grade progression: foundations in Grades 1–2, concept building in 3–5, depth and synthesis in 6–8.",
-            image: "/img/navbar/academics/academic-pathway.jpg",
+            image: "/img/photos-2026-06/academic-pathway.jpg",
             href: "/academic-pathway",
           },
           {
             title: "Assessment Structure",
             body: "Daily formative checks, weekly reviews, term assessments and oral & project work — for learning, not just of learning.",
-            image: "/img/navbar/academics/assessment-structure.jpg",
+            image: "/img/photos-2026-06/assessment-structure.jpg",
             href: "/assessment-structure",
           },
           {
@@ -77,13 +77,13 @@ export default function Page() {
           {
             title: "Technology & LMS",
             body: "Parents and students track homework, grades and communication through one learning management system.",
-            image: "/img/home/academics/technology-lms.jpg",
+            image: "/img/photos-2026-06/technology-lms.jpg",
             href: "/technology-lms",
           },
           {
             title: "Student support",
             body: "Personalised academic support, structured feedback and progress tracking — every child grows at their own pace.",
-            image: "/img/home/admissions/admission-process.jpg",
+            image: "/img/photos-2026-06/student-support.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
@@ -99,7 +99,7 @@ export default function Page() {
           title: "Application beats memorisation.",
           body:
             "Each lab gives children a regular, structured chance to apply what they've learnt in the classroom — to make, build, observe, debate or model. Lab sessions are timetabled, not optional.",
-          image: "/img/navbar/academics/language-lab.jpg",
+          image: "/img/photos-2026-06/application-beats-memorisation.jpg",
           href: "/learning-labs",
         }}
         items={[
@@ -112,19 +112,19 @@ export default function Page() {
           {
             title: "Maths Lab",
             body: "Number sense, visual modelling and structured problem-solving — children learn to reason like mathematicians.",
-            image: "/img/home/learning-labs/maths-lab.jpg",
+            image: "/img/photos-2026-06/maths-lab.jpg",
             href: "/maths-lab",
           },
           {
-            title: "Language Lab",
-            body: "Four-skill language work — reading, writing, listening and speaking — across second and third languages.",
-            image: "/img/navbar/academics/language-lab.jpg",
+            title: "Tamil Lab",
+            body: "Four-skill Tamil instruction — reading, writing, listening and speaking — for SSSGS's second language.",
+            image: "/img/photos-2026-06/tamil-lab.jpg",
             href: "/language-lab",
           },
           {
             title: "English Lab",
             body: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction.",
-            image: "/img/navbar/academics/language-lab.jpg",
+            image: "/img/photos-2026-06/tamil-lab.jpg",
             href: "/english-lab",
           },
           {
@@ -136,7 +136,7 @@ export default function Page() {
           {
             title: "Co-curricular activities",
             body: "Music, arts, sport, debate, environment & service — every child finds their thing.",
-            image: "/img/navbar/academics/co-curricular-activities.jpg",
+            image: "/img/photos-2026-06/co-curricular.jpg",
             href: "/cca",
           },
           {

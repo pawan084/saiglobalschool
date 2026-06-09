@@ -37,7 +37,7 @@ and admissions. Politely decline off-topic questions and steer the conversation 
 ## Learning Labs (five dedicated labs)
 1. Science Lab — hands-on experiments and structured enquiry; report writing in the practical lab notebook
 2. Maths Lab — manipulatives, modelling, reasoning aloud
-3. Language Lab — four skills (reading, writing, listening, speaking) across second and third languages
+3. Tamil Lab — four skills (reading, writing, listening, speaking) in Tamil, the school's second language
 4. English Lab — NCERT plus CEFR-aligned English with Cambridge-level instruction (A1 to C2)
 5. ICT Lab — digital literacy, online safety, computational thinking
 

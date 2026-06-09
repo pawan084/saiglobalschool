@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "English Lab — Cambridge-level reading, writing, listening and speaking",
         lead: "Four-skill English built on NCERT and enhanced by the Common European Framework of Reference for Languages (CEFR) for all grades — an international standard that measures English proficiency across six levels, from absolute beginner (A1) to fluent native (C2).",
-        image: "/img/home/learning-labs/language-lab.jpg",
+        image: "/img/photos-2026-06/tamil-lab.jpg",
       }}
       quote={{ text: "The limits of my language mean the limits of my world.", author: "Ludwig Wittgenstein" }}
       pillars={[
@@ -30,7 +30,7 @@ export default function Page() {
         "Writing portfolios reviewed against CEFR descriptors",
       ]}
       relatedLabs={[
-        { label: "Language Lab", href: "/language-lab" },
+        { label: "Tamil Lab", href: "/language-lab" },
         { label: "Science Lab", href: "/science-lab" },
         { label: "Maths Lab", href: "/maths-lab" },
         { label: "ICT Lab", href: "/ict-lab" },

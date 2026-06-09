@@ -5,14 +5,14 @@ import NewsCard from "@/components/NewsCard";
 const labs = [
   { title: "Science Lab — curiosity meets evidence", href: "/science-lab", eyebrow: "Science", image: "/img/navbar/academics/learning-labs/science-lab.jpg", lead: "Hands-on experiments and structured enquiry, followed by report writing in the practical lab notebook." },
   { title: "Maths Lab — visualise, model, prove", href: "/maths-lab", eyebrow: "Maths", image: "/img/navbar/academics/learning-labs/maths-lab.jpg", lead: "Manipulatives, models and reasoning aloud across the math curriculum." },
-  { title: "Language Lab — read, write, listen, speak", href: "/language-lab", eyebrow: "Language", image: "/img/navbar/academics/learning-labs/language-lab.jpg", lead: "Four-skill language work across second and third languages — reading, writing, listening and speaking." },
-  { title: "English Lab — Cambridge & CEFR-aligned", href: "/english-lab", eyebrow: "English", image: "/img/navbar/academics/learning-labs/language-lab.jpg", lead: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction." },
+  { title: "Tamil Lab — read, write, listen, speak", href: "/language-lab", eyebrow: "Tamil", image: "/img/photos-2026-06/tamil-lab.jpg", lead: "Four-skill Tamil instruction — reading, writing, listening and speaking — for SSSGS's second language." },
+  { title: "English Lab — Cambridge & CEFR-aligned", href: "/english-lab", eyebrow: "English", image: "/img/photos-2026-06/tamil-lab.jpg", lead: "NCERT plus CEFR-aligned English — reading, writing, listening and speaking, with Cambridge-level instruction." },
   { title: "ICT Lab — digital literacy from Grade 1", href: "/ict-lab", eyebrow: "ICT", image: "/img/navbar/academics/learning-labs/ict-lab.jpg", lead: "Typing, online safety, productivity tools and computational thinking." },
 ];
 
 export const metadata = {
   title: "Learning Labs",
-  description: "Five learning labs at SSSGS — Science, Maths, Language, English and ICT — where children apply, build and explore.",
+  description: "Five learning labs at SSSGS — Science, Maths, Tamil, English and ICT — where children apply, build and explore.",
   alternates: { canonical: "/learning-labs" },
 };
 
@@ -23,7 +23,7 @@ export default function Page() {
       hero={{
         eyebrow: "Academics",
         title: "Learning Labs at SSSGS",
-        lead: "Five dedicated labs where children move from passive learning to active doing — science, mathematics, language, English and ICT.",
+        lead: "Five dedicated labs where children move from passive learning to active doing — science, mathematics, Tamil, English and ICT.",
         breadcrumb: [
           { label: "Academics", href: "/academics" },
           { label: "Learning Labs", href: "/learning-labs" },

@@ -64,7 +64,7 @@ export const homeSections: SectionSpec[] = [
       eyebrow: "Vision & Mission",
       lead:
         "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults.",
-      image: "/img/home/about-sssgs/vision-mission.jpg",
+      image: "/img/photos-2026-06/about-head-heart-hand.jpg",
     },
     satellites: [
       {
@@ -77,7 +77,7 @@ export const homeSections: SectionSpec[] = [
         title: "Faculty: experienced, values-led educators",
         href: "/faculty",
         eyebrow: "Faculty",
-        image: "/img/home/about-sssgs/faculty.jpg", imagePosition: "top" as const,
+        image: "/img/photos-2026-06/faculty-group.jpg", imagePosition: "top" as const,
       },
       {
         title: "Human excellence at the heart of every classroom",
@@ -93,8 +93,8 @@ export const homeSections: SectionSpec[] = [
       },
     ],
     extras: [
-      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/home/about-sssgs/values-integration.jpg" },
-      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/home/about-sssgs/human-excellence.jpg" },
+      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/photos-2026-06/about-values-integration.jpg" },
+      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/photos-2026-06/about-parent-community.jpg" },
       { title: "Read the parent–student handbook", href: "/parent-student-handbook",    eyebrow: "Handbook",  image: "/img/home/about-sssgs/parent-student-handbook.jpg" },
       { title: "FAQs from prospective families",  href: "/faqs",                         eyebrow: "FAQ",       image: "/img/home/about-sssgs/faqs.jpg", imagePosition: "top" as const },
     ],
@@ -132,7 +132,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/academics/assessment-structure.jpg",
       },
       {
-        title: "Learning labs — science, maths, language, English, ICT",
+        title: "Learning labs — science, maths, Tamil, English, ICT",
         href: "/learning-labs",
         eyebrow: "Labs",
         image: "/img/home/academics/learning-labs.jpg",
@@ -165,16 +165,16 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/learning-labs/maths-lab.jpg",
       },
       {
-        title: "Language Lab: read, write, listen, speak",
+        title: "Tamil Lab: read, write, listen, speak",
         href: "/language-lab",
-        eyebrow: "Language",
-        image: "/img/home/learning-labs/language-lab.jpg",
+        eyebrow: "Tamil",
+        image: "/img/photos-2026-06/tamil-lab.jpg",
       },
       {
         title: "English Lab: Cambridge & CEFR-aligned",
         href: "/english-lab",
         eyebrow: "English",
-        image: "/img/home/learning-labs/language-lab.jpg",
+        image: "/img/photos-2026-06/tamil-lab.jpg",
       },
       {
         title: "ICT Lab: digital literacy from Grade 1",
@@ -219,7 +219,7 @@ export const homeSections: SectionSpec[] = [
         title: "Uniform, transportation & daily logistics",
         href: "/school-uniform-and-transportation",
         eyebrow: "Daily Life",
-        image: "/img/home/campus-life/uniform-transport.jpg",
+        image: "/img/photos-2026-06/uniform-transport.jpg",
       },
     ],
   },
@@ -258,7 +258,7 @@ export const homeSections: SectionSpec[] = [
         title: "Open House — meet faculty in person",
         href: "/open-house",
         eyebrow: "Event",
-        image: "/img/home/admissions/open-house.jpg", imagePosition: "top" as const,
+        image: "/img/photos-2026-06/open-house-1.jpg", imagePosition: "top" as const,
       },
     ],
     extras: [

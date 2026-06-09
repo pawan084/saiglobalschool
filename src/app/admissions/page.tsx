@@ -59,7 +59,7 @@ export default function Page() {
           {
             title: "Registration",
             body: "PEI Singapore registration details, required documents, and the operational basics of joining SSSGS.",
-            image: "/img/navbar/admissions/open-house.jpg",
+            image: "/img/photos-2026-06/open-house-1.jpg",
             imagePosition: "top",
             href: "/registration",
           },

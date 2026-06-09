@@ -41,7 +41,7 @@ const grades = [
 ];
 
 const supportingPrograms = [
-  { title: "Learning Labs", body: "Science, Maths, Language, English and ICT — timetabled hands-on application.", href: "/learning-labs" },
+  { title: "Learning Labs", body: "Science, Maths, Tamil, English and ICT — timetabled hands-on application.", href: "/learning-labs" },
   { title: "Assessment Structure", body: "Daily formative + term summative + oral & project work.", href: "/assessment-structure" },
   { title: "Academic Pathway", body: "Detailed grade-by-grade progression and outcomes.", href: "/academic-pathway" },
   { title: "Courses Offered", body: "All subjects across primary and middle school.", href: "/courses-offered" },

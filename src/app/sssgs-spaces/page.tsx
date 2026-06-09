@@ -14,14 +14,14 @@ const gallery: GalleryItem[] = [
   { src: "/img/navbar/campus/sssgs-spaces/campus-building.jpg", alt: "Campus building", caption: "The SSSGS campus" },
   { src: "/img/navbar/campus/sssgs-spaces/classroom.jpg", alt: "Classroom", caption: "Bright, well-organised classrooms" },
   { src: "/img/navbar/campus/sssgs-spaces/science-lab.jpg", alt: "Science Lab", caption: "Hands-on science learning" },
-  { src: "/img/navbar/campus/sssgs-spaces/language-lab.jpg", alt: "Language Lab", caption: "Language Lab in session" },
+  { src: "/img/photos-2026-06/tamil-lab.jpg", alt: "Tamil Lab", caption: "Tamil Lab in session" },
   { src: "/img/navbar/campus/sssgs-spaces/students-at-work.jpg", alt: "Students at work", caption: "Students at work" },
   { src: "/img/navbar/campus/sssgs-spaces/class-in-session.jpg", alt: "In session", caption: "A class in session" },
 ];
 
 const spaces = [
   { iconName: "book-open", title: "Classrooms", body: "Bright, well-organised classrooms with movable furniture for whole-group, small-group and pair work." },
-  { iconName: "flask", title: "Learning Labs", body: "Five dedicated labs — Science, Maths, Language, English and ICT — built for hands-on application." },
+  { iconName: "flask", title: "Learning Labs", body: "Five dedicated labs — Science, Maths, Tamil, English and ICT — built for hands-on application." },
   { iconName: "book-open", title: "Library & Reading", body: "Curated collection across grade levels, with quiet corners for sustained reading." },
   { iconName: "palette", title: "Creative & Performing Arts", body: "Spaces for music, drama, dance and visual art — children explore expression every week." },
   { iconName: "play", title: "Activity Zones", body: "Indoor and outdoor activity zones for physical education, free play and break-time movement." },

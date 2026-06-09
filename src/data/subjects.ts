@@ -111,7 +111,7 @@ export const SUBJECTS: Subject[] = [
       },
     ],
     notes: [
-      "Supported by the Language Lab for the four-skill component.",
+      "Supported by the Tamil Lab for the four-skill component.",
     ],
   },
   {

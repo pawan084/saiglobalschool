@@ -46,7 +46,7 @@ export default function Page() {
           title: "Head, Heart and Hand — the SSSGS way.",
           body:
             "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults. Our values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
-          image: "/img/navbar/about/about-us/vision-mission.jpg",
+          image: "/img/photos-2026-06/about-head-heart-hand.jpg",
           href: "/vision-mission",
         }}
         items={[
@@ -60,14 +60,14 @@ export default function Page() {
           {
             title: "Faculty",
             body: "Experienced educators with subject expertise and a values-led teaching practice — they know every child by name.",
-            image: "/img/navbar/about/about-us/management-governance.jpg",
+            image: "/img/photos-2026-06/faculty-group.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
             title: "Parent Community",
             body: "An active parent community that supports the school, supports each other, and supports children growing up.",
-            image: "/img/navbar/about/about-us/faculty.jpg",
+            image: "/img/photos-2026-06/about-parent-community.jpg",
             imagePosition: "top",
             href: "/parent-community",
           },
@@ -129,7 +129,7 @@ export default function Page() {
           {
             title: "A day at SSSGS",
             body: "Eight blocks — morning circle to closing reflection — showing how character and academics live together.",
-            image: "/img/home/campus-life/a-day-at-sssgs.jpg",
+            image: "/img/photos-2026-06/about-a-day.jpg",
             href: "/a-day-at-sssgs",
           },
           {

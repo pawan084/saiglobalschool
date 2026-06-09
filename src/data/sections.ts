@@ -132,7 +132,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/academics/assessment-structure.jpg",
       },
       {
-        title: "Learning labs — science, maths, Tamil, English, ICT",
+        title: "Learning labs — science, maths, language, English, ICT",
         href: "/learning-labs",
         eyebrow: "Labs",
         image: "/img/home/academics/learning-labs.jpg",
@@ -165,9 +165,9 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/learning-labs/maths-lab.jpg",
       },
       {
-        title: "Tamil Lab: read, write, listen, speak",
+        title: "Language Lab: read, write, listen, speak",
         href: "/language-lab",
-        eyebrow: "Tamil",
+        eyebrow: "Language",
         image: "/img/photos-2026-06/tamil-lab.jpg",
       },
       {

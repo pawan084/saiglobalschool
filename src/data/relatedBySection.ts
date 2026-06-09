@@ -34,7 +34,7 @@ export const sectionMeta: Record<
     ctaHref: "/inquire-book-a-tour",
     title: "Other Learning Labs.",
     intro:
-      "Science, maths, Tamil, English and ICT — each lab gives children a regular, structured chance to apply what they learn.",
+      "Science, maths, language, English and ICT — each lab gives children a regular, structured chance to apply what they learn.",
   },
   campus: {
     label: "Campus Life",

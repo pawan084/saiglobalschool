@@ -35,7 +35,7 @@ export const searchIndex: SearchEntry[] = [
   { title: "Assessment Structure", href: "/assessment-structure", section: "Academics", tags: "assessment exam evaluation grading" },
   { title: "Learning Labs", href: "/learning-labs", section: "Academics", tags: "labs lab learning experiential" },
   { title: "ICT Lab", href: "/ict-lab", section: "Academics", tags: "computer coding ict information communication technology lab" },
-  { title: "Tamil Lab", href: "/language-lab", section: "Academics", tags: "tamil second language reading writing listening speaking lab" },
+  { title: "Language Lab", href: "/language-lab", section: "Academics", tags: "tamil second third language reading writing listening speaking lab" },
   { title: "English Lab", href: "/english-lab", section: "Academics", tags: "english cambridge cefr reading writing listening speaking lab" },
   { title: "Maths Lab", href: "/maths-lab", section: "Academics", tags: "math mathematics lab" },
   { title: "Science Lab", href: "/science-lab", section: "Academics", tags: "science physics chemistry biology lab" },

@@ -30,7 +30,7 @@ export default function Page() {
         "Writing portfolios reviewed against CEFR descriptors",
       ]}
       relatedLabs={[
-        { label: "Tamil Lab", href: "/language-lab" },
+        { label: "Language Lab", href: "/language-lab" },
         { label: "Science Lab", href: "/science-lab" },
         { label: "Maths Lab", href: "/maths-lab" },
         { label: "ICT Lab", href: "/ict-lab" },

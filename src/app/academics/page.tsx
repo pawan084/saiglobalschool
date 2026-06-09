@@ -14,7 +14,7 @@ export const metadata = {
 const parentAcademicNeeds = [
   { iconName: "book-open",   title: "A curriculum we can trust",        body: "NCERT-aligned content with structured progression — recognisable, rigorous, and proven across India's leading schools." },
   { iconName: "compass",     title: "Continuity through transitions",   body: "Children moving in from CBSE, ICSE, Cambridge, IB or local schools are supported without academic disruption." },
-  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, Tamil, English and ICT — turn classroom concepts into hands-on application." },
+  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, language, English and ICT — turn classroom concepts into hands-on application." },
   { iconName: "list-check",  title: "Assessment for learning",          body: "Daily formative checks, weekly reviews and term assessments — assessment that informs teaching, not just grades." },
 ];
 
@@ -116,8 +116,8 @@ export default function Page() {
             href: "/maths-lab",
           },
           {
-            title: "Tamil Lab",
-            body: "Four-skill Tamil instruction — reading, writing, listening and speaking — for SSSGS's second language.",
+            title: "Language Lab",
+            body: "Four-skill language work — reading, writing, listening and speaking — across second and third languages.",
             image: "/img/photos-2026-06/tamil-lab.jpg",
             href: "/language-lab",
           },

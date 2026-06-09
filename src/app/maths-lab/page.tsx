@@ -30,7 +30,7 @@ export default function Page() {
       ]}
       relatedLabs={[
         { label: "Science Lab", href: "/science-lab" },
-        { label: "Tamil Lab", href: "/language-lab" },
+        { label: "Language Lab", href: "/language-lab" },
         { label: "English Lab", href: "/english-lab" },
         { label: "ICT Lab", href: "/ict-lab" },
         { label: "All Learning Labs", href: "/learning-labs" },

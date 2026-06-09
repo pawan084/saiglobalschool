@@ -1,19 +1,19 @@
 import LabPage from "@/components/LabPage";
 
 export const metadata = {
-  title: "Tamil Lab",
-  description: "Tamil read, write, listen and speak — four-skill Tamil instruction at SSSGS.",
+  title: "Language Lab",
+  description: "Read, write, listen and speak — four-skill second and third language instruction at SSSGS.",
   alternates: { canonical: "/language-lab" },
 };
 
 export default function Page() {
   return (
     <LabPage slug="language-lab"
-      subject="Tamil"
+      subject="Language"
       href="/language-lab"
       hero={{
-        title: "Tamil Lab — read, write, listen, speak",
-        lead: "Four-skill Tamil instruction — reading, writing, listening and speaking. Phonics, vocabulary, comprehension, public speaking and creative writing for SSSGS's second language.",
+        title: "Language Lab — read, write, listen, speak",
+        lead: "Four-skill language work across second and third languages — reading, writing, listening and speaking. Phonics, vocabulary, comprehension, public speaking and creative writing.",
         image: "/img/photos-2026-06/tamil-lab.jpg",
       }}
       quote={{ text: "The limits of my language mean the limits of my world.", author: "Ludwig Wittgenstein" }}

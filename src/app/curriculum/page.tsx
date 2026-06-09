@@ -8,7 +8,7 @@ import { SUBJECTS } from "@/data/subjects";
 
 export const metadata = {
   title: "Curriculum",
-  description: "NCERT-aligned, integrated curriculum at SSSGS Singapore — structured progression, conceptual depth, and applied learning across Grades 1–8.",
+  description: "NCERT-aligned, integrated curriculum at SSSGS Singapore — structured progression, conceptual depth, and applied learning across primary and middle school.",
   alternates: { canonical: "/curriculum" },
 };
 
@@ -23,13 +23,13 @@ const grades = [
   {
     band: "Grades 1–2",
     label: "Foundations",
-    focus: "Phonics, early numeracy, motor skills, classroom routines, social skills.",
+    focus: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
     accent: "bg-[var(--brand-primary)]",
   },
   {
     band: "Grades 3–5",
     label: "Build",
-    focus: "Concept building across language, math, science, social studies and ICT.",
+    focus: "Concept building across English, second & third language, math, science, social studies and ICT.",
     accent: "bg-[var(--brand-accent)]",
   },
   {
@@ -41,7 +41,7 @@ const grades = [
 ];
 
 const supportingPrograms = [
-  { title: "Learning Labs", body: "Language, Science, Maths and ICT — timetabled hands-on application.", href: "/learning-labs" },
+  { title: "Learning Labs", body: "Science, Maths, Language, English and ICT — timetabled hands-on application.", href: "/learning-labs" },
   { title: "Assessment Structure", body: "Daily formative + term summative + oral & project work.", href: "/assessment-structure" },
   { title: "Academic Pathway", body: "Detailed grade-by-grade progression and outcomes.", href: "/academic-pathway" },
   { title: "Courses Offered", body: "All subjects across primary and middle school.", href: "/courses-offered" },
@@ -72,10 +72,10 @@ export default function Page() {
         ]}
       />
       <CourseJsonLd
-        name="NCERT-aligned Integrated Curriculum (Grades 1–8)"
-        description="A structured, NCERT-aligned curriculum integrating language, math, science, social studies, ICT, the arts and values education from Grade 1 to Grade 8."
+        name="NCERT-aligned Integrated Curriculum"
+        description="A structured, NCERT-aligned curriculum integrating language, math, science, social studies, ICT, the arts and values education across primary and middle school."
         path="/curriculum"
-        grades="Grades 1–8"
+        grades="Primary and middle school"
       />
 
       {/* Four pillars — big numbered cards */}
@@ -99,7 +99,7 @@ export default function Page() {
       </ContentSection>
 
       {/* Grades progression — visual bands */}
-      <ContentSection flush tone="cream" eyebrow="By grade band" title="Grades 1–8 progression">
+      <ContentSection flush tone="cream" eyebrow="By grade band" title="Primary and middle school progression">
         <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
           The same set of subjects deepens at each band, with developmentally appropriate
           expectations.
@@ -133,8 +133,8 @@ export default function Page() {
       {/* Subject explorer */}
       <ContentSection flush eyebrow="Explore by subject" title="Click a subject for the full curriculum">
         <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
-          Seven subjects, three grade bands, three layers of depth — pick one and see exactly what
-          your child will study.
+          {SUBJECTS.length} subjects, three grade bands, three layers of depth — pick one and see
+          exactly what your child will study.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {SUBJECTS.map((s) => (

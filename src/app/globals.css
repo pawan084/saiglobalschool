@@ -148,6 +148,13 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/* Pause the news strip when the explicit pause button is toggled.
+   The NewsStripPauseButton client component sets data-newsstrip-paused
+   on the body; WCAG 2.2.2 requires this user-initiated stop control. */
+body[data-newsstrip-paused="true"] .newsstrip-track {
+  animation-play-state: paused;
+}
+
 /* Animated nav underline */
 .nav-link-anim {
   position: relative;

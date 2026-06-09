@@ -11,7 +11,7 @@ import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: { absolute: "Sri Sathya Sai Global School | Singapore" },
   description:
-    "An NCERT-aligned, values-rooted international school in Singapore for Grades 1–8. Small-group learning, experienced educators, mid-year admissions welcome.",
+    "An NCERT-aligned, values-rooted international school in Singapore for primary and middle school. Small-group learning, experienced educators, mid-year admissions welcome.",
   alternates: {
     canonical: "/",
     types: { "application/rss+xml": "/feed.xml" },
@@ -19,8 +19,8 @@ export const metadata = {
 };
 
 const stats = [
-  { value: 8, label: "Grades — 1 to 8" },
-  { value: 4, label: "Specialist Labs" },
+  { value: 9, label: "Subjects taught" },
+  { value: 5, label: "Specialist Labs" },
   { value: 0, display: "1 : 20", label: "Teacher–Student" },
   { value: 2026, label: "PEI Reg. period" },
 ];
@@ -105,19 +105,19 @@ export default function Home() {
           {
             title: "Personalised Settling-in Support",
             body: "Children in transition may feel shy or behind; personalised settling-in support helps them adapt to routines, peers, teachers, and assessments.",
-            image: "/img/home/right-fit/settling-in-support.jpg",
+            image: "/img/photos-2026-06/home-settling-in.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
           {
             title: "Curriculum Continuity Support",
             body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
-            image: "/img/home/right-fit/curriculum-continuity.jpg",
+            image: "/img/photos-2026-06/home-curriculum-continuity.jpg",
             href: "/curriculum",
           },
           {
             title: "Mid-year admissions welcome",
-            body: "Join Grades 1 to 8 at any point in the academic year. Clear process, fast timelines, personalised onboarding.",
+            body: "Join at any point in the academic year across primary and middle school. Clear process, fast timelines, personalised onboarding.",
             image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/admission-process",
@@ -125,14 +125,14 @@ export default function Home() {
           {
             title: "Grade-fit assessment",
             body: "A low-pressure check places your child where they will thrive — not just where the calendar says they should be.",
-            image: "/img/home/admissions/admission-process.jpg",
+            image: "/img/photos-2026-06/home-grade-fit.jpg",
             imagePosition: "top",
             href: "/grade-fit",
           },
           {
             title: "A parent community that helps",
             body: "An active parent community makes the social transition as smooth as the academic one — for the whole family.",
-            image: "/img/home/campus-life/uniform-transport.jpg",
+            image: "/img/photos-2026-06/home-parent-community.jpg",
             href: "/parent-community",
           },
         ]}
@@ -167,19 +167,19 @@ export default function Home() {
           {
             title: "Application-Based Learning",
             body: "Students engage in practical, experiment-based learning across applied subjects to strengthen conceptual understanding.",
-            image: "/img/home/why-sssgs/application-based-learning.jpg",
+            image: "/img/photos-2026-06/home-application-based.jpg",
             href: "/learning-labs",
           },
           {
             title: "NCERT-aligned curriculum",
-            body: "A recognised, rigorous academic backbone across Grades 1 to 8 — built for continuity through CBSE, ICSE, Cambridge or IB.",
-            image: "/img/home/academics/curriculum.jpg",
+            body: "A recognised, rigorous academic backbone across primary and middle school — built for continuity through CBSE, ICSE, Cambridge or IB.",
+            image: "/img/photos-2026-06/home-ncert-aligned.jpg",
             href: "/curriculum",
           },
           {
             title: "Character & values, threaded through",
             body: "Character isn't a class. It shows up in daily routines, in conversations, and in the way every subject is taught.",
-            image: "/img/home/about-sssgs/human-excellence.jpg",
+            image: "/img/photos-2026-06/home-character-values-1.jpg",
             href: "/character-development",
           },
           {

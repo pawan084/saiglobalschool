@@ -29,9 +29,10 @@ export default function Page() {
         "Older students using tools to research and present a topic",
       ]}
       relatedLabs={[
-        { label: "Language Lab", href: "/language-lab" },
         { label: "Science Lab", href: "/science-lab" },
         { label: "Maths Lab", href: "/maths-lab" },
+        { label: "Language Lab", href: "/language-lab" },
+        { label: "English Lab", href: "/english-lab" },
         { label: "All Learning Labs", href: "/learning-labs" },
       ]}
     />

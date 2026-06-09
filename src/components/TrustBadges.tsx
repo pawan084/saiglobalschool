@@ -9,8 +9,8 @@ type IconName = React.ComponentProps<typeof Icon>["name"];
 const badges: Array<{ label: string; sub: string; id: string; icon: IconName }> = [
   { label: "CPE Singapore",          sub: "Registered PEI", id: "Reg. No. 202505842W", icon: "shield" },
   { label: "Period of Registration", sub: "2026 – 2028",    id: "Valid",                icon: "calendar" },
-  { label: "Curriculum",             sub: "NCERT-aligned",  id: "Grades 1–8",           icon: "graduation" },
-  { label: "Teacher–Student",        sub: "1 : 20 average", id: "Small-group",          icon: "users" },
+  { label: "Curriculum",             sub: "NCERT-aligned",  id: "Primary & Middle School", icon: "graduation" },
+  { label: "Teacher–Student",        sub: "1 : 20 maximum", id: "Small-group",          icon: "users" },
 ];
 
 export default function TrustBadges({ variant = "footer" }: Props) {
@@ -26,9 +26,9 @@ export default function TrustBadges({ variant = "footer" }: Props) {
               <Icon name={b.icon} size={16} />
             </span>
             <div className="min-w-0">
-              <div className="text-[10px] uppercase tracking-[0.1em] text-slate-400">{b.label}</div>
+              <div className="text-[10px] uppercase tracking-[0.1em] text-slate-300">{b.label}</div>
               <div className="text-[13.5px] font-bold text-white leading-tight mt-0.5">{b.sub}</div>
-              <div className="text-[10.5px] text-slate-500 mt-0.5">{b.id}</div>
+              <div className="text-[10.5px] text-slate-300 mt-0.5">{b.id}</div>
             </div>
           </div>
         ))}
@@ -45,7 +45,7 @@ export default function TrustBadges({ variant = "footer" }: Props) {
         >
           <Icon name={b.icon} size={13} className="text-[var(--brand-primary)]" />
           <span className="text-[12px] font-bold text-[var(--brand-navy)]">{b.sub}</span>
-          <span className="text-[11px] text-slate-500">{b.label}</span>
+          <span className="text-[11px] text-slate-600">{b.label}</span>
         </div>
       ))}
     </div>

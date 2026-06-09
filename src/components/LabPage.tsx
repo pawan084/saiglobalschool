@@ -57,10 +57,10 @@ export default function LabPage({
         ]}
       />
       <CourseJsonLd
-        name={`${subject} Lab — Grades 1–8`}
+        name={`${subject} Lab — Primary and middle school`}
         description={hero.lead}
         path={href}
-        grades="Grades 1–8"
+        grades="Primary and middle school"
       />
 
       {/* Image + quote band */}
@@ -91,9 +91,15 @@ export default function LabPage({
         </div>
       </ContentSection>
 
-      {/* Pillars — 3 numbered cards */}
+      {/* Pillars — numbered cards; grid adapts to pillar count */}
       <ContentSection flush tone="cream" eyebrow="Why it works" title={`Why ${subject} learning works at SSSGS`}>
-        <div className="grid sm:grid-cols-3 gap-3">
+        <div
+          className={
+            pillars.length === 4
+              ? "grid sm:grid-cols-2 lg:grid-cols-4 gap-3"
+              : "grid sm:grid-cols-3 gap-3"
+          }
+        >
           {pillars.map((p, i) => (
             <article
               key={p.title}

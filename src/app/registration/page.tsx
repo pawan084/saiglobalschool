@@ -13,7 +13,7 @@ const facts = [
   { iconName: "credit-card", title: "Registration Number", body: "202505842W" },
   { iconName: "calendar", title: "Period of Registration", body: "2026 – 2028" },
   { iconName: "school", title: "Status", body: "Registered PEI (Private Education Institution) in Singapore" },
-  { iconName: "users", title: "Teacher–Student Ratio", body: "Average: 1:20" },
+  { iconName: "users", title: "Teacher–Student Ratio", body: "Maximum: 1:20" },
 ];
 
 const documents = [

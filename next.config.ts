@@ -48,6 +48,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // /tamil-lab briefly appeared in commit 75620a9 before the rename was
+      // reverted. Preserves any backlinks / indexed URLs that may have been
+      // captured during that window.
+      { source: "/tamil-lab", destination: "/language-lab", permanent: true },
+    ];
+  },
 };
 
 // Wrap with @next/bundle-analyzer when `npm run analyze` runs.

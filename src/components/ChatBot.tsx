@@ -324,12 +324,13 @@ export default function ChatBot() {
             </div>
           </div>
 
-          {/* Body */}
+          {/* Body — aria-live=off so streaming token chunks don't flood screen
+              readers. Completed assistant replies are announced via a separate
+              sr-only live region (see <CompletedReplyAnnouncer />). */}
           <div
             ref={scrollRef}
             role="log"
-            aria-live="polite"
-            aria-relevant="additions text"
+            aria-live="off"
             aria-label="Conversation"
             className="flex-1 overflow-y-auto px-4 py-4 bg-gradient-to-b from-white via-[#f8fafc] to-white"
           >
@@ -365,6 +366,12 @@ export default function ChatBot() {
             )}
           </div>
 
+          {/* Completed-reply announcer — sr-only live region that updates
+              ONLY when streaming finishes, so a screen reader hears one
+              announcement per assistant reply instead of partial-token spam. */}
+          <CompletedReplyAnnouncer messages={messages} sending={sending} />
+
+
           {/* Composer */}
           <form
             onSubmit={(e) => {
@@ -385,7 +392,7 @@ export default function ChatBot() {
                     : "Ask about admissions, fees, curriculum…"
                 }
                 disabled={sending}
-                className="w-full rounded-full border border-[var(--brand-rule-strong)] pl-4 pr-20 py-2.5 text-[13.5px] text-[var(--brand-navy)] placeholder:text-slate-400 focus:border-[var(--brand-primary)] focus:ring-4 focus:ring-[var(--brand-primary)]/15 outline-none disabled:bg-slate-50 disabled:cursor-not-allowed transition"
+                className="w-full rounded-full border border-[var(--brand-rule-strong)] pl-4 pr-20 py-2.5 text-[13.5px] text-[var(--brand-navy)] placeholder:text-slate-500 focus:border-[var(--brand-primary)] focus:ring-4 focus:ring-[var(--brand-primary)]/15 outline-none disabled:bg-slate-50 disabled:cursor-not-allowed transition"
               />
               {/* Microphone */}
               <button
@@ -416,7 +423,7 @@ export default function ChatBot() {
                 <Icon name="arrow-up-right" size={14} />
               </button>
             </div>
-            <div className="mt-2 flex items-center justify-between gap-2 text-[10.5px] text-slate-400">
+            <div className="mt-2 flex items-center justify-between gap-2 text-[10.5px] text-slate-600">
               <span className="inline-flex items-center gap-1.5">
                 <Icon name="lock" size={10} />
                 Encrypted in transit
@@ -432,6 +439,33 @@ export default function ChatBot() {
         </div>
       )}
     </>
+  );
+}
+
+/** Sr-only live region that announces the most recent assistant reply once
+ *  per stream completion. Keeping aria-live OFF on the body of the chat (which
+ *  changes per token) avoids the "partial-token spam" failure mode. */
+function CompletedReplyAnnouncer({ messages, sending }: { messages: Msg[]; sending: boolean }) {
+  const [announce, setAnnounce] = useState("");
+  const prevSendingRef = useRef(sending);
+  useEffect(() => {
+    // Announce only on the falling edge of `sending` (stream completed).
+    if (prevSendingRef.current && !sending) {
+      const last = messages[messages.length - 1];
+      if (last && last.role === "assistant" && last.content) {
+        // Intentional setState in effect: we're announcing a completed reply
+        // to AT, which is a synchronisation with an external system (the user
+        // agent's accessibility tree).
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setAnnounce(last.content);
+      }
+    }
+    prevSendingRef.current = sending;
+  }, [sending, messages]);
+  return (
+    <div role="status" aria-live="polite" className="sr-only">
+      {announce}
+    </div>
   );
 }
 

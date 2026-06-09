@@ -34,7 +34,11 @@ export async function POST(req: Request) {
 
   let body: { email?: string; honey?: string } = {};
   try {
-    body = await req.json();
+    const parsed: unknown = await req.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
+    }
+    body = parsed as { email?: string; honey?: string };
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
   }

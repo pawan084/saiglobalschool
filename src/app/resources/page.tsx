@@ -65,7 +65,7 @@ export default function Page() {
           {
             title: "Contact the Office",
             body: "Reach the admissions and operations team by phone, WhatsApp or email — replies within one business day.",
-            image: "/img/navbar/resources/open-house.jpg",
+            image: "/img/photos-2026-06/open-house-2.jpg",
             href: "/contact-us",
           },
           {

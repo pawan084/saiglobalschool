@@ -99,7 +99,7 @@ describe("data/faculty", () => {
 describe("data/subjects", () => {
   it("each subject has three grade bands", async () => {
     const { SUBJECTS } = await import("@/data/subjects");
-    expect(SUBJECTS.length).toBe(7);
+    expect(SUBJECTS.length).toBe(9);
     for (const s of SUBJECTS) {
       expect(s.bands.length).toBe(3);
       expect(s.bands.map((b) => b.label)).toEqual(["Foundations", "Build", "Depth"]);

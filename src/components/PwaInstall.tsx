@@ -64,7 +64,7 @@ export default function PwaInstall() {
 
   return (
     <div
-      role="dialog"
+      role="region"
       aria-label="Install app"
       className="fixed right-3 bottom-[7rem] lg:bottom-6 z-[72] w-[290px] rounded-2xl bg-white border border-[var(--brand-rule)] p-4"
       style={{ boxShadow: "0 18px 36px -14px rgba(11,29,51,0.30)" }}

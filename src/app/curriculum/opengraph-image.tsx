@@ -8,7 +8,7 @@ export default async function Image() {
   return buildOgImage({
     eyebrow: "Academics · Curriculum",
     title: "NCERT-aligned, values-integrated",
-    subtitle: "Structured progression across Grades 1–8 with lab and applied work.",
+    subtitle: "Structured progression across primary and middle school with lab and applied work.",
     accent: "primary",
   });
 }

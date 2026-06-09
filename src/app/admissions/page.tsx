@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 const parentConcerns = [
-  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcomed across Grades 1 to 8, with personalised settling-in support." },
+  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcomed across primary and middle school, with personalised settling-in support." },
   { iconName: "shield",     title: "Will the transition be smooth?", body: "We support children moving from CBSE, ICSE, Cambridge, IB and local-curriculum schools without academic disruption." },
   { iconName: "graduation", title: "What's the assessment like?",    body: "A grade-appropriate, low-pressure assessment to understand your child — not to filter them out." },
   { iconName: "chat",       title: "Who do we talk to?",             body: "One admissions point of contact, transparent timelines, and a reply within one business day, every time." },
@@ -52,14 +52,14 @@ export default function Page() {
         items={[
           {
             title: "Entry Requirements",
-            body: "Age criteria and grade-appropriate assessment for entry from Grade 1 through Grade 8.",
+            body: "Age criteria and grade-appropriate assessment for entry across primary and middle school.",
             image: "/img/navbar/admissions/entry-requirements.jpg",
             href: "/entry-requirements",
           },
           {
             title: "Registration",
             body: "PEI Singapore registration details, required documents, and the operational basics of joining SSSGS.",
-            image: "/img/navbar/admissions/open-house.jpg",
+            image: "/img/photos-2026-06/open-house-1.jpg",
             imagePosition: "top",
             href: "/registration",
           },
@@ -102,7 +102,7 @@ export default function Page() {
         featured={{
           title: "Fees, dates and policies — published, not buried.",
           body:
-            "Transparent annual fee breakdown for Grades 1–8. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
+            "Transparent annual fee breakdown for primary and middle school. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
           image: "/img/navbar/admissions/fee-structure.jpg",
           href: "/fee-structure",
         }}

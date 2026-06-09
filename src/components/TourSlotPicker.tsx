@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
@@ -61,8 +61,22 @@ function fmtSlot(h: number) {
 
 export default function TourSlotPicker() {
   const { show } = useToast();
-  const days = useMemo(() => nextDays(14), []);
-  const [day, setDay] = useState<string>(days[0]?.iso ?? "");
+  // Days depend on the current date and would mismatch between SSR and CSR if
+  // computed at render. We flip a hydrated flag on mount, then derive `days` and
+  // the default `day` at render time so there's no setState-in-effect for the
+  // derived values.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    // Intentional one-shot hydration flag in effect: the `days` array below
+    // derives from current time and would mismatch between SSR and CSR if
+    // computed at render. Flipping `hydrated` here triggers the derived
+    // re-render on the client only.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHydrated(true);
+  }, []);
+  const days = useMemo(() => (hydrated ? nextDays(14) : []), [hydrated]);
+  const [pickedDay, setPickedDay] = useState<string | null>(null);
+  const day = pickedDay ?? days[0]?.iso ?? "";
   const [hour, setHour] = useState<number | null>(null);
   const [timeError, setTimeError] = useState(false);
   const [name, setName] = useState("");
@@ -75,7 +89,7 @@ export default function TourSlotPicker() {
 
   // Picking a new day resets the hour selection.
   function pickDay(iso: string) {
-    setDay(iso);
+    setPickedDay(iso);
     setHour(null);
   }
 

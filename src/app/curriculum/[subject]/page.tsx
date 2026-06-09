@@ -61,10 +61,10 @@ export default async function Page({
         ]}
       />
       <CourseJsonLd
-        name={`${sub.name} — Grades 1–8`}
+        name={`${sub.name} — Primary and middle school`}
         description={sub.intro.replace(/&rsquo;/g, "'")}
         path={`/curriculum/${sub.id}`}
-        grades="Grades 1–8"
+        grades="Primary and middle school"
       />
 
       {/* Subject switcher (tabs) */}

@@ -38,7 +38,7 @@ const ROWS: Row[] = [
   },
   {
     label: "Grades covered",
-    sssgs: "Grades 1–8 today (expanding)",
+    sssgs: "Primary and middle school today (expanding)",
     cbse: "Grades 1–12",
     icse: "Grades 1–10 (ISC up to 12)",
     cambridge: "Grades 1–11 (IGCSE); A-Level to 13",
@@ -46,7 +46,7 @@ const ROWS: Row[] = [
   },
   {
     label: "Class size",
-    sssgs: "~1:20 average",
+    sssgs: "~1:20 maximum",
     cbse: "Often 1:30+",
     icse: "Often 1:30+",
     cambridge: "Varies by school",

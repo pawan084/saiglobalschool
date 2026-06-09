@@ -21,7 +21,7 @@ export const homeHero: CardSpec = {
   href: "/about-us",
   eyebrow: "Sri Sathya Sai Global School · Singapore",
   lead:
-    "A values-rooted, academically structured international school for Grades 1–8 — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
+    "A values-rooted, academically structured international school for primary and middle school — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
   image: "/img/home/hero/school-campus.jpg",
 };
 
@@ -46,7 +46,7 @@ export const homeHeroSatellites: CardSpec[] = [
     image: "/img/home/hero/open-house-educators.jpg", imagePosition: "top" as const,
   },
   {
-    title: "Curriculum & academic pathway, Grade 1 to 8",
+    title: "Curriculum & academic pathway",
     href: "/curriculum",
     eyebrow: "Academics",
     image: "/img/home/hero/curriculum-pathway.jpg",
@@ -64,7 +64,7 @@ export const homeSections: SectionSpec[] = [
       eyebrow: "Vision & Mission",
       lead:
         "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults.",
-      image: "/img/home/about-sssgs/vision-mission.jpg",
+      image: "/img/photos-2026-06/about-head-heart-hand.jpg",
     },
     satellites: [
       {
@@ -77,7 +77,7 @@ export const homeSections: SectionSpec[] = [
         title: "Faculty: experienced, values-led educators",
         href: "/faculty",
         eyebrow: "Faculty",
-        image: "/img/home/about-sssgs/faculty.jpg", imagePosition: "top" as const,
+        image: "/img/photos-2026-06/faculty-group.jpg", imagePosition: "top" as const,
       },
       {
         title: "Human excellence at the heart of every classroom",
@@ -89,12 +89,12 @@ export const homeSections: SectionSpec[] = [
         title: "Character development, threaded through daily life",
         href: "/character-development",
         eyebrow: "Character",
-        image: "/img/home/about-sssgs/character-development.jpg",
+        image: "/img/photos-2026-06/home-character-values-2.jpg",
       },
     ],
     extras: [
-      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/home/about-sssgs/values-integration.jpg" },
-      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/home/about-sssgs/human-excellence.jpg" },
+      { title: "Values integration & academics", href: "/values-integration-academics", eyebrow: "Pillar", image: "/img/photos-2026-06/about-values-integration.jpg" },
+      { title: "Parent community at SSSGS",      href: "/parent-community",             eyebrow: "Community", image: "/img/photos-2026-06/about-parent-community.jpg" },
       { title: "Read the parent–student handbook", href: "/parent-student-handbook",    eyebrow: "Handbook",  image: "/img/home/about-sssgs/parent-student-handbook.jpg" },
       { title: "FAQs from prospective families",  href: "/faqs",                         eyebrow: "FAQ",       image: "/img/home/about-sssgs/faqs.jpg", imagePosition: "top" as const },
     ],
@@ -109,7 +109,7 @@ export const homeSections: SectionSpec[] = [
       href: "/curriculum",
       eyebrow: "Curriculum",
       lead:
-        "Concept-led teaching, foundational skills, and age-appropriate progression across Grades 1–8 — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
+        "Concept-led teaching, foundational skills, and age-appropriate progression across primary and middle school — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
       image: "/img/home/academics/curriculum.jpg",
     },
     satellites: [
@@ -120,7 +120,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/academics/academic-pathway.jpg",
       },
       {
-        title: "Academic pathway, Grade 1 to Grade 8",
+        title: "Academic pathway",
         href: "/academic-pathway",
         eyebrow: "Pathway",
         image: "/img/home/academics/academic-pathway.jpg",
@@ -132,7 +132,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/academics/assessment-structure.jpg",
       },
       {
-        title: "Learning labs — language, science, maths, ICT",
+        title: "Learning labs — science, maths, language, English, ICT",
         href: "/learning-labs",
         eyebrow: "Labs",
         image: "/img/home/academics/learning-labs.jpg",
@@ -159,28 +159,28 @@ export const homeSections: SectionSpec[] = [
     },
     satellites: [
       {
-        title: "Language Lab: read, speak, write, with confidence",
-        href: "/language-lab",
-        eyebrow: "Language",
-        image: "/img/home/learning-labs/language-lab.jpg",
-      },
-      {
         title: "Maths Lab: visualise, model, prove",
         href: "/maths-lab",
         eyebrow: "Maths",
         image: "/img/home/learning-labs/maths-lab.jpg",
       },
       {
+        title: "Language Lab: read, write, listen, speak",
+        href: "/language-lab",
+        eyebrow: "Language",
+        image: "/img/photos-2026-06/tamil-lab.jpg",
+      },
+      {
+        title: "English Lab: Cambridge & CEFR-aligned",
+        href: "/english-lab",
+        eyebrow: "English",
+        image: "/img/photos-2026-06/tamil-lab.jpg",
+      },
+      {
         title: "ICT Lab: digital literacy from Grade 1",
         href: "/ict-lab",
         eyebrow: "ICT",
         image: "/img/home/learning-labs/ict-lab.jpg",
-      },
-      {
-        title: "Enrichment activities across subjects",
-        href: "/enrichment-activities",
-        eyebrow: "Enrichment",
-        image: "/img/home/learning-labs/enrichment-activities.jpg",
       },
     ],
   },
@@ -219,7 +219,7 @@ export const homeSections: SectionSpec[] = [
         title: "Uniform, transportation & daily logistics",
         href: "/school-uniform-and-transportation",
         eyebrow: "Daily Life",
-        image: "/img/home/campus-life/uniform-transport.jpg",
+        image: "/img/photos-2026-06/uniform-transport.jpg",
       },
     ],
   },
@@ -249,7 +249,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/admissions/entry-requirements.jpg",
       },
       {
-        title: "Fee structure for Grades 1–8",
+        title: "Fee structure for primary and middle school",
         href: "/fee-structure",
         eyebrow: "Fees",
         image: "/img/home/admissions/fee-structure.jpg",
@@ -258,7 +258,7 @@ export const homeSections: SectionSpec[] = [
         title: "Open House — meet faculty in person",
         href: "/open-house",
         eyebrow: "Event",
-        image: "/img/home/admissions/open-house.jpg", imagePosition: "top" as const,
+        image: "/img/photos-2026-06/open-house-1.jpg", imagePosition: "top" as const,
       },
     ],
     extras: [

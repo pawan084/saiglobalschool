@@ -52,7 +52,11 @@ export async function POST(req: Request) {
 
   let body: Record<string, unknown> = {};
   try {
-    body = await req.json();
+    const parsed: unknown = await req.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
+    }
+    body = parsed as Record<string, unknown>;
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
   }

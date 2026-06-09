@@ -77,7 +77,7 @@ export default function Page() {
           {
             title: "Library & reading corners",
             body: "Curated collection across grade levels with quiet corners for sustained reading and discussion.",
-            image: "/img/home/learning-labs/language-lab.jpg",
+            image: "/img/home/campus-life/sssgs-spaces.jpg",
             href: "/sssgs-spaces",
           },
           {

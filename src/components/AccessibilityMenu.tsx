@@ -28,25 +28,37 @@ function applyToHtml(font: FontScale, contrast: Contrast) {
 }
 
 export default function AccessibilityMenu() {
-  // Lazy initializers read storage once on first render (no setState in effect).
+  // SSR renders defaults (no storage access) so server/client HTML match.
+  // Stored prefs are read on mount, then applied + persisted on change.
   const [open, setOpen] = useState(false);
-  const [font, setFont] = useState<FontScale>(
-    () => (safeGet(STORAGE_FONT) as FontScale | null) ?? "base"
-  );
-  const [contrast, setContrast] = useState<Contrast>(
-    () => (safeGet(STORAGE_CONTRAST) as Contrast | null) ?? "normal"
-  );
+  const [font, setFont] = useState<FontScale>("base");
+  const [contrast, setContrast] = useState<Contrast>("normal");
+  const [hydrated, setHydrated] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   // Move focus into the dialog on open, trap Tab, and restore focus to the
   // trigger on close — role="dialog" needs managed focus to be valid.
   const trapRef = useFocusTrap<HTMLDivElement>(open);
 
-  // Persist + apply on change (side effect: DOM mutation + storage I/O)
+  // Intentional one-shot setState in effect: SSR has no access to localStorage,
+  // so the stored prefs have to be read after mount. Reading at render time
+  // produces a hydration mismatch on the aria-pressed states below.
   useEffect(() => {
+    const storedFont = safeGet(STORAGE_FONT) as FontScale | null;
+    const storedContrast = safeGet(STORAGE_CONTRAST) as Contrast | null;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (storedFont) setFont(storedFont);
+    if (storedContrast) setContrast(storedContrast);
+    setHydrated(true);
+  }, []);
+
+  // Persist + apply on change (post-hydration only — we don't want to overwrite
+  // the stored pref with the SSR default on the first effect run).
+  useEffect(() => {
+    if (!hydrated) return;
     safeSet(STORAGE_FONT, font);
     safeSet(STORAGE_CONTRAST, contrast);
     applyToHtml(font, contrast);
-  }, [font, contrast]);
+  }, [hydrated, font, contrast]);
 
   // Close on outside click / Escape
   useEffect(() => {

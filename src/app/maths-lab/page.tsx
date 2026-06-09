@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "Maths Lab — visualise, model, prove",
         lead: "Concrete manipulatives, visual models, and problem-led exploration make mathematics tangible — children build intuition before they automate.",
-        image: "/img/home/learning-labs/maths-lab.jpg",
+        image: "/img/photos-2026-06/maths-lab.jpg",
       }}
       quote={{ text: "Mathematics is not about numbers, equations, computations, or algorithms — it's about understanding.", author: "William Paul Thurston" }}
       pillars={[
@@ -29,8 +29,9 @@ export default function Page() {
         "Real-world math: budgeting, measuring, scaling, building",
       ]}
       relatedLabs={[
-        { label: "Language Lab", href: "/language-lab" },
         { label: "Science Lab", href: "/science-lab" },
+        { label: "Language Lab", href: "/language-lab" },
+        { label: "English Lab", href: "/english-lab" },
         { label: "ICT Lab", href: "/ict-lab" },
         { label: "All Learning Labs", href: "/learning-labs" },
       ]}

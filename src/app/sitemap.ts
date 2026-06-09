@@ -43,6 +43,7 @@ const ROUTES: Cfg[] = [
   { path: "/academic-pathway", changeFrequency: "monthly", priority: 0.7 },
   { path: "/assessment-structure", changeFrequency: "yearly", priority: 0.6 },
   { path: "/learning-labs", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/english-lab", changeFrequency: "yearly", priority: 0.5 },
   { path: "/ict-lab", changeFrequency: "yearly", priority: 0.5 },
   { path: "/language-lab", changeFrequency: "yearly", priority: 0.5 },
   { path: "/maths-lab", changeFrequency: "yearly", priority: 0.5 },

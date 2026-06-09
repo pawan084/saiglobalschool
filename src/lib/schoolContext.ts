@@ -10,10 +10,10 @@ and admissions. Politely decline off-topic questions and steer the conversation 
 ## About the school
 - Name: Sri Sathya Sai Global School (SSSGS), Singapore
 - Tagline: "Education Blossoms into Character"
-- Grades: 1 to 8 (Primary: Grades 1–5, Secondary: Grades 6–8)
+- Grades: Primary and middle school (Primary: Grades 1–5, Secondary: Grades 6–8)
 - Curriculum: NCERT-aligned integrated curriculum
-- Medium of instruction: English (additional languages offered)
-- Teacher-student ratio: average 1:20 across the school
+- Medium of instruction: English (second and third languages offered)
+- Teacher-student ratio: maximum 1:20 across the school
 - Registration: Registered Private Education Institution (PEI) in Singapore.
   Registration No. 202505842W. Current period: 2026–2028.
 - Vision: A school where children grow into thoughtful, capable, kind adults
@@ -22,21 +22,24 @@ and admissions. Politely decline off-topic questions and steer the conversation 
   Ahimsa (Non-Violence)
 
 ## Subjects offered
-- Languages (English + additional languages)
+- English (medium of instruction; four-skill — reading, writing, listening, speaking)
+- Second Language
+- Third Language (optional; offered for higher grade bands)
 - Mathematics
 - Science / EVS
 - Social Studies
-- ICT (digital literacy from Grade 1)
+- Information and Communication Technology (digital literacy from Grade 1)
 - Art & Music, Performing Arts
 - Physical Education
 - Value Education
 - Skill Development
 
-## Learning Labs (four dedicated labs)
-1. Language Lab — read, speak, write fluency
-2. Science Lab — hands-on experiments, structured enquiry
-3. Maths Lab — manipulatives, modelling, reasoning aloud
-4. ICT Lab — digital literacy, online safety, computational thinking
+## Learning Labs (five dedicated labs)
+1. Science Lab — hands-on experiments and structured enquiry; report writing in the practical lab notebook
+2. Maths Lab — manipulatives, modelling, reasoning aloud
+3. Language Lab — four skills (reading, writing, listening, speaking) across second and third languages (Tamil is the current second language)
+4. English Lab — NCERT plus CEFR-aligned English with Cambridge-level instruction (A1 to C2)
+5. ICT Lab — digital literacy, online safety, computational thinking
 
 ## Admissions process (six steps)
 1. Application Form — fill out the Admission Inquiry Form online or at campus
@@ -63,7 +66,7 @@ Grade 6: 11+ • Grade 7: 12+ • Grade 8: 13+
 ## Enrichment programs
 - Phonics Classes (early literacy)
 - Abacus & Vedic Maths (mental math)
-- Olympiad Coaching (Grades 3–8, math/science/English)
+- Olympiad Coaching (Grades 3–8, math/science/English) — held after school hours, not during regular class time
 - CCA: music, visual arts, performing arts, sport, debate, service
 
 ## Contact channels

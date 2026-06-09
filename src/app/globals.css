@@ -280,12 +280,16 @@ select.form-input {
   border-color: rgba(13,138,135,0.30);
 }
 
-/* "Learn More" pill button — black rounded with arrow chip */
+/* "Learn More" pill button — black rounded with arrow chip.
+   min-height meets the 44px iOS/Android touch-target guideline so
+   satellite-card pills (no arrow chip) are comfortably tappable on mobile;
+   featured-card pills (with chip) are already taller. */
 .learn-more-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   padding: 0.55rem 0.75rem 0.55rem 1.1rem;
+  min-height: 2.75rem;
   border-radius: 9999px;
   background: var(--brand-navy);
   color: #fff;

@@ -153,16 +153,28 @@ export default function FeatureBlock({
         </article>
 
         {/* Satellite row: up to 6 cards (2 rows of 3).
-            If NO card in this row has a body, drop the reserved body slot so
-            the title sits right above the image (avoids ~43px of empty space
-            on every satellite card in RelatedFeatureBlock-style sections,
-            where most items pass title+image only). When at least one card
-            has a body, every card reserves the slot to keep images aligned. */}
+            Two slots are conditionally reserved to keep cards aligned without
+            wasting space when no card in the visual row needs the room:
+            - body slot (~43px): reserved when ANY card in the grid has a body
+              (one body across all cards still pushes the rest down)
+            - title 2nd line (~22px): reserved per row-of-3 — so a row of
+              all-short titles drops the reservation even if the OTHER row
+              has long titles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {(() => {
-            const anyBody = items.slice(0, 6).some((c) => !!c.body);
-            return items.slice(0, 6).map((c) => (
-              <SatelliteCard key={c.title} card={c} reserveBodySlot={anyBody} />
+            const sliced = items.slice(0, 6);
+            const anyBody = sliced.some((c) => !!c.body);
+            // Compute per-row (group of 3) whether that row needs 2-line titles
+            const rowNeedsTwoLine = [0, 1].map((row) =>
+              sliced.slice(row * 3, row * 3 + 3).some((c) => c.title.length > 30),
+            );
+            return sliced.map((c, i) => (
+              <SatelliteCard
+                key={c.title}
+                card={c}
+                reserveBodySlot={anyBody}
+                reserveTwoLineTitle={rowNeedsTwoLine[Math.floor(i / 3)]}
+              />
             ));
           })()}
         </div>
@@ -185,17 +197,24 @@ export default function FeatureBlock({
   );
 }
 
-function SatelliteCard({ card, reserveBodySlot = true }: { card: Card; reserveBodySlot?: boolean }) {
+function SatelliteCard({
+  card,
+  reserveBodySlot = true,
+  reserveTwoLineTitle = true,
+}: {
+  card: Card;
+  reserveBodySlot?: boolean;
+  reserveTwoLineTitle?: boolean;
+}) {
   return (
     <article
       className="card-fancy group relative rounded-[22px] bg-white border border-[var(--brand-rule)] overflow-hidden flex flex-col transition"
       style={{ boxShadow: "var(--shadow-sm)" }}
     >
-      <div className="p-6 pb-5 relative z-[1]">
-        {/* Reserve 2 lines for the title so cards stay aligned even with short
-            titles. The body slot is only reserved when other cards in the row
-            actually have bodies (controlled by the parent). */}
-        <h4 className="text-[18px] lg:text-[19px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight line-clamp-2 min-h-[2.6rem]">
+      <div className="p-6 pb-3 relative z-[1]">
+        {/* Title and body slot reservations are controlled by the parent so a
+            row of uniformly short titles doesn't carry a blank second line. */}
+        <h4 className={`text-[18px] lg:text-[19px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight line-clamp-2 ${reserveTwoLineTitle ? "min-h-[2.6rem]" : ""}`}>
           {card.title}
         </h4>
         {(card.body || reserveBodySlot) && (

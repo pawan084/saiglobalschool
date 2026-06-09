@@ -72,28 +72,38 @@ function loadDraft(): FormState | null {
 
 export default function ApplyWizard() {
   const { show } = useToast();
-  // Lazy initializer hydrates from storage on first render (no setState-in-effect).
-  const [state, setState] = useState<FormState>(() => loadDraft() ?? empty);
+  // SSR renders the empty form so server/client HTML match; we hydrate the saved
+  // draft (if any) on mount via useEffect, then show the restored toast.
+  const [state, setState] = useState<FormState>(empty);
   const [step, setStep] = useState(1);
   const [busy, setBusy] = useState(false);
   const [submitted, setSubmitted] = useState<{ reference: string } | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  // Show the "restored" toast once on mount if a draft was hydrated.
+  const [hydrated, setHydrated] = useState(false);
   const restoredOnceRef = useRef(false);
   useEffect(() => {
-    if (restoredOnceRef.current) return;
-    restoredOnceRef.current = true;
-    if (state !== empty && (state.parentName || state.parentEmail || state.childName)) {
-      show("Draft restored from this device.", "info");
+    // Intentional one-shot setState in effect: SSR has no access to localStorage,
+    // so the draft has to be read after mount. Reading at render time would
+    // produce a hydration mismatch on the controlled inputs.
+    const draft = loadDraft();
+    if (draft) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setState(draft);
+      if (!restoredOnceRef.current && (draft.parentName || draft.parentEmail || draft.childName)) {
+        restoredOnceRef.current = true;
+        show("Draft restored from this device.", "info");
+      }
     }
+    setHydrated(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-save on change (debounced via microtask)
+  // Auto-save on change (debounced via microtask). Skip until after hydration so
+  // we don't overwrite the saved draft with the SSR-rendered empty state.
   useEffect(() => {
-    if (submitted) return;
+    if (!hydrated || submitted) return;
     safeSetJson(STORAGE_KEY, state);
-  }, [state, submitted]);
+  }, [hydrated, state, submitted]);
 
   const progress = useMemo(() => (step - 1) / (STEPS.length - 1), [step]);
 

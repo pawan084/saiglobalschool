@@ -43,13 +43,11 @@ describe("ExitIntentCapture", () => {
       Object.defineProperty(ev, "relatedTarget", { value: null });
       document.dispatchEvent(ev);
     });
-    const btn = screen.queryByText(/continue without saving/i);
-    if (btn) {
-      act(() => btn.click());
-      expect(localStorage.getItem("sssgs:exit-intent")).toBeTruthy();
-    } else {
-      // Some test envs may not respond to synthetic mouseleave; still pass
-      expect(true).toBe(true);
-    }
+    // The prior test proves the modal opens on synthetic mouseleave; assert it
+    // hard here (getByText throws if absent) so a future regression can't slip
+    // past as a silent skip.
+    const btn = screen.getByText(/continue without saving/i);
+    act(() => btn.click());
+    expect(localStorage.getItem("sssgs:exit-intent")).toBeTruthy();
   });
 });

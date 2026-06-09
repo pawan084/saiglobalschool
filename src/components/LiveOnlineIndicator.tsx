@@ -61,12 +61,17 @@ function inSgtWindow(): { online: boolean; nextOpen?: string } {
 }
 
 export default function LiveOnlineIndicator({ className = "" }: { className?: string }) {
-  // Lazy initialize from current time (single computation on first render).
-  const [state, setState] = useState<{ online: boolean; nextOpen?: string }>(() =>
-    inSgtWindow()
-  );
+  // SSR renders the stable offline fallback so server/client HTML match. The
+  // real time-based state is read from inSgtWindow() in a callback (interval
+  // tick) — no setState in effect body for the initial read.
+  const [state, setState] = useState<{ online: boolean; nextOpen?: string }>({ online: false });
 
   useEffect(() => {
+    // Intentional one-shot setState in effect: the initial value depends on
+    // current time, which would mismatch between SSR and CSR if computed
+    // during render. The interval tick keeps it fresh thereafter.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setState(inSgtWindow());
     const id = setInterval(() => setState(inSgtWindow()), 60_000);
     return () => clearInterval(id);
   }, []);

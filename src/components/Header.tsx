@@ -243,8 +243,11 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
   const active = isItemActive(pathname, item);
   const hasChildren = !!item.children?.length;
 
-  // Close when focus leaves the whole container (covers Tab past last item)
-  // and on Escape (returns focus to button).
+  // Close when focus leaves the whole container (covers Tab past last item),
+  // on Escape (returns focus to button), and on any mousedown / touchstart
+  // outside the container. The outside-pointer listener is what makes the
+  // chevron click-to-open pattern feel right: tap chevron → opens, tap
+  // outside → closes.
   useEffect(() => {
     if (!open) return;
     const el = containerRef.current;
@@ -257,11 +260,16 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
         buttonRef.current?.focus();
       }
     }
+    function onPointerDown(e: PointerEvent) {
+      if (!el?.contains(e.target as Node | null)) setOpen(false);
+    }
     el?.addEventListener("focusout", onFocusOut);
     document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
     return () => {
       el?.removeEventListener("focusout", onFocusOut);
       document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
     };
   }, [open]);
 
@@ -369,7 +377,13 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
             aria-expanded={open}
             aria-controls={panelId}
             aria-label={`${item.label} submenu`}
-            onClick={() => setOpen((o) => !o)}
+            // Always open on click rather than toggling. When the menu is
+            // already open via mouse hover, a toggle would close it the
+            // moment the user clicks the chevron (which is exactly the
+            // "I clicked but nothing opens" bug we shipped). To close, the
+            // user moves the mouse away (120 ms grace timer), clicks
+            // outside, or presses Escape.
+            onClick={() => setOpen(true)}
             onKeyDown={onButtonKeyDown}
             className={`pr-3 py-3 -ml-1 text-[var(--brand-navy)] hover:text-[var(--brand-primary)] transition-colors ${
               active ? "text-[var(--brand-primary)]" : ""

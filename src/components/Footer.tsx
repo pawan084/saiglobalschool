@@ -9,7 +9,7 @@ export default function Footer() {
   const navCols = navigation.filter((n) => n.children).slice(0, 5);
 
   return (
-    <footer className="relative overflow-hidden bg-[var(--brand-navy)] text-slate-300 mt-16">
+    <footer className="relative overflow-hidden bg-[var(--brand-navy)] text-slate-300">
       {/* Soft radial accents */}
       <div
         className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full opacity-[0.06]"

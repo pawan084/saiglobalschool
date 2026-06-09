@@ -107,12 +107,17 @@ describe("Header desktop disclosure dropdown", () => {
     });
   });
 
-  it("tapping the chevron twice toggles closed again", async () => {
+  it("clicking outside the dropdown closes it (was: chevron-toggle)", async () => {
+    // The chevron's onClick used to toggle. That meant when the menu was
+    // already open via hover, clicking the chevron flipped it closed — which
+    // surfaced as "I clicked the chevron and nothing opens." Now the chevron
+    // is open-only; close is by clicking outside, Esc, or tab-out.
     setup();
     const btn = aboutChevron();
     tap(btn);
     await waitFor(() => expect(btn).toHaveAttribute("aria-expanded", "true"));
-    tap(btn);
+    // Clicking outside the container closes via the document pointerdown listener.
+    fireEvent.pointerDown(document.body);
     await waitFor(() => expect(btn).toHaveAttribute("aria-expanded", "false"));
   });
 
@@ -132,7 +137,9 @@ describe("Header desktop disclosure dropdown", () => {
       const panel = document.getElementById(controlledId);
       expect(panel).not.toBeNull();
       expect(within(panel!).getAllByRole("link").length).toBeGreaterThan(0);
-      tap(t); // close before next iteration
+      // Close before the next iteration via outside pointerdown (chevron click
+      // no longer toggles closed — it's open-only by design).
+      fireEvent.pointerDown(document.body);
       await waitFor(() => expect(t).toHaveAttribute("aria-expanded", "false"));
     }
   });

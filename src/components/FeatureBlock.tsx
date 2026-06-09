@@ -152,11 +152,19 @@ export default function FeatureBlock({
           </div>
         </article>
 
-        {/* Satellite row: up to 6 cards (2 rows of 3) */}
+        {/* Satellite row: up to 6 cards (2 rows of 3).
+            If NO card in this row has a body, drop the reserved body slot so
+            the title sits right above the image (avoids ~43px of empty space
+            on every satellite card in RelatedFeatureBlock-style sections,
+            where most items pass title+image only). When at least one card
+            has a body, every card reserves the slot to keep images aligned. */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-          {items.slice(0, 6).map((c) => (
-            <SatelliteCard key={c.title} card={c} />
-          ))}
+          {(() => {
+            const anyBody = items.slice(0, 6).some((c) => !!c.body);
+            return items.slice(0, 6).map((c) => (
+              <SatelliteCard key={c.title} card={c} reserveBodySlot={anyBody} />
+            ));
+          })()}
         </div>
       </div>
 
@@ -177,26 +185,26 @@ export default function FeatureBlock({
   );
 }
 
-function SatelliteCard({ card }: { card: Card }) {
+function SatelliteCard({ card, reserveBodySlot = true }: { card: Card; reserveBodySlot?: boolean }) {
   return (
     <article
       className="card-fancy group relative rounded-[22px] bg-white border border-[var(--brand-rule)] overflow-hidden flex flex-col transition"
       style={{ boxShadow: "var(--shadow-sm)" }}
     >
       <div className="p-6 pb-5 relative z-[1]">
-        {/* Reserve 2 lines for the title and clamp the body so every card in a
-            row keeps the same text height — otherwise the images below start at
-            different heights and the cards look ragged. */}
+        {/* Reserve 2 lines for the title so cards stay aligned even with short
+            titles. The body slot is only reserved when other cards in the row
+            actually have bodies (controlled by the parent). */}
         <h4 className="text-[18px] lg:text-[19px] font-bold leading-tight text-[var(--brand-navy)] tracking-tight line-clamp-2 min-h-[2.6rem]">
           {card.title}
         </h4>
-        {/* Always reserve the body slot (even when empty) so the images below
-            line up across every card in the section, with or without a body. */}
-        <div className="mt-3 min-h-[2.7rem]">
-          {card.body && (
-            <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-2">{card.body}</p>
-          )}
-        </div>
+        {(card.body || reserveBodySlot) && (
+          <div className={`mt-3 ${reserveBodySlot ? "min-h-[2.7rem]" : ""}`}>
+            {card.body && (
+              <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-2">{card.body}</p>
+            )}
+          </div>
+        )}
       </div>
       <div className="px-5 pb-5 relative z-[1]">
         <div className={`relative aspect-[4/3] rounded-xl overflow-hidden ${

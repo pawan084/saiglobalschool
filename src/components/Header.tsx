@@ -331,13 +331,19 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
     <div
       ref={containerRef}
       className="relative"
-      onMouseEnter={() => {
-        if (!hasChildren) return;
+      // Use pointer events instead of mouse events so we can ignore the
+      // synthetic mouse events that touch devices fire after a tap. Without
+      // this, tapping the chevron on touchscreens would open the menu and
+      // then immediately close it 120 ms later because the post-tap
+      // mouseleave fires scheduleHoverClose. Mouse users still get the
+      // dwell-to-open / dwell-to-close behaviour they expect.
+      onPointerEnter={(e) => {
+        if (!hasChildren || e.pointerType !== "mouse") return;
         clearHoverClose();
         setOpen(true);
       }}
-      onMouseLeave={() => {
-        if (!hasChildren) return;
+      onPointerLeave={(e) => {
+        if (!hasChildren || e.pointerType !== "mouse") return;
         scheduleHoverClose();
       }}
     >

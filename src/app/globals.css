@@ -484,6 +484,43 @@ html[data-contrast="high"] .text-white\/90 { color: #ffffff !important; }
     content: "";
   }
 
+  /* In print, line-clamp would silently drop body text mid-paragraph.
+     Reset the webkit-box clamp so full content lands on the page. */
+  [class*="line-clamp"] {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  /* Min-heights reserved for on-screen card alignment add empty space in
+     print where each card stacks independently — drop them. */
+  [class*="min-h-"] {
+    min-height: 0 !important;
+  }
+
+  /* Hero / CTA backdrops use absolutely-positioned fill images and gradients
+     to colour-over the section. In print the section background was already
+     forced white; the photo behind still rendered and bled through any white
+     text on top. Hide the inset-0 backdrop wrappers so text reads cleanly. */
+  section > .absolute.inset-0 {
+    display: none !important;
+  }
+
+  /* Any white-on-dark text becomes invisible once the dark backdrop is gone.
+     Force readable black for text and headings inside hero/CTA sections. */
+  section [class*="text-white"],
+  section .text-white\/85,
+  section .text-white\/90 {
+    color: #000 !important;
+  }
+
+  /* Cap aspect-ratio image wrappers so cards don't take a full page.
+     aspect-ratio still governs width; max-height caps the rendered height
+     and the inner <Image fill> stays correctly positioned. */
+  main [class*="aspect-["] {
+    max-height: 50mm !important;
+  }
+
   /* page margin via @page */
 }
 @page {

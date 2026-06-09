@@ -5,7 +5,7 @@ import NewsStripPauseButton from "./NewsStripPauseButton";
 
 export default function NewsStrip() {
   return (
-    <div className="relative bg-[var(--brand-navy)] text-white/90 text-[12px] overflow-hidden">
+    <div className="relative bg-[var(--brand-navy)] text-white/90 text-[12px] overflow-hidden print:hidden">
       {/* Subtle texture */}
       <span
         aria-hidden

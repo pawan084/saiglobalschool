@@ -67,31 +67,40 @@ export default async function Page({
         grades="Primary and middle school"
       />
 
-      {/* Subject switcher (tabs) */}
+      {/* Subject switcher — horizontal scroll on small/medium, wrap on large.
+          Below `lg` the 9 pills overflowed onto 2-3 rows; this keeps them in
+          a single tidy row with momentum-scrolling and edge fades so the user
+          can still see all subjects without the noisy multi-row layout. */}
       <ContentSection flush>
-        <nav
-          aria-label="All subjects"
-          className="mb-6 flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-[var(--brand-cream)] border border-[var(--brand-rule)]"
-        >
-          {SUBJECTS.map((s) => {
-            const active = s.id === sub.id;
-            return (
-              <Link
-                key={s.id}
-                href={`/curriculum/${s.id}`}
-                aria-current={active ? "page" : undefined}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-[12.5px] font-bold transition ${
-                  active
-                    ? "bg-[var(--brand-navy)] text-white"
-                    : "bg-white border border-[var(--brand-rule)] text-slate-600 hover:border-[var(--brand-primary)] hover:text-[var(--brand-navy)]"
-                }`}
-              >
-                <Icon name={s.icon} size={12} />
-                {s.name}
-              </Link>
-            );
-          })}
-        </nav>
+        <div className="relative mb-6">
+          <nav
+            aria-label="All subjects"
+            className="flex gap-1.5 p-1.5 rounded-2xl bg-[var(--brand-cream)] border border-[var(--brand-rule)] overflow-x-auto lg:flex-wrap lg:overflow-visible scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+          >
+            {SUBJECTS.map((s) => {
+              const active = s.id === sub.id;
+              return (
+                <Link
+                  key={s.id}
+                  href={`/curriculum/${s.id}`}
+                  aria-current={active ? "page" : undefined}
+                  className={`shrink-0 snap-start inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-[12.5px] font-bold whitespace-nowrap transition ${
+                    active
+                      ? "bg-[var(--brand-navy)] text-white"
+                      : "bg-white border border-[var(--brand-rule)] text-slate-600 hover:border-[var(--brand-primary)] hover:text-[var(--brand-navy)]"
+                  }`}
+                >
+                  <Icon name={s.icon} size={12} />
+                  {s.name}
+                </Link>
+              );
+            })}
+          </nav>
+          {/* Edge fades only when scrollable (below lg). Hidden on desktop where
+              the row wraps. Decorative; pointer-events disabled. */}
+          <span aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[var(--brand-cream)] to-transparent lg:hidden" />
+          <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[var(--brand-cream)] to-transparent lg:hidden" />
+        </div>
 
         {/* Intro */}
         <div className="rounded-2xl bg-white border border-[var(--brand-rule)] p-6 lg:p-7 mb-6" style={{ boxShadow: "var(--shadow-sm)" }}>

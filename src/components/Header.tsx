@@ -72,10 +72,14 @@ export default function Header() {
               priority
               className="shrink-0 transition-[width,height] drop-shadow-sm"
             />
-            <div className="flex min-w-0 flex-col leading-tight">
+            {/* On the smallest viewports the brand text is hidden — the logo
+                alone identifies the school and gives the CTA + hamburger room
+                to render at their proper sizes. The full brand wordmark + tagline
+                reappear once there's room (≥sm). */}
+            <div className="hidden sm:flex min-w-0 flex-col leading-tight">
               <span
                 className={`font-display font-bold text-[var(--brand-navy)] tracking-tight transition-[font-size] ${
-                  scrolled ? "text-[18px] sm:text-[20px] lg:text-[22px]" : "text-[20px] sm:text-[22px] lg:text-[28px]"
+                  scrolled ? "text-[18px] lg:text-[22px]" : "text-[20px] lg:text-[28px]"
                 } group-hover:text-[var(--brand-primary)]`}
               >
                 Sri Sathya Sai Global School

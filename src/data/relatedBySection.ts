@@ -146,6 +146,16 @@ export function getSidebarItems(slug: string): CardSpec[] {
   return relatedFor(key).filter((c) => !c.href.endsWith(`/${slug}`));
 }
 
+/** Deterministic but slug-varied: pick a featured tile based on a fast hash of
+ *  the slug so visiting multiple pages in the same section sees variety
+ *  instead of the same Vision-Mission / Curriculum card every time. */
+function pickIndex(slug: string, len: number): number {
+  if (len <= 0) return 0;
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
+  return h % len;
+}
+
 export function getRelatedBlock(slug: string): {
   title: string;
   sectionHref: string;
@@ -156,11 +166,16 @@ export function getRelatedBlock(slug: string): {
   if (!key) return null;
   const items = relatedFor(key).filter((c) => !c.href.endsWith(`/${slug}`));
   if (items.length < 4) return null;
+  // Rotate which item is featured based on the current slug so the related
+  // block doesn't show the same hero card on every page in the section.
+  const featuredIdx = pickIndex(slug, items.length);
+  const main = items[featuredIdx];
+  const satellites = items.filter((_, i) => i !== featuredIdx).slice(0, 4);
   return {
     title: `More from ${sectionMeta[key].label}`,
     sectionHref: sectionMeta[key].href,
-    main: items[0],
-    satellites: items.slice(1, 5),
+    main,
+    satellites,
   };
 }
 

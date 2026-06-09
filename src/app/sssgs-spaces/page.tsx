@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "SSSGS Spaces",
-  description: "Classrooms, labs, library and learning spaces at Sri Sathya Sai Global School.",
+  description: "A walk through classrooms, the five specialist labs, library, performing-arts and reflection spaces at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/sssgs-spaces" },
 };
 

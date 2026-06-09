@@ -7,7 +7,7 @@ import CTAStrip from "@/components/CTAStrip";
 
 export const metadata = {
   title: "Academics",
-  description: "NCERT-aligned curriculum, learning labs, assessments and enrichment programs at SSSGS.",
+  description: "NCERT-aligned curriculum, five specialist learning labs, formative and summative assessment and enrichment programmes at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/academics" },
 };
 

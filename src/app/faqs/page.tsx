@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 const faqs: FAQ[] = [
-  { q: "Which grades does SSSGS offer?", a: "We cover primary and middle school — Primary (Grades 1–5) and Secondary (Grades 6–8)." },
+  { q: "Which grades does SSSGS offer?", a: "We cover primary and middle school — Primary (Grades 1–5) and Middle (Grades 6–8)." },
   { q: "Is SSSGS a registered school in Singapore?", a: "Yes. SSSGS is a registered Private Education Institution (PEI). Current registration period is 2026–2028 (Registration No. 202505842W)." },
   { q: "What curriculum does SSSGS follow?", a: "An NCERT-aligned integrated curriculum, with structured progression across Language, Maths, Science, Social Studies, ICT, Art and Values Education." },
   { q: "Do you accept mid-year admissions?", a: "Yes — we welcome admissions throughout the year, with personalised settling-in support for children transitioning from other schools or systems." },

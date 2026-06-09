@@ -11,7 +11,7 @@ import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: { absolute: "Sri Sathya Sai Global School | Singapore" },
   description:
-    "An NCERT-aligned, values-rooted international school in Singapore for primary and middle school. Small-group learning, experienced educators, mid-year admissions welcome.",
+    "NCERT-aligned, values-rooted international school in Singapore (primary & middle school) — small-group learning, experienced educators, mid-year admissions welcome.",
   alternates: {
     canonical: "/",
     types: { "application/rss+xml": "/feed.xml" },

@@ -5,7 +5,7 @@ import FeatureGrid from "@/components/FeatureGrid";
 
 export const metadata = {
   title: "Facilities",
-  description: "Built for safe, focused learning — overview of SSSGS facilities.",
+  description: "Safe, well-equipped classrooms, five specialist labs, library, performing-arts and activity zones at Sri Sathya Sai Global School, Singapore — built around how children learn.",
   alternates: { canonical: "/facilities" },
 };
 

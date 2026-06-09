@@ -25,8 +25,8 @@ export default function Page() {
       slug="entry-requirements"
       hero={{
         eyebrow: "Admissions",
-        title: "Entry requirements",
-        lead: "Age and assessment criteria for entry to Grades 1 through 8. We accept mid-year admissions and support transitions across curricula.",
+        title: "Entry Requirements",
+        lead: "Age and assessment criteria for entry across primary and middle school. We accept mid-year admissions and support transitions across curricula.",
         breadcrumb: [
           { label: "Admissions", href: "/admissions" },
           { label: "Entry Requirements", href: "/entry-requirements" },

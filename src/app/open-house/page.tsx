@@ -5,7 +5,7 @@ import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TourSlotPicker from "@/components/TourSlotPicker";
 
 export const metadata = {
-  title: "Open House & private tour",
+  title: "Open House & Private Tours",
   description:
     "Pick a date and time to visit Sri Sathya Sai Global School — tour the labs, meet teachers, sit in on a class.",
   alternates: { canonical: "/open-house" },

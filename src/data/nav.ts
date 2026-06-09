@@ -61,7 +61,7 @@ export const navigation: NavItem[] = [
     href: "/resources",
     children: [
       { label: "Calendar", href: "/calendar" },
-      { label: "Parent-Student Handbook", href: "/parent-student-handbook" },
+      { label: "Parent–Student Handbook", href: "/parent-student-handbook" },
       { label: "FAQs", href: "/faqs" },
       { label: "Phonics Classes", href: "/phonics-classes" },
       { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" },

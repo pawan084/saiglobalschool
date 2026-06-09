@@ -7,7 +7,7 @@ import CTAStrip from "@/components/CTAStrip";
 
 export const metadata = {
   title: "Campus Life",
-  description: "Facilities, daily school life, CCAs and the spaces that make SSSGS a second home.",
+  description: "Facilities, daily school life, CCAs, uniform and transport, and the everyday spaces that make Sri Sathya Sai Global School, Singapore a second home for primary and middle school children.",
   alternates: { canonical: "/campus" },
 };
 

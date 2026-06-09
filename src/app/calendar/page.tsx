@@ -25,7 +25,7 @@ type Term = {
 const TERMS_2026: Term[] = [
   { id: "t1", name: "Term 1", start: "2026-01-06", end: "2026-03-13", note: "Reopening, orientation week, mid-term review" },
   { id: "t2", name: "Term 2", start: "2026-03-30", end: "2026-06-05", note: "Project work, mid-year assessments" },
-  { id: "t3", name: "Term 3", start: "2026-06-29", end: "2026-09-04", note: "Sports day, parents' meet, mid-term assessments" },
+  { id: "t3", name: "Term 3", start: "2026-06-29", end: "2026-09-04", note: "Sports day, parent–teacher meetings, mid-term assessments" },
   { id: "t4", name: "Term 4", start: "2026-09-21", end: "2026-12-04", note: "Annual day, finals, term-end break in late December" },
 ];
 

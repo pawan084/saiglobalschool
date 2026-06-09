@@ -56,7 +56,7 @@ export const searchIndex: SearchEntry[] = [
   { title: "Calendar", href: "/calendar", section: "Resources", tags: "calendar schedule term dates" },
   { title: "News", href: "/news", section: "Resources", tags: "news updates blog stories" },
   { title: "Events", href: "/events", section: "Resources", tags: "events open house ptm sports day" },
-  { title: "Parent-Student Handbook", href: "/parent-student-handbook", section: "Resources", tags: "handbook rules policies" },
+  { title: "Parent–Student Handbook", href: "/parent-student-handbook", section: "Resources", tags: "handbook rules policies" },
   { title: "FAQs", href: "/faqs", section: "Resources", tags: "faq questions answers help" },
   { title: "Phonics Classes", href: "/phonics-classes", section: "Resources", tags: "phonics reading early years" },
   { title: "Abacus & Vedic Maths", href: "/abacus-vedic-maths", section: "Resources", tags: "abacus vedic maths" },

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Fee Structure",
-  description: "Annual fee structure for Primary (Grades 1–5) and Secondary (Grades 6–8) at SSSGS Singapore.",
+  description: "Annual fee structure for Primary (Grades 1–5) and Middle (Grades 6–8) at Sri Sathya Sai Global School, Singapore — tuition, lab, CCA and registration fees.",
   alternates: { canonical: "/fee-structure" },
 };
 
@@ -43,7 +43,7 @@ export default function Page() {
       hero={{
         eyebrow: "Fees",
         title: "Fee Structure",
-        lead: "Transparent annual fee breakdown for primary and middle school. Tables for Primary (Grades 1–5) and Secondary (Grades 6–8) below. Indicative figures — please confirm with admissions.",
+        lead: "Transparent annual fee breakdown for primary and middle school. Tables for Primary (Grades 1–5) and Middle (Grades 6–8) below. Indicative figures — please confirm with admissions.",
         breadcrumb: [
           { label: "Admissions", href: "/admissions" },
           { label: "Fee Structure", href: "/fee-structure" },
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="p-5 rounded-md border border-[var(--brand-rule)] bg-white">
             <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--brand-accent)]">
-              Secondary · Grades 6–8
+              Middle · Grades 6–8
             </div>
             <div className="mt-1 text-[28px] font-extrabold text-[var(--brand-navy)] leading-tight">
               ~S$10,100<span className="text-[14px] font-bold text-slate-500"> / year</span>
@@ -85,8 +85,8 @@ export default function Page() {
         <FeeTable title="Primary Section — Grades 1 to 5" rows={primary} />
       </ContentSection>
 
-      <ContentSection flush tone="cream" eyebrow="Secondary">
-        <FeeTable title="Secondary Section — Grades 6 to 8" rows={secondary} />
+      <ContentSection flush tone="cream" eyebrow="Middle">
+        <FeeTable title="Middle Section — Grades 6 to 8" rows={secondary} />
       </ContentSection>
 
       <ContentSection flush title="What's included & how it's billed" eyebrow="Notes">

@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 
 export const metadata = {
   title: "Faculty",
-  description: "Meet the educators who shape learning at Sri Sathya Sai Global School, Singapore.",
+  description: "Meet the experienced, values-led educators behind small-group teaching at Sri Sathya Sai Global School, Singapore — primary and middle school faculty.",
   alternates: { canonical: "/faculty" },
 };
 

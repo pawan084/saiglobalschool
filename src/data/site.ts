@@ -3,7 +3,7 @@ export const site = {
   shortName: "SSSGS",
   tagline: "Education Blossoms into Character",
   description:
-    "An international school in Singapore offering values-based, holistic education with structured curriculum, experienced educators, and a focus on character development.",
+    "International school in Singapore offering values-rooted, holistic education with NCERT-aligned curriculum, experienced educators and a focus on character.",
   url: "https://www.srisathyasaiglobalschool-sg.com/",
   phone: "+65 8083 0971",
   whatsapp: "https://wa.me/6580830971",

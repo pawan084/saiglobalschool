@@ -67,14 +67,14 @@ export default function Footer() {
               <div className="text-white font-display font-bold text-[18px] tracking-tight">
                 Sri Sathya Sai Global School
               </div>
-              <div className="text-[10.5px] text-slate-400 tracking-wide">Singapore</div>
+              <div className="text-[10.5px] text-slate-300 tracking-wide">Singapore</div>
             </div>
           </Link>
 
           <p className="mt-5 font-display italic text-slate-200 text-[15px] leading-snug max-w-sm">
             &ldquo;The End of Education is Character.&rdquo;
           </p>
-          <p className="mt-4 text-[13px] text-slate-400 leading-relaxed max-w-sm">
+          <p className="mt-4 text-[13px] text-slate-300 leading-relaxed max-w-sm">
             A values-rooted international school for primary and middle school in Singapore. Mid-year admissions welcome.
           </p>
 
@@ -136,7 +136,7 @@ export default function Footer() {
             <ul className="space-y-1.5 text-[13px]">
               {group.children!.slice(0, 7).map((c) => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-slate-400 hover:text-white transition-colors">
+                  <Link href={c.href} className="text-slate-300 hover:text-white transition-colors">
                     {c.label}
                   </Link>
                 </li>
@@ -151,14 +151,14 @@ export default function Footer() {
         <div className="section-shell py-7">
           <div className="flex items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-3 flex-1">
-              <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
+              <span className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-300">
                 Accreditation
               </span>
               <span className="h-px flex-1 bg-white/10" />
             </div>
             <Link
               href="/accreditation"
-              className="text-[11px] font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
+              className="text-[11px] font-bold text-slate-300 hover:text-white transition-colors whitespace-nowrap"
             >
               See all registrations →
             </Link>
@@ -169,7 +169,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ─────────────────────────────────────── */}
       <div className="relative border-t border-white/10">
-        <div className="section-shell py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[12px] text-slate-500">
+        <div className="section-shell py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[12px] text-slate-300">
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} Sri Sathya Sai Global School. All rights reserved.</span>
           </div>

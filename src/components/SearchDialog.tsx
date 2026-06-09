@@ -138,7 +138,7 @@ export default function SearchDialog() {
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={handleKey}
             placeholder="Search SSSGS — fees, curriculum, admissions…"
-            className="flex-1 bg-transparent outline-none text-[15px] text-[var(--brand-navy)] placeholder:text-slate-400"
+            className="flex-1 bg-transparent outline-none text-[15px] text-[var(--brand-navy)] placeholder:text-slate-500"
             aria-label="Search"
             role="combobox"
             aria-expanded={results.length > 0}

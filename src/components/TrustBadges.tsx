@@ -26,9 +26,9 @@ export default function TrustBadges({ variant = "footer" }: Props) {
               <Icon name={b.icon} size={16} />
             </span>
             <div className="min-w-0">
-              <div className="text-[10px] uppercase tracking-[0.1em] text-slate-400">{b.label}</div>
+              <div className="text-[10px] uppercase tracking-[0.1em] text-slate-300">{b.label}</div>
               <div className="text-[13.5px] font-bold text-white leading-tight mt-0.5">{b.sub}</div>
-              <div className="text-[10.5px] text-slate-500 mt-0.5">{b.id}</div>
+              <div className="text-[10.5px] text-slate-300 mt-0.5">{b.id}</div>
             </div>
           </div>
         ))}
@@ -45,7 +45,7 @@ export default function TrustBadges({ variant = "footer" }: Props) {
         >
           <Icon name={b.icon} size={13} className="text-[var(--brand-primary)]" />
           <span className="text-[12px] font-bold text-[var(--brand-navy)]">{b.sub}</span>
-          <span className="text-[11px] text-slate-500">{b.label}</span>
+          <span className="text-[11px] text-slate-600">{b.label}</span>
         </div>
       ))}
     </div>

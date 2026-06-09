@@ -12,7 +12,7 @@ export const metadata = {
 const facilities = [
   { iconName: "lock", title: "Safety first", body: "Secure campus access, CCTV-monitored common areas, trained staff and emergency procedures in place." },
   { iconName: "school", title: "Well-equipped classrooms", body: "Smart boards, adequate lighting and ventilation, age-appropriate furniture across grade levels." },
-  { iconName: "flask", title: "Specialist labs", body: "Dedicated labs for science, mathematics, language and ICT — well-stocked with materials and instruments." },
+  { iconName: "flask", title: "Specialist labs", body: "Dedicated labs for Science, Mathematics, Language, English and ICT — well-stocked with materials and instruments." },
   { iconName: "leaf", title: "Nutritional support", body: "Lunch and snack facilities; nutritional standards aligned with what growing children need." },
   { iconName: "shield", title: "On-site care", body: "Trained first-aid responders and a quiet care room for children who feel unwell." },
   { iconName: "map-pin", title: "Transport options", body: "School transport routes available; uniform and transport details on the dedicated page." },

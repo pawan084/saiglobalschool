@@ -8,29 +8,29 @@ import Icon from "@/components/Icon";
 export const metadata = {
   title: "Values Integration with Academics",
   description:
-    "How Sri Sathya Sai Global School integrates values into language, math, science, social studies and classroom culture.",
+    "How Sri Sathya Sai Global School integrates values into Language, Maths, Science, Social Studies and classroom culture.",
   alternates: { canonical: "/values-integration-academics" },
 };
 
 const subjectIntegration = [
   {
     iconName: "book-open",
-    title: "In language",
+    title: "In Language",
     body: "Stories, discussion questions and writing prompts help children name values and connect them with choices.",
   },
   {
     iconName: "flask",
-    title: "In science",
+    title: "In Science",
     body: "Ethics, environment, care and responsibility are framed alongside observation, evidence and explanation.",
   },
   {
     iconName: "calculator",
-    title: "In math",
+    title: "In Maths",
     body: "Honest effort, peer support, precision and reasoning aloud are built into the way practice happens.",
   },
   {
     iconName: "globe",
-    title: "In social studies",
+    title: "In Social Studies",
     body: "Children learn fairness, empathy for context and respect for multiple perspectives.",
   },
 ];

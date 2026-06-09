@@ -159,7 +159,7 @@ export default function Home() {
             href: "/faculty",
           },
           {
-            title: "Personalized Learning Support",
+            title: "Personalised Learning Support",
             body: "Students receive guided academic support through structured feedback, progress tracking, and adaptive learning tools.",
             image: "/img/home/why-sssgs/personalized-learning-support.jpg",
             href: "/student-support",

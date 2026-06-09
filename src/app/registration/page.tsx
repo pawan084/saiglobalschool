@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Registration",
-  description: "Registration details for Sri Sathya Sai Global School — PEI accredited Private Education Institution in Singapore.",
+  description: "Registration details for Sri Sathya Sai Global School — a CPE-registered Private Education Institution (PEI) in Singapore. Reg. No. 202505842W.",
   alternates: { canonical: "/registration" },
 };
 

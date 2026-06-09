@@ -14,7 +14,7 @@ export const metadata = {
 const parentAcademicNeeds = [
   { iconName: "book-open",   title: "A curriculum we can trust",        body: "NCERT-aligned content with structured progression — recognisable, rigorous, and proven across India's leading schools." },
   { iconName: "compass",     title: "Continuity through transitions",   body: "Children moving in from CBSE, ICSE, Cambridge, IB or local schools are supported without academic disruption." },
-  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — science, math, language, English and ICT — turn classroom concepts into hands-on application." },
+  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — Science, Maths, Language, English and ICT — turn classroom concepts into hands-on application." },
   { iconName: "list-check",  title: "Assessment for learning",          body: "Daily formative checks, weekly reviews and term assessments — assessment that informs teaching, not just grades." },
 ];
 
@@ -141,7 +141,7 @@ export default function Page() {
           },
           {
             title: "Olympiad coaching",
-            body: "After-school Olympiad preparation for Grades 3–8 — math, science and English.",
+            body: "After-school Olympiad preparation for Grades 3–8 — Maths, Science and English.",
             image: "/img/home/resources-for-parents/olympiad.jpg",
             href: "/olympiad",
           },
@@ -151,7 +151,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The academic credentials" title="Standards parents recognise" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          NCERT-aligned curriculum, CPE-Singapore registration, small-group teaching with a 1:20 ratio — the academic framework is anchored to standards parents already know and trust.
+          NCERT-aligned curriculum, CPE-Singapore registration, small-group teaching with a 1:20 maximum ratio — the academic framework is anchored to standards parents already know and trust.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

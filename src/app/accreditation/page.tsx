@@ -37,7 +37,7 @@ const items: {
   },
   {
     title: "Curriculum alignment",
-    body: "Curriculum is NCERT-aligned across English, math, science, social studies and ICT — designed to ease transition for families moving from Indian and international systems.",
+    body: "Curriculum is NCERT-aligned across English, Mathematics, Science, Social Studies and ICT — designed to ease transition for families moving from Indian and international systems.",
     badge: "NCERT",
     iconName: "ribbon",
   },
@@ -52,7 +52,7 @@ const items: {
 export default function Page() {
   return (
     <InnerPageShell
-      slug="about-us"
+      slug="accreditation"
       hero={{
         eyebrow: "Trust",
         title: "Accreditation & registrations",

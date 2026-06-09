@@ -14,7 +14,7 @@ export const metadata = {
 const parentCampusNeeds = [
   { iconName: "shield",      title: "A safe, contained environment",  body: "Parents need to know the campus is safe by design — visitor protocols, supervised movement, and child-friendly spaces." },
   { iconName: "sun-rise",    title: "A predictable daily rhythm",     body: "Children settle faster when the day has structure — morning circle, focused academics, lab, mealtime, CCA, reflection." },
-  { iconName: "palette",     title: "Spaces that match the learning", body: "Bright classrooms, four specialist labs, library, performing-arts and activity zones — built around how children actually learn." },
+  { iconName: "palette",     title: "Spaces that match the learning", body: "Bright classrooms, five specialist labs, library, performing-arts and activity zones — built around how children actually learn." },
   { iconName: "users",       title: "Activities for the whole child", body: "Music, art, sport, debate and service — every child finds something to commit to, beyond the academic timetable." },
 ];
 
@@ -146,7 +146,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="A campus you can rely on" title="Registered, accredited, and built for small-group learning" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          The campus operates under CPE Singapore registration, with an NCERT-aligned academic backbone and a 1:20 teacher–student ratio — small enough for every child to be seen.
+          The campus operates under CPE Singapore registration, with an NCERT-aligned academic backbone and a 1:20 maximum teacher–student ratio — small enough for every child to be seen.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

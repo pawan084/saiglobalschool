@@ -14,7 +14,7 @@ const day: TimelineItem[] = [
   { tag: "8:30 AM", title: "Core Academic Block 1", body: "Focused block: language or mathematics. Whole-group teaching with structured practice." },
   { tag: "10:00 AM", title: "Snack & Movement Break", body: "Healthy snack and a movement break — children move, stretch and chat before the next block." },
   { tag: "10:20 AM", title: "Core Academic Block 2", body: "Science, social studies or rotating subject. Concept work followed by application." },
-  { tag: "11:45 AM", title: "Learning Lab Session", body: "Hands-on session in one of the five labs — science, math, language, English or ICT." },
+  { tag: "11:45 AM", title: "Learning Lab Session", body: "Hands-on session in one of the five labs — Science, Maths, Language, English or ICT." },
   { tag: "1:00 PM", title: "Mealtime & Reflection", body: "A community lunch followed by a quiet reflection — a deliberate pause in the day." },
   { tag: "2:00 PM", title: "Co-curricular Activities", body: "Music, art, sport, public speaking, debate or service club. Every child finds their thing." },
   { tag: "3:15 PM", title: "Closing Reflection & Home", body: "Brief circle: what we learned, what we're grateful for, what's coming tomorrow." },

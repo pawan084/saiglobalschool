@@ -32,7 +32,7 @@ const secondary: FeeRow[] = [
 
 const policies = [
   { iconName: "credit-card", title: "Payment options", body: "Bank transfer, online payment and PayNow. Receipts issued the same day." },
-  { iconName: "calendar", title: "Term & one-time fees", body: "Some fees are billed once at admission; tuition is billed per term." },
+  { iconName: "calendar", title: "Monthly & one-time fees", body: "Some fees are billed once at admission; tuition is billed per month." },
   { iconName: "rotate", title: "Refund policy", body: "Refunds follow our published policy — see the dedicated page for terms." },
 ];
 

@@ -42,7 +42,7 @@ export const FACULTY: FacultyMember[] = [
     ],
     bio: [
       "Pousali heads the Science department and runs the school's lab programmes. Her classes are inquiry-led — students observe, hypothesise, measure and conclude, with structured reflection at the end of every unit.",
-      "She also coordinates the annual Science Fair and the inter-school olympiad coaching track.",
+      "She also coordinates the annual Science Fair and the inter-school Olympiad coaching track.",
     ],
     teaches: ["Science — Grades 4–8", "Olympiad coaching"],
     quote: "Lab work and field trips aren't decoration. They're where the learning sticks.",

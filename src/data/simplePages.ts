@@ -19,7 +19,7 @@ export const simplePages: Record<string, SimplePage> = {
       sectionTitle: "Pathway by grade band",
       items: [
         { icon: "1", title: "Grades 1–2 — Foundations", body: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
-        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, second & third language, math, science, social studies and ICT." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Maths, Science, Social Studies and ICT." },
         { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
       ],
       cols: 3,
@@ -125,7 +125,7 @@ export const simplePages: Record<string, SimplePage> = {
     lead: "Pursuing excellence in being human — competence, character, and contribution. The SSSGS pedagogy puts these on equal footing.",
     breadcrumb: [aboutCrumb, { label: "Human Excellence", href: "/human-excellence" }],
     intro: [
-      "Human excellence is more than academic achievement. It's the practiced craft of being a thoughtful, capable, contributing person — the kind of person any community is glad to count.",
+      "Human excellence is more than academic achievement. It's the daily practice of being a thoughtful, capable, contributing person — the kind of person any community is glad to count.",
     ],
     features: {
       sectionTitle: "The three commitments",
@@ -141,16 +141,16 @@ export const simplePages: Record<string, SimplePage> = {
   "values-integration-academics": {
     eyebrow: "About SSSGS",
     title: "Values Integration with Academics",
-    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — English, language, math, science, social studies, ICT, PE and the arts.",
+    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — English, Language, Maths, Science, Social Studies, ICT, PE and the Arts.",
     breadcrumb: [aboutCrumb, { label: "Values & Academics", href: "/values-integration-academics" }],
     features: {
       sectionTitle: "How integration works",
       items: [
         { iconName: "book-open", title: "In English", body: "Story selection, discussion questions and writing prompts surface values naturally." },
-        { iconName: "book-open", title: "In language", body: "Second and third language work draws on cultural stories that anchor values." },
-        { iconName: "calculator", title: "In math", body: "Honest effort, peer support and reasoning aloud are built into the practice." },
-        { iconName: "flask", title: "In science", body: "Ethics, environment and responsibility framed alongside content." },
-        { iconName: "globe", title: "In social studies", body: "Empathy for context, fairness, and multiple perspectives." },
+        { iconName: "book-open", title: "In Language", body: "Second and third language work draws on cultural stories that anchor values." },
+        { iconName: "calculator", title: "In Maths", body: "Honest effort, peer support and reasoning aloud are built into the practice." },
+        { iconName: "flask", title: "In Science", body: "Ethics, environment and responsibility framed alongside content." },
+        { iconName: "globe", title: "In Social Studies", body: "Empathy for context, fairness, and multiple perspectives." },
         { iconName: "monitor", title: "In ICT", body: "Digital citizenship, online ethics and respectful conduct in shared spaces." },
         { iconName: "play", title: "In PE", body: "Teamwork, fair play, persistence and respect through group activities." },
         { iconName: "palette", title: "In the arts", body: "Self-expression, listening to peers and care for shared materials." },
@@ -232,14 +232,14 @@ export const simplePages: Record<string, SimplePage> = {
   "enrichment-activities": {
     eyebrow: "Academics",
     title: "Enrichment Activities",
-    lead: "Programs that go beyond the core curriculum — phonics classes, abacus and Vedic maths, Olympiad coaching, and more.",
+    lead: "Programmes that go beyond the core curriculum — Phonics classes, Abacus and Vedic Maths, Olympiad coaching, and more.",
     breadcrumb: [academicsCrumb, { label: "Enrichment", href: "/enrichment-activities" }],
     features: {
       sectionTitle: "Programs available",
       items: [
         { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy program for foundational reading." },
-        { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-math acceleration through abacus and Vedic techniques." },
-        { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific olympiad preparation for Grades 3–8." },
+        { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-maths acceleration through Abacus and Vedic techniques." },
+        { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific Olympiad preparation for Grades 3–8." },
         { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programs across visual, music and dance." },
       ],
       cols: 2,
@@ -274,7 +274,7 @@ export const simplePages: Record<string, SimplePage> = {
   "abacus-vedic-maths": {
     eyebrow: "Enrichment",
     title: "Abacus & Vedic Maths",
-    lead: "Mental-math acceleration through abacus practice and Vedic techniques — children develop speed, accuracy and confidence with numbers.",
+    lead: "Mental-maths acceleration through Abacus practice and Vedic techniques — children develop speed, accuracy and confidence with numbers.",
     breadcrumb: [resourcesCrumb, { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" }],
     features: {
       sectionTitle: "Why it works",
@@ -290,14 +290,14 @@ export const simplePages: Record<string, SimplePage> = {
   "olympiad": {
     eyebrow: "Enrichment",
     title: "Olympiad Coaching",
-    lead: "Subject-specific olympiad preparation for Grades 3–8 — math, science, English and general knowledge. Held after school hours, not during regular class time.",
+    lead: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science, English and general knowledge. Held after school hours, not during regular class time.",
     breadcrumb: [resourcesCrumb, { label: "Olympiad", href: "/olympiad" }],
     features: {
       sectionTitle: "How coaching works",
       items: [
-        { iconName: "calculator", title: "Math olympiad", body: "Problem-solving techniques beyond the regular curriculum." },
-        { iconName: "flask", title: "Science olympiad", body: "Conceptual depth and tricky application questions." },
-        { iconName: "book-open", title: "English olympiad", body: "Vocabulary, comprehension and grammar at depth." },
+        { iconName: "calculator", title: "Maths Olympiad", body: "Problem-solving techniques beyond the regular curriculum." },
+        { iconName: "flask", title: "Science Olympiad", body: "Conceptual depth and tricky application questions." },
+        { iconName: "book-open", title: "English Olympiad", body: "Vocabulary, comprehension and grammar at depth." },
       ],
       cols: 3,
     },

@@ -29,7 +29,7 @@ const grades = [
   {
     band: "Grades 3–5",
     label: "Build",
-    focus: "Concept building across English, second & third language, math, science, social studies and ICT.",
+    focus: "Concept building across English, Second & Third Language, Maths, Science, Social Studies and ICT.",
     accent: "bg-[var(--brand-accent)]",
   },
   {
@@ -73,7 +73,7 @@ export default function Page() {
       />
       <CourseJsonLd
         name="NCERT-aligned Integrated Curriculum"
-        description="A structured, NCERT-aligned curriculum integrating language, math, science, social studies, ICT, the arts and values education across primary and middle school."
+        description="A structured, NCERT-aligned curriculum integrating Language, Maths, Science, Social Studies, ICT, the Arts and Values Education across primary and middle school."
         path="/curriculum"
         grades="Primary and middle school"
       />

@@ -32,7 +32,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "math",
-    q: "Math comfort level",
+    q: "Maths comfort level",
     choices: [
       { label: "Counting, simple addition", gradeHint: 1 },
       { label: "Multiplication, fractions intro", gradeHint: 3 },
@@ -55,7 +55,7 @@ const QUESTIONS: Question[] = [
     id: "intent",
     q: "When would you like to start?",
     choices: [
-      { label: "Asap / this term", gradeHint: 0 },
+      { label: "ASAP / this term", gradeHint: 0 },
       { label: "Next term", gradeHint: 0 },
       { label: "Next academic year", gradeHint: 0 },
       { label: "Just exploring", gradeHint: 0 },

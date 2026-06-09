@@ -246,7 +246,7 @@ export default function ApplyWizard() {
                 Back to home
               </Link>
               <Link href="/open-house" className="btn-primary">
-                RSVP for open house
+                RSVP for Open House
                 <Icon name="arrow-right" size={14} />
               </Link>
             </div>
@@ -395,7 +395,7 @@ export default function ApplyWizard() {
               label="Preferred intake term"
               value={state.intakeTerm}
               onChange={(v) => patch({ intakeTerm: v })}
-              options={["", "Term 1 (April)", "Term 2 (July)", "Term 3 (October)", "Mid-term / ASAP"]}
+              options={["", "Term 1 (January)", "Term 2 (April)", "Term 3 (July)", "Term 4 (October)", "Mid-term / ASAP"]}
             />
             <Field name="prevSchool" label="Previous school" value={state.prevSchool} onChange={(v) => patch({ prevSchool: v })} />
             <Select

@@ -163,7 +163,7 @@ export default function Page() {
           },
           {
             title: "Values Integration & Academics",
-            body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from language to math.",
+            body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from Language to Maths.",
             image: "/img/home/about-sssgs/values-integration.jpg",
             href: "/values-integration-academics",
           },
@@ -179,7 +179,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The credentials behind the philosophy" title="Registered, accredited, and accountable" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          A values-led school still has to meet rigorous external standards. SSSGS is a CPE-Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 teacher–student ratio.
+          A values-led school still has to meet rigorous external standards. SSSGS is a CPE-Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 maximum teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

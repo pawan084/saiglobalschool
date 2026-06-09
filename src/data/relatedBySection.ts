@@ -77,6 +77,7 @@ export const slugSection: Record<string, SectionKey> = {
   "values-integration-academics": "about",
   "faculty": "about",
   "parent-community": "about",
+  "accreditation": "about",
 
   // Academics
   "curriculum": "academics",

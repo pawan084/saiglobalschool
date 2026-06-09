@@ -18,7 +18,7 @@ export default function Page() {
       }}
       quote={{ text: "Mathematics is not about numbers, equations, computations, or algorithms — it's about understanding.", author: "William Paul Thurston" }}
       pillars={[
-        { iconName: "puzzle", title: "Visual & concrete", body: "Manipulatives and visual models let children see the math before abstracting it." },
+        { iconName: "puzzle", title: "Visual & concrete", body: "Manipulatives and visual models let children see the maths before abstracting it." },
         { iconName: "lightbulb", title: "Problem-led", body: "Lessons start with a problem to solve, not a formula to memorise." },
         { iconName: "rotate", title: "Reasoning aloud", body: "Children explain their thinking — peer-to-peer discussion deepens understanding." },
       ]}
@@ -26,7 +26,7 @@ export default function Page() {
         "Children using blocks, fraction bars or geo-boards to model concepts",
         "Group problem-solving with shared whiteboards",
         "Students explaining how they arrived at an answer",
-        "Real-world math: budgeting, measuring, scaling, building",
+        "Real-world maths: budgeting, measuring, scaling, building",
       ]}
       relatedLabs={[
         { label: "Science Lab", href: "/science-lab" },

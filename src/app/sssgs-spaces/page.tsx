@@ -14,7 +14,7 @@ const gallery: GalleryItem[] = [
   { src: "/img/navbar/campus/sssgs-spaces/campus-building.jpg", alt: "Campus building", caption: "The SSSGS campus" },
   { src: "/img/navbar/campus/sssgs-spaces/classroom.jpg", alt: "Classroom", caption: "Bright, well-organised classrooms" },
   { src: "/img/navbar/campus/sssgs-spaces/science-lab.jpg", alt: "Science Lab", caption: "Hands-on science learning" },
-  { src: "/img/photos-2026-06/tamil-lab.jpg", alt: "Tamil Lab", caption: "Tamil Lab in session" },
+  { src: "/img/photos-2026-06/tamil-lab.jpg", alt: "Language Lab", caption: "Language Lab in session" },
   { src: "/img/navbar/campus/sssgs-spaces/students-at-work.jpg", alt: "Students at work", caption: "Students at work" },
   { src: "/img/navbar/campus/sssgs-spaces/class-in-session.jpg", alt: "In session", caption: "A class in session" },
 ];

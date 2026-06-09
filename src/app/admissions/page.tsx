@@ -152,7 +152,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="Why families trust SSSGS" title="A registered, accredited, parent-aligned school" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          You&rsquo;re choosing more than a school — you&rsquo;re choosing the framework that protects your family&rsquo;s investment in your child&rsquo;s education. SSSGS is registered with CPE Singapore, NCERT-aligned, and built around a 1:20 teacher–student ratio.
+          You&rsquo;re choosing more than a school — you&rsquo;re choosing the framework that protects your family&rsquo;s investment in your child&rsquo;s education. SSSGS is registered with CPE Singapore, NCERT-aligned, and built around a 1:20 maximum teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

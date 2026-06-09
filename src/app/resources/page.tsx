@@ -95,11 +95,11 @@ export default function Page() {
       <FeatureBlock
         tone="cream"
         title="Enrichment that extends what's taught in class."
-        intro="Programs that go beyond the core curriculum — early literacy through phonics, mental-math via abacus, and Olympiad preparation for Grades 3–8."
+        intro="Programmes that go beyond the core curriculum — early literacy through Phonics, mental-maths via Abacus, and Olympiad preparation for Grades 3–8."
         featured={{
-          title: "Phonics, abacus, Olympiad — focused enrichment.",
+          title: "Phonics, Abacus, Olympiad — focused enrichment.",
           body:
-            "Structured early-literacy work, mental-math acceleration through abacus and Vedic techniques, and subject-specific Olympiad preparation. Each program has its own teaching team and outcomes.",
+            "Structured early-literacy work, mental-maths acceleration through Abacus and Vedic techniques, and subject-specific Olympiad preparation. Each programme has its own teaching team and outcomes.",
           image: "/img/navbar/resources/enrichment-activities.jpg",
           href: "/enrichment-activities",
         }}
@@ -112,13 +112,13 @@ export default function Page() {
           },
           {
             title: "Abacus & Vedic Maths",
-            body: "Mental-math acceleration through abacus practice and Vedic techniques — speed, accuracy and confidence with numbers.",
+            body: "Mental-maths acceleration through Abacus practice and Vedic techniques — speed, accuracy and confidence with numbers.",
             image: "/img/navbar/resources/abacus-vedic-maths.jpg",
             href: "/abacus-vedic-maths",
           },
           {
             title: "Olympiad coaching",
-            body: "Subject-specific Olympiad preparation for Grades 3–8 — math, science, English and general knowledge.",
+            body: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science, English and general knowledge.",
             image: "/img/navbar/resources/olympiad.jpg",
             href: "/olympiad",
           },

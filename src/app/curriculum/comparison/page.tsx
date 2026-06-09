@@ -78,7 +78,7 @@ const ROWS: Row[] = [
   },
   {
     label: "Co-curricular focus",
-    sssgs: "CCAs + enrichment (phonics, abacus, olympiad)",
+    sssgs: "CCAs + enrichment (Phonics, Abacus, Olympiad)",
     cbse: "School-dependent",
     icse: "School-dependent",
     cambridge: "School-dependent",

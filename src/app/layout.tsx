@@ -86,8 +86,14 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/logo.png", sizes: "any", type: "image/png" }],
-    apple: [{ url: "/logo.png", sizes: "180x180", type: "image/png" }],
+    // Browser tab favicon — 32×32 PNG is ~2KB and renders crisply on every
+    // modern browser. The 16×16 fallback covers older UIs.
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    // iOS / iPadOS home-screen icon
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   formatDetection: { telephone: true, email: true, address: true },
 };

@@ -9,7 +9,7 @@ import { homeHero } from "@/data/sections";
 import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 
 export const metadata = {
-  title: { absolute: "Sri Sathya Sai Global School | Singapore" },
+  title: { absolute: "Home - International School | Sri Sathya Sai Global School" },
   description:
     "NCERT-aligned, values-rooted international school in Singapore (primary & middle school) — small-group learning, experienced educators, mid-year admissions welcome.",
   alternates: {

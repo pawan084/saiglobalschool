@@ -19,7 +19,7 @@ export type SectionSpec = {
 export const homeHero: CardSpec = {
   title: "Education Blossoms into Character",
   href: "/about-us",
-  eyebrow: "Sri Sathya Sai Global School · Singapore",
+  eyebrow: "Home - International School",
   lead:
     "A values-rooted, academically structured international school for primary and middle school — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
   image: "/img/home/hero/school-campus.jpg",

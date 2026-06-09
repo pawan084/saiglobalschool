@@ -157,10 +157,10 @@ export default function Header() {
                 <details
                   key={item.label}
                   open={active}
-                  className="border-b border-[var(--brand-rule)] last:border-0"
+                  className="group border-b border-[var(--brand-rule)] last:border-0"
                 >
                   <summary
-                    className={`flex items-center justify-between py-3 cursor-pointer text-[13.5px] font-bold ${
+                    className={`flex items-center justify-between py-3 cursor-pointer text-[13.5px] font-bold list-none [&::-webkit-details-marker]:hidden hover:text-[var(--brand-primary)] ${
                       active ? "text-[var(--brand-primary)]" : "text-slate-800"
                     }`}
                   >
@@ -173,7 +173,22 @@ export default function Header() {
                       )}
                       {item.label}
                     </span>
-                    {item.children && <Icon name="plus" size={14} className="text-slate-400" />}
+                    {item.children && (
+                      // Rotates 45° when the parent <details> is open, turning
+                      // the "+" into an "×" so users get visible feedback that
+                      // the section toggled. `group` lives on the <details>;
+                      // Tailwind's group-open: variant tracks the [open] attr.
+                      <span
+                        aria-hidden
+                        className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors group-open:bg-[var(--brand-primary-tint)] group-open:text-[var(--brand-primary)]"
+                      >
+                        <Icon
+                          name="plus"
+                          size={14}
+                          className="transition-transform duration-200 group-open:rotate-45"
+                        />
+                      </span>
+                    )}
                   </summary>
                   {item.children && (
                     <div className="pl-3 pb-3 space-y-1">

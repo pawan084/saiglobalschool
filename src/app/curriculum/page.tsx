@@ -23,7 +23,7 @@ const grades = [
   {
     band: "Grades 1–2",
     label: "Foundations",
-    focus: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
+    focus: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
     accent: "bg-[var(--brand-primary)]",
   },
   {

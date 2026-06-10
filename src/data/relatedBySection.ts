@@ -34,7 +34,7 @@ export const sectionMeta: Record<
     ctaHref: "/inquire-book-a-tour",
     title: "Other Learning Labs.",
     intro:
-      "Science, maths, language, English and ICT — each lab gives children a regular, structured chance to apply what they learn.",
+      "Science, maths, language, English and ICT — five labs where children put classroom learning into practice every week.",
   },
   campus: {
     label: "Campus Life",

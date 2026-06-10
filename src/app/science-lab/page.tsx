@@ -20,7 +20,7 @@ export default function Page() {
       pillars={[
         { iconName: "flask", title: "Think like scientists", body: "Students learn to build hypotheses, design experiments, gather evidence, and revise thinking." },
         { iconName: "eye", title: "Curiosity & observation", body: "Children are encouraged to ask 'why', observe carefully, compare results, and notice patterns." },
-        { iconName: "flask", title: "Application-based", body: "Concepts learnt in class are applied in lab to deepen understanding." },
+        { iconName: "flask", title: "Application-based", body: "Concepts learnt in class are applied in the lab to deepen understanding." },
         { iconName: "document", title: "Report writing", body: "Every practical is followed by a structured write-up in the lab notebook — aim, method, observation and conclusion." },
       ]}
       whatYouSee={[

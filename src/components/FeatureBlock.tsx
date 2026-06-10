@@ -222,7 +222,7 @@ function SatelliteCard({
         {(card.body || reserveBodySlot) && (
           <div className={`mt-3 ${reserveBodySlot ? "min-h-[2.7rem]" : ""}`}>
             {card.body && (
-              <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-2">{card.body}</p>
+              <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-none sm:line-clamp-2">{card.body}</p>
             )}
           </div>
         )}

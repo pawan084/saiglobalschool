@@ -239,6 +239,10 @@ export default function FeeCalculator() {
 
             <hr className="my-5 border-white/10" />
 
+            <div className="flex items-baseline justify-between gap-3 text-[10px] uppercase tracking-wide text-white/40 mb-1.5">
+              <span>Line item</span>
+              <span>Annualised</span>
+            </div>
             <ul className="text-[13px] space-y-1.5 max-h-[270px] overflow-y-auto pr-1">
               {selected.map((l) => (
                 <li key={l.id} className="flex items-baseline justify-between gap-3">

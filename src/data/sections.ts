@@ -19,7 +19,7 @@ export type SectionSpec = {
 export const homeHero: CardSpec = {
   title: "Education Blossoms into Character",
   href: "/about-us",
-  eyebrow: "Home - International School",
+  eyebrow: "International School — Primary & Middle",
   lead:
     "A values-rooted, academically structured international school for primary and middle school — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
   image: "/img/home/hero/school-campus.jpg",

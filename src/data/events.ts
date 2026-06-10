@@ -47,7 +47,7 @@ export const events: EventItem[] = [
   },
   {
     slug: "deepavali-break",
-    title: "Deepavali break",
+    title: "Deepavali Break",
     startsAt: "2026-11-09T00:00:00+08:00",
     endsAt: "2026-11-10T23:59:59+08:00",
     location: "School closed",

@@ -98,8 +98,8 @@ const SECTIONS: Section[] = [
 ];
 
 const supplemental = [
-  { name: "Curriculum Continuity Anxiety",        href: "/_files/ugd/Curriculum Continuity Anxiety - SSSGS.pdf" },
-  { name: "Poor Settling-in Support",             href: "/_files/ugd/Poor Settling-in Support - SSSGS.pdf" },
+  { name: "Managing Curriculum Continuity",       href: "/_files/ugd/Curriculum Continuity Anxiety - SSSGS.pdf" },
+  { name: "Settling-in Support",                  href: "/_files/ugd/Poor Settling-in Support - SSSGS.pdf" },
   { name: "Transitioning Between Schools",        href: "/_files/ugd/Transitioning Between Schools - SSSGS.pdf" },
   { name: "Families in Transition",               href: "/_files/ugd/Families in Transition - SSSGS.pdf" },
   { name: "Activity-Based Learning",              href: "/_files/ugd/Activity-Based Learning.pdf" },

@@ -11,7 +11,7 @@ export const metadata = {
 const ccas = [
   { iconName: "music", title: "Music", body: "Choral singing, instrumental introduction, devotional and folk music traditions." },
   { iconName: "palette", title: "Visual Arts", body: "Drawing, painting, crafts and creative expression across grades." },
-  { iconName: "music", title: "Performing Arts", body: "Dance, drama and storytelling — every term builds towards a showcase." },
+  { iconName: "microphone", title: "Performing Arts", body: "Dance, drama and storytelling — every term builds towards a showcase." },
   { iconName: "play", title: "Sport & Movement", body: "Physical education, indoor and outdoor sports, yoga and movement practice." },
   { iconName: "chat", title: "Speech & Debate", body: "Public speaking, debate club, declamations and inter-class competitions." },
   { iconName: "leaf", title: "Environment & Service", body: "Garden club, recycling initiatives, community service activities." },

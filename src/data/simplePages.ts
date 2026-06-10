@@ -71,6 +71,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Courses Offered",
     lead: "Subjects across primary and middle school — academic core plus arts, physical education, value education and ICT.",
     breadcrumb: [academicsCrumb, { label: "Courses Offered", href: "/courses-offered" }],
+    intro: [
+      "The academic core runs through every grade, widening from foundational literacy and numeracy in the early years to specialised subject teaching by middle school.",
+      "Alongside the core, every child takes the arts, physical education, ICT and value education each week — so the timetable develops the whole child, not a narrow set of subjects.",
+    ],
     features: {
       sectionTitle: "Subjects across grades",
       items: [
@@ -201,6 +205,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Student Support",
     lead: "Every child needs different support at different times. SSSGS provides academic, social and emotional support woven into the school day.",
     breadcrumb: [academicsCrumb, { label: "Student Support", href: "/student-support" }],
+    intro: [
+      "Support at SSSGS is proactive rather than reactive — homeroom teachers know each child well enough to notice when something changes and step in early.",
+      "Academic, pastoral and wellbeing support work together, so a child who needs help in one area is supported across the others too.",
+    ],
     features: {
       sectionTitle: "Layers of support",
       items: [
@@ -234,13 +242,17 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Enrichment Activities",
     lead: "Programmes that go beyond the core curriculum — Phonics classes, Abacus and Vedic Maths, Olympiad coaching, and more.",
     breadcrumb: [academicsCrumb, { label: "Enrichment", href: "/enrichment-activities" }],
+    intro: [
+      "Enrichment programmes run alongside the regular timetable, giving children a structured way to go deeper in areas that interest them or need extra attention.",
+      "Most run in small groups after school hours, each with its own teaching team, so they complement classroom learning rather than competing with it.",
+    ],
     features: {
-      sectionTitle: "Programs available",
+      sectionTitle: "Programmes available",
       items: [
-        { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy program for foundational reading." },
+        { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy programme for foundational reading." },
         { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-maths acceleration through Abacus and Vedic techniques." },
         { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific Olympiad preparation for Grades 3–8." },
-        { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programs across visual, music and dance." },
+        { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programmes across visual, music and dance." },
       ],
       cols: 2,
       tone: "cream",
@@ -251,14 +263,14 @@ export const simplePages: Record<string, SimplePage> = {
         { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" },
         { label: "Olympiad", href: "/olympiad" },
       ],
-      body: ["Each enrichment program runs alongside the core curriculum, with its own teaching team and outcomes."],
+      body: ["Each enrichment programme runs alongside the core curriculum, with its own teaching team and outcomes."],
     },
   },
 
   "phonics-classes": {
     eyebrow: "Enrichment",
     title: "Phonics Classes",
-    lead: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
+    lead: "Structured early-literacy programme — children build the foundation for fluent, confident reading.",
     breadcrumb: [resourcesCrumb, { label: "Phonics", href: "/phonics-classes" }],
     features: {
       sectionTitle: "Phonics at SSSGS",
@@ -294,7 +306,7 @@ export const simplePages: Record<string, SimplePage> = {
   "olympiad": {
     eyebrow: "Enrichment",
     title: "Olympiad Coaching",
-    lead: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science, English and general knowledge. Held after school hours, not during regular class time.",
+    lead: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science and English. Held after school hours, not during regular class time.",
     breadcrumb: [resourcesCrumb, { label: "Olympiad", href: "/olympiad" }],
     features: {
       sectionTitle: "How coaching works",
@@ -312,6 +324,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Non-Academic Activities",
     lead: "Beyond the classroom — sport, arts, community service and the spaces where children grow as people.",
     breadcrumb: [campusCrumb, { label: "Non-Academic", href: "/non-academic" }],
+    intro: [
+      "Some of the most important learning happens outside the academic timetable — on the field, on stage, and in service to others.",
+      "These activities give every child a place to discover strengths, build friendships and practise the values the school teaches.",
+    ],
     features: {
       sectionTitle: "Areas of activity",
       items: [
@@ -328,6 +344,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Uniform & Transportation",
     lead: "Practical details — uniform requirements, where to obtain them, and the school transport routes available.",
     breadcrumb: [campusCrumb, { label: "Uniform & Transport", href: "/school-uniform-and-transportation" }],
+    intro: [
+      "This page covers the everyday practicalities families ask about most — what children wear, where to buy it, and how they get to and from school.",
+      "Uniform and transport are arranged separately from tuition, and the school office can help you sort out both before term begins.",
+    ],
     features: {
       sectionTitle: "What to expect",
       items: [

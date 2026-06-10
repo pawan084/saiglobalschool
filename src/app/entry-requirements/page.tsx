@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const gradeReqs = [
-  { grade: "Grade 1", age: "6+ years by Jan 1", assessment: "Readiness conversation, simple literacy & numeracy check" },
+  { grade: "Grade 1", age: "6+", assessment: "Readiness conversation, simple literacy & numeracy check" },
   { grade: "Grade 2", age: "7+", assessment: "Grade-1-level assessment in English & Mathematics" },
   { grade: "Grade 3", age: "8+", assessment: "Grade-2-level assessment in English, Mathematics & EVS" },
   { grade: "Grade 4", age: "9+", assessment: "Grade-3-level assessment in core subjects" },
@@ -54,6 +54,9 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        <p className="mt-3 text-[13px] text-slate-500">
+          Minimum age is calculated as of 1 January of the academic year.
+        </p>
       </ContentSection>
 
       <ContentSection flush tone="cream" title="Mid-year & cross-curriculum admissions" eyebrow="Transitions">

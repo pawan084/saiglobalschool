@@ -90,7 +90,7 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection flush tone="cream" eyebrow="Our Values" title="The five pillars of Sathya Sai education">
-        <FeatureGrid items={values} cols={3} />
+        <FeatureGrid items={values} cols={5} />
       </ContentSection>
     </InnerPageShell>
   );

@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="Resources"
         title="Everything parents need, gathered in one place"
-        lead="Policies, the academic calendar, parent-student handbook, frequently asked questions and the enrichment programs that complement classroom learning."
+        lead="Policies, the academic calendar, parent-student handbook, frequently asked questions and the enrichment programmes that complement classroom learning."
         breadcrumb={[{ label: "Resources", href: "/resources" }]}
       />
 
@@ -106,7 +106,7 @@ export default function Page() {
         items={[
           {
             title: "Phonics Classes",
-            body: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
+            body: "Structured early-literacy programme — children build the foundation for fluent, confident reading.",
             image: "/img/navbar/resources/enrichment-activities.jpg",
             href: "/phonics-classes",
           },

@@ -54,7 +54,7 @@ export default function Page() {
         </ul>
       </ContentSection>
 
-      <ContentSection flush title="Grades offered" eyebrow="Programs">
+      <ContentSection flush title="Grades offered" eyebrow="Programmes">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="p-5 border border-[var(--brand-rule)] rounded-md">
             <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Primary</div>

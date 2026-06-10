@@ -44,7 +44,7 @@ const HOLIDAYS_2026: { date: string; name: string }[] = [
 ];
 
 const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
 
 function dayOfYear(iso: string): number {
   // A date-only ISO string ("2026-01-06") parses as UTC midnight, so compute the
@@ -57,11 +57,12 @@ function dayOfYear(iso: string): number {
 
 function fmtRange(start: string, end: string) {
   const s = new Date(start), e = new Date(end);
-  return `${s.toLocaleDateString("en-SG", { day: "numeric", month: "short" })} – ${e.toLocaleDateString("en-SG", { day: "numeric", month: "short" })}`;
+  const opts = { timeZone: "Asia/Singapore", day: "numeric", month: "short" } as const;
+  return `${s.toLocaleDateString("en-SG", opts)} – ${e.toLocaleDateString("en-SG", opts)}`;
 }
 
 function fmtDay(iso: string) {
-  return new Date(iso).toLocaleDateString("en-SG", { day: "numeric", month: "short" });
+  return new Date(iso).toLocaleDateString("en-SG", { timeZone: "Asia/Singapore", day: "numeric", month: "short" });
 }
 
 const TOTAL = 365;

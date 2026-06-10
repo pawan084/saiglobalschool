@@ -51,7 +51,7 @@ export default function Page() {
         }}
         items={[
           {
-            title: "SSSGS spaces",
+            title: "SSSGS Spaces",
             body: "Classrooms, labs, library and reflection corners — every space is built around how children actually learn.",
             image: "/img/home/academics/assessment-structure.jpg",
             href: "/sssgs-spaces",

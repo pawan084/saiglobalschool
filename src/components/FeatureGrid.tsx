@@ -14,11 +14,12 @@ export type Feature = {
   image?: string;
 };
 
-export default function FeatureGrid({ items, cols = 3 }: { items: Feature[]; cols?: 2 | 3 | 4 }) {
+export default function FeatureGrid({ items, cols = 3 }: { items: Feature[]; cols?: 2 | 3 | 4 | 5 }) {
   const colsClass = {
     2: "sm:grid-cols-2",
     3: "sm:grid-cols-2 lg:grid-cols-3",
     4: "sm:grid-cols-2 lg:grid-cols-4",
+    5: "sm:grid-cols-3 lg:grid-cols-5",
   }[cols];
   return (
     <div className={`grid grid-cols-1 ${colsClass} gap-3 auto-rows-fr`}>

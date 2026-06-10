@@ -168,7 +168,9 @@ export default function Page() {
               return (
                 <span
                   key={h.date + h.name}
-                  className="absolute top-0 bottom-0 w-[2px] bg-rose-500/90"
+                  // Top + bottom ticks instead of a full-height line, so the marker
+                  // flags the holiday's position without bisecting the centered term label.
+                  className="absolute top-0 h-1.5 -mt-px w-[2px] bg-rose-500"
                   style={{ left: `${left}%` }}
                   title={`${fmtDay(h.date)} — ${h.name}`}
                 />
@@ -179,6 +181,7 @@ export default function Page() {
           {/* Today marker */}
           <TodayMarker />
           </div>
+          <p className="sm:hidden mt-2 text-[11px] text-slate-500">Swipe the timeline sideways to see the full year →</p>
         </div>
 
         {/* Term cards */}

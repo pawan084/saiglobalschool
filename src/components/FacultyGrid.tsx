@@ -167,7 +167,7 @@ export default function FacultyGrid() {
                 </div>
               ) : !selected.short && (
                 <p className="mt-2 text-[13.5px] text-slate-500 leading-relaxed">
-                  Full profile coming soon. Contact admissions for details about this member of our teaching team.
+                  For more about this member of our teaching team, contact admissions.
                 </p>
               )}
 

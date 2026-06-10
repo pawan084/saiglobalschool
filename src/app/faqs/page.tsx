@@ -15,7 +15,7 @@ const faqs: FAQ[] = [
   { q: "Is SSSGS a registered school in Singapore?", a: "Yes. SSSGS is a registered Private Education Institution (PEI). Current registration period is 2026–2028 (Registration No. 202505842W)." },
   { q: "What curriculum does SSSGS follow?", a: "An NCERT-aligned integrated curriculum, with structured progression across Language, Maths, Science, Social Studies, ICT, Art and Values Education." },
   { q: "Do you accept mid-year admissions?", a: "Yes — we welcome admissions throughout the year, with personalised settling-in support for children transitioning from other schools or systems." },
-  { q: "What's the teacher-student ratio?", a: "Capped at a maximum of 1:20 across the school, with smaller groups in many sessions." },
+  { q: "What's the teacher–student ratio?", a: "Capped at a maximum of 1:20 across the school, with smaller groups in many sessions." },
   { q: "What languages are offered?", a: "English is the medium of instruction, taught as a four-skill subject (reading, writing, listening, speaking) with CEFR alignment via the English Lab. A second language is part of the core curriculum, with an optional third language for higher grade bands." },
   { q: "Are there enrichment programmes?", a: "Yes — Phonics classes, Abacus and Vedic Maths, Olympiad coaching, and other enrichment activities complement classroom learning." },
   { q: "How do I book a campus tour?", a: "Use the Inquire / Book a Tour page, or WhatsApp us — we'll typically respond within one business day." },

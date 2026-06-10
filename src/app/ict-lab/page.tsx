@@ -20,7 +20,7 @@ export default function Page() {
       pillars={[
         { iconName: "monitor", title: "Practical fluency", body: "Typing, file management, productivity tools — the digital skills children actually use." },
         { iconName: "lock", title: "Safety & ethics", body: "Online safety, digital footprint, plagiarism, and responsible behaviour as a foundation." },
-        { iconName: "lightbulb", title: "Computational thinking", body: "Block-based then text-based coding builds problem-decomposition and pattern-recognition." },
+        { iconName: "lightbulb", title: "Computational thinking", body: "Block-based then text-based coding builds problem decomposition and pattern recognition." },
       ]}
       whatYouSee={[
         "Students typing structured paragraphs with proper formatting",

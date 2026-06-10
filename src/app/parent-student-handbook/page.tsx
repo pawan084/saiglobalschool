@@ -183,7 +183,7 @@ export default function Page() {
           <article className="space-y-7">
             <p className="text-[14.5px] text-slate-600 leading-relaxed">
               This is the web summary of the official Parent–Student Handbook. Print or download the PDF
-              above for the canonical version. Sections below cover what most families ask about most.
+              above for the canonical version. The sections below cover the questions families ask most often.
             </p>
 
             {SECTIONS.map((s, i) => (

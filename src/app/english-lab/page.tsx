@@ -25,7 +25,7 @@ export default function Page() {
       ]}
       whatYouSee={[
         "Cambridge-aligned reading and comprehension drills",
-        "Listening exercises spanning CEFR A1 to C2 contexts",
+        "Listening exercises spanning CEFR levels A1 to C2",
         "Children presenting and giving structured peer feedback",
         "Writing portfolios reviewed against CEFR descriptors",
       ]}

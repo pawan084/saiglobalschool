@@ -69,7 +69,7 @@ export default function Page() {
             href: "/assessment-structure",
           },
           {
-            title: "Curriculum comparison",
+            title: "Curriculum Comparison",
             body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB — for families managing a curriculum transition.",
             image: "/img/home/academics/curriculum.jpg",
             href: "/curriculum/comparison",
@@ -81,7 +81,7 @@ export default function Page() {
             href: "/technology-lms",
           },
           {
-            title: "Student support",
+            title: "Student Support",
             body: "Personalised academic support, structured feedback and progress tracking — every child grows at their own pace.",
             image: "/img/photos-2026-06/student-support.jpg",
             imagePosition: "top",
@@ -134,13 +134,13 @@ export default function Page() {
             href: "/ict-lab",
           },
           {
-            title: "Co-curricular activities",
+            title: "Co-Curricular Activities",
             body: "Music, arts, sport, debate, environment & service — every child finds their thing.",
             image: "/img/photos-2026-06/co-curricular.jpg",
             href: "/cca",
           },
           {
-            title: "Olympiad coaching",
+            title: "Olympiad Coaching",
             body: "After-school Olympiad preparation for Grades 3–8 — Maths, Science and English.",
             image: "/img/home/resources-for-parents/olympiad.jpg",
             href: "/olympiad",

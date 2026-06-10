@@ -26,7 +26,7 @@ const TERMS_2026: Term[] = [
   { id: "t1", name: "Term 1", start: "2026-01-06", end: "2026-03-13", note: "Reopening, orientation week, mid-term review" },
   { id: "t2", name: "Term 2", start: "2026-03-30", end: "2026-06-05", note: "Project work, mid-year assessments" },
   { id: "t3", name: "Term 3", start: "2026-06-29", end: "2026-09-04", note: "Sports day, parent–teacher meetings, mid-term assessments" },
-  { id: "t4", name: "Term 4", start: "2026-09-21", end: "2026-12-04", note: "Annual day, finals, term-end break in late December" },
+  { id: "t4", name: "Term 4", start: "2026-09-21", end: "2026-12-04", note: "Finals and the term-end break in late December" },
 ];
 
 const HOLIDAYS_2026: { date: string; name: string }[] = [
@@ -107,7 +107,7 @@ export default function Page() {
       <ContentSection flush eyebrow="Academic year 2026" title="Terms at a glance">
         <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
           Four terms across the calendar year, with breaks in between. Term-end dates are
-          indicative — confirmed dates published in the holiday list each year.
+          indicative; confirmed dates are published in the holiday list each year.
         </p>
 
         <div
@@ -158,7 +158,7 @@ export default function Page() {
                   style={{ left: `${startPct}%`, width: `${widthPct}%` }}
                   title={`${t.name}: ${fmtRange(t.start, t.end)}`}
                 >
-                  <span className="truncate px-1">{t.name}</span>
+                  <span className="truncate px-1" style={{ textShadow: "0 1px 2px rgba(11,29,51,0.45)" }}>{t.name}</span>
                 </div>
               );
             })}

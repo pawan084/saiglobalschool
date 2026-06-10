@@ -58,16 +58,16 @@ export default function Page() {
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="p-5 border border-[var(--brand-rule)] rounded-md">
             <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Primary</div>
-            <h3 className="font-bold text-[var(--brand-navy)]">Grades 1 – 5</h3>
+            <h3 className="font-bold text-[var(--brand-navy)]">Grades 1–5</h3>
             <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">
-              Foundational literacy, numeracy, science, social studies, ICT, art, PE and value education.
+              Foundational literacy, numeracy, Science, Social Studies, ICT, Art, PE and value education.
             </p>
           </div>
           <div className="p-5 border border-[var(--brand-rule)] rounded-md">
             <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Middle</div>
-            <h3 className="font-bold text-[var(--brand-navy)]">Grades 6 – 8</h3>
+            <h3 className="font-bold text-[var(--brand-navy)]">Grades 6–8</h3>
             <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">
-              Mathematics, English, Science, Social Studies, ICT, languages, art and skill development.
+              Mathematics, English, Science, Social Studies, ICT, Languages, Art and skill development.
             </p>
           </div>
         </div>

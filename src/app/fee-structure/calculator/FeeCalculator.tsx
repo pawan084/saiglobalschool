@@ -248,8 +248,8 @@ export default function FeeCalculator() {
                 <li key={l.id} className="flex items-baseline justify-between gap-3">
                   <span className="text-white/85 truncate">
                     {l.label}
-                    <span className="ml-1 text-[10px] text-white/40">
-                      · {l.frequency}
+                    <span className="ml-1 text-[10px] text-white/40 capitalize">
+                      · {l.frequency.replace("-", " ")}
                     </span>
                   </span>
                   <span className="font-mono text-white/95 shrink-0">

@@ -170,7 +170,7 @@ export default function Page() {
         </div>
       </ContentSection>
 
-      <ContentSection flush eyebrow="Parent-facing proof" title="How families see character work being taken seriously">
+      <ContentSection flush eyebrow="Parent-facing proof" title="How families know character is taken seriously">
         <FeatureGrid items={parentProof} cols={4} />
       </ContentSection>
 

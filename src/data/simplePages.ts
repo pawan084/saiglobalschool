@@ -18,8 +18,8 @@ export const simplePages: Record<string, SimplePage> = {
     features: {
       sectionTitle: "Pathway by grade band",
       items: [
-        { icon: "1", title: "Grades 1–2 — Foundations", body: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
-        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Maths, Science, Social Studies and ICT." },
+        { icon: "1", title: "Grades 1–2 — Foundations", body: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Mathematics, Science, Social Studies and ICT." },
         { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
       ],
       cols: 3,
@@ -84,7 +84,7 @@ export const simplePages: Record<string, SimplePage> = {
         { iconName: "calculator", title: "Mathematics", body: "Foundations through pre-algebra and geometry across the grade range." },
         { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in middle school." },
         { iconName: "globe", title: "Social Studies", body: "History, geography and civics with critical-thinking emphasis." },
-        { iconName: "monitor", title: "Information and Communication Technology", body: "Digital literacy from Grade 1, including online safety and computational thinking." },
+        { iconName: "monitor", title: "ICT", body: "Information and Communication Technology — digital literacy from Grade 1, including online safety and computational thinking." },
         { iconName: "palette", title: "Art & Music", body: "Visual arts, music and performing arts in every grade." },
         { iconName: "play", title: "Physical Education", body: "Movement, sport and yoga integrated weekly." },
         { iconName: "sparkle", title: "Value Education", body: "Daily moments and dedicated sessions for character work." },
@@ -252,7 +252,7 @@ export const simplePages: Record<string, SimplePage> = {
         { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy programme for foundational reading." },
         { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-maths acceleration through Abacus and Vedic techniques." },
         { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific Olympiad preparation for Grades 3–8." },
-        { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programmes across visual, music and dance." },
+        { iconName: "palette", title: "Creative & Performing Arts", body: "Extended arts programmes across visual, music and dance." },
       ],
       cols: 2,
       tone: "cream",
@@ -271,7 +271,7 @@ export const simplePages: Record<string, SimplePage> = {
     eyebrow: "Enrichment",
     title: "Phonics Classes",
     lead: "Structured early-literacy programme — children build the foundation for fluent, confident reading.",
-    breadcrumb: [resourcesCrumb, { label: "Phonics", href: "/phonics-classes" }],
+    breadcrumb: [resourcesCrumb, { label: "Phonics Classes", href: "/phonics-classes" }],
     features: {
       sectionTitle: "Phonics at SSSGS",
       items: [
@@ -343,7 +343,7 @@ export const simplePages: Record<string, SimplePage> = {
     eyebrow: "Campus",
     title: "Uniform & Transportation",
     lead: "Practical details — uniform requirements, where to obtain them, and the school transport routes available.",
-    breadcrumb: [campusCrumb, { label: "Uniform & Transport", href: "/school-uniform-and-transportation" }],
+    breadcrumb: [campusCrumb, { label: "Uniform & Transportation", href: "/school-uniform-and-transportation" }],
     intro: [
       "This page covers the everyday practicalities families ask about most — what children wear, where to buy it, and how they get to and from school.",
       "Uniform and transport are arranged separately from tuition, and the school office can help you sort out both before term begins.",

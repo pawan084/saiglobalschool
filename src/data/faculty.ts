@@ -69,7 +69,7 @@ export const FACULTY: FacultyMember[] = [
   {
     slug: "neena-gupta",
     name: "Neena Gupta",
-    role: "2nd Language HOD & Lab Coordinator",
+    role: "Second Language HOD & Lab Coordinator",
     image: "/img/faculty/neena-gupta.jpg",
   },
   {

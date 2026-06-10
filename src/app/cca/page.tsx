@@ -35,7 +35,7 @@ export default function Page() {
         <FeatureGrid items={ccas} cols={3} />
       </ContentSection>
 
-      <ContentSection flush tone="cream" title="Beyond CCAs — enrichment programs" eyebrow="Also available">
+      <ContentSection flush tone="cream" title="Beyond CCAs — enrichment programmes" eyebrow="Also available">
         <p className="text-slate-700 leading-relaxed text-[15px]">
           Phonics classes, Abacus and Vedic Maths, Olympiad coaching and other enrichment offerings run alongside the core CCAs — see the enrichment activities page for the full picture.
         </p>

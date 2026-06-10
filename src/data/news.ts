@@ -45,7 +45,7 @@ export const news: NewsPost[] = [
   {
     slug: "a-day-in-grade-3",
     title: "A day in Grade 3 — what it actually looks like",
-    excerpt: "From morning circle to lab-period reflections, narrated by Ms. Roy.",
+    excerpt: "From morning circle to lab-period reflections, narrated by Ms Roy.",
     date: "2026-03-22",
     category: "Campus Life",
     readMin: 6,

@@ -15,7 +15,7 @@ const parentResourceNeeds = [
   { iconName: "book-open",  title: "Policies in plain English",     body: "Parents want to know how the school actually runs — discipline, communication, support — without reading legalese." },
   { iconName: "calendar",   title: "Term dates and key events",     body: "When the terms start, when holidays fall, and when the major school moments happen — planned around the family year." },
   { iconName: "list-check", title: "Answers to common questions",   body: "The five or six things every prospective family asks — covered up front so you don't have to chase the answer." },
-  { iconName: "sparkle",    title: "Enrichment beyond the syllabus", body: "Phonics, abacus and Olympiad coaching that extend what's taught in the classroom — without doubling the workload." },
+  { iconName: "sparkle",    title: "Enrichment beyond the syllabus", body: "Phonics, Abacus and Olympiad coaching that extend what's taught in the classroom — without doubling the workload." },
 ];
 
 export default function Page() {
@@ -153,7 +153,7 @@ export default function Page() {
 
       {/* FOLD 6 — ACTION */}
       <CTAStrip
-        title="Question we haven't answered?"
+        title="Still have a question we haven't answered?"
         subtitle="Talk to the admissions team directly — call, WhatsApp or send a quick message."
       />
     </>

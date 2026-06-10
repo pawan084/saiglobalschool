@@ -20,7 +20,7 @@ export const events: EventItem[] = [
   },
   {
     slug: "parent-teacher-term2",
-    title: "Term 2 Parent–Teacher Meeting",
+    title: "Term 3 Parent–Teacher Meeting",
     startsAt: "2026-07-12T09:00:00+08:00",
     endsAt: "2026-07-12T16:00:00+08:00",
     location: "SSSGS Campus, Singapore",

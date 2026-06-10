@@ -57,7 +57,7 @@ export default function Page() {
         </p>
         <FacultyGrid />
         <p className="mt-6 text-[13.5px] text-slate-500 leading-relaxed max-w-2xl">
-          Additional subject leads cover Physical Education, Music & Performing Arts. Photos and
+          Additional subject leads cover Physical Education, Music, and Performing Arts. Photos and
           full bios are added as new faculty join.
         </p>
       </ContentSection>

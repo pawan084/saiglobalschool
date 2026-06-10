@@ -60,7 +60,7 @@ export default function Page() {
           heading: "Forms & submissions",
           body: (
             <p>
-              Inquiry, application, and contact forms must be filled with truthful, accurate
+              Enquiry, application, and contact forms must be completed with truthful, accurate
               information. Misrepresentation may lead to rejection of an application or
               cancellation of enrolment.
             </p>

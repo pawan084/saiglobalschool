@@ -84,7 +84,7 @@ export default function Page() {
       {/* FOLD 4 — PROOF: trust signals */}
       <ContentSection flush eyebrow="A registered, accountable institution" title="Why your message lands in the right hands">
         <p className="text-[15px] text-slate-700 mb-5 leading-relaxed">
-          SSSGS operates as a CPE-Singapore-registered Private Education Institution. The admissions and operations team are accountable, named, and respond within one business day.
+          SSSGS operates as a CPE Singapore-registered Private Education Institution. Our admissions and operations team is accountable and named, and responds within one business day.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>
@@ -92,7 +92,7 @@ export default function Page() {
       {/* FOLD 5 — ACTION: form */}
       <ContentSection flush eyebrow="Send us a message" title="Tell us about your family, your child, and what you're looking for">
         <FormCard
-          title="Send us a message"
+          title="Your enquiry"
           subtitle="We respond within one business day."
           source="contact"
           fields={[

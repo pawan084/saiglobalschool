@@ -30,13 +30,6 @@ export default function Page() {
         "Listening comprehension exercises with discussion",
         "Short writing pieces shared and discussed",
       ]}
-      relatedLabs={[
-        { label: "English Lab", href: "/english-lab" },
-        { label: "Science Lab", href: "/science-lab" },
-        { label: "Maths Lab", href: "/maths-lab" },
-        { label: "ICT Lab", href: "/ict-lab" },
-        { label: "All Learning Labs", href: "/learning-labs" },
-      ]}
     />
   );
 }

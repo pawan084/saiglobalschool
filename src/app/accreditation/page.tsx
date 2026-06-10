@@ -71,7 +71,7 @@ export default function Page() {
 
       <ContentSection flush>
         <div className="mb-8">
-          <TrustBadges />
+          <TrustBadges variant="inline" />
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4">

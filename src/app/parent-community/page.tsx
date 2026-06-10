@@ -56,7 +56,7 @@ export default function Page() {
       hero={{
         eyebrow: "About SSSGS",
         title: "Parent Community",
-        lead: "An active parent community that supports the school, supports each other, and supports children growing up.",
+        lead: "An active parent community that supports the school, supports each other, and supports children as they grow.",
         breadcrumb: [
           { label: "About", href: "/about-us" },
           { label: "Parent Community", href: "/parent-community" },

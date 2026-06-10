@@ -24,7 +24,7 @@ export default function Page() {
       slug="open-house"
       hero={{
         eyebrow: "Visit",
-        title: "Open House & private tours",
+        title: "Open House & Private Tours",
         lead: "Pick a date and a time. We'll tailor the visit around your child's grade and your questions.",
         breadcrumb: [
           { label: "Admissions", href: "/admissions" },

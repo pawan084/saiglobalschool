@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 import Icon from "./Icon";
 import { site } from "@/data/site";
+
+/**
+ * Routes that ARE a form/conversion flow already — the floating CTA is both
+ * redundant here and overlaps the form inputs on mobile, so we suppress it.
+ */
+const HIDE_ON = ["/apply", "/inquire-book-a-tour", "/registration"];
 
 /**
  * Fixed-bottom CTA — only visible on small screens.
@@ -12,6 +19,7 @@ import { site } from "@/data/site";
  * obscure content the visitor is actively reading; reappears on scroll up.
  */
 export default function FloatingMobileCTA() {
+  const pathname = usePathname();
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
@@ -35,6 +43,8 @@ export default function FloatingMobileCTA() {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  if (HIDE_ON.includes(pathname)) return null;
 
   return (
     <div

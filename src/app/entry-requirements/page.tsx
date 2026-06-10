@@ -9,14 +9,14 @@ export const metadata = {
 };
 
 const gradeReqs = [
-  { grade: "Grade 1", age: "6+ years by Jan 1", assessment: "Readiness conversation, simple literacy & numeracy check" },
-  { grade: "Grade 2", age: "7+", assessment: "Grade-1-level assessment in English & Mathematics" },
-  { grade: "Grade 3", age: "8+", assessment: "Grade-2-level assessment in English, Mathematics & EVS" },
+  { grade: "Grade 1", age: "6+", assessment: "Readiness conversation, simple literacy & numeracy check" },
+  { grade: "Grade 2", age: "7+", assessment: "Grade-1-level assessment in English and Mathematics" },
+  { grade: "Grade 3", age: "8+", assessment: "Grade-2-level assessment in English, Mathematics and EVS" },
   { grade: "Grade 4", age: "9+", assessment: "Grade-3-level assessment in core subjects" },
   { grade: "Grade 5", age: "10+", assessment: "Grade-4-level assessment in core subjects" },
-  { grade: "Grade 6", age: "11+", assessment: "Grade-5-level including Science & Social Studies" },
-  { grade: "Grade 7", age: "12+", assessment: "Grade-6-level + language proficiency" },
-  { grade: "Grade 8", age: "13+", assessment: "Grade-7-level, prior school transcripts reviewed" },
+  { grade: "Grade 6", age: "11+", assessment: "Grade-5-level assessment, including Science and Social Studies" },
+  { grade: "Grade 7", age: "12+", assessment: "Grade-6-level assessment plus a language-proficiency check" },
+  { grade: "Grade 8", age: "13+", assessment: "Grade-7-level assessment; prior school transcripts reviewed" },
 ];
 
 export default function Page() {
@@ -54,6 +54,9 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        <p className="mt-3 text-[13px] text-slate-500">
+          Minimum age is calculated as of 1 January of the academic year.
+        </p>
       </ContentSection>
 
       <ContentSection flush tone="cream" title="Mid-year & cross-curriculum admissions" eyebrow="Transitions">

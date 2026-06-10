@@ -15,7 +15,7 @@ const parentResourceNeeds = [
   { iconName: "book-open",  title: "Policies in plain English",     body: "Parents want to know how the school actually runs — discipline, communication, support — without reading legalese." },
   { iconName: "calendar",   title: "Term dates and key events",     body: "When the terms start, when holidays fall, and when the major school moments happen — planned around the family year." },
   { iconName: "list-check", title: "Answers to common questions",   body: "The five or six things every prospective family asks — covered up front so you don't have to chase the answer." },
-  { iconName: "sparkle",    title: "Enrichment beyond the syllabus", body: "Phonics, abacus and Olympiad coaching that extend what's taught in the classroom — without doubling the workload." },
+  { iconName: "sparkle",    title: "Enrichment beyond the syllabus", body: "Phonics, Abacus and Olympiad coaching that extend what's taught in the classroom — without doubling the workload." },
 ];
 
 export default function Page() {
@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="Resources"
         title="Everything parents need, gathered in one place"
-        lead="Policies, the academic calendar, parent-student handbook, frequently asked questions and the enrichment programs that complement classroom learning."
+        lead="Policies, the academic calendar, parent-student handbook, frequently asked questions and the enrichment programmes that complement classroom learning."
         breadcrumb={[{ label: "Resources", href: "/resources" }]}
       />
 
@@ -106,7 +106,7 @@ export default function Page() {
         items={[
           {
             title: "Phonics Classes",
-            body: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
+            body: "Structured early-literacy programme — children build the foundation for fluent, confident reading.",
             image: "/img/navbar/resources/enrichment-activities.jpg",
             href: "/phonics-classes",
           },
@@ -153,7 +153,7 @@ export default function Page() {
 
       {/* FOLD 6 — ACTION */}
       <CTAStrip
-        title="Question we haven't answered?"
+        title="Still have a question we haven't answered?"
         subtitle="Talk to the admissions team directly — call, WhatsApp or send a quick message."
       />
     </>

@@ -20,20 +20,13 @@ export default function Page() {
       pillars={[
         { iconName: "monitor", title: "Practical fluency", body: "Typing, file management, productivity tools — the digital skills children actually use." },
         { iconName: "lock", title: "Safety & ethics", body: "Online safety, digital footprint, plagiarism, and responsible behaviour as a foundation." },
-        { iconName: "lightbulb", title: "Computational thinking", body: "Block-based then text-based coding builds problem-decomposition and pattern-recognition." },
+        { iconName: "lightbulb", title: "Computational thinking", body: "Block-based then text-based coding builds problem decomposition and pattern recognition." },
       ]}
       whatYouSee={[
         "Students typing structured paragraphs with proper formatting",
         "Beginners building simple games in block-based coding",
         "Children discussing what to share online and what not to",
         "Older students using tools to research and present a topic",
-      ]}
-      relatedLabs={[
-        { label: "Science Lab", href: "/science-lab" },
-        { label: "Maths Lab", href: "/maths-lab" },
-        { label: "Language Lab", href: "/language-lab" },
-        { label: "English Lab", href: "/english-lab" },
-        { label: "All Learning Labs", href: "/learning-labs" },
       ]}
     />
   );

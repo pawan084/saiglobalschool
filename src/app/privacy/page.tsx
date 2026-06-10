@@ -14,7 +14,7 @@ export default function Page() {
     <LegalPage
       eyebrow="Legal"
       title="Privacy Policy"
-      lead="How we collect, use, and protect personal data of prospective families, parents, students and visitors to our website."
+      lead="How we collect, use, and protect personal data of prospective families, students and website visitors."
       updated="2 June 2026"
       breadcrumb={[{ label: "Privacy Policy", href: "/privacy" }]}
       sections={[
@@ -32,10 +32,6 @@ export default function Page() {
               <p>
                 We comply with the Personal Data Protection Act 2012 of Singapore
                 (&ldquo;PDPA&rdquo;) and aim to be transparent about every data practice.
-              </p>
-              <p className="text-[13px] text-slate-500 italic">
-                This is a template draft. Please review with your appointed Data Protection
-                Officer before publication.
               </p>
             </>
           ),
@@ -65,7 +61,7 @@ export default function Page() {
             <>
               <p>Personal data is used strictly to:</p>
               <ul>
-                <li>Process inquiries, admission applications and enrolment.</li>
+                <li>Process enquiries, admission applications and enrolment.</li>
                 <li>Communicate about school operations, events and academic updates.</li>
                 <li>Provide educational, pastoral and administrative services.</li>
                 <li>Improve our website experience and respond to feedback.</li>
@@ -119,7 +115,7 @@ export default function Page() {
             <>
               <p>
                 Personal data is retained only as long as needed for the purpose collected,
-                or as required by regulators. Inquiry data not converted to enrolment is
+                or as required by regulators. Enquiry data not converted to enrolment is
                 typically retained for 24 months for follow-up, then deleted. Enrolment and
                 academic records follow CPE-mandated retention periods.
               </p>

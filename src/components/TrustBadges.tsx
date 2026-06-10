@@ -8,9 +8,9 @@ type IconName = React.ComponentProps<typeof Icon>["name"];
 
 const badges: Array<{ label: string; sub: string; id: string; icon: IconName }> = [
   { label: "CPE Singapore",          sub: "Registered PEI", id: "Reg. No. 202505842W", icon: "shield" },
-  { label: "Period of Registration", sub: "2026 – 2028",    id: "Valid",                icon: "calendar" },
+  { label: "Period of Registration", sub: "2026–2028",      id: "Valid",                icon: "calendar" },
   { label: "Curriculum",             sub: "NCERT-aligned",  id: "Primary & Middle School", icon: "graduation" },
-  { label: "Teacher–Student",        sub: "1 : 20 maximum", id: "Small-group",          icon: "users" },
+  { label: "Teacher–Student",        sub: "1:20 maximum",   id: "Small-group",          icon: "users" },
 ];
 
 export default function TrustBadges({ variant = "footer" }: Props) {

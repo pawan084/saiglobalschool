@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import InnerPageShell from "./InnerPageShell";
 import ContentSection from "./ContentSection";
 import Icon from "./Icon";
@@ -9,8 +8,6 @@ import type { Feature } from "./FeatureGrid";
 
 type IconName = React.ComponentProps<typeof Icon>["name"];
 
-type RelatedLab = { label: string; href: string; image?: string };
-
 type Props = {
   slug: string;
   subject: string;
@@ -19,7 +16,6 @@ type Props = {
   quote?: { text: string; author: string };
   pillars: Feature[];
   whatYouSee?: string[];
-  relatedLabs?: RelatedLab[];
 };
 
 export default function LabPage({
@@ -30,7 +26,6 @@ export default function LabPage({
   quote,
   pillars,
   whatYouSee,
-  relatedLabs,
 }: Props) {
   return (
     <InnerPageShell
@@ -136,26 +131,6 @@ export default function LabPage({
               </li>
             ))}
           </ul>
-        </ContentSection>
-      )}
-
-      {/* Other learning labs — cards */}
-      {relatedLabs && relatedLabs.length > 0 && (
-        <ContentSection flush tone="cream" eyebrow="Explore more" title="Other learning labs">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {relatedLabs.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="block p-4 bg-white border border-[var(--brand-rule)] rounded-md hover:border-[var(--brand-primary)] hover:shadow-sm transition group"
-              >
-                <div className="text-[var(--brand-accent)] text-xl mb-2">→</div>
-                <h3 className="font-bold text-[var(--brand-navy)] group-hover:text-[var(--brand-primary)] text-[14px] leading-tight">
-                  {l.label}
-                </h3>
-              </Link>
-            ))}
-          </div>
         </ContentSection>
       )}
     </InnerPageShell>

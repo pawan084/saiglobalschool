@@ -19,7 +19,7 @@ export type SectionSpec = {
 export const homeHero: CardSpec = {
   title: "Education Blossoms into Character",
   href: "/about-us",
-  eyebrow: "Home - International School",
+  eyebrow: "International School — Primary & Middle",
   lead:
     "A values-rooted, academically structured international school for primary and middle school — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
   image: "/img/home/hero/school-campus.jpg",
@@ -159,25 +159,25 @@ export const homeSections: SectionSpec[] = [
     },
     satellites: [
       {
-        title: "Maths Lab: visualise, model, prove",
+        title: "Maths Lab — visualise, model, prove",
         href: "/maths-lab",
         eyebrow: "Maths",
         image: "/img/home/learning-labs/maths-lab.jpg",
       },
       {
-        title: "Language Lab: read, write, listen, speak",
+        title: "Language Lab — read, write, listen, speak",
         href: "/language-lab",
         eyebrow: "Language",
         image: "/img/photos-2026-06/tamil-lab.jpg",
       },
       {
-        title: "English Lab: Cambridge & CEFR-aligned",
+        title: "English Lab — Cambridge & CEFR-aligned",
         href: "/english-lab",
         eyebrow: "English",
         image: "/img/home/learning-labs/language-lab.jpg",
       },
       {
-        title: "ICT Lab: digital literacy from Grade 1",
+        title: "ICT Lab — digital literacy from Grade 1",
         href: "/ict-lab",
         eyebrow: "ICT",
         image: "/img/home/learning-labs/ict-lab.jpg",

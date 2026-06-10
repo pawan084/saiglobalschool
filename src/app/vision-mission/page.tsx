@@ -14,7 +14,7 @@ const values = [
   { iconName: "scale", title: "Dharma — Right Conduct", body: "Choices grounded in responsibility, courage and respect for others." },
   { iconName: "leaf", title: "Shanti — Peace", body: "Calm minds, steady focus, the discipline of inner stillness." },
   { iconName: "heart", title: "Prema — Love", body: "Care for self, family, peers, community and the natural world." },
-  { iconName: "leaf", title: "Ahimsa — Non-Violence", body: "Empathy and gentleness woven into all conduct." },
+  { iconName: "handshake", title: "Ahimsa — Non-Violence", body: "Empathy and gentleness woven into all conduct." },
 ];
 
 export default function Page() {
@@ -90,7 +90,7 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection flush tone="cream" eyebrow="Our Values" title="The five pillars of Sathya Sai education">
-        <FeatureGrid items={values} cols={3} />
+        <FeatureGrid items={values} cols={5} />
       </ContentSection>
     </InnerPageShell>
   );

@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 const parentConcerns = [
-  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcomed across primary and middle school, with personalised settling-in support." },
+  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcome across primary and middle school, with personalised settling-in support." },
   { iconName: "shield",     title: "Will the transition be smooth?", body: "We support children moving from CBSE, ICSE, Cambridge, IB and local-curriculum schools without academic disruption." },
   { iconName: "graduation", title: "What's the assessment like?",    body: "A grade-appropriate, low-pressure assessment to understand your child — not to filter them out." },
   { iconName: "chat",       title: "Who do we talk to?",             body: "One admissions point of contact, transparent timelines, and a reply within one business day, every time." },
@@ -71,14 +71,14 @@ export default function Page() {
             href: "/inquire-book-a-tour",
           },
           {
-            title: "Grade-fit assessment",
+            title: "Grade-Fit Assessment",
             body: "A low-pressure check to understand your child and place them where they will thrive.",
             image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
             href: "/grade-fit",
           },
           {
-            title: "Apply online",
+            title: "Apply Online",
             body: "Submit details, upload documents and track your application in one place — no paperwork shuffle.",
             image: "/img/home/admissions/admission-process.jpg",
             imagePosition: "top",
@@ -102,7 +102,7 @@ export default function Page() {
         featured={{
           title: "Fees, dates and policies — published, not buried.",
           body:
-            "Transparent annual fee breakdown for primary and middle school. Tuition is billed per month; lab, CCA and books are billed per annum. Refunds follow our published policy and CPE Singapore guidelines.",
+            "Transparent annual fee breakdown for primary and middle school. Tuition is billed per month; lab, CCA and books are billed per year. Refunds follow our published policy and CPE Singapore guidelines.",
           image: "/img/navbar/admissions/fee-structure.jpg",
           href: "/fee-structure",
         }}
@@ -116,7 +116,7 @@ export default function Page() {
           },
           {
             title: "Refund Policy",
-            body: "CPE-Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
+            body: "CPE Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
             image: "/img/navbar/admissions/assessment.jpg",
             href: "/refund-policy",
           },
@@ -128,20 +128,20 @@ export default function Page() {
             href: "/contact-us",
           },
           {
-            title: "Fee calculator",
+            title: "Fee Calculator",
             body: "Estimate annual fees by grade band — tuition, lab, CCA and books — before you commit.",
             image: "/img/home/academics/student-support.jpg",
             href: "/fee-structure/calculator",
           },
           {
-            title: "Calendar & events",
+            title: "Calendar & Events",
             body: "Term dates, school events and the next open house — plan family travel around the academic year.",
             image: "/img/home/resources-for-parents/school-calendar.jpg",
             href: "/calendar",
           },
           {
             title: "Accreditation",
-            body: "CPE-Singapore registration, what PEI accreditation covers, and what it means for your family.",
+            body: "CPE Singapore registration, what PEI accreditation covers, and what it means for your family.",
             image: "/img/home/about-sssgs/vision-mission.jpg",
             imagePosition: "top",
             href: "/accreditation",

@@ -86,7 +86,7 @@ const ROWS: Row[] = [
   },
   {
     label: "Transition fit",
-    sssgs: "Strong for CBSE/ICSE families relocating to SG",
+    sssgs: "Strong for CBSE/ICSE families relocating to Singapore",
     cbse: "Strong within CBSE network",
     icse: "Strong within ICSE network",
     cambridge: "Common for internationally-mobile families",
@@ -107,7 +107,7 @@ function MobileCard({ row }: { row: Row }) {
     { key: "sssgs", label: "SSSGS", tone: "bg-[var(--brand-primary-tint)] border-[var(--brand-primary)]/30 text-[var(--brand-primary-dark)]" },
     { key: "cbse", label: "CBSE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
     { key: "icse", label: "ICSE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
-    { key: "cambridge", label: "CAIE", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
+    { key: "cambridge", label: "Cambridge", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
     { key: "ib", label: "IB", tone: "bg-white border-[var(--brand-rule)] text-[var(--brand-navy)]" },
   ];
   return (
@@ -118,7 +118,7 @@ function MobileCard({ row }: { row: Row }) {
       <div className="space-y-1.5">
         {cols.map((c) => (
           <div key={c.key} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border ${c.tone}`}>
-            <span className="text-[10.5px] uppercase tracking-[0.14em] font-bold w-12 shrink-0">
+            <span className="text-[10.5px] uppercase tracking-[0.12em] font-bold w-20 shrink-0">
               {c.label}
             </span>
             <span className="text-[12.5px]">{row[c.key] as string}</span>

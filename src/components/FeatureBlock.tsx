@@ -140,7 +140,7 @@ export default function FeatureBlock({
                 {featured.title}
               </h3>
               {featured.body && (
-                <p className="mt-4 text-[14.5px] leading-relaxed text-slate-600 line-clamp-4">
+                <p className="mt-4 text-[14.5px] leading-relaxed text-slate-600 line-clamp-none sm:line-clamp-4">
                   {featured.body}
                 </p>
               )}
@@ -222,7 +222,7 @@ function SatelliteCard({
         {(card.body || reserveBodySlot) && (
           <div className={`mt-3 ${reserveBodySlot ? "min-h-[2.7rem]" : ""}`}>
             {card.body && (
-              <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-2">{card.body}</p>
+              <p className="text-[13.5px] leading-relaxed text-slate-600 line-clamp-none sm:line-clamp-2">{card.body}</p>
             )}
           </div>
         )}
@@ -242,7 +242,7 @@ function SatelliteCard({
       </div>
       <div className="px-6 pb-6 mt-auto relative z-[1]">
         <Link href={card.href} className="learn-more-pill !bg-[var(--brand-navy)] !text-white !pl-5 !pr-5">
-          {card.ctaLabel ?? "Learn More"}
+          {card.ctaLabel ?? "Learn more"}
         </Link>
       </div>
 

@@ -48,7 +48,7 @@ export const FACULTY: FacultyMember[] = [
       "15+ years teaching science at international schools",
     ],
     bio: [
-      "Pousali heads the school as Head of School and leads the Science department. Her classes are inquiry-led — students observe, hypothesise, measure and conclude, with structured reflection at the end of every unit.",
+      "As Head of School, Pousali also leads the Science department. Her classes are inquiry-led — students observe, hypothesise, measure and conclude, with structured reflection at the end of every unit.",
       "She also coordinates the annual Science Fair and the inter-school Olympiad coaching track.",
     ],
     teaches: ["Science — Grades 4–8", "Olympiad coaching"],
@@ -63,13 +63,13 @@ export const FACULTY: FacultyMember[] = [
   {
     slug: "moumita-mazumdar",
     name: "Moumita Mazumdar",
-    role: "Admission & School Operation Lead",
+    role: "Admissions & School Operations Lead",
     image: "/img/faculty/moumita-mazumdar.jpg",
   },
   {
     slug: "neena-gupta",
     name: "Neena Gupta",
-    role: "2nd Language HOD & Lab Coordinator",
+    role: "Second Language HOD & Lab Coordinator",
     image: "/img/faculty/neena-gupta.jpg",
   },
   {

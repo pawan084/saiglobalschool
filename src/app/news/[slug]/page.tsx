@@ -108,23 +108,19 @@ export default async function Page(
             </span>
           </div>
           <div className="prose-legal text-[15.5px] text-slate-700 leading-relaxed">
-            <p>
-              This page is a placeholder for the full article. When your editorial workflow is in
-              place — whether through a CMS, MDX files, or a connected Notion database — wire the
-              full content here.
-            </p>
-            <p>
-              For now, here&rsquo;s the summary as it appears on the listing:
-            </p>
-            <blockquote className="border-l-4 border-[var(--brand-accent)] pl-4 italic text-[var(--brand-navy)]">
+            <p className="!text-[17px] !text-[var(--brand-navy)] font-medium">
               {post.excerpt.replace(/&rsquo;/g, "'")}
-            </blockquote>
+            </p>
             <p>
-              Need the full update by email or want to talk it through?{" "}
+              We&rsquo;re preparing the full write-up of this update. In the meantime, our
+              team is happy to share more detail or answer any questions you have.
+            </p>
+            <p>
+              Want updates like this by email?{" "}
               <Link href="/contact-us" className="text-[var(--brand-primary)] font-bold">
                 Reach out to our team
-              </Link>
-              .
+              </Link>{" "}
+              or subscribe to our monthly digest in the footer.
             </p>
           </div>
           <SharePage title={post.title.replace(/&rsquo;/g, "'")} url={`${SITE_URL}/news/${slug}`} />

@@ -56,7 +56,7 @@ export default function Page() {
       hero={{
         eyebrow: "About SSSGS",
         title: "Values Integration with Academics",
-        lead: "Values are not an extra subject. They are integrated into the way language, math, science, social studies, ICT and the arts are taught.",
+        lead: "Values are not an extra subject. They are integrated into the way subjects across the curriculum are taught.",
         breadcrumb: [
           { label: "About", href: "/about-us" },
           { label: "Values & Academics", href: "/values-integration-academics" },

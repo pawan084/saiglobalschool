@@ -3,19 +3,26 @@ export type FacultyMember = {
   name: string;
   role: string;
   image?: string;
-  short: string;     // one-line teaser
-  qualifications: string[];
-  bio: string[];     // paragraphs
+  /** Optional one-line teaser — omit until the school supplies it. */
+  short?: string;
+  qualifications?: string[];
+  /** Optional paragraphs — omit until the school supplies the bio. */
+  bio?: string[];
   teaches?: string[];
   quote?: string;
 };
 
+// 2026-06-10: faculty list refreshed from the school's official document and
+// portrait set. Long-form bios/qualifications/quotes are intentionally omitted
+// for entries where the school hasn't yet supplied them — see
+// project_blocked_items.md. The two leadership entries (Mausumi, Pousali)
+// retain prior teacher-supplied content because role + responsibilities match.
 export const FACULTY: FacultyMember[] = [
   {
-    slug: "principal",
+    slug: "mausumi-mukherjee",
     name: "Mausumi Mukherjee",
-    role: "Principal & Mathematics",
-    image: "/img/navbar/about/faculty/principal.jpg",
+    role: "Principal & Mathematics Teacher",
+    image: "/img/faculty/mausumi-mukherjee.jpg",
     short: "Three decades of teaching maths and leading schools across India and Singapore.",
     qualifications: [
       "M.Sc. Mathematics",
@@ -30,10 +37,10 @@ export const FACULTY: FacultyMember[] = [
     quote: "We don't just teach subjects — we teach children. Each one comes with a different story; the work is to meet them where they are.",
   },
   {
-    slug: "hod-science",
+    slug: "pousali-bhattacharya",
     name: "Pousali Bhattacharya",
-    role: "HOD & Science",
-    image: "/img/navbar/about/faculty/hod-science.jpg",
+    role: "HOS & Science Teacher",
+    image: "/img/faculty/pousali-bhattacharya.jpg",
     short: "Hands-on science teacher who believes lab work is where the learning sticks.",
     qualifications: [
       "M.Sc. Biotechnology",
@@ -41,72 +48,70 @@ export const FACULTY: FacultyMember[] = [
       "15+ years teaching science at international schools",
     ],
     bio: [
-      "Pousali heads the Science department and runs the school's lab programmes. Her classes are inquiry-led — students observe, hypothesise, measure and conclude, with structured reflection at the end of every unit.",
+      "Pousali heads the school as Head of School and leads the Science department. Her classes are inquiry-led — students observe, hypothesise, measure and conclude, with structured reflection at the end of every unit.",
       "She also coordinates the annual Science Fair and the inter-school Olympiad coaching track.",
     ],
     teaches: ["Science — Grades 4–8", "Olympiad coaching"],
     quote: "Lab work and field trips aren't decoration. They're where the learning sticks.",
   },
   {
-    slug: "admissions-art",
+    slug: "amrita-ghosal",
+    name: "Amrita Ghosal",
+    role: "International Curriculum and Pedagogy Director",
+    image: "/img/faculty/amrita-ghosal.jpg",
+  },
+  {
+    slug: "moumita-mazumdar",
     name: "Moumita Mazumdar",
-    role: "Admissions Lead & Art",
-    image: "/img/navbar/about/faculty/admissions-art.jpg",
-    short: "Front door of the school — and the studio teacher who runs Annual Day art.",
-    qualifications: [
-      "M.A. Fine Arts",
-      "B.Ed.",
-      "10+ years in admissions and arts education",
-    ],
-    bio: [
-      "Moumita runs the admissions process end-to-end — she's the person most families speak with first. She's also a practising artist who teaches the senior Art programme and curates the school's Annual Day exhibitions.",
-      "Families regularly tell us the admissions experience felt 'unrushed, honest, and personal' — that's deliberate, and Moumita is why.",
-    ],
-    teaches: ["Art — Grades 5–8"],
-  },
-  // NOTE: The three entries below use real staff portraits but
-  // placeholder "Subject Lead" names. The original site's faculty page named six teachers —
-  // Mausumi Mukherjee, Pousali Bhattacharya, Moumita Mazumdar (the first three above, correctly
-  // mapped) plus Uma Balachandar (English & Social Studies) and two Primary teachers
-  // (Prasanthi Siram, Sharmila Banu). The exact photo↔name pairing for these three was not
-  // captioned in the archive — confirm names/roles with the school before publishing.
-  {
-    slug: "lead-language",
-    name: "Subject Lead",
-    role: "Language",
-    image: "/img/navbar/about/faculty/lead-language.jpg",
-    short: "Reading, writing, listening and speaking — four-skill English instruction.",
-    qualifications: ["M.A. English Literature", "B.Ed.", "Cambridge CELTA"],
-    bio: [
-      "Our Language Lead oversees the English programme across primary and middle school — from phonics-based reading in early years to literary analysis and structured debate by Grade 8.",
-      "She also runs the after-school phonics and reading-club enrichment for younger grades.",
-    ],
-    teaches: ["English — Grades 4–8", "Phonics enrichment"],
+    role: "Admission & School Operation Lead",
+    image: "/img/faculty/moumita-mazumdar.jpg",
   },
   {
-    slug: "lead-social",
-    name: "Subject Lead",
-    role: "Social Studies",
-    image: "/img/navbar/about/faculty/lead-social.jpg",
-    short: "Maps, primary sources, and structured discussion across history and civics.",
-    qualifications: ["M.A. History", "B.Ed."],
-    bio: [
-      "Our Social Studies Lead builds units around primary sources and structured discussion — students learn to ask better questions before reaching for answers.",
-      "She also coordinates community-service projects with our values team.",
-    ],
-    teaches: ["Social Studies — Grades 5–8"],
+    slug: "neena-gupta",
+    name: "Neena Gupta",
+    role: "2nd Language HOD & Lab Coordinator",
+    image: "/img/faculty/neena-gupta.jpg",
   },
   {
-    slug: "lead-ict",
-    name: "Subject Lead",
-    role: "ICT",
-    image: "/img/navbar/about/faculty/lead-ict.jpg",
-    short: "Digital literacy, computational thinking, and online safety from Grade 1.",
-    qualifications: ["B.E. Computer Science", "Google Educator certification"],
-    bio: [
-      "Our ICT Lead designs the digital-literacy curriculum end-to-end, from typing posture in Grade 1 to Python and HTML/CSS at Grade 7–8. She maintains the device fleet and the classroom safety filters.",
-      "She also runs an after-school coding club for students who want to go further.",
-    ],
-    teaches: ["ICT — All grades", "Coding club"],
+    slug: "uma-balachandar",
+    name: "Uma Balachandar",
+    role: "English & Social Studies Teacher",
+    image: "/img/faculty/uma-balachandar.jpg",
+  },
+  {
+    slug: "thangammal-marappan",
+    name: "Thangammal Marappan",
+    role: "Language Teacher",
+    image: "/img/faculty/thangammal-marappan.jpg",
+  },
+  {
+    slug: "prasanthi-siram",
+    name: "Prasanthi Siram",
+    role: "Primary Teacher",
+    image: "/img/faculty/prasanthi-siram.jpg",
+  },
+  {
+    slug: "sharmila-banu",
+    name: "Sharmila Banu",
+    role: "Primary Teacher",
+    image: "/img/faculty/sharmila-banu.jpg",
+  },
+  {
+    slug: "akanksha-agarwal",
+    name: "Akanksha Agarwal",
+    role: "Mathematics & Science Teacher",
+    image: "/img/faculty/akanksha-agarwal.jpg",
+  },
+  {
+    slug: "debsoma-pramanik",
+    name: "Debsoma Pramanik",
+    role: "Social Science & English Teacher",
+    image: "/img/faculty/debsoma-pramanik.jpg",
+  },
+  {
+    slug: "ganesh-srinivasan",
+    name: "Ganesh Srinivasan",
+    role: "Information and Communication Technology",
+    image: "/img/faculty/ganesh-srinivasan.jpg",
   },
 ];

@@ -139,11 +139,13 @@ export default function FacultyGrid() {
             </div>
 
             <div className="p-5 lg:p-6 max-h-[60vh] overflow-y-auto">
-              <p className="text-[14px] text-slate-600 italic leading-snug">
-                {selected.short}
-              </p>
+              {selected.short && (
+                <p className="text-[14px] text-slate-600 italic leading-snug">
+                  {selected.short}
+                </p>
+              )}
 
-              {selected.qualifications.length > 0 && (
+              {selected.qualifications && selected.qualifications.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {selected.qualifications.map((q) => (
                     <span
@@ -157,11 +159,17 @@ export default function FacultyGrid() {
                 </div>
               )}
 
-              <div className="mt-4 space-y-3 text-[14px] text-slate-700 leading-relaxed">
-                {selected.bio.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
+              {selected.bio && selected.bio.length > 0 ? (
+                <div className="mt-4 space-y-3 text-[14px] text-slate-700 leading-relaxed">
+                  {selected.bio.map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
+              ) : !selected.short && (
+                <p className="mt-2 text-[13.5px] text-slate-500 leading-relaxed">
+                  Full profile coming soon. Contact admissions for details about this member of our teaching team.
+                </p>
+              )}
 
               {selected.teaches && selected.teaches.length > 0 && (
                 <div className="mt-4 p-3 rounded-xl bg-[var(--brand-cream)]/60 border border-[var(--brand-rule)]">

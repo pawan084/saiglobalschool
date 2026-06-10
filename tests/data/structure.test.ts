@@ -86,13 +86,21 @@ describe("data/faculty", () => {
   it("each member has required fields", async () => {
     const { FACULTY } = await import("@/data/faculty");
     expect(FACULTY.length).toBeGreaterThan(0);
+    // slug, name, role are required. bio + qualifications are optional
+    // until the school supplies them (see project_blocked_items.md).
     for (const f of FACULTY) {
       expect(f.slug).toBeTruthy();
       expect(f.name).toBeTruthy();
       expect(f.role).toBeTruthy();
-      expect(f.bio.length).toBeGreaterThan(0);
-      expect(Array.isArray(f.qualifications)).toBe(true);
+      if (f.bio !== undefined) expect(Array.isArray(f.bio)).toBe(true);
+      if (f.qualifications !== undefined) expect(Array.isArray(f.qualifications)).toBe(true);
     }
+  });
+
+  it("slugs are unique", async () => {
+    const { FACULTY } = await import("@/data/faculty");
+    const slugs = FACULTY.map((f) => f.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
   });
 });
 

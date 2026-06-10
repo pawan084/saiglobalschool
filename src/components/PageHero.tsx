@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -6,6 +7,12 @@ type Props = {
   lead?: string;
   breadcrumb?: { label: string; href: string }[];
   tone?: "teal" | "navy" | "cream";
+  /** Optional decorative background image. When set, the gradient tone is
+   *  layered on top at reduced opacity so the page title stays legible. */
+  image?: string;
+  imageAlt?: string;
+  /** object-position for the background image. */
+  imagePosition?: "center" | "top" | "bottom";
 };
 
 const tones = {
@@ -14,18 +21,51 @@ const tones = {
   cream: "from-[var(--brand-cream)] to-white text-[var(--brand-navy)]",
 } as const;
 
+const POS_CLASS = { center: "object-center", top: "object-top", bottom: "object-bottom" } as const;
+
 export default function PageHero({
   eyebrow,
   title,
   lead,
   breadcrumb = [],
   tone = "teal",
+  image,
+  imageAlt,
+  imagePosition = "center",
 }: Props) {
   const onLight = tone === "cream";
+  // When an image backdrop is supplied the section's own gradient is
+  // suppressed so the photo shows through; a scrim layered on top keeps
+  // foreground text legible. Tone still drives the scrim colour + text.
+  const sectionBg = image ? "" : `bg-gradient-to-br ${tones[tone]}`;
+  const sectionText = onLight ? "text-[var(--brand-navy)]" : "text-white";
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-br ${tones[tone]} pt-8 lg:pt-12 pb-12 lg:pb-16`}>
-      {/* Decorative orbs */}
-      {!onLight && (
+    <section className={`relative overflow-hidden ${sectionBg} ${image ? sectionText : ""} pt-8 lg:pt-12 pb-12 lg:pb-16`}>
+      {image && (
+        <>
+          <Image
+            src={image}
+            alt={imageAlt ?? ""}
+            fill
+            sizes="100vw"
+            preload
+            fetchPriority="high"
+            loading="eager"
+            className={`object-cover ${POS_CLASS[imagePosition]}`}
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: onLight
+                ? "linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.40))"
+                : "linear-gradient(110deg, rgba(11,29,51,0.78) 0%, rgba(11,29,51,0.60) 45%, rgba(13,138,135,0.38) 100%)",
+            }}
+          />
+        </>
+      )}
+      {/* Decorative orbs (skipped when an image backdrop is present) */}
+      {!onLight && !image && (
         <>
           <span
             aria-hidden
@@ -39,16 +79,18 @@ export default function PageHero({
           />
         </>
       )}
-      {/* Dot pattern */}
-      <span
-        aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-[0.10]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-          backgroundSize: "26px 26px",
-        }}
-      />
+      {/* Dot pattern (skipped when image backdrop is present) */}
+      {!image && (
+        <span
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-[0.10]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+            backgroundSize: "26px 26px",
+          }}
+        />
+      )}
 
       <div className="section-shell relative">
         {breadcrumb.length > 0 && (
@@ -77,7 +119,9 @@ export default function PageHero({
             {eyebrow}
           </div>
         )}
-        <h1 className="font-display text-[30px] sm:text-[36px] lg:text-[44px] font-bold news-headline leading-[1.08] tracking-tight max-w-3xl">
+        {/* news-headline normally forces brand-navy, but when an image backdrop
+            is in play we override to white for legibility over the scrim. */}
+        <h1 className={`font-display text-[30px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.08] tracking-tight max-w-3xl ${image && !onLight ? "text-white" : "news-headline"}`}>
           {title}
         </h1>
         {lead && (

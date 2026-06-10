@@ -11,6 +11,9 @@ type Props = {
     lead?: string;
     breadcrumb?: { label: string; href: string }[];
     tone?: "teal" | "navy" | "cream";
+    image?: string;
+    imageAlt?: string;
+    imagePosition?: "center" | "top" | "bottom";
   };
   children: React.ReactNode;
   ctaTitle?: string;

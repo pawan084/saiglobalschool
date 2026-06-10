@@ -61,6 +61,8 @@ export default function Page() {
           { label: "About", href: "/about-us" },
           { label: "Management & Governance", href: "/management-governance" },
         ],
+        image: "/img/about/sssgs-vidya-vahini.jpg",
+        imageAlt: "SSSGS Singapore — Observe, Think, Experiment, Discover; rooted in Singapore, global in outlook",
       }}
       ctaTitle="Speak with the school leadership"
       ctaSubtitle="Book a visit and understand how SSSGS is run, how parents are heard, and how children are supported."

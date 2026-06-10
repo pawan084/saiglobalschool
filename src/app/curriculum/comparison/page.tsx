@@ -118,7 +118,7 @@ function MobileCard({ row }: { row: Row }) {
       <div className="space-y-1.5">
         {cols.map((c) => (
           <div key={c.key} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border ${c.tone}`}>
-            <span className="text-[10.5px] uppercase tracking-[0.14em] font-bold w-12 shrink-0">
+            <span className="text-[10.5px] uppercase tracking-[0.12em] font-bold w-20 shrink-0">
               {c.label}
             </span>
             <span className="text-[12.5px]">{row[c.key] as string}</span>

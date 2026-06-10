@@ -36,6 +36,11 @@ function buildCsp(nonce: string): string {
     "img-src 'self' blob: data:",
     "font-src 'self' data:",
     "connect-src 'self' https://wa.me",
+    // /campus-address embeds a Google Maps iframe. Without an explicit
+    // frame-src this falls back to default-src 'self' and the map renders
+    // as a blank box. https://www.google.com covers both maps.google.com
+    // and www.google.com/maps which Maps may redirect to.
+    "frame-src https://www.google.com https://maps.google.com",
     "frame-ancestors 'none'",
     "form-action 'self'",
     "base-uri 'self'",

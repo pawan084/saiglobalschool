@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * Shows "We're online now" during Singapore office hours.
  * Off-hours shows the next opening time so visitors know when to expect a reply.
  *
- * Office hours: Mon–Fri 9:00–18:00 SGT, Sat 9:00–13:00 SGT, Sun closed.
+ * Office hours: Mon–Fri 9:00–17:00 SGT, Sat 9:00–13:00 SGT, Sun closed.
  */
 
 function inSgtWindow(): { online: boolean; nextOpen?: string } {
@@ -40,11 +40,11 @@ function inSgtWindow(): { online: boolean; nextOpen?: string } {
   }
 
   const online =
-    inRange(1, 9 * 60, 18 * 60) ||
-    inRange(2, 9 * 60, 18 * 60) ||
-    inRange(3, 9 * 60, 18 * 60) ||
-    inRange(4, 9 * 60, 18 * 60) ||
-    inRange(5, 9 * 60, 18 * 60) ||
+    inRange(1, 9 * 60, 17 * 60) ||
+    inRange(2, 9 * 60, 17 * 60) ||
+    inRange(3, 9 * 60, 17 * 60) ||
+    inRange(4, 9 * 60, 17 * 60) ||
+    inRange(5, 9 * 60, 17 * 60) ||
     inRange(6, 9 * 60, 13 * 60);
 
   if (online) return { online: true };
@@ -53,7 +53,7 @@ function inSgtWindow(): { online: boolean; nextOpen?: string } {
   if (day === 0) return { online: false, nextOpen: "tomorrow 9:00 SGT" };
   if (day === 6 && minutes >= 13 * 60) return { online: false, nextOpen: "Monday 9:00 SGT" };
   if (day >= 1 && day <= 5 && minutes < 9 * 60) return { online: false, nextOpen: "today 9:00 SGT" };
-  if (day >= 1 && day <= 5 && minutes >= 18 * 60) {
+  if (day >= 1 && day <= 5 && minutes >= 17 * 60) {
     return { online: false, nextOpen: day === 5 ? "Saturday 9:00 SGT" : "tomorrow 9:00 SGT" };
   }
   if (day === 6 && minutes < 9 * 60) return { online: false, nextOpen: "today 9:00 SGT" };

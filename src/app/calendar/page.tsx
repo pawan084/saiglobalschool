@@ -110,9 +110,12 @@ export default function Page() {
         </p>
 
         <div
-          className="rounded-2xl bg-white border border-[var(--brand-rule)] p-5 lg:p-6 overflow-hidden"
+          className="rounded-2xl bg-white border border-[var(--brand-rule)] p-5 lg:p-6 overflow-x-auto"
           style={{ boxShadow: "var(--shadow-sm)" }}
         >
+          {/* min-width keeps the percentage-positioned month labels from colliding
+              on narrow screens — the ribbon scrolls horizontally instead. */}
+          <div className="min-w-[620px]">
           {/* Month labels */}
           <div className="relative h-5 mb-2">
             {MONTH_NAMES.map((m, i) => {
@@ -174,6 +177,7 @@ export default function Page() {
 
           {/* Today marker */}
           <TodayMarker />
+          </div>
         </div>
 
         {/* Term cards */}

@@ -30,13 +30,6 @@ export default function Page() {
         "Practical lab notebooks with structured aim-method-observation-conclusion entries",
         "Connections drawn between lab work and real-world phenomena",
       ]}
-      relatedLabs={[
-        { label: "Maths Lab", href: "/maths-lab" },
-        { label: "Language Lab", href: "/language-lab" },
-        { label: "English Lab", href: "/english-lab" },
-        { label: "ICT Lab", href: "/ict-lab" },
-        { label: "All Learning Labs", href: "/learning-labs" },
-      ]}
     />
   );
 }

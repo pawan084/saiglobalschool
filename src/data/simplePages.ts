@@ -276,11 +276,15 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Abacus & Vedic Maths",
     lead: "Mental-maths acceleration through Abacus practice and Vedic techniques — children develop speed, accuracy and confidence with numbers.",
     breadcrumb: [resourcesCrumb, { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" }],
+    intro: [
+      "Children begin on the physical abacus and gradually move to visualising the beads, so they can calculate large sums mentally. Alongside this, Vedic techniques give them quick, pattern-based shortcuts for multiplication, division and more.",
+      "Sessions run in small groups after school, graded by ability rather than age, so each child is challenged at the right level and builds genuine number fluency over time.",
+    ],
     features: {
       sectionTitle: "Why it works",
       items: [
         { icon: "⚡", title: "Mental computation", body: "Structured practice builds neural pathways for fast arithmetic." },
-        { iconName: "target", title: "Confidence with numbers", body: "Children stop fearing math when they feel competent." },
+        { iconName: "target", title: "Confidence with numbers", body: "Children stop fearing maths when they feel competent." },
         { iconName: "lightbulb", title: "Cross-subject benefit", body: "Number sense supports problem-solving in science and beyond." },
       ],
       cols: 3,

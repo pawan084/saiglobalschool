@@ -55,7 +55,7 @@ describe("LiveOnlineIndicator", () => {
   });
 
   it("Friday evening shows 'back Saturday'", () => {
-    // Friday 2026-06-05 12:00Z = 20:00 SGT (after Fri 18:00 close)
+    // Friday 2026-06-05 12:00Z = 20:00 SGT (after Fri 17:00 close)
     vi.setSystemTime(new Date("2026-06-05T12:00:00Z"));
     render(<LiveOnlineIndicator />);
     expect(screen.getByText(/back saturday/i)).toBeInTheDocument();

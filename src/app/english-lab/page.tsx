@@ -29,13 +29,6 @@ export default function Page() {
         "Children presenting and giving structured peer feedback",
         "Writing portfolios reviewed against CEFR descriptors",
       ]}
-      relatedLabs={[
-        { label: "Language Lab", href: "/language-lab" },
-        { label: "Science Lab", href: "/science-lab" },
-        { label: "Maths Lab", href: "/maths-lab" },
-        { label: "ICT Lab", href: "/ict-lab" },
-        { label: "All Learning Labs", href: "/learning-labs" },
-      ]}
     />
   );
 }

@@ -24,7 +24,7 @@ const facultyVoices = [
   },
   {
     quote: "Lab work and field trips aren't decoration. They're where the learning sticks.",
-    author: "HOD, Science",
+    author: "HOS & Science Teacher",
   },
 ];
 

@@ -33,10 +33,6 @@ export default function Page() {
                 We comply with the Personal Data Protection Act 2012 of Singapore
                 (&ldquo;PDPA&rdquo;) and aim to be transparent about every data practice.
               </p>
-              <p className="text-[13px] text-slate-500 italic">
-                This is a template draft. Please review with your appointed Data Protection
-                Officer before publication.
-              </p>
             </>
           ),
         },

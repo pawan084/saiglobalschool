@@ -63,12 +63,6 @@ export default function Page() {
             href: "/facilities",
           },
           {
-            title: "SSSGS Spaces",
-            body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
-            image: "/img/navbar/campus/classroom-spaces.jpg",
-            href: "/sssgs-spaces",
-          },
-          {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
             image: "/img/navbar/campus/co-curricular-activities.jpg",

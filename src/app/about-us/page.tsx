@@ -36,7 +36,9 @@ export default function Page() {
           src="/img/navbar/campus/school-campus.jpg"
           alt="Sri Sathya Sai Global School campus"
           fill
-          priority
+          preload
+          fetchPriority="high"
+          loading="eager"
           sizes="100vw"
           className="object-cover opacity-35"
         />
@@ -84,7 +86,8 @@ export default function Page() {
                 src="/img/photos-2026-06/about-head-heart-hand.jpg"
                 alt="Students learning at Sri Sathya Sai Global School"
                 fill
-                priority
+                fetchPriority="high"
+                loading="eager"
                 sizes="38vw"
                 className="object-cover"
               />

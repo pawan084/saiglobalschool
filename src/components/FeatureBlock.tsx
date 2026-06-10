@@ -120,7 +120,9 @@ export default function FeatureBlock({
                 alt={featured.imageAlt ?? featured.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority={priorityFeatured}
+                {...(priorityFeatured
+                  ? { preload: true, fetchPriority: "high" as const, loading: "eager" as const }
+                  : {})}
                 className={`${featured.imageFit === "contain" ? "object-contain p-6" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]} transition-transform duration-700 group-hover:scale-[1.03]`}
               />
               {/* Soft vignette */}

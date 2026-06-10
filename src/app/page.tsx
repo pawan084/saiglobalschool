@@ -42,7 +42,9 @@ export default function Home() {
             src="/img/home/hero/school-campus.jpg"
             alt="The Sri Sathya Sai Global School campus"
             fill
-            priority
+            preload
+            fetchPriority="high"
+            loading="eager"
             sizes="100vw"
             className="object-cover ken-burns"
             style={{ objectPosition: "center 40%" }}

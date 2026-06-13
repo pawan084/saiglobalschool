@@ -1,33 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { Modal } from "react-responsive-modal";
 import Icon from "./Icon";
 import { FACULTY, type FacultyMember } from "@/data/faculty";
-import { useFocusTrap } from "@/lib/useFocusTrap";
 
 export default function FacultyGrid() {
   const [selected, setSelected] = useState<FacultyMember | null>(null);
-  const trapRef = useFocusTrap<HTMLDivElement>(!!selected);
-
-  // Close modal on ESC
-  useEffect(() => {
-    if (!selected) return;
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setSelected(null);
-    }
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [selected]);
 
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6">
-        {FACULTY.map((p) => (
+        {FACULTY.map((p, index) => (
           <button
             key={p.slug}
             onClick={() => setSelected(p)}
-            className="card-fancy group relative rounded-2xl bg-white border border-[var(--brand-rule)] overflow-hidden flex flex-col text-left"
+            className="card-fancy group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--brand-rule)] bg-white text-left"
             style={{ boxShadow: "var(--shadow-sm)" }}
             aria-label={`View bio of ${p.name}, ${p.role}`}
           >
@@ -37,7 +26,9 @@ export default function FacultyGrid() {
                   src={p.image}
                   alt={p.name}
                   fill
+                  loading={index === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 640px) 50vw, 25vw"
+                  unoptimized
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                 />
               ) : (
@@ -83,37 +74,79 @@ export default function FacultyGrid() {
         ))}
       </div>
 
-      {/* Modal */}
       {selected && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="faculty-bio-title"
-          className="fixed inset-0 z-[80] grid items-end sm:items-center justify-center bg-black/45 backdrop-blur-sm p-3 sm:p-6"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setSelected(null);
+        <Modal
+          open
+          onClose={() => setSelected(null)}
+          center
+          showCloseIcon={false}
+          animationDuration={0}
+          ariaLabelledby="faculty-bio-title"
+          styles={{
+            root: {
+              position: "fixed",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              inset: 0,
+              zIndex: 1000,
+            },
+            overlay: {
+              position: "fixed",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              inset: 0,
+              zIndex: -1,
+              background: "rgba(0,0,0,0.55)",
+              backdropFilter: "blur(4px)",
+            },
+            modalContainer: {
+              alignItems: "center",
+              display: "flex",
+              height: "100%",
+              justifyContent: "center",
+              overflowX: "hidden",
+              overflowY: "auto",
+              padding: "1.5rem 0.75rem",
+              textAlign: "center",
+            },
+            modal: {
+              background: "#fff",
+              border: "1px solid var(--brand-rule)",
+              borderRadius: "20px",
+              boxShadow: "0 40px 80px -20px rgba(11,29,51,0.55)",
+              display: "block",
+              margin: 0,
+              maxWidth: "560px",
+              overflow: "hidden",
+              padding: "16px",
+              position: "relative",
+              textAlign: "left",
+              width: "min(94vw, 560px)",
+            },
           }}
         >
-          <div
-            ref={trapRef}
-            className="relative w-full max-w-[540px] rounded-3xl bg-white border border-[var(--brand-rule)] overflow-hidden"
-            style={{ boxShadow: "0 40px 80px -20px rgba(11,29,51,0.55)" }}
-          >
+          <>
             <button
               onClick={() => setSelected(null)}
               aria-label="Close"
-              className="absolute top-3 right-3 grid place-items-center h-8 w-8 rounded-full bg-white/90 backdrop-blur text-slate-500 hover:text-[var(--brand-navy)] hover:bg-white transition z-10"
+              className="absolute right-4 top-4 z-10 grid h-8 w-8 place-items-center rounded-full border border-white/70 bg-white/95 text-slate-500 shadow-sm backdrop-blur transition hover:bg-white hover:text-[var(--brand-navy)]"
             >
               <Icon name="close" size={13} />
             </button>
 
-            <div className="relative aspect-[16/9] overflow-hidden bg-[var(--brand-cream)]">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-[var(--brand-cream)]">
               {selected.image && (
                 <Image
                   src={selected.image}
                   alt={selected.name}
                   fill
-                  sizes="540px"
+                  loading="eager"
+                  sizes="560px"
+                  unoptimized
                   className="object-cover object-top"
                 />
               )}
@@ -131,16 +164,16 @@ export default function FacultyGrid() {
                 </div>
                 <h2
                   id="faculty-bio-title"
-                  className="font-display text-[24px] font-bold text-white mt-1 leading-tight"
+                  className="font-display mt-1 text-[24px] font-bold leading-tight text-white"
                 >
                   {selected.name}
                 </h2>
               </div>
             </div>
 
-            <div className="p-5 lg:p-6 max-h-[60vh] overflow-y-auto">
+            <div className="max-h-[58vh] overflow-y-auto px-2 pb-1 pt-5 sm:px-3">
               {selected.short && (
-                <p className="text-[14px] text-slate-600 italic leading-snug">
+                <p className="text-[14px] leading-snug text-slate-600 italic">
                   {selected.short}
                 </p>
               )}
@@ -150,7 +183,7 @@ export default function FacultyGrid() {
                   {selected.qualifications.map((q) => (
                     <span
                       key={q}
-                      className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-[var(--brand-primary-tint)] border border-[var(--brand-primary)]/20 text-[10.5px] font-bold text-[var(--brand-primary-dark)]"
+                      className="inline-flex items-center gap-1 rounded-full border border-[var(--brand-primary)]/20 bg-[var(--brand-primary-tint)] px-2 py-1 text-[10.5px] font-bold text-[var(--brand-primary-dark)]"
                     >
                       <Icon name="ribbon" size={9} />
                       {q}
@@ -160,19 +193,19 @@ export default function FacultyGrid() {
               )}
 
               {selected.bio && selected.bio.length > 0 ? (
-                <div className="mt-4 space-y-3 text-[14px] text-slate-700 leading-relaxed">
+                <div className="mt-4 space-y-3 text-[14px] leading-relaxed text-slate-700">
                   {selected.bio.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
                 </div>
               ) : !selected.short && (
-                <p className="mt-2 text-[13.5px] text-slate-500 leading-relaxed">
+                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500">
                   Full profile coming soon. Contact admissions for details about this member of our teaching team.
                 </p>
               )}
 
               {selected.teaches && selected.teaches.length > 0 && (
-                <div className="mt-4 p-3 rounded-xl bg-[var(--brand-cream)]/60 border border-[var(--brand-rule)]">
+                <div className="mt-4 rounded-xl border border-[var(--brand-rule)] bg-[var(--brand-cream)]/60 p-3">
                   <div className="news-eyebrow">Teaches</div>
                   <ul className="mt-1 space-y-1 text-[13px] text-slate-700">
                     {selected.teaches.map((t) => (
@@ -186,16 +219,16 @@ export default function FacultyGrid() {
               )}
 
               {selected.quote && (
-                <figure className="mt-4 p-4 rounded-xl bg-white border-l-4 border-[var(--brand-accent)]">
-                  <div className="text-[var(--brand-accent)] text-2xl leading-none">&ldquo;</div>
-                  <blockquote className="mt-1 text-[13.5px] italic text-[var(--brand-navy)] leading-snug">
+                <figure className="mt-4 rounded-xl border-l-4 border-[var(--brand-accent)] bg-white p-4">
+                  <div className="text-2xl leading-none text-[var(--brand-accent)]">&ldquo;</div>
+                  <blockquote className="mt-1 text-[13.5px] leading-snug text-[var(--brand-navy)] italic">
                     {selected.quote}
                   </blockquote>
                 </figure>
               )}
             </div>
-          </div>
-        </div>
+          </>
+        </Modal>
       )}
     </>
   );

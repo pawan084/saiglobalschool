@@ -123,16 +123,7 @@ export default function FeatureBlock({
                 {...(priorityFeatured
                   ? { preload: true, fetchPriority: "high" as const, loading: "eager" as const }
                   : {})}
-                className={`${featured.imageFit === "contain" ? "object-contain p-6" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]} transition-transform duration-700 group-hover:scale-[1.03]`}
-              />
-              {/* Soft vignette */}
-              <div
-                aria-hidden
-                className="absolute inset-0 pointer-events-none opacity-50"
-                style={{
-                  background:
-                    "linear-gradient(to right, rgba(11,29,51,0.25), transparent 25%, transparent 80%, rgba(11,29,51,0.12))",
-                }}
+                className={`${featured.imageFit === "contain" ? "object-contain" : "object-cover"} ${POS_CLASS[featured.imagePosition ?? "center"]}`}
               />
             </div>
             <div className="p-7 lg:p-10 flex flex-col justify-center relative">
@@ -228,7 +219,7 @@ function SatelliteCard({
         )}
       </div>
       <div className="px-5 pb-5 relative z-[1]">
-        <div className={`relative aspect-[4/3] rounded-xl overflow-hidden ${
+        <div className={`relative aspect-[4/3] overflow-hidden rounded-xl ${
           card.imageFit === "contain" ? "bg-[var(--brand-cream)]" : "bg-slate-100"
         }`}>
           <Image
@@ -236,7 +227,7 @@ function SatelliteCard({
             alt={card.imageAlt ?? card.title}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            className={`${card.imageFit === "contain" ? "object-contain p-3" : "object-cover"} ${POS_CLASS[card.imagePosition ?? "center"]} transition-transform duration-700 group-hover:scale-[1.04]`}
+            className={`${card.imageFit === "contain" ? "object-contain" : "object-cover"} ${POS_CLASS[card.imagePosition ?? "center"]}`}
           />
         </div>
       </div>

@@ -46,7 +46,7 @@ export default function Page() {
           title: "Morning circle to closing reflection — eight blocks.",
           body:
             "Eight blocks make up the school day: morning circle, two academic blocks, lab session, mealtime & reflection, co-curricular activities, and closing reflection. Children leave with both skills and stories.",
-          image: "/img/navbar/campus/a-day-at-sssgs.jpg",
+          image: "/img/featuredBlock/school-day-blocks.jpg",
           href: "/a-day-at-sssgs",
         }}
         items={[
@@ -59,7 +59,7 @@ export default function Page() {
           {
             title: "Facilities",
             body: "Built for safe, focused learning — bright classrooms, specialist labs, library, performing-arts spaces and activity zones.",
-            image: "/img/navbar/campus/school-campus.jpg",
+            image: "/img/featuredBlock/facilities.jpg",
             href: "/facilities",
           },
           {
@@ -71,7 +71,7 @@ export default function Page() {
           {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
-            image: "/img/navbar/campus/co-curricular-activities.jpg",
+            image: "/img/featuredBlock/co-curricular-activities.jpg",
             href: "/cca",
           },
           {
@@ -83,7 +83,7 @@ export default function Page() {
           {
             title: "A day at SSSGS",
             body: "Walk through the eight blocks that shape a school day — and see how character and academics live together.",
-            image: "/img/home/campus-life/a-day-at-sssgs.jpg",
+            image: "/img/featuredBlock/school-day-blocks.jpg",
             href: "/a-day-at-sssgs",
           },
         ]}
@@ -98,20 +98,20 @@ export default function Page() {
           title: "The practical stuff, handled.",
           body:
             "Uniform suppliers, bus routes across Singapore, calendar, mealtimes, and the day-to-day details that make school life predictable for families.",
-          image: "/img/navbar/campus/class-in-session.jpg",
+          image: "/img/featuredBlock/practical-stuff-handled.jpg",
           href: "/school-uniform-and-transportation",
         }}
         items={[
           {
             title: "Campus Address",
             body: "Where SSSGS is, how to reach us, parking and drop-off arrangements — the basics of getting here.",
-            image: "/img/navbar/campus/school-campus.jpg",
+            image: "/img/featuredBlock/campus-address.jpg",
             href: "/campus-address",
           },
           {
             title: "School Calendar",
             body: "Term dates, holidays and major school events — plan family travel and key moments around the academic year.",
-            image: "/img/navbar/campus/school-calendar.jpg",
+            image: "/img/featuredBlock/school-calendar.jpg",
             href: "/calendar",
           },
           {
@@ -123,21 +123,21 @@ export default function Page() {
           {
             title: "Open house",
             body: "Meet the Principal and educators in person — see classrooms in session, ask anything.",
-            image: "/img/home/about-sssgs/faculty.jpg",
+            image: "/img/featuredBlock/open-house.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
             title: "Upcoming events",
             body: "Open houses, parent meetings, school showcases — RSVP and add to your calendar.",
-            image: "/img/home/admissions/admission-process.jpg",
+            image: "/img/featuredBlock/upcoming-events.jpg",
             imagePosition: "top",
             href: "/events",
           },
           {
             title: "School news",
             body: "What's happening at SSSGS this week, this month, this term — straight from the school.",
-            image: "/img/home/academics/assessment-structure.jpg",
+            image: "/img/featuredBlock/school-news.jpg",
             href: "/news",
           },
         ]}

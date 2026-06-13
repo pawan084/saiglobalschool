@@ -29,6 +29,9 @@ export default function Page() {
           { label: "About", href: "/about-us" },
           { label: "Vision & Mission", href: "/vision-mission" },
         ],
+        image: "/img/featuredBlock/vision-mission-hero.jpg",
+        imageAlt: "SSSGS students growing into thoughtful, capable and kind adults",
+        imagePosition: "center",
       }}
       ctaTitle="See our values in practice"
       ctaSubtitle="Visit the campus or speak with our team about how SSSGS lives its mission."
@@ -44,13 +47,13 @@ export default function Page() {
               Sri Sathya Sai Global School envisions a learning community where academic excellence, character development and life skills are pursued together — not in isolation.
             </p>
           </div>
-          <div className="relative aspect-square rounded-md overflow-hidden">
+          <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-[var(--brand-cream)]">
             <Image
               src="/img/navbar/about/vision-mission/vision-mission.jpg"
               alt="SSSGS vision: light bulb on the path"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain bg-[var(--brand-cream)] p-6"
+              className="object-cover"
             />
           </div>
         </div>

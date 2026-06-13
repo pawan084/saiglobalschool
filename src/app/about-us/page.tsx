@@ -83,8 +83,8 @@ export default function Page() {
           <div className="relative hidden lg:block">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] border border-white/15 bg-white/10 shadow-2xl">
               <Image
-                src="/img/photos-2026-06/about-head-heart-hand.jpg"
-                alt="Students learning at Sri Sathya Sai Global School"
+                src="/img/navbar/about/about-us/about-us-hero.jpg"
+                alt="Sri Sathya Sai Global School students and educators"
                 fill
                 fetchPriority="high"
                 loading="eager"
@@ -124,21 +124,21 @@ export default function Page() {
           {
             title: "Management & Governance",
             body: "Transparent, parent-aligned governance — clear roles, regular communication, and an accountable structure.",
-            image: "/img/home/about-sssgs/management-governance.jpg",
+            image: "/img/featuredBlock/management-governance.jpg",
             imagePosition: "top",
             href: "/management-governance",
           },
           {
             title: "Faculty",
             body: "Experienced educators with subject expertise and a values-led teaching practice — they know every child by name.",
-            image: "/img/photos-2026-06/faculty-group.jpg",
+            image: "/img/featuredBlock/faculty.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
             title: "Parent Community",
             body: "An active parent community that supports the school, supports each other, and supports children growing up.",
-            image: "/img/photos-2026-06/about-parent-community.jpg",
+            image: "/img/featuredBlock/parent-community.jpg",
             imagePosition: "top",
             href: "/parent-community",
           },
@@ -161,19 +161,19 @@ export default function Page() {
           {
             title: "Human Excellence",
             body: "Competence, character and contribution on equal footing — the SSSGS pedagogy puts all three at the heart of teaching.",
-            image: "/img/home/about-sssgs/human-excellence.jpg",
+            image: "/img/featuredBlock/human-excellence.jpg",
             href: "/human-excellence",
           },
           {
             title: "Values Integration & Academics",
             body: "Values aren't an extra subject — they're integrated into the way every subject is taught, from Language to Maths.",
-            image: "/img/home/about-sssgs/values-integration.jpg",
+            image: "/img/featuredBlock/values-integration-academics.jpg",
             href: "/values-integration-academics",
           },
           {
             title: "A day at SSSGS",
             body: "Eight blocks — morning circle to closing reflection — showing how character and academics live together.",
-            image: "/img/photos-2026-06/about-a-day.jpg",
+            image: "/img/featuredBlock/a-day-at-sssgs.jpg",
             href: "/a-day-at-sssgs",
           },
         ]}

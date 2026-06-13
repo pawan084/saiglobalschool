@@ -46,14 +46,14 @@ export default function Page() {
           title: "Parent–student handbook — everything in one place.",
           body:
             "Policies, expectations, support channels, and the rhythms of SSSGS life — written for parents and shared openly. Plus supplemental guides on transitions, settling-in, and learning approaches.",
-          image: "/img/navbar/resources/parent-student-handbook.jpg",
+          image: "/img/featuredBlock/parent-student-handbook.jpg",
           href: "/parent-student-handbook",
         }}
         items={[
           {
             title: "School Calendar",
             body: "Term dates, public holidays and major school events for the current academic year — plus a downloadable PDF.",
-            image: "/img/navbar/resources/school-calendar.jpg",
+            image: "/img/featuredBlock/school-calendar.jpg",
             href: "/calendar",
           },
           {
@@ -65,13 +65,13 @@ export default function Page() {
           {
             title: "Contact the Office",
             body: "Reach the admissions and operations team by phone, WhatsApp or email — replies within one business day.",
-            image: "/img/photos-2026-06/open-house-2.jpg",
+            image: "/img/featuredBlock/campus-address.jpg",
             href: "/contact-us",
           },
           {
             title: "News & announcements",
             body: "School news, parent updates and announcements — what's happening at SSSGS this week and this term.",
-            image: "/img/home/admissions/admission-process.jpg",
+            image: "/img/featuredBlock/school-news.jpg",
             imagePosition: "top",
             href: "/news",
           },
@@ -85,7 +85,7 @@ export default function Page() {
           {
             title: "Events calendar",
             body: "Upcoming open houses, parent meetings, school showcases — RSVP and add to your calendar.",
-            image: "/img/home/resources-for-parents/school-calendar.jpg",
+            image: "/img/featuredBlock/upcoming-events.jpg",
             href: "/events",
           },
         ]}
@@ -100,14 +100,14 @@ export default function Page() {
           title: "Phonics, Abacus, Olympiad — focused enrichment.",
           body:
             "Structured early-literacy work, mental-maths acceleration through Abacus and Vedic techniques, and subject-specific Olympiad preparation. Each programme has its own teaching team and outcomes.",
-          image: "/img/navbar/resources/enrichment-activities.jpg",
+          image: "/img/featuredBlock/enrichment-activities.jpg",
           href: "/enrichment-activities",
         }}
         items={[
           {
             title: "Phonics Classes",
             body: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
-            image: "/img/navbar/resources/enrichment-activities.jpg",
+            image: "/img/featuredBlock/enrichment-activities.jpg",
             href: "/phonics-classes",
           },
           {
@@ -125,19 +125,19 @@ export default function Page() {
           {
             title: "Technology & LMS",
             body: "Parents and students track homework, grades and communication through one learning management system.",
-            image: "/img/home/academics/technology-lms.jpg",
+            image: "/img/featuredBlock/technology-lms.jpg",
             href: "/technology-lms",
           },
           {
             title: "Student support",
             body: "Personalised academic and emotional support — settling-in help, learning-needs support, one-to-one guidance.",
-            image: "/img/home/academics/student-support.jpg",
+            image: "/img/featuredBlock/student-support.jpg",
             href: "/student-support",
           },
           {
             title: "Non-academic programmes",
             body: "CCA, sport, performance and service — programmes that round out a child's development beyond the syllabus.",
-            image: "/img/home/academics/co-curricular-activities.jpg",
+            image: "/img/featuredBlock/co-curricular-activities.jpg",
             href: "/non-academic",
           },
         ]}

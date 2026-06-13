@@ -21,15 +21,15 @@ export type SimplePage = {
 
 const pageImages: Record<string, { src: string; alt: string; position?: "center" | "top" | "bottom" }> = {
   "academic-pathway": {
-    src: "/img/home/academics/academic-pathway.jpg",
+    src: "/img/featuredBlock/academic-pathway.jpg",
     alt: "Students progressing through the SSSGS academic pathway",
   },
   "assessment-structure": {
-    src: "/img/home/academics/assessment-structure.jpg",
+    src: "/img/featuredBlock/academic-assessment-structure.jpg",
     alt: "Assessment and classroom feedback at SSSGS",
   },
   "courses-offered": {
-    src: "/img/home/academics/curriculum.jpg",
+    src: "/img/featuredBlock/courses-offered.jpg",
     alt: "Courses and curriculum at SSSGS",
   },
   "parent-community": {
@@ -38,16 +38,16 @@ const pageImages: Record<string, { src: string; alt: string; position?: "center"
     position: "top",
   },
   "student-support": {
-    src: "/img/home/academics/student-support.jpg",
+    src: "/img/featuredBlock/student-support.jpg",
     alt: "Student support at SSSGS",
     position: "top",
   },
   "technology-lms": {
-    src: "/img/home/academics/technology-lms.jpg",
+    src: "/img/featuredBlock/technology-lms.jpg",
     alt: "Technology and LMS support at SSSGS",
   },
   "enrichment-activities": {
-    src: "/img/home/learning-labs/enrichment-activities.jpg",
+    src: "/img/featuredBlock/enrichment-activities.jpg",
     alt: "Enrichment activities at SSSGS",
   },
   "phonics-classes": {
@@ -59,15 +59,15 @@ const pageImages: Record<string, { src: string; alt: string; position?: "center"
     alt: "Abacus and Vedic Maths at SSSGS",
   },
   olympiad: {
-    src: "/img/home/resources-for-parents/olympiad.jpg",
+    src: "/img/featuredBlock/enrichment-activities.jpg",
     alt: "Olympiad coaching at SSSGS",
   },
   "non-academic": {
-    src: "/img/home/campus-life/co-curricular-activities.jpg",
+    src: "/img/featuredBlock/co-curricular-activities.jpg",
     alt: "Non-academic activities at SSSGS",
   },
   "school-uniform-and-transportation": {
-    src: "/img/home/campus-life/uniform-transport.jpg",
+    src: "/img/featuredBlock/practical-stuff-handled.jpg",
     alt: "School uniform and transportation at SSSGS",
   },
 };

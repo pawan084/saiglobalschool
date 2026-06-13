@@ -40,7 +40,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/img/home/hero/school-campus.jpg"
-            alt="The Sri Sathya Sai Global School campus"
+            alt="A smooth landing for families at Sri Sathya Sai Global School"
             fill
             preload
             fetchPriority="high"
@@ -93,48 +93,48 @@ export default function Home() {
           title: "A smooth landing for families on the move.",
           body:
             "From mid-year admissions to curriculum changes, we support children moving from different schools, countries, or learning systems. At SSSGS, children can continue their Indian curriculum journey with confidence while adapting smoothly to a caring international school environment. Our teachers help each child settle in with personal attention, clear routines, and academic guidance.",
-          image: "/img/home/right-fit/relocating-families.jpg",
+          image: "/img/featuredBlock/school-campus.jpg",
           href: "/admission-process",
         }}
         items={[
           {
             title: "Families in Transition",
             body: "Students entering from different education systems are supported through a structured curriculum and familiar academic frameworks to ease adjustment.",
-            image: "/img/home/right-fit/families-in-transition.jpg",
+            image: "/img/featuredBlock/families-in-transition.jpg",
             imagePosition: "top",
             href: "/entry-requirements",
           },
           {
             title: "Personalised Settling-in Support",
             body: "Children in transition may feel shy or behind; personalised settling-in support helps them adapt to routines, peers, teachers, and assessments.",
-            image: "/img/photos-2026-06/home-settling-in.jpg",
+            image: "/img/featuredBlock/home-settling-in.jpg",
             imagePosition: "top",
             href: "/student-support",
           },
           {
             title: "Curriculum Continuity Support",
             body: "Parents want confidence that the school can handle movement between CBSE, ICSE, Cambridge, IB, or local curriculum without academic disruption.",
-            image: "/img/photos-2026-06/home-curriculum-continuity.jpg",
+            image: "/img/featuredBlock/home-curriculum-continuity.jpg",
             href: "/curriculum",
           },
           {
             title: "Mid-year admissions welcome",
             body: "Join at any point in the academic year across primary and middle school. Clear process, fast timelines, personalised onboarding.",
-            image: "/img/home/admissions/admission-process.jpg",
+            image: "/img/featuredBlock/admission-process.jpg",
             imagePosition: "top",
             href: "/admission-process",
           },
           {
             title: "Grade-fit assessment",
             body: "A low-pressure check places your child where they will thrive — not just where the calendar says they should be.",
-            image: "/img/photos-2026-06/home-grade-fit.jpg",
+            image: "/img/featuredBlock/home-grade-fit.jpg",
             imagePosition: "top",
             href: "/grade-fit",
           },
           {
             title: "A parent community that helps",
             body: "An active parent community makes the social transition as smooth as the academic one — for the whole family.",
-            image: "/img/photos-2026-06/home-parent-community.jpg",
+            image: "/img/featuredBlock/parent-community.jpg",
             href: "/parent-community",
           },
         ]}
@@ -149,45 +149,45 @@ export default function Home() {
           title: "A learning environment built for confident growth.",
           body:
             "Sri Sathya Sai Global School combines experienced educators, structured classroom learning, and application-based teaching to help children build strong academic foundations. Students learn through clear guidance, regular feedback, and practical classroom experiences that make concepts easier to understand and apply.",
-          image: "/img/home/why-sssgs/school-ai-learning-environment.avif",
+          image: "/img/featuredBlock/school-ai-learning-environment.avif",
           href: "/about-us",
         }}
         items={[
           {
             title: "Experienced Educators",
             body: "Our teaching team includes educators with diverse academic experience, delivering structured & consistent classroom instruction.",
-            image: "/img/home/why-sssgs/experienced-educators.jpg",
+            image: "/img/featuredBlock/experienced-educators.jpg",
             imagePosition: "top",
             href: "/faculty",
           },
           {
             title: "Personalised Learning Support",
             body: "Students receive guided academic support through structured feedback, progress tracking, and adaptive learning tools.",
-            image: "/img/home/why-sssgs/personalized-learning-support.jpg",
+            image: "/img/featuredBlock/personalized-learning-support.jpg",
             href: "/student-support",
           },
           {
             title: "Application-Based Learning",
             body: "Students engage in practical, experiment-based learning across applied subjects to strengthen conceptual understanding.",
-            image: "/img/photos-2026-06/home-application-based.jpg",
+            image: "/img/featuredBlock/home-application-based.jpg",
             href: "/learning-labs",
           },
           {
             title: "NCERT-aligned curriculum",
             body: "A recognised, rigorous academic backbone across primary and middle school — built for continuity through CBSE, ICSE, Cambridge or IB.",
-            image: "/img/photos-2026-06/home-ncert-aligned.jpg",
+            image: "/img/featuredBlock/home-ncert-aligned.jpg",
             href: "/curriculum",
           },
           {
             title: "Character & values, threaded through",
             body: "Character isn't a class. It shows up in daily routines, in conversations, and in the way every subject is taught.",
-            image: "/img/photos-2026-06/home-character-values-1.jpg",
+            image: "/img/featuredBlock/home-character-values-1.jpg",
             href: "/character-development",
           },
           {
             title: "Assessment for learning",
             body: "Daily formative checks, weekly reviews and term assessments — designed to shape teaching, not just produce grades.",
-            image: "/img/home/academics/assessment-structure.jpg",
+            image: "/img/featuredBlock/assessment-structure.jpg",
             href: "/assessment-structure",
           },
         ]}

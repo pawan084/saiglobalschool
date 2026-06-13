@@ -2,7 +2,7 @@
  * Cache-first for static assets, network-first for pages, offline fallback page.
  * Update the version below when shipping a new shell.
  */
-const VERSION = "sssgs-v1";
+const VERSION = "sssgs-v2";
 const SHELL = `${VERSION}-shell`;
 const PAGES = `${VERSION}-pages`;
 const STATIC = `${VERSION}-static`;

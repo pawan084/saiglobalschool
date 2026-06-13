@@ -35,7 +35,7 @@ export default function Page() {
       <ContentSection flush>
         <div className="relative aspect-[16/8] rounded-md overflow-hidden">
           <Image
-            src="/img/navbar/campus/facilities/school-facilities.jpg"
+            src="/img/featuredBlock/facilities.jpg"
             alt="SSSGS school building"
             fill
             sizes="(max-width: 1024px) 100vw, 70vw"

@@ -110,7 +110,7 @@ export default function Page() {
           {
             title: "Open House",
             body: "Meet our Principal and educators in person — explore the curriculum, ask about admissions, tour the campus.",
-            image: "/img/navbar/admissions/registration.jpg",
+            image: "/img/featuredBlock/open-house.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
@@ -130,13 +130,13 @@ export default function Page() {
           {
             title: "Fee calculator",
             body: "Estimate annual fees by grade band — tuition, lab, CCA and books — before you commit.",
-            image: "/img/home/academics/student-support.jpg",
+            image: "/img/featuredBlock/student-support.jpg",
             href: "/fee-structure/calculator",
           },
           {
             title: "Calendar & events",
             body: "Term dates, school events and the next open house — plan family travel around the academic year.",
-            image: "/img/home/resources-for-parents/school-calendar.jpg",
+            image: "/img/featuredBlock/school-calendar.jpg",
             href: "/calendar",
           },
           {

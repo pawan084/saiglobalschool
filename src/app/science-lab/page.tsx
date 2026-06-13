@@ -14,7 +14,7 @@ export default function Page() {
       hero={{
         title: "Science Lab — where curiosity meets evidence",
         lead: "Hands-on experiments and structured enquiry, followed by report writing in the practical lab notebook — children learn to think like scientists.",
-        image: "/img/home/learning-labs/science-lab.jpg",
+        image: "/img/featuredBlock/science-lab.jpg",
       }}
       quote={{ text: "Science is a way of thinking much more than it is a body of knowledge.", author: "Carl Sagan" }}
       pillars={[

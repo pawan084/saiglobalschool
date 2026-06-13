@@ -2,13 +2,14 @@ import { NextResponse } from "next/server";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
 import { isAllowedOrigin } from "@/lib/origin";
 import { maskEmail } from "@/lib/log";
+import { getSmtpConfig, sendSmtpMail } from "@/lib/smtp";
 
 /**
  * Inquire / RSVP / tour-booking receiver.
  *
- * Logs sanitized record + returns a tracking reference. When you have an ESP
- * or CRM key, fan out to those services here — the client contract is stable
- * (just call this endpoint with whatever fields make sense for the source).
+ * Sends a notification email to the school office and returns a tracking
+ * reference. The client contract is stable across contact, inquiry and RSVP
+ * forms.
  */
 
 const MAX_FIELD_LEN = 200;
@@ -30,6 +31,38 @@ function boundedInt(v: unknown, max: number): number | undefined {
   const n = Number(v);
   if (!Number.isFinite(n) || n < 0) return undefined;
   return Math.min(Math.floor(n), max);
+}
+
+const fieldLabels: Record<string, string> = {
+  source: "Form source",
+  name: "Parent / contact name",
+  email: "Email",
+  phone: "Phone / WhatsApp",
+  preferred_contact: "Preferred contact method",
+  best_time: "Best time to contact",
+  child_name: "Child name",
+  child_age: "Child age",
+  grade: "Child grade",
+  current_school: "Current school",
+  current_curriculum: "Current curriculum",
+  joining_timeline: "Expected joining timeline",
+  tour_type: "Preferred visit type",
+  tour_date: "Preferred tour date",
+  topic: "Topic",
+  message: "Message",
+  eventTitle: "Event",
+  slot: "Slot",
+  guests: "Guests",
+};
+
+function submittedFields(body: Record<string, unknown>) {
+  return Object.entries(body)
+    .filter(([key]) => key !== "honey")
+    .map(([key, value]) => {
+      const label = fieldLabels[key] || key.replace(/_/g, " ");
+      const raw = typeof value === "string" ? value.trim() : value === undefined || value === null ? "" : String(value);
+      return { label, value: raw || "-" };
+    });
 }
 
 export async function POST(req: Request) {
@@ -70,8 +103,18 @@ export async function POST(req: Request) {
     name: cap(body.name, MAX_FIELD_LEN).trim(),
     email: cap(body.email, MAX_FIELD_LEN).trim().toLowerCase(),
     phone: cap(body.phone, MAX_FIELD_LEN),
+    preferredContact: cap(body.preferred_contact, MAX_FIELD_LEN),
+    bestTime: cap(body.best_time, MAX_FIELD_LEN),
+    childName: cap(body.child_name, MAX_FIELD_LEN),
+    childAge: cap(body.child_age, MAX_FIELD_LEN),
     grade: cap(body.grade, MAX_FIELD_LEN),
+    currentSchool: cap(body.current_school, MAX_FIELD_LEN),
+    currentCurriculum: cap(body.current_curriculum, MAX_FIELD_LEN),
+    joiningTimeline: cap(body.joining_timeline, MAX_FIELD_LEN),
+    tourType: cap(body.tour_type, MAX_FIELD_LEN),
+    tourDate: cap(body.tour_date, MAX_FIELD_LEN),
     topic: cap(body.topic, MAX_TOPIC_LEN),
+    message: cap(body.message, MAX_TOPIC_LEN),
     eventTitle: cap(body.eventTitle, MAX_FIELD_LEN),
     slot: cap(body.slot, MAX_FIELD_LEN),
     source: cap(body.source, MAX_FIELD_LEN) || "inquire",
@@ -86,6 +129,87 @@ export async function POST(req: Request) {
   }
 
   const ref = reference();
+  const smtp = getSmtpConfig();
+  if (!smtp) {
+    console.error("[inquire] SMTP is not configured", { ref });
+    return NextResponse.json(
+      { ok: false, error: "Email is not configured. Please call or WhatsApp us." },
+      { status: 500 }
+    );
+  }
+
+  const recipient = process.env.SMTP_TO || process.env.SMTP_FROM || smtp.user;
+  const from = process.env.SMTP_FROM || smtp.user;
+  const subjectParts = ["SSSGS website inquiry", data.source, data.grade || data.topic || data.eventTitle]
+    .filter(Boolean)
+    .join(" - ");
+  const allFields = submittedFields(body);
+  const allFieldRows = allFields.map(({ label, value }) => `${label.padEnd(28, " ")}: ${value}`);
+  const submittedAt = new Date().toLocaleString("en-SG", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Singapore",
+  });
+  const text = [
+    "New SSSGS website enquiry",
+    "========================",
+    "",
+    `Reference       : ${ref}`,
+    `Submitted at    : ${submittedAt} SGT`,
+    `Form source     : ${data.source}`,
+    "",
+    "Parent / Contact details",
+    "------------------------",
+    `Name            : ${data.name}`,
+    `Email           : ${data.email}`,
+    `Phone / WhatsApp: ${data.phone || "-"}`,
+    `Contact method  : ${data.preferredContact || "-"}`,
+    `Best time       : ${data.bestTime || "-"}`,
+    "",
+    "Child / Admissions details",
+    "--------------------------",
+    `Child name      : ${data.childName || "-"}`,
+    `Child age       : ${data.childAge || "-"}`,
+    `Child grade     : ${data.grade || "-"}`,
+    `Current school  : ${data.currentSchool || "-"}`,
+    `Curriculum      : ${data.currentCurriculum || "-"}`,
+    `Joining timeline: ${data.joiningTimeline || "-"}`,
+    `Visit type      : ${data.tourType || "-"}`,
+    `Preferred date  : ${data.tourDate || "-"}`,
+    `Topic           : ${data.topic || "-"}`,
+    `Event           : ${data.eventTitle || "-"}`,
+    `Slot            : ${data.slot || "-"}`,
+    data.guests !== undefined ? `Guests          : ${data.guests}` : "Guests          : -",
+    "",
+    "Message:",
+    data.message || "-",
+    "",
+    "All submitted fields",
+    "--------------------",
+    ...allFieldRows,
+    "",
+    "Reply directly to this email to contact the parent.",
+  ].join("\n");
+
+  try {
+    await sendSmtpMail(smtp, {
+      to: recipient,
+      from,
+      replyTo: data.email,
+      subject: subjectParts,
+      text,
+    });
+  } catch (error) {
+    console.error("[inquire] failed to send email", {
+      ref,
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return NextResponse.json(
+      { ok: false, error: "Could not send email right now. Please call or WhatsApp us." },
+      { status: 502 }
+    );
+  }
+
   console.log("[inquire] received", {
     ref,
     source: data.source,

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Modal } from "react-responsive-modal";
+import 'react-responsive-modal/styles.css';
 import Icon from "./Icon";
 import { FACULTY, type FacultyMember } from "@/data/faculty";
 

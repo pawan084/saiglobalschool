@@ -72,7 +72,6 @@ export const FACULTY: FacultyMember[] = [
     slug: "moumita-mazumdar",
     name: "Moumita Mazumdar",
     role: "Admissions & School Operations Lead",
-    role: "Admissions & School Operations Lead",
     image: "/img/faculty/moumita-mazumdar.jpg",
     short: "15+ years of teaching, parent coordination, early years education, and school operations across Singapore and India.",
     qualifications: [
@@ -104,7 +103,6 @@ export const FACULTY: FacultyMember[] = [
   {
     slug: "neena-gupta",
     name: "Neena Gupta",
-    role: "Second Language HOD & Lab Coordinator",
     role: "Second Language HOD & Lab Coordinator",
     image: "/img/faculty/neena-gupta.jpg",
     short: "Two decades of teaching Hindi, language learning, value education, and student enrichment across Singapore and India.",

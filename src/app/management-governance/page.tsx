@@ -68,10 +68,10 @@ export default function Page() {
       <ContentSection flush>
         <div className="mx-auto w-full">
           <Image
-            src="/img/navbar/about/management-governance/Management & governance, transparent and parent-aligned.jpg"
+            src="/img/about/sssgs-vidya-vahini.jpg"
             alt="Management and governance at SSSGS"
-            width={3200}
-            height={2125}
+            width={1920}
+            height={1275}
             sizes="(max-width: 1280px) 100vw, 1200px"
             className="h-auto w-full rounded-lg border border-[var(--brand-rule)] bg-slate-100"
           />

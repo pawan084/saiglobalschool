@@ -51,7 +51,7 @@ export default function Page() {
         }}
         items={[
           {
-            title: "SSSGS spaces",
+            title: "SSSGS Spaces",
             body: "Classrooms, labs, library and reflection corners — every space is built around how children actually learn.",
             image: "/img/home/academics/assessment-structure.jpg",
             href: "/sssgs-spaces",
@@ -63,25 +63,19 @@ export default function Page() {
             href: "/facilities",
           },
           {
-            title: "SSSGS Spaces",
-            body: "Classrooms, labs, library and reflection spaces — every space is built around how children actually learn.",
-            image: "/img/navbar/campus/classroom-spaces.jpg",
-            href: "/sssgs-spaces",
-          },
-          {
             title: "Co-Curricular Activities",
             body: "Music, visual arts, performing arts, sport, speech & debate, environment & service — every child finds their thing.",
             image: "/img/featuredBlock/co-curricular-activities.jpg",
             href: "/cca",
           },
           {
-            title: "Library & reading corners",
+            title: "Library & Reading Corners",
             body: "Curated collection across grade levels with quiet corners for sustained reading and discussion.",
             image: "/img/home/campus-life/sssgs-spaces.jpg",
             href: "/sssgs-spaces",
           },
           {
-            title: "A day at SSSGS",
+            title: "A Day at SSSGS",
             body: "Walk through the eight blocks that shape a school day — and see how character and academics live together.",
             image: "/img/featuredBlock/school-day-blocks.jpg",
             href: "/a-day-at-sssgs",
@@ -121,21 +115,21 @@ export default function Page() {
             href: "/parent-community",
           },
           {
-            title: "Open house",
+            title: "Open House",
             body: "Meet the Principal and educators in person — see classrooms in session, ask anything.",
             image: "/img/featuredBlock/open-house.jpg",
             imagePosition: "top",
             href: "/open-house",
           },
           {
-            title: "Upcoming events",
+            title: "Upcoming Events",
             body: "Open houses, parent meetings, school showcases — RSVP and add to your calendar.",
             image: "/img/featuredBlock/upcoming-events.jpg",
             imagePosition: "top",
             href: "/events",
           },
           {
-            title: "School news",
+            title: "School News",
             body: "What's happening at SSSGS this week, this month, this term — straight from the school.",
             image: "/img/featuredBlock/school-news.jpg",
             href: "/news",

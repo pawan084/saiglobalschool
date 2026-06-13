@@ -18,8 +18,8 @@ export const simplePages: Record<string, SimplePage> = {
     features: {
       sectionTitle: "Pathway by grade band",
       items: [
-        { icon: "1", title: "Grades 1–2 — Foundations", body: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
-        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Maths, Science, Social Studies and ICT." },
+        { icon: "1", title: "Grades 1–2 — Foundations", body: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Mathematics, Science, Social Studies and ICT." },
         { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
       ],
       cols: 3,
@@ -71,6 +71,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Courses Offered",
     lead: "Subjects across primary and middle school — academic core plus arts, physical education, value education and ICT.",
     breadcrumb: [academicsCrumb, { label: "Courses Offered", href: "/courses-offered" }],
+    intro: [
+      "The academic core runs through every grade, widening from foundational literacy and numeracy in the early years to specialised subject teaching by middle school.",
+      "Alongside the core, every child takes the arts, physical education, ICT and value education each week — so the timetable develops the whole child, not a narrow set of subjects.",
+    ],
     features: {
       sectionTitle: "Subjects across grades",
       items: [
@@ -80,7 +84,7 @@ export const simplePages: Record<string, SimplePage> = {
         { iconName: "calculator", title: "Mathematics", body: "Foundations through pre-algebra and geometry across the grade range." },
         { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in middle school." },
         { iconName: "globe", title: "Social Studies", body: "History, geography and civics with critical-thinking emphasis." },
-        { iconName: "monitor", title: "Information and Communication Technology", body: "Digital literacy from Grade 1, including online safety and computational thinking." },
+        { iconName: "monitor", title: "ICT", body: "Information and Communication Technology — digital literacy from Grade 1, including online safety and computational thinking." },
         { iconName: "palette", title: "Art & Music", body: "Visual arts, music and performing arts in every grade." },
         { iconName: "play", title: "Physical Education", body: "Movement, sport and yoga integrated weekly." },
         { iconName: "sparkle", title: "Value Education", body: "Daily moments and dedicated sessions for character work." },
@@ -201,6 +205,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Student Support",
     lead: "Every child needs different support at different times. SSSGS provides academic, social and emotional support woven into the school day.",
     breadcrumb: [academicsCrumb, { label: "Student Support", href: "/student-support" }],
+    intro: [
+      "Support at SSSGS is proactive rather than reactive — homeroom teachers know each child well enough to notice when something changes and step in early.",
+      "Academic, pastoral and wellbeing support work together, so a child who needs help in one area is supported across the others too.",
+    ],
     features: {
       sectionTitle: "Layers of support",
       items: [
@@ -234,13 +242,17 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Enrichment Activities",
     lead: "Programmes that go beyond the core curriculum — Phonics classes, Abacus and Vedic Maths, Olympiad coaching, and more.",
     breadcrumb: [academicsCrumb, { label: "Enrichment", href: "/enrichment-activities" }],
+    intro: [
+      "Enrichment programmes run alongside the regular timetable, giving children a structured way to go deeper in areas that interest them or need extra attention.",
+      "Most run in small groups after school hours, each with its own teaching team, so they complement classroom learning rather than competing with it.",
+    ],
     features: {
-      sectionTitle: "Programs available",
+      sectionTitle: "Programmes available",
       items: [
-        { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy program for foundational reading." },
+        { iconName: "book-open", title: "Phonics Classes", body: "Structured early-literacy programme for foundational reading." },
         { iconName: "calculator", title: "Abacus & Vedic Maths", body: "Mental-maths acceleration through Abacus and Vedic techniques." },
         { iconName: "trophy", title: "Olympiad Coaching", body: "Subject-specific Olympiad preparation for Grades 3–8." },
-        { iconName: "palette", title: "Creative & performing arts", body: "Extended arts programs across visual, music and dance." },
+        { iconName: "palette", title: "Creative & Performing Arts", body: "Extended arts programmes across visual, music and dance." },
       ],
       cols: 2,
       tone: "cream",
@@ -251,15 +263,15 @@ export const simplePages: Record<string, SimplePage> = {
         { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" },
         { label: "Olympiad", href: "/olympiad" },
       ],
-      body: ["Each enrichment program runs alongside the core curriculum, with its own teaching team and outcomes."],
+      body: ["Each enrichment programme runs alongside the core curriculum, with its own teaching team and outcomes."],
     },
   },
 
   "phonics-classes": {
     eyebrow: "Enrichment",
     title: "Phonics Classes",
-    lead: "Structured early-literacy program — children build the foundation for fluent, confident reading.",
-    breadcrumb: [resourcesCrumb, { label: "Phonics", href: "/phonics-classes" }],
+    lead: "Structured early-literacy programme — children build the foundation for fluent, confident reading.",
+    breadcrumb: [resourcesCrumb, { label: "Phonics Classes", href: "/phonics-classes" }],
     features: {
       sectionTitle: "Phonics at SSSGS",
       items: [
@@ -276,11 +288,15 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Abacus & Vedic Maths",
     lead: "Mental-maths acceleration through Abacus practice and Vedic techniques — children develop speed, accuracy and confidence with numbers.",
     breadcrumb: [resourcesCrumb, { label: "Abacus & Vedic Maths", href: "/abacus-vedic-maths" }],
+    intro: [
+      "Children begin on the physical abacus and gradually move to visualising the beads, so they can calculate large sums mentally. Alongside this, Vedic techniques give them quick, pattern-based shortcuts for multiplication, division and more.",
+      "Sessions run in small groups after school, graded by ability rather than age, so each child is challenged at the right level and builds genuine number fluency over time.",
+    ],
     features: {
       sectionTitle: "Why it works",
       items: [
         { icon: "⚡", title: "Mental computation", body: "Structured practice builds neural pathways for fast arithmetic." },
-        { iconName: "target", title: "Confidence with numbers", body: "Children stop fearing math when they feel competent." },
+        { iconName: "target", title: "Confidence with numbers", body: "Children stop fearing maths when they feel competent." },
         { iconName: "lightbulb", title: "Cross-subject benefit", body: "Number sense supports problem-solving in science and beyond." },
       ],
       cols: 3,
@@ -290,7 +306,7 @@ export const simplePages: Record<string, SimplePage> = {
   "olympiad": {
     eyebrow: "Enrichment",
     title: "Olympiad Coaching",
-    lead: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science, English and general knowledge. Held after school hours, not during regular class time.",
+    lead: "Subject-specific Olympiad preparation for Grades 3–8 — Maths, Science and English. Held after school hours, not during regular class time.",
     breadcrumb: [resourcesCrumb, { label: "Olympiad", href: "/olympiad" }],
     features: {
       sectionTitle: "How coaching works",
@@ -308,6 +324,10 @@ export const simplePages: Record<string, SimplePage> = {
     title: "Non-Academic Activities",
     lead: "Beyond the classroom — sport, arts, community service and the spaces where children grow as people.",
     breadcrumb: [campusCrumb, { label: "Non-Academic", href: "/non-academic" }],
+    intro: [
+      "Some of the most important learning happens outside the academic timetable — on the field, on stage, and in service to others.",
+      "These activities give every child a place to discover strengths, build friendships and practise the values the school teaches.",
+    ],
     features: {
       sectionTitle: "Areas of activity",
       items: [
@@ -323,7 +343,11 @@ export const simplePages: Record<string, SimplePage> = {
     eyebrow: "Campus",
     title: "Uniform & Transportation",
     lead: "Practical details — uniform requirements, where to obtain them, and the school transport routes available.",
-    breadcrumb: [campusCrumb, { label: "Uniform & Transport", href: "/school-uniform-and-transportation" }],
+    breadcrumb: [campusCrumb, { label: "Uniform & Transportation", href: "/school-uniform-and-transportation" }],
+    intro: [
+      "This page covers the everyday practicalities families ask about most — what children wear, where to buy it, and how they get to and from school.",
+      "Uniform and transport are arranged separately from tuition, and the school office can help you sort out both before term begins.",
+    ],
     features: {
       sectionTitle: "What to expect",
       items: [

@@ -39,6 +39,7 @@ export async function generateMetadata({
 
 function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-SG", {
+    timeZone: "Asia/Singapore",
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -48,6 +49,7 @@ function fmtDate(iso: string) {
 
 function fmtTime(iso: string) {
   return new Date(iso).toLocaleTimeString("en-SG", {
+    timeZone: "Asia/Singapore",
     hour: "2-digit",
     minute: "2-digit",
   });

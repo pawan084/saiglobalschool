@@ -23,7 +23,7 @@ const parentNeeds = [
 const atAGlance = [
   { iconName: "graduation", title: "Primary & middle school", body: "A focused primary and middle-school pathway for internationally mobile families." },
   { iconName: "book-open", title: "NCERT-aligned", body: "A familiar academic backbone with continuity for Indian and global curriculum transitions." },
-  { iconName: "users", title: "1 : 20 maximum", body: "Small-group learning so teachers can notice progress, confidence and support needs." },
+  { iconName: "users", title: "1:20 maximum", body: "Small-group learning so teachers can notice progress, confidence and support needs." },
   { iconName: "shield", title: "CPE Singapore", body: "Registered Private Education Institution with clear governance and parent-facing policies." },
 ];
 
@@ -116,7 +116,7 @@ export default function Page() {
         featured={{
           title: "Head, Heart and Hand — the SSSGS way.",
           body:
-            "We pursue Head, Heart and Hand — knowledge with compassion and purposeful action — so children grow into confident, contributing adults. Our values: Sathya, Dharma, Shanti, Prema, Ahimsa.",
+            "Head guides clear thinking, Heart shapes character, and Hand turns both into purposeful action — so children grow into confident, contributing adults. Five values run through it all: Sathya, Dharma, Shanti, Prema and Ahimsa.",
           image: "/img/photos-2026-06/about-head-heart-hand.jpg",
           href: "/vision-mission",
         }}
@@ -182,7 +182,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The credentials behind the philosophy" title="Registered, accredited, and accountable" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          A values-led school still has to meet rigorous external standards. SSSGS is a CPE-Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 maximum teacher–student ratio.
+          A values-led school still has to meet rigorous external standards. SSSGS is a CPE Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 maximum teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

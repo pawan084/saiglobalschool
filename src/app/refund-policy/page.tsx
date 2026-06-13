@@ -12,7 +12,7 @@ const sections = [
   { title: "Cooling-off period", body: "Within seven (7) calendar days of signing the Student Contract, a full refund of fees paid is available, less any non-refundable application fee — in line with CPE Singapore guidelines." },
   { title: "Withdrawal before course commencement", body: "If the student withdraws before the official commencement date of the academic term, all fees paid (except the registration fee and any non-refundable application fee) will be refunded within ten (10) working days." },
   { title: "Withdrawal after course commencement", body: "Refunds for withdrawal after the course commences are calculated on a pro-rata basis according to the published refund schedule. The registration fee, insurance and consumables are non-refundable." },
-  { title: "Refund process", body: "Submit a written refund request to the admissions office. Approved refunds are processed to the original payment source within 10–14 working days of approval." },
+  { title: "Refund process", body: "Submit a written refund request to the admissions office. Approved refunds are processed to the original payment source within ten to fourteen (10–14) working days of approval." },
   { title: "School-initiated withdrawal", body: "In the rare event that SSSGS cancels a course, parents receive a full refund of all fees paid for that course." },
 ];
 

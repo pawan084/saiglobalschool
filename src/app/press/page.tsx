@@ -82,7 +82,7 @@ export default function Page() {
                   className="mt-1 inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[var(--brand-primary)] hover:underline"
                 >
                   <Icon name="document" size={12} />
-                  Download PNG (640×640)
+                  Download PNG (512×512)
                 </a>
               </div>
             </div>

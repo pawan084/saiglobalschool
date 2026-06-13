@@ -28,13 +28,6 @@ export default function Page() {
         "Students explaining how they arrived at an answer",
         "Real-world maths: budgeting, measuring, scaling, building",
       ]}
-      relatedLabs={[
-        { label: "Science Lab", href: "/science-lab" },
-        { label: "Language Lab", href: "/language-lab" },
-        { label: "English Lab", href: "/english-lab" },
-        { label: "ICT Lab", href: "/ict-lab" },
-        { label: "All Learning Labs", href: "/learning-labs" },
-      ]}
     />
   );
 }

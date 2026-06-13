@@ -21,15 +21,14 @@ export const metadata = {
 const stats = [
   { value: 9, label: "Subjects taught" },
   { value: 5, label: "Specialist Labs" },
-  { value: 0, display: "1 : 20", label: "Teacher–Student" },
-  { value: 2026, label: "PEI Reg. period" },
+  { value: 0, display: "1:20", label: "Teacher–Student" },
+  { value: 0, display: "2026", label: "PEI Reg. period" },
 ];
 
 const testimonials = [
   { quote: "The PTM was conducted exceptionally well. We appreciated the 60-day plan, individual goals, focus on values beyond academics, and regular daily updates. Our child happily shares her learning experiences at home.", author: "Parent", grade: "Grade 3" },
   { quote: "My child is well settled and loves coming to SSSGS school. The classroom is supportive, and we can see growing confidence, public speaking skills, and free expression.", author: "Parent", grade: "Grade 1" },
   { quote: "We are very happy with the attention given to every child. Teachers encourage good work, use hands-on and real-life examples, and Mathematics step-by-step is paying off.", author: "Parent", grade: "Grade 5" },
-  { quote: "Within weeks of joining, our daughter was settled and asking to come to school. Teachers genuinely know each child by name.", author: "Parent", grade: "Grade 4" },
 ];
 
 export default function Home() {
@@ -65,7 +64,7 @@ export default function Home() {
             <h1 className="font-display font-bold leading-[0.98] tracking-tight text-[44px] sm:text-[58px] lg:text-[72px]">
               <span className="block">Education</span>
               <span className="block italic font-medium text-white/85">blossoms into</span>
-              <span className="block text-[var(--brand-accent)]">Character.</span>
+              <span className="block text-[var(--brand-accent)]">Character</span>
             </h1>
             <p className="mt-6 text-[16px] lg:text-[17px] leading-relaxed text-white/85 max-w-xl font-light">
               {homeHero.lead}

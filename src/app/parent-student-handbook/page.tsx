@@ -98,8 +98,8 @@ const SECTIONS: Section[] = [
 ];
 
 const supplemental = [
-  { name: "Curriculum Continuity Anxiety",        href: "/_files/ugd/Curriculum Continuity Anxiety - SSSGS.pdf" },
-  { name: "Poor Settling-in Support",             href: "/_files/ugd/Poor Settling-in Support - SSSGS.pdf" },
+  { name: "Managing Curriculum Continuity",       href: "/_files/ugd/Curriculum Continuity Anxiety - SSSGS.pdf" },
+  { name: "Settling-in Support",                  href: "/_files/ugd/Poor Settling-in Support - SSSGS.pdf" },
   { name: "Transitioning Between Schools",        href: "/_files/ugd/Transitioning Between Schools - SSSGS.pdf" },
   { name: "Families in Transition",               href: "/_files/ugd/Families in Transition - SSSGS.pdf" },
   { name: "Activity-Based Learning",              href: "/_files/ugd/Activity-Based Learning.pdf" },
@@ -183,7 +183,7 @@ export default function Page() {
           <article className="space-y-7">
             <p className="text-[14.5px] text-slate-600 leading-relaxed">
               This is the web summary of the official Parent–Student Handbook. Print or download the PDF
-              above for the canonical version. Sections below cover what most families ask about most.
+              above for the canonical version. The sections below cover the questions families ask most often.
             </p>
 
             {SECTIONS.map((s, i) => (

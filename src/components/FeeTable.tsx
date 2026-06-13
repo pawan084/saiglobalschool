@@ -21,6 +21,9 @@ export default function FeeTable({ title, rows }: Props) {
   return (
     <div className="border border-[var(--brand-rule)] rounded-md overflow-hidden">
       <div className="bg-[var(--brand-primary)] text-white px-4 py-3 font-bold">{title}</div>
+      <div className="sm:hidden px-4 py-1.5 text-[11px] text-slate-500 bg-slate-50 border-b border-[var(--brand-rule)]">
+        Swipe the table sideways to see all columns →
+      </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-slate-50 text-left">

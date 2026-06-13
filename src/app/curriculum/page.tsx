@@ -23,13 +23,13 @@ const grades = [
   {
     band: "Grades 1–2",
     label: "Foundations",
-    focus: "English, mathematics, environmental studies, second language, ICT and arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
+    focus: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
     accent: "bg-[var(--brand-primary)]",
   },
   {
     band: "Grades 3–5",
     label: "Build",
-    focus: "Concept building across English, Second & Third Language, Maths, Science, Social Studies and ICT.",
+    focus: "Concept building across English, Second & Third Language, Mathematics, Science, Social Studies and ICT.",
     accent: "bg-[var(--brand-accent)]",
   },
   {
@@ -45,7 +45,7 @@ const supportingPrograms = [
   { title: "Assessment Structure", body: "Daily formative + term summative + oral & project work.", href: "/assessment-structure" },
   { title: "Academic Pathway", body: "Detailed grade-by-grade progression and outcomes.", href: "/academic-pathway" },
   { title: "Courses Offered", body: "All subjects across primary and middle school.", href: "/courses-offered" },
-  { title: "Curriculum comparison", body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB for transitioning families.", href: "/curriculum/comparison" },
+  { title: "Curriculum Comparison", body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB for transitioning families.", href: "/curriculum/comparison" },
 ];
 
 export default function Page() {

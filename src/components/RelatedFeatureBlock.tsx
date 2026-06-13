@@ -17,6 +17,10 @@ export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
   const featured = items[0];
   const satellites = items.slice(1, 7);
 
+  // Forward the card's image framing (FeatureBlock only understands top/bottom/center)
+  // so portrait photos keep heads in frame instead of centre-cropping them.
+  const pos = (p?: string): "top" | "bottom" | undefined => (p === "top" || p === "bottom" ? p : undefined);
+
   return (
     <FeatureBlock
       tone={tone}
@@ -26,6 +30,7 @@ export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
         title: featured.title,
         body: featured.lead ?? "Read more about this aspect of life and learning at SSSGS.",
         image: featured.image ?? FALLBACK_IMAGE,
+        imagePosition: pos(featured.imagePosition),
         href: featured.href,
       }}
       items={satellites.map((s) => ({
@@ -34,6 +39,7 @@ export default function RelatedFeatureBlock({ slug, tone = "mist" }: Props) {
         // satellite card would repeat the same filler sentence.
         body: s.lead,
         image: s.image ?? FALLBACK_IMAGE,
+        imagePosition: pos(s.imagePosition),
         href: s.href,
       }))}
     />

@@ -14,7 +14,7 @@ const primary: FeeRow[] = [
   { category: "One-Time / Annual", type: "Registration Fee", amount: "S$500", frequency: "One-Time", remarks: "At the time of admission" },
   { category: "One-Time / Annual", type: "Medical / Accidental Insurance", amount: "S$30", frequency: "Per Annum", remarks: "—" },
   { category: "Tuition & Resource", type: "Tuition Fee", amount: "S$650", frequency: "Per Month", remarks: "—" },
-  { category: "Tuition & Resource", type: "Laboratories & Resource Fees", amount: "S$300", frequency: "Per Annum", remarks: "Includes IT, Science, Maths, English Labs, Library resources" },
+  { category: "Tuition & Resource", type: "Labs & Resources Fee", amount: "S$300", frequency: "Per Annum", remarks: "Includes IT, Science, Maths, English Labs, Library resources" },
   { category: "Tuition & Resource", type: "CCA Fee", amount: "S$250", frequency: "Per Annum", remarks: "As per activity" },
   { category: "Consumables", type: "Books Fee", amount: "S$250", frequency: "Per Annum", remarks: "—" },
   { category: "Consumables", type: "School ID Card", amount: "S$10", frequency: "Each", remarks: "—" },
@@ -24,7 +24,7 @@ const secondary: FeeRow[] = [
   { category: "One-Time / Annual", type: "Registration Fee", amount: "S$600", frequency: "One-Time", remarks: "At the time of admission" },
   { category: "One-Time / Annual", type: "Medical / Accidental Insurance", amount: "S$30", frequency: "Per Annum", remarks: "—" },
   { category: "Tuition & Resource", type: "Tuition Fee", amount: "S$780", frequency: "Per Month", remarks: "—" },
-  { category: "Tuition & Resource", type: "Laboratories & Resource Fees", amount: "S$400", frequency: "Per Annum", remarks: "Includes IT, Science, Maths, English Labs, Library resources" },
+  { category: "Tuition & Resource", type: "Labs & Resources Fee", amount: "S$400", frequency: "Per Annum", remarks: "Includes IT, Science, Maths, English Labs, Library resources" },
   { category: "Tuition & Resource", type: "CCA Fee", amount: "S$300", frequency: "Per Annum", remarks: "As per activity" },
   { category: "Consumables", type: "Books Fee", amount: "S$350", frequency: "Per Annum", remarks: "—" },
   { category: "Consumables", type: "School ID Card", amount: "S$10", frequency: "Each", remarks: "—" },
@@ -75,18 +75,20 @@ export default function Page() {
               ~S$10,100<span className="text-[14px] font-bold text-slate-500"> / year</span>
             </div>
             <p className="mt-2 text-[13px] text-slate-600 leading-relaxed">
-              Indicative annual total. Subjects deepen at this stage; lab fees adjust accordingly.
+              Indicative annual total (tuition + labs + consumables); excludes one-time
+              registration and optional add-ons. Subjects deepen at this stage, so lab fees
+              adjust accordingly.
             </p>
           </div>
         </div>
       </ContentSection>
 
       <ContentSection flush eyebrow="Primary">
-        <FeeTable title="Primary Section — Grades 1 to 5" rows={primary} />
+        <FeeTable title="Primary Section — Grades 1–5" rows={primary} />
       </ContentSection>
 
       <ContentSection flush tone="cream" eyebrow="Middle">
-        <FeeTable title="Middle Section — Grades 6 to 8" rows={secondary} />
+        <FeeTable title="Middle Section — Grades 6–8" rows={secondary} />
       </ContentSection>
 
       <ContentSection flush title="What's included & how it's billed" eyebrow="Notes">

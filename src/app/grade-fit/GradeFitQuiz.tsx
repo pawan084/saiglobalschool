@@ -79,7 +79,9 @@ export default function GradeFitQuiz() {
   const [done, setDone] = useState(false);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const progress = useMemo(() => (step + (done ? 1 : 0)) / QUESTIONS.length, [step, done]);
+  // Progress reflects the current question's position (question 1 of 5 -> 20%),
+  // so the bar is never empty on the first step. Completion shows 100%.
+  const progress = useMemo(() => (done ? 1 : (step + 1) / QUESTIONS.length), [step, done]);
   const result = useMemo(() => recommendedGrade(answers), [answers]);
 
   useEffect(() => () => {

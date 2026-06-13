@@ -26,7 +26,7 @@ const TERMS_2026: Term[] = [
   { id: "t1", name: "Term 1", start: "2026-01-06", end: "2026-03-13", note: "Reopening, orientation week, mid-term review" },
   { id: "t2", name: "Term 2", start: "2026-03-30", end: "2026-06-05", note: "Project work, mid-year assessments" },
   { id: "t3", name: "Term 3", start: "2026-06-29", end: "2026-09-04", note: "Sports day, parent–teacher meetings, mid-term assessments" },
-  { id: "t4", name: "Term 4", start: "2026-09-21", end: "2026-12-04", note: "Annual day, finals, term-end break in late December" },
+  { id: "t4", name: "Term 4", start: "2026-09-21", end: "2026-12-04", note: "Finals and the term-end break in late December" },
 ];
 
 const HOLIDAYS_2026: { date: string; name: string }[] = [
@@ -44,7 +44,7 @@ const HOLIDAYS_2026: { date: string; name: string }[] = [
 ];
 
 const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
 
 function dayOfYear(iso: string): number {
   // A date-only ISO string ("2026-01-06") parses as UTC midnight, so compute the
@@ -57,11 +57,12 @@ function dayOfYear(iso: string): number {
 
 function fmtRange(start: string, end: string) {
   const s = new Date(start), e = new Date(end);
-  return `${s.toLocaleDateString("en-SG", { day: "numeric", month: "short" })} – ${e.toLocaleDateString("en-SG", { day: "numeric", month: "short" })}`;
+  const opts = { timeZone: "Asia/Singapore", day: "numeric", month: "short" } as const;
+  return `${s.toLocaleDateString("en-SG", opts)} – ${e.toLocaleDateString("en-SG", opts)}`;
 }
 
 function fmtDay(iso: string) {
-  return new Date(iso).toLocaleDateString("en-SG", { day: "numeric", month: "short" });
+  return new Date(iso).toLocaleDateString("en-SG", { timeZone: "Asia/Singapore", day: "numeric", month: "short" });
 }
 
 const TOTAL = 365;
@@ -106,13 +107,16 @@ export default function Page() {
       <ContentSection flush eyebrow="Academic year 2026" title="Terms at a glance">
         <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
           Four terms across the calendar year, with breaks in between. Term-end dates are
-          indicative — confirmed dates published in the holiday list each year.
+          indicative; confirmed dates are published in the holiday list each year.
         </p>
 
         <div
-          className="rounded-2xl bg-white border border-[var(--brand-rule)] p-5 lg:p-6 overflow-hidden"
+          className="rounded-2xl bg-white border border-[var(--brand-rule)] p-5 lg:p-6 overflow-x-auto"
           style={{ boxShadow: "var(--shadow-sm)" }}
         >
+          {/* min-width keeps the percentage-positioned month labels from colliding
+              on narrow screens — the ribbon scrolls horizontally instead. */}
+          <div className="min-w-[620px]">
           {/* Month labels */}
           <div className="relative h-5 mb-2">
             {MONTH_NAMES.map((m, i) => {
@@ -154,7 +158,7 @@ export default function Page() {
                   style={{ left: `${startPct}%`, width: `${widthPct}%` }}
                   title={`${t.name}: ${fmtRange(t.start, t.end)}`}
                 >
-                  <span className="truncate px-1">{t.name}</span>
+                  <span className="truncate px-1" style={{ textShadow: "0 1px 2px rgba(11,29,51,0.45)" }}>{t.name}</span>
                 </div>
               );
             })}
@@ -164,7 +168,9 @@ export default function Page() {
               return (
                 <span
                   key={h.date + h.name}
-                  className="absolute top-0 bottom-0 w-[2px] bg-rose-500/90"
+                  // Top + bottom ticks instead of a full-height line, so the marker
+                  // flags the holiday's position without bisecting the centered term label.
+                  className="absolute top-0 h-1.5 -mt-px w-[2px] bg-rose-500"
                   style={{ left: `${left}%` }}
                   title={`${fmtDay(h.date)} — ${h.name}`}
                 />
@@ -174,6 +180,8 @@ export default function Page() {
 
           {/* Today marker */}
           <TodayMarker />
+          </div>
+          <p className="sm:hidden mt-2 text-[11px] text-slate-500">Swipe the timeline sideways to see the full year →</p>
         </div>
 
         {/* Term cards */}

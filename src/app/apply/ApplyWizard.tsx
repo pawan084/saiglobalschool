@@ -350,7 +350,7 @@ export default function ApplyWizard() {
         />
 
         {step === 1 && (
-          <Step title="Parent / guardian details" subtitle="We'll respond to this contact.">
+          <Step title="Parent / guardian details" subtitle="This is how we'll reach you.">
             <Field name="parentName" label="Full name" value={state.parentName} onChange={(v) => patch({ parentName: v })} required error={errors.parentName} />
             <Field name="parentEmail" label="Email" type="email" value={state.parentEmail} onChange={(v) => patch({ parentEmail: v })} required error={errors.parentEmail} />
             <Field name="parentPhone" label="Phone / WhatsApp" value={state.parentPhone} onChange={(v) => patch({ parentPhone: v })} required error={errors.parentPhone} />

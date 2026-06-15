@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
 import { fetchWithTimeout } from "@/lib/fetch";
@@ -35,9 +36,8 @@ export default function FormCard({
   sideContent,
   source = "form",
 }: Props) {
-  const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [reference, setReference] = useState<string | null>(null);
+  const router = useRouter();
   const toast = useToast();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -60,9 +60,10 @@ export default function FormCard({
         toast.show(json.error || "Couldn't send right now. Please try again.", "error");
         return;
       }
-      setSubmitted(true);
-      setReference(json.reference);
-      toast.show("Thanks — we'll be in touch within one business day.", "success");
+      const params = new URLSearchParams();
+      if (typeof json.reference === "string") params.set("ref", json.reference);
+      params.set("source", source);
+      router.push(`/thank-you?${params.toString()}`);
     } catch {
       toast.show("Network hiccup. Please try again.", "error");
     } finally {
@@ -103,29 +104,6 @@ export default function FormCard({
             <p className="text-slate-500 text-[13px] mt-1">{subtitle}</p>
           )}
 
-          {submitted && (
-            <div className="mt-5 p-4 rounded-lg bg-[var(--brand-primary-tint)] border border-[var(--brand-primary)]/30 flex items-start gap-3">
-              <span className="grid place-items-center h-7 w-7 rounded-full bg-[var(--brand-primary)] text-white shrink-0">
-                <Icon name="check" size={14} />
-              </span>
-              <div>
-                <div className="font-bold text-[var(--brand-navy)] text-[14px]">
-                  Inquiry received
-                </div>
-                <p className="mt-0.5 text-[13px] text-slate-700 leading-snug">
-                  Thanks — we&rsquo;ll be in touch within one business day. For urgent
-                  questions, WhatsApp us.
-                </p>
-                {reference && (
-                  <div className="mt-2 inline-flex items-center gap-2 px-2 py-1 rounded-full bg-white border border-[var(--brand-rule)] text-[11px]">
-                    <span className="text-slate-500">Reference</span>
-                    <span className="font-mono text-[var(--brand-navy)] font-bold">{reference}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
           <div className="mt-6 grid sm:grid-cols-2 gap-4 lg:gap-5">
             {fields.map((f) => (
               <FieldGroup key={f.name} field={f} />
@@ -135,11 +113,11 @@ export default function FormCard({
           <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
             <button
               type="submit"
-              disabled={busy || submitted}
+              disabled={busy}
               className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {busy ? "Sending…" : submitted ? "Sent" : submitLabel}
-              {!busy && !submitted && <Icon name="arrow-right" size={15} />}
+              {busy ? "Sending…" : submitLabel}
+              {!busy && <Icon name="arrow-right" size={15} />}
             </button>
             <div className="inline-flex items-center gap-2 text-[12px] text-slate-500">
               <Icon name="lock" size={12} className="text-[var(--brand-primary)]" />

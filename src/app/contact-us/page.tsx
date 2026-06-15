@@ -99,15 +99,8 @@ export default function Page() {
             { name: "name", label: "Your name", required: true },
             { name: "email", label: "Email", type: "email", required: true },
             { name: "phone", label: "Phone / WhatsApp", required: true },
-            { name: "preferred_contact", label: "Preferred contact method", type: "select",
-              options: ["WhatsApp", "Phone call", "Email"] },
             { name: "topic", label: "What's it about?", type: "select",
               options: ["Admissions", "Tour / Visit", "Fees", "Curriculum", "Transport", "School calendar", "Other"] },
-            { name: "child_name", label: "Child's name" },
-            { name: "grade", label: "Child's grade", type: "select",
-              options: ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Not applicable"] },
-            { name: "best_time", label: "Best time to contact", type: "select",
-              options: ["Morning", "Afternoon", "Evening", "Any time"] },
             { name: "message", label: "Your message", type: "textarea", required: true },
           ]}
           submitLabel="Send message"

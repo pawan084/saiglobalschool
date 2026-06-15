@@ -33,36 +33,12 @@ function boundedInt(v: unknown, max: number): number | undefined {
   return Math.min(Math.floor(n), max);
 }
 
-const fieldLabels: Record<string, string> = {
-  source: "Form source",
-  name: "Parent / contact name",
-  email: "Email",
-  phone: "Phone / WhatsApp",
-  preferred_contact: "Preferred contact method",
-  best_time: "Best time to contact",
-  child_name: "Child name",
-  child_age: "Child age",
-  grade: "Child grade",
-  current_school: "Current school",
-  current_curriculum: "Current curriculum",
-  joining_timeline: "Expected joining timeline",
-  tour_type: "Preferred visit type",
-  tour_date: "Preferred tour date",
-  topic: "Topic",
-  message: "Message",
-  eventTitle: "Event",
-  slot: "Slot",
-  guests: "Guests",
-};
+type MailRow = readonly [label: string, value: string | undefined];
 
-function submittedFields(body: Record<string, unknown>) {
-  return Object.entries(body)
-    .filter(([key]) => key !== "honey")
-    .map(([key, value]) => {
-      const label = fieldLabels[key] || key.replace(/_/g, " ");
-      const raw = typeof value === "string" ? value.trim() : value === undefined || value === null ? "" : String(value);
-      return { label, value: raw || "-" };
-    });
+function mailRows(rows: MailRow[]) {
+  return rows
+    .filter((row): row is readonly [string, string] => Boolean(row[1]?.trim()))
+    .map(([label, value]) => `${label.padEnd(16, " ")}: ${value.trim()}`);
 }
 
 export async function POST(req: Request) {
@@ -143,8 +119,27 @@ export async function POST(req: Request) {
   const subjectParts = ["SSSGS website inquiry", data.source, data.grade || data.topic || data.eventTitle]
     .filter(Boolean)
     .join(" - ");
-  const allFields = submittedFields(body);
-  const allFieldRows = allFields.map(({ label, value }) => `${label.padEnd(28, " ")}: ${value}`);
+  const contactRows = mailRows([
+    ["Name", data.name],
+    ["Email", data.email],
+    ["Phone / WhatsApp", data.phone],
+    ["Contact method", data.preferredContact],
+    ["Best time", data.bestTime],
+  ]);
+  const inquiryRows = mailRows([
+    ["Child name", data.childName],
+    ["Child age", data.childAge],
+    ["Child grade", data.grade],
+    ["Current school", data.currentSchool],
+    ["Curriculum", data.currentCurriculum],
+    ["Joining timeline", data.joiningTimeline],
+    ["Visit type", data.tourType],
+    ["Preferred date", data.tourDate],
+    ["Topic", data.topic],
+    ["Event", data.eventTitle],
+    ["Slot", data.slot],
+    ["Guests", data.guests?.toString()],
+  ]);
   const submittedAt = new Date().toLocaleString("en-SG", {
     dateStyle: "medium",
     timeStyle: "short",
@@ -160,33 +155,18 @@ export async function POST(req: Request) {
     "",
     "Parent / Contact details",
     "------------------------",
-    `Name            : ${data.name}`,
-    `Email           : ${data.email}`,
-    `Phone / WhatsApp: ${data.phone || "-"}`,
-    `Contact method  : ${data.preferredContact || "-"}`,
-    `Best time       : ${data.bestTime || "-"}`,
-    "",
-    "Child / Admissions details",
-    "--------------------------",
-    `Child name      : ${data.childName || "-"}`,
-    `Child age       : ${data.childAge || "-"}`,
-    `Child grade     : ${data.grade || "-"}`,
-    `Current school  : ${data.currentSchool || "-"}`,
-    `Curriculum      : ${data.currentCurriculum || "-"}`,
-    `Joining timeline: ${data.joiningTimeline || "-"}`,
-    `Visit type      : ${data.tourType || "-"}`,
-    `Preferred date  : ${data.tourDate || "-"}`,
-    `Topic           : ${data.topic || "-"}`,
-    `Event           : ${data.eventTitle || "-"}`,
-    `Slot            : ${data.slot || "-"}`,
-    data.guests !== undefined ? `Guests          : ${data.guests}` : "Guests          : -",
+    ...contactRows,
+    ...(inquiryRows.length
+      ? [
+          "",
+          "Inquiry details",
+          "---------------",
+          ...inquiryRows,
+        ]
+      : []),
     "",
     "Message:",
     data.message || "-",
-    "",
-    "All submitted fields",
-    "--------------------",
-    ...allFieldRows,
     "",
     "Reply directly to this email to contact the parent.",
   ].join("\n");

@@ -72,4 +72,4 @@ export const navigation: NavItem[] = [
 ];
 
 export const ctaInquire = { label: "Inquire / Book a Tour", href: "/inquire-book-a-tour" };
-export const ctaWhatsApp = { label: "WhatsApp Us", href: "https://wa.me/6580830971" };
+export const ctaWhatsApp = { label: "WhatsApp Us", href: "https://wa.me/6590626074" };

@@ -310,7 +310,7 @@ export const homeSections: SectionSpec[] = [
       { title: "Abacus & Vedic Maths classes",    href: "/abacus-vedic-maths",  eyebrow: "Maths",   image: "/img/home/resources-for-parents/abacus-vedic-maths.jpg" },
       { title: "Refund policy details",            href: "/refund-policy",       eyebrow: "Policy",  image: "/img/home/resources-for-parents/refund-policy.jpg" },
       { title: "Contact us anytime",               href: "/contact-us",          eyebrow: "Contact", image: "/img/home/resources-for-parents/contact-us.jpg", imagePosition: "top" as const },
-      { title: "WhatsApp the admissions desk",     href: "https://wa.me/6580830971", eyebrow: "Chat", image: "/img/home/resources-for-parents/parent-student-handbook.jpg" },
+      { title: "WhatsApp the admissions desk",     href: "https://wa.me/6590626074", eyebrow: "Chat", image: "/img/home/resources-for-parents/parent-student-handbook.jpg" },
     ],
   },
 ];

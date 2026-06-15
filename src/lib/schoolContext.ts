@@ -70,9 +70,9 @@ Grade 6: 11+ • Grade 7: 12+ • Grade 8: 13+
 - CCA: music, visual arts, performing arts, sport, debate, service
 
 ## Contact channels
-- Phone: +65 8083 0971
-- WhatsApp: https://wa.me/6580830971
-- Email: contact@srisathyasaiglobalschool-sg.com
+- Phone: +65 9062 6074
+- WhatsApp: https://wa.me/6590626074
+- Email: admissions@srisathyasaiglobalschool-sg.com
 - Office hours: Mon–Fri 9:00–17:00, Sat 9:00–13:00
 - Campus: Singapore (use the Campus Address page for directions: /campus-address)
 

@@ -13,7 +13,7 @@ export default function Page() {
       eyebrow="Legal"
       title="Cookie Policy"
       lead="What cookies we use, why we use them, and how you can change your preferences."
-      updated="2 June 2026"
+      updated="13 June 2026"
       breadcrumb={[{ label: "Cookie Policy", href: "/cookie-policy" }]}
       sections={[
         {
@@ -41,9 +41,9 @@ export default function Page() {
                   completed an open-house RSVP.</li>
               </ul>
               <p>
-                We do not currently load analytics, performance, advertising, or targeting cookies.
-                If that changes we will update this page and present a renewed consent prompt
-                <em> before</em> any non-essential cookie is set.
+                If enabled, Google Analytics helps us understand aggregate site usage such as
+                page views, popular pages and device/browser information. We do not use
+                advertising or targeting cookies.
               </p>
             </>
           ),

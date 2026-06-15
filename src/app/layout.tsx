@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { connection } from "next/server";
+import { headers } from "next/headers";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -14,6 +15,8 @@ import SkipToContent from "@/components/SkipToContent";
 import OrgJsonLd from "@/components/OrgJsonLd";
 import RecentTracker from "@/components/RecentTracker";
 import DeferredClient from "@/components/DeferredClient";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleTagManager from "@/components/GoogleTagManager";
 
 // Non-critical client-only widgets — gated behind <DeferredClient> so their
 // JS chunks don't even fetch until the browser is idle OR the user interacts
@@ -114,9 +117,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // nonce. Without this, Next.js statically prerenders the layout and the
   // nonce-aware <script>/<style> attributes never get applied.
   await connection();
+  const nonce = (await headers()).get("x-nonce") || undefined;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gaMeasurementId = gtmId ? undefined : process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   return (
     <html lang="en-SG" className={`${inter.variable} ${display.variable}`}>
       <body className="min-h-screen flex flex-col bg-white antialiased">
+        <GoogleTagManager containerId={gtmId} nonce={nonce} />
+        <GoogleAnalytics measurementId={gaMeasurementId} nonce={nonce} />
         <OrgJsonLd />
         <SkipToContent />
         <ToastProvider>

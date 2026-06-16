@@ -78,15 +78,6 @@ export default function FormCard({
         style={{ boxShadow: "var(--shadow-sm)" }}
         onSubmit={onSubmit}
       >
-        {/* Honeypot */}
-        <input
-          type="text"
-          name="honey"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden
-          className="absolute opacity-0 pointer-events-none w-0 h-0"
-        />
         {/* Decorative corner orb */}
         <span
           aria-hidden

@@ -70,11 +70,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
   }
 
-  // Honeypot tripped — silent success
-  if (typeof body.honey === "string" && body.honey) {
-    return NextResponse.json({ ok: true, reference: reference() });
-  }
-
   const data = {
     name: cap(body.name, MAX_FIELD_LEN).trim(),
     email: cap(body.email, MAX_FIELD_LEN).trim().toLowerCase(),

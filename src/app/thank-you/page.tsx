@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import ThankYouTracking from "@/components/ThankYouTracking";
 import { site } from "@/data/site";
 import { ctaWhatsApp } from "@/data/nav";
 
@@ -30,6 +31,7 @@ export default async function Page({ searchParams }: Props) {
 
   return (
     <main className="min-h-[70vh] bg-[var(--brand-mist)]">
+      <ThankYouTracking reference={ref} source={params?.source} />
       <section className="mx-auto max-w-3xl px-5 py-16 lg:py-24">
         <div className="rounded-2xl border border-[var(--brand-rule)] bg-white p-6 text-center shadow-sm lg:p-10">
           <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[var(--brand-primary)] text-white">

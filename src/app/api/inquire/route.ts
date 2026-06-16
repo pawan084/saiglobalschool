@@ -100,7 +100,7 @@ export async function POST(req: Request) {
   if (!data.name) {
     return NextResponse.json({ ok: false, error: "Name is required" }, { status: 400 });
   }
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) {
+  if (data.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) {
     return NextResponse.json({ ok: false, error: "Valid email is required" }, { status: 400 });
   }
 
@@ -175,7 +175,7 @@ export async function POST(req: Request) {
     await sendSmtpMail(smtp, {
       to: recipient,
       from,
-      replyTo: data.email,
+      replyTo: data.email || undefined,
       subject: subjectParts,
       text,
     });
@@ -193,7 +193,7 @@ export async function POST(req: Request) {
   console.log("[inquire] received", {
     ref,
     source: data.source,
-    emailMasked: maskEmail(data.email),
+    emailMasked: data.email ? maskEmail(data.email) : undefined,
     grade: data.grade || undefined,
     eventTitle: data.eventTitle || undefined,
     topicLen: data.topic.length || undefined,

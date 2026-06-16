@@ -97,7 +97,7 @@ export default function Page() {
           source="contact"
           fields={[
             { name: "name", label: "Your name", required: true },
-            { name: "email", label: "Email", type: "email", required: true },
+            { name: "email", label: "Email (optional)", type: "email" },
             { name: "phone", label: "Phone / WhatsApp", required: true },
             { name: "topic", label: "What's it about?", type: "select",
               options: ["Admissions", "Tour / Visit", "Fees", "Curriculum", "Transport", "School calendar", "Other"] },

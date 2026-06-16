@@ -57,12 +57,10 @@ export default function Page() {
           source="inquire"
           fields={[
             { name: "name", label: "Parent name", required: true },
-            { name: "email", label: "Email", type: "email", required: true },
+            { name: "email", label: "Email (optional)", type: "email" },
             { name: "phone", label: "Phone / WhatsApp", required: true },
-            { name: "child_name", label: "Child's name" },
             { name: "grade", label: "Child's current grade", type: "select",
               options: ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8"] },
-            { name: "tour_date", label: "Preferred tour date", type: "date" },
             { name: "message", label: "What would you like to know?", type: "textarea", required: true },
           ]}
           submitLabel="Submit inquiry"

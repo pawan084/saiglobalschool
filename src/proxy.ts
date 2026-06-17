@@ -33,9 +33,9 @@ function buildCsp(nonce: string): string {
     `style-src-elem 'self' 'nonce-${nonce}'`,
     "style-src-attr 'unsafe-inline'",
     // Images: data: for next/image blur placeholders + blob: for object URLs.
-    "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com",
+    "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://*.clarity.ms https://clarity.ms",
     "font-src 'self' data:",
-    "connect-src 'self' https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com",
+    "connect-src 'self' https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://*.clarity.ms https://clarity.ms",
     // /campus-address embeds a Google Maps iframe. Without an explicit
     // frame-src this falls back to default-src 'self' and the map renders
     // as a blank box. https://www.google.com covers both maps.google.com

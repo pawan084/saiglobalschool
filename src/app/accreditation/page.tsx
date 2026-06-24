@@ -20,24 +20,24 @@ const items: {
   verify?: { label: string; href: string };
 }[] = [
   {
-    title: "CPE Registration",
-    body: "Registered Private Education Institution under Singapore's Committee for Private Education. Registration Number 202505842W, valid 2026–2028.",
-    badge: "CPE PEI",
+    title: "SSG Registration",
+    body: "Registered Private Education Institution under SSG (SkillsFuture Singapore). Registration Number 202505842W, valid 2026–2028.",
+    badge: "SSG PEI",
     iconName: "shield",
     verify: {
-      label: "Verify on CPE",
+      label: "Verify on SSG",
       href: "https://www.tpgateway.gov.sg/resources/information-for-private-education-institutions-(peis)/pei-listing",
     },
   },
   {
     title: "Statutory compliance",
-    body: "Compliant with MOE / CPE requirements for private education institutions in Singapore, including fee protection, refund policy and student welfare obligations.",
-    badge: "MOE / CPE",
+    body: "Compliant with MOE / SSG requirements for private education institutions in Singapore, including fee protection, refund policy and student welfare obligations.",
+    badge: "MOE / SSG",
     iconName: "scale",
   },
   {
     title: "Curriculum alignment",
-    body: "Curriculum is NCERT-aligned across English, Mathematics, Science, Social Studies and ICT — designed to ease transition for families moving from Indian and international systems.",
+    body: "Curriculum is NCERT-aligned across English, Mathematics, Science, Social Science and ICT — designed to ease transition for families moving from Indian and international systems.",
     badge: "NCERT",
     iconName: "ribbon",
   },

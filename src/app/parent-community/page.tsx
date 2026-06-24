@@ -16,7 +16,7 @@ const engagement = [
   {
     iconName: "calendar",
     title: "Regular meetings",
-    body: "Term-wise PTMs and topic-specific sessions give parents a steady rhythm for updates and questions.",
+    body: "4 PTMs in a year and topic-specific sessions give parents a steady rhythm for updates and questions.",
   },
   {
     iconName: "chat",

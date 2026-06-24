@@ -52,10 +52,10 @@ export default function LabPage({
         ]}
       />
       <CourseJsonLd
-        name={`${subject} Lab — Primary and middle school`}
+        name={`${subject} Lab — Primary and secondary school`}
         description={hero.lead}
         path={href}
-        grades="Primary and middle school"
+        grades="Primary and secondary school"
       />
 
       {/* Image + quote band */}

@@ -48,6 +48,7 @@ export const navigation: NavItem[] = [
     label: "Admissions",
     href: "/admissions",
     children: [
+      { label: "Apply Now", href: "/apply" },
       { label: "Admission Process", href: "/admission-process" },
       { label: "Entry Requirements", href: "/entry-requirements" },
       { label: "Registration", href: "/registration" },

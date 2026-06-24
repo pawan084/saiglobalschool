@@ -7,7 +7,9 @@ export type SubjectId =
   | "social-studies"
   | "ict"
   | "values"
-  | "arts";
+  | "arts"
+  | "skill-development"
+  | "physical-education";
 
 export type Band = {
   band: "Grades 1–2" | "Grades 3–5" | "Grades 6–8";
@@ -247,11 +249,11 @@ export const SUBJECTS: Subject[] = [
   },
   {
     id: "social-studies",
-    name: "Social Studies",
+    name: "Social Science",
     icon: "globe",
     blurb: "History, geography, civics — building world-aware learners.",
     intro:
-      "Social Studies builds a child's sense of place, time and citizenship — through stories, maps, primary sources and structured discussion.",
+      "Social Science builds a child's sense of place, time and citizenship — through stories, maps, primary sources and structured discussion.",
     bands: [
       {
         band: "Grades 1–2",
@@ -370,17 +372,17 @@ export const SUBJECTS: Subject[] = [
       },
     ],
     notes: [
-      "Values are embedded across English, Social Studies and morning circle.",
+      "Values are embedded across English, Social Science and morning circle.",
       "Open House visitors typically join a quiet-time session.",
     ],
   },
   {
     id: "arts",
-    name: "Arts & Music",
+    name: "Art & Music",
     icon: "palette",
     blurb: "Drawing, painting, music, drama — every child finds an outlet.",
     intro:
-      "Arts and music are timetabled weekly across all grades. We focus on expression and craft, with regular small-scale exhibitions and performances.",
+      "Art and music are timetabled weekly across all grades. We focus on expression and craft, with regular small-scale exhibitions and performances.",
     bands: [
       {
         band: "Grades 1–2",
@@ -412,6 +414,86 @@ export const SUBJECTS: Subject[] = [
     ],
     notes: [
       "Annual Day at SSSGS showcases work across art, music and drama.",
+    ],
+  },
+  {
+    id: "skill-development",
+    name: "Skill Development",
+    icon: "monitor",
+    blurb: "Computational thinking, problem-solving and practical skills for everyday confidence.",
+    intro:
+      "Skill Development equips students with hands-on competencies that complement their academic learning — from computational thinking to practical life skills.",
+    bands: [
+      {
+        band: "Grades 1–2",
+        label: "Foundations",
+        outcomes: [
+          "Basic problem-solving through simple tasks and activities",
+          "Introduction to logical thinking",
+          "Hands-on project work",
+        ],
+      },
+      {
+        band: "Grades 3–5",
+        label: "Build",
+        outcomes: [
+          "Computational thinking — sequencing and pattern recognition",
+          "Practical project modules",
+          "Collaborative problem-solving activities",
+        ],
+      },
+      {
+        band: "Grades 6–8",
+        label: "Depth",
+        outcomes: [
+          "Applied computational thinking and design challenges",
+          "Real-world problem-solving projects",
+          "Practical skills for everyday independence and confidence",
+        ],
+      },
+    ],
+    notes: [
+      "Integrated alongside the academic core to develop well-rounded, confident learners.",
+    ],
+  },
+  {
+    id: "physical-education",
+    name: "Physical Education",
+    icon: "play",
+    blurb: "Movement, sport and yoga integrated weekly.",
+    intro:
+      "Physical Education at SSSGS supports the physical development, health and wellbeing of every child through structured movement, sport and yoga sessions integrated weekly.",
+    bands: [
+      {
+        band: "Grades 1–2",
+        label: "Foundations",
+        outcomes: [
+          "Basic movement skills — running, jumping, throwing, catching",
+          "Yoga and stretching for body awareness",
+          "Cooperative games and team play",
+        ],
+      },
+      {
+        band: "Grades 3–5",
+        label: "Build",
+        outcomes: [
+          "Skill development across team sports",
+          "Yoga — breath, balance and focus",
+          "Athletics fundamentals",
+        ],
+      },
+      {
+        band: "Grades 6–8",
+        label: "Depth",
+        outcomes: [
+          "Team sport strategy and competitive play",
+          "Fitness testing and goal-setting",
+          "Leadership in sport and group activities",
+        ],
+      },
+    ],
+    notes: [
+      "Timetabled weekly across all grades.",
     ],
   },
 ];

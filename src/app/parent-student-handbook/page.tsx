@@ -167,7 +167,7 @@ export default function Page() {
                   />
                 </div>
                 <Link
-                  href="/_files/ugd/Parent-Student Handbook.pdf"
+                  href="/hand-book/Parent-Student-Handbook.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 btn-primary !py-2 !px-3 !text-[12.5px] w-full justify-center"

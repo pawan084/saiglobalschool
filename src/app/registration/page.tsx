@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Registration",
-  description: "Registration details for Sri Sathya Sai Global School — a CPE-registered Private Education Institution (PEI) in Singapore. Reg. No. 202505842W.",
+  description: "Registration details for Sri Sathya Sai Global School — an SSG (SkillsFuture Singapore)-registered Private Education Institution (PEI) in Singapore. Reg. No. 202505842W.",
   alternates: { canonical: "/registration" },
 };
 
@@ -60,14 +60,14 @@ export default function Page() {
             <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Primary</div>
             <h3 className="font-bold text-[var(--brand-navy)]">Grades 1–5</h3>
             <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">
-              Foundational literacy, numeracy, Science, Social Studies, ICT, Art, PE and value education.
+              Foundational literacy, numeracy, Science, Social Science, ICT, Art, PE and value education.
             </p>
           </div>
           <div className="p-5 border border-[var(--brand-rule)] rounded-md">
-            <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Middle</div>
+            <div className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent)] mb-1">Secondary</div>
             <h3 className="font-bold text-[var(--brand-navy)]">Grades 6–8</h3>
             <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">
-              Mathematics, English, Science, Social Studies, ICT, Languages, Art and skill development.
+              Mathematics, English, Science, Social Science, ICT, Languages, Art and skill development.
             </p>
           </div>
         </div>

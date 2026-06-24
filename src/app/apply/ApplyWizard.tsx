@@ -5,7 +5,8 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
 import { safeGetJson, safeSetJson, safeRemove } from "@/lib/storage";
-import { fetchWithTimeout } from "@/lib/fetch";
+import { useAppDispatch } from "@/store/hooks";
+import { submitApplication } from "@/store/slices/applicationSlice";
 
 const STORAGE_KEY = "sssgs:apply-draft";
 
@@ -78,6 +79,7 @@ export default function ApplyWizard() {
   const [step, setStep] = useState(1);
   const [busy, setBusy] = useState(false);
   const [submitted, setSubmitted] = useState<{ reference: string } | null>(null);
+  const dispatch = useAppDispatch();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [hydrated, setHydrated] = useState(false);
   const restoredOnceRef = useRef(false);
@@ -186,21 +188,34 @@ export default function ApplyWizard() {
     }
     setBusy(true);
     try {
-      const res = await fetchWithTimeout("/api/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        show(data.error || "Submission failed. Please try again.", "error");
-        return;
-      }
-      setSubmitted({ reference: data.reference });
+      const result = await dispatch(
+        submitApplication({
+          parent_name: state.parentName,
+          parent_email: state.parentEmail,
+          parent_phone: state.parentPhone || undefined,
+          child_name: state.childName,
+          child_dob: state.childDob || undefined,
+          applying_for_grade: state.childGrade || undefined,
+          nationality: state.childNationality || undefined,
+          current_school: state.prevSchool || undefined,
+          raw_payload: {
+            relation: state.relation,
+            childGender: state.childGender,
+            intakeTerm: state.intakeTerm,
+            prevCurriculum: state.prevCurriculum,
+            docs: state.docs,
+            notes: state.notes,
+          },
+        })
+      ).unwrap();
+      setSubmitted({ reference: result.tracking_ref });
       safeRemove(STORAGE_KEY);
       show("Application submitted successfully.", "success");
-    } catch {
-      show("Network hiccup. Please try again.", "error");
+    } catch (err: unknown) {
+      show(
+        typeof err === "string" ? err : "Submission failed. Please try again.",
+        "error"
+      );
     } finally {
       setBusy(false);
     }

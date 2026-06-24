@@ -51,7 +51,7 @@ export default function Footer() {
             &ldquo;The End of Education is Character.&rdquo;
           </p>
           <p className="mt-4 text-[13px] text-slate-300 leading-relaxed max-w-sm">
-            A values-rooted international school for primary and middle school in Singapore. Mid-year admissions welcome.
+            A value-rooted international school for primary and secondary school in Singapore. Mid-year admissions welcome.
           </p>
 
           {/* Contact rows */}
@@ -85,8 +85,9 @@ export default function Footer() {
           {/* Social */}
           <div className="mt-6 flex gap-2">
             {[
-              { href: site.social.facebook, name: "facebook" as const, label: "Facebook" },
-              { href: site.social.youtube,  name: "youtube"  as const, label: "YouTube"  },
+              { href: site.social.facebook,   name: "facebook"   as const, label: "Facebook"   },
+              { href: site.social.youtube,    name: "youtube"    as const, label: "YouTube"    },
+              { href: site.social.instagram,  name: "instagram"  as const, label: "Instagram"  },
               { href: ctaWhatsApp.href,     name: "whatsapp" as const, label: "WhatsApp" },
             ].map((s) => (
               <a

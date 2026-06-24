@@ -154,7 +154,7 @@ export default async function Image() {
                 background: "#0d8a87",
               }}
             />
-            Primary & Middle School · Holistic, Values-based
+            Primary & Secondary School · Holistic, Values-based
           </div>
           <div style={{ color: "#475569", fontWeight: 500 }}>
             srisathyasaiglobalschool-sg.com

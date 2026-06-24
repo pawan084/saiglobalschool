@@ -19,9 +19,8 @@ export type SectionSpec = {
 export const homeHero: CardSpec = {
   title: "Education Blossoms into Character",
   href: "/about-us",
-  eyebrow: "International School — Primary & Middle",
   lead:
-    "A values-rooted, academically structured international school for primary and middle school — NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
+    "A value-rooted, academically structured international school for NCERT-aligned curriculum, small-group learning, and experienced educators who know every child by name.",
   image: "/img/home/hero/school-campus.jpg",
 };
 
@@ -109,12 +108,12 @@ export const homeSections: SectionSpec[] = [
       href: "/curriculum",
       eyebrow: "Curriculum",
       lead:
-        "Concept-led teaching, foundational skills, and age-appropriate progression across primary and middle school — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
+        "Concept-led teaching, foundational skills, and age-appropriate progression across primary and secondary school — designed for continuity through CBSE, ICSE, Cambridge, IB or local-curriculum transfers.",
       image: "/img/featuredBlock/ncert-aligned-integrated-hands-on.jpg",
     },
     satellites: [
       {
-        title: "Courses offered across primary and middle school",
+        title: "Courses offered across primary and secondary school",
         href: "/courses-offered",
         eyebrow: "Courses",
         image: "/img/featuredBlock/courses-offered.jpg",
@@ -249,7 +248,7 @@ export const homeSections: SectionSpec[] = [
         image: "/img/home/admissions/entry-requirements.jpg",
       },
       {
-        title: "Fee structure for primary and middle school",
+        title: "Fee structure for primary and secondary school",
         href: "/fee-structure",
         eyebrow: "Fees",
         image: "/img/home/admissions/fee-structure.jpg",

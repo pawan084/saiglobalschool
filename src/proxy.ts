@@ -20,6 +20,13 @@ import { NextResponse, type NextRequest } from "next/server";
  * Note that this proxy runs in the Edge runtime — keep it dependency-free.
  */
 const isDev = process.env.NODE_ENV === "development";
+const apiOrigin = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000").origin;
+  } catch {
+    return "http://localhost:8000";
+  }
+})();
 
 function buildCsp(nonce: string): string {
   return [
@@ -35,7 +42,7 @@ function buildCsp(nonce: string): string {
     // Images: data: for next/image blur placeholders + blob: for object URLs.
     "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://*.clarity.ms https://clarity.ms",
     "font-src 'self' data:",
-    "connect-src 'self' https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://*.clarity.ms https://clarity.ms",
+    `connect-src 'self' ${apiOrigin} https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://*.clarity.ms https://clarity.ms`,
     // /campus-address embeds a Google Maps iframe. Without an explicit
     // frame-src this falls back to default-src 'self' and the map renders
     // as a blank box. https://www.google.com covers both maps.google.com

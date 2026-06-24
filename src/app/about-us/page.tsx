@@ -21,10 +21,10 @@ const parentNeeds = [
 ];
 
 const atAGlance = [
-  { iconName: "graduation", title: "Primary & middle school", body: "A focused primary and middle-school pathway for internationally mobile families." },
+  { iconName: "graduation", title: "Primary & secondary school", body: "A focused primary and secondary-school pathway for internationally mobile families." },
   { iconName: "book-open", title: "NCERT-aligned", body: "A familiar academic backbone with continuity for Indian and global curriculum transitions." },
   { iconName: "users", title: "1:20 maximum", body: "Small-group learning so teachers can notice progress, confidence and support needs." },
-  { iconName: "shield", title: "CPE Singapore", body: "Registered Private Education Institution with clear governance and parent-facing policies." },
+  { iconName: "shield", title: "SSG SkillsFuture Singapore", body: "Registered Private Education Institution with clear governance and parent-facing policies." },
 ];
 
 export default function Page() {
@@ -67,7 +67,7 @@ export default function Page() {
               A school built around what your child becomes, not just what they learn
             </h1>
             <p className="mt-5 max-w-2xl text-[15.5px] lg:text-[17px] leading-relaxed text-white/85">
-              A values-rooted international school for primary and middle school in Singapore — experienced educators, holistic learning and character development woven into every day.
+              A value-rooted international school in Singapore — experienced educators, holistic learning and character development woven into every day.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/vision-mission" className="btn-primary">
@@ -182,7 +182,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The credentials behind the philosophy" title="Registered, accredited, and accountable" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          A values-led school still has to meet rigorous external standards. SSSGS is a CPE Singapore-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and middle school education with a 1:20 maximum teacher–student ratio.
+          A value-led school still has to meet rigorous external standards. SSSGS is an SSG (SkillsFuture Singapore)-registered Private Education Institution, NCERT-aligned, and accredited to deliver primary and secondary school education with a 1:20 maximum teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

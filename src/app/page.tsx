@@ -3,7 +3,7 @@ import Image from "next/image";
 import FeatureBlock from "@/components/FeatureBlock";
 import StatsCounter from "@/components/StatsCounter";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
-import RecentlyViewed from "@/components/RecentlyViewed";
+import HomeNewsletter from "@/components/HomeNewsletter";
 import Icon from "@/components/Icon";
 import { homeHero } from "@/data/sections";
 import { ctaInquire, ctaWhatsApp } from "@/data/nav";
@@ -11,7 +11,7 @@ import { ctaInquire, ctaWhatsApp } from "@/data/nav";
 export const metadata = {
   title: { absolute: "Home - International School | Sri Sathya Sai Global School" },
   description:
-    "NCERT-aligned, values-rooted international school in Singapore (primary & middle school) — small-group learning, experienced educators, mid-year admissions welcome.",
+    "NCERT-aligned, value-rooted international school in Singapore (primary & secondary school) — small-group learning, experienced educators, mid-year admissions welcome.",
   alternates: {
     canonical: "/",
     types: { "application/rss+xml": "/feed.xml" },
@@ -19,8 +19,8 @@ export const metadata = {
 };
 
 const stats = [
-  { value: 9, label: "Subjects taught" },
-  { value: 5, label: "Specialist Labs" },
+  { value: 11, label: "Subjects taught" },
+  { value: 6, label: "Specialist Labs" },
   { value: 0, display: "1:20", label: "Teacher–Student" },
   { value: 0, display: "2026", label: "PEI Reg. period" },
 ];
@@ -54,13 +54,6 @@ export default function Home() {
         </div>
         <div className="section-shell relative flex min-h-[calc(100svh-150px)] items-center py-14 sm:py-20 lg:min-h-0 lg:py-32">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-[11px] font-bold tracking-[0.14em] uppercase mb-7">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--brand-accent)] opacity-75 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--brand-accent)]" />
-              </span>
-              {homeHero.eyebrow}
-            </div>
             <h1 className="font-display font-bold leading-[0.98] tracking-tight text-[44px] sm:text-[58px] lg:text-[72px]">
               <span className="block">Education</span>
               <span className="block italic font-medium text-white/85">blossoms into</span>
@@ -118,7 +111,7 @@ export default function Home() {
           },
           {
             title: "Mid-year admissions welcome",
-            body: "Join at any point in the academic year across primary and middle school. Clear process, fast timelines, personalised onboarding.",
+            body: "Join at any point in the academic year across primary and secondary school. Clear process, fast timelines, personalised onboarding.",
             image: "/img/featuredBlock/admission-process.jpg",
             imagePosition: "top",
             href: "/admission-process",
@@ -173,7 +166,7 @@ export default function Home() {
           },
           {
             title: "NCERT-aligned curriculum",
-            body: "A recognised, rigorous academic backbone across primary and middle school — built for continuity through CBSE, ICSE, Cambridge or IB.",
+            body: "A recognised, rigorous academic backbone across primary and secondary school — built for continuity through CBSE, ICSE, Cambridge or IB.",
             image: "/img/featuredBlock/home-ncert-aligned.jpg",
             href: "/curriculum",
           },
@@ -223,10 +216,10 @@ export default function Home() {
                 Lessons are designed to help students connect ideas with everyday life, build curiosity, develop confidence, and grow with character.
               </p>
               <h3 className="mt-10 text-[24px] lg:text-[30px] font-bold text-[var(--brand-navy)] tracking-tight">
-                Learning with Stories
+                Learning with real life examples
               </h3>
               <p className="mt-3 text-[15px] lg:text-[16px] leading-relaxed text-slate-700">
-                Every lesson comes alive through stories that inspire values, build understanding, and stay with students beyond the classroom.
+                Every lesson comes alive through real life examples that inspire values, build understanding, and stay with students beyond the classroom.
               </p>
             </div>
 
@@ -271,36 +264,9 @@ export default function Home() {
         intro="Settled days, growing confidence, learning that stays — what families share with us in their own words."
       />
 
-      {/* RECENTLY VIEWED (only renders if user has history) */}
-      <RecentlyViewed />
+      {/* NEWSLETTER SIGNUP */}
+      <HomeNewsletter />
 
-      {/* FOLD 6 — ACTION: Navy CTA */}
-      <section className="relative py-14 lg:py-20 bg-[var(--brand-navy)] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07]" aria-hidden>
-          <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-[var(--brand-accent)] blur-3xl" />
-          <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-[var(--brand-primary)] blur-3xl" />
-        </div>
-        <div className="section-shell relative grid lg:grid-cols-3 gap-8 items-end">
-          <div className="lg:col-span-2">
-            <div className="news-eyebrow text-[var(--brand-accent)] mb-2">Take the next step</div>
-            <h2 className="text-3xl lg:text-[40px] font-bold leading-tight tracking-tight">
-              Ready to see SSSGS in person?
-            </h2>
-            <p className="mt-3 text-slate-300 max-w-2xl text-[15px]">
-              Book a campus tour, attend our next Open House, or talk to admissions about your child&rsquo;s journey.
-            </p>
-          </div>
-          <div className="flex lg:justify-end gap-3 flex-wrap">
-            <Link href={ctaInquire.href} className="btn-primary">
-              {ctaInquire.label}
-              <Icon name="arrow-right" size={16} />
-            </Link>
-            <a href={ctaWhatsApp.href} target="_blank" rel="noopener noreferrer" className="btn-ghost-white">
-              {ctaWhatsApp.label}
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

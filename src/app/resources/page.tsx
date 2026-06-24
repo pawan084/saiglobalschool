@@ -146,7 +146,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The framework behind every resource" title="Standards parents can rely on" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          Every policy, programme and resource is shaped by the framework SSSGS operates within — CPE Singapore registration, NCERT-aligned curriculum, and small-group teaching.
+          Every policy, programme and resource is shaped by the framework SSSGS operates within — SSG (SkillsFuture Singapore) registration, NCERT-aligned curriculum, and small-group teaching.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

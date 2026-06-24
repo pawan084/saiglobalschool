@@ -10,14 +10,19 @@ export const metadata = {
 };
 
 const day: TimelineItem[] = [
-  { tag: "7:45 AM", title: "Arrival & Morning Circle", body: "Children settle in, attendance, a thought for the day, and a warm-up to focus the mind." },
-  { tag: "8:30 AM", title: "Core Academic Block 1", body: "Focused block: language or mathematics. Whole-group teaching with structured practice." },
-  { tag: "10:00 AM", title: "Snack & Movement Break", body: "Healthy snack and a movement break — children move, stretch and chat before the next block." },
-  { tag: "10:20 AM", title: "Core Academic Block 2", body: "Science, social studies or rotating subject. Concept work followed by application." },
-  { tag: "11:45 AM", title: "Learning Lab Session", body: "Hands-on session in one of the five labs — Science, Maths, Language, English or ICT." },
-  { tag: "1:00 PM", title: "Mealtime & Reflection", body: "A community lunch followed by a quiet reflection — a deliberate pause in the day." },
-  { tag: "2:00 PM", title: "Co-curricular Activities", body: "Music, art, sport, public speaking, debate or service club. Every child finds their thing." },
-  { tag: "3:15 PM", title: "Closing Reflection & Home", body: "Brief circle: what we learned, what we're grateful for, what's coming tomorrow." },
+  { tag: "8:00 AM", title: "Arrival & Morning Circle", body: "Children settle in, mark attendance, share a thought for the day, and prepare for focused learning." },
+  { tag: "8:30 AM", title: "Core Academic Block 1", body: "Focused subject teaching with structured explanation, class discussion and guided practice." },
+  { tag: "9:10 AM", title: "Short Break", body: "A quick refresh before the next learning block." },
+  { tag: "9:25 AM", title: "Core Academic Block 2", body: "Concept learning continues through practice, questioning and classroom application." },
+  { tag: "10:00 AM", title: "Learning Lab Session 1", body: "Hands-on lab-based learning linked to the subject, using activities, models and practical work." },
+  { tag: "10:35 AM", title: "Core Academic Block 3", body: "Another focused academic session to build understanding, accuracy and confidence." },
+  { tag: "11:10 AM", title: "Lunch Break", body: "Children pause for lunch, rest and informal interaction with peers." },
+  { tag: "11:40 AM", title: "Core Academic Block 4", body: "Structured learning continues with subject practice, written work and teacher feedback." },
+  { tag: "12:20 PM", title: "Learning Lab Session 2", body: "A second experiential learning session for deeper application through lab or activity-based work." },
+  { tag: "1:00 PM", title: "Co-curricular Activities", body: "Music, art, sport, public speaking, debate or service activities to develop wider interests." },
+  { tag: "1:25 PM", title: "Remedial Classes / Tutorial Support", body: "Targeted support for students who need reinforcement, practice or individual guidance." },
+  { tag: "2:05 PM", title: "Reflection Time", body: "Students review what they learned, what they found challenging, and what they can improve." },
+  { tag: "2:20 PM", title: "Dispersal", body: "The school day closes with an orderly and safe dispersal." },
 ];
 
 const dailyDelivers: Feature[] = [

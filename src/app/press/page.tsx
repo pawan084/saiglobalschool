@@ -15,7 +15,7 @@ export const metadata = {
 
 const facts: { label: string; value: string }[] = [
   { label: "Founded", value: "2025" },
-  { label: "Coverage", value: "Primary and middle school (expanding)" },
+  { label: "Coverage", value: "Primary and secondary school (expanding)" },
   { label: "Curriculum", value: "NCERT-aligned, values-integrated" },
   { label: "Class size", value: "~1:20 maximum" },
   { label: "Location", value: "Singapore" },
@@ -23,7 +23,7 @@ const facts: { label: string; value: string }[] = [
 ];
 
 export default function Page() {
-  const boilerplate = `Sri Sathya Sai Global School (SSSGS) is an international school in Singapore offering an NCERT-aligned, values-integrated education for primary and middle school. The school is committed to nurturing learners of strong character through holistic academics, structured assessment and a deliberate focus on the five universal values of Sathya (Truth), Dharma (Right Conduct), Shanti (Peace), Prema (Love) and Ahimsa (Non-Violence).`;
+  const boilerplate = `Sri Sathya Sai Global School (SSSGS) is an international school in Singapore offering an NCERT-aligned, values-integrated education for primary and secondary school. The school is committed to nurturing learners of strong character through holistic academics, structured assessment and a deliberate focus on the five universal values of Sathya (Truth), Dharma (Right Conduct), Shanti (Peace), Prema (Love) and Ahimsa (Non-Violence).`;
 
   return (
     <InnerPageShell

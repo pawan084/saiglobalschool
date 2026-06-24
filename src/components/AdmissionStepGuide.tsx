@@ -61,10 +61,10 @@ export const ADMISSION_STEPS: Step[] = [
   {
     id: "assessment",
     tag: "Step 3 · Assess",
-    title: "Aptitude assessment",
+    title: "Admission Test",
     duration: "60 minutes",
     iconName: "list-check",
-    body: "A grade-appropriate assessment in language, mathematics and general aptitude — the aim is to understand each child&rsquo;s learning profile, not to filter them out.",
+    body: "A grade-appropriate assessment in English & Mathematics — the aim is to understand each child’s learning profile, not to filter them out.",
     whatYouDo: [
       "Schedule the assessment at a time that works",
       "Your child completes it on campus (or remotely where needed)",
@@ -106,13 +106,15 @@ export const ADMISSION_STEPS: Step[] = [
       "Originals required for sighting at first day of school",
     ],
     documents: [
-      "Birth certificate (or passport bio page)",
-      "Most recent report card / academic record",
-      "Passport-size photographs (recent, 4 copies)",
-      "Parents' photo ID (NRIC / passport)",
-      "Vaccination / health record",
-      "Reference letter from previous school (where available)",
-      "Transfer certificate (if mid-year)",
+      "Student: Latest passport",
+      "Student: Passport-size latest photograph",
+      "Student: Birth certificate",
+      "Student: NRIC/FIN for Dependent Pass, Long Term Visit Pass holder or re-entry permit if PR",
+      "Student: Academic records and proof of promotion from previous school (Grade 2 onwards)",
+      "Student: Transfer Certificate from previous school (Grade 2 onwards)",
+      "Parent: Latest passport",
+      "Parent: Passport-size latest photograph",
+      "Parent: NRIC/FIN for Dependent Pass holder, Long Term Visit Pass holder or re-entry permit if PR",
     ],
     whatWeDo: [
       "Verify documents and request any missing items",
@@ -126,18 +128,17 @@ export const ADMISSION_STEPS: Step[] = [
     title: "Pay & sign",
     duration: "Same day",
     iconName: "credit-card",
-    body: "Pay the registration and applicable term fees per the published fee structure. Receipts issued the same day; bank transfer, PayNow and online payment supported.",
+    body: "Pay the registration and applicable term fees per the published fee structure. Receipts issued within 10 working days; bank transfer, PayNow and online payment supported. Withdrawal requires 60 days written notice.",
     whatYouDo: [
       "Choose a payment method — bank transfer, PayNow, online card",
       "Sign the parent–school agreement",
       "Receive welcome pack with uniform and book lists",
     ],
     whatWeDo: [
-      "Issue an official receipt the same day",
+      "Issue an official receipt within 10 working days",
       "Trigger your child's enrolment in our LMS",
       "Set up the homeroom teacher's introduction",
     ],
-    cta: { label: "Try the fee calculator", href: "/fee-structure/calculator" },
   },
 ];
 

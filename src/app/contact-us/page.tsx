@@ -26,9 +26,9 @@ const channels: Channel[] = [
 
 const reasons = [
   { iconName: "graduation", title: "Admissions & enrolment",      body: "Mid-year admissions, entry requirements, the assessment process, or moving from another curriculum." },
-  { iconName: "credit-card", title: "Fees & policies",            body: "Fee structure, payment schedules, refund terms aligned with CPE Singapore, and what's included." },
+  { iconName: "credit-card", title: "Fees & policies",            body: "Fee structure, payment schedules, refund terms aligned with SSG (SkillsFuture Singapore), and what's included." },
   { iconName: "map-pin",     title: "Tour or open house visit",   body: "Book a 45-minute campus visit, attend the next open house, or arrange a personalised walk-through." },
-  { iconName: "book-open",   title: "Curriculum & learning",      body: "Questions about NCERT alignment, the five learning labs, assessment style, or character development." },
+  { iconName: "book-open",   title: "Curriculum & learning",      body: "Questions about NCERT alignment, the six learning labs, assessment style, or character development." },
 ];
 
 export default function Page() {
@@ -84,7 +84,7 @@ export default function Page() {
       {/* FOLD 4 — PROOF: trust signals */}
       <ContentSection flush eyebrow="A registered, accountable institution" title="Why your message lands in the right hands">
         <p className="text-[15px] text-slate-700 mb-5 leading-relaxed">
-          SSSGS operates as a CPE Singapore-registered Private Education Institution. Our admissions and operations team is accountable and named, and responds within one business day.
+          SSSGS operates as a SSG (SkillsFuture Singapore)-registered Private Education Institution. Our admissions and operations team is accountable and named, and responds within one business day.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

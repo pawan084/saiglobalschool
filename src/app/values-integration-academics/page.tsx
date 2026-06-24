@@ -8,7 +8,7 @@ import Icon from "@/components/Icon";
 export const metadata = {
   title: "Values Integration with Academics",
   description:
-    "How Sri Sathya Sai Global School integrates values into Language, Maths, Science, Social Studies and classroom culture.",
+    "How Sri Sathya Sai Global School integrates values into Language, Maths, Science, Social Science and classroom culture.",
   alternates: { canonical: "/values-integration-academics" },
 };
 
@@ -30,7 +30,7 @@ const subjectIntegration = [
   },
   {
     iconName: "globe",
-    title: "In Social Studies",
+    title: "In Social Science",
     body: "Children learn fairness, empathy for context and respect for multiple perspectives.",
   },
 ];

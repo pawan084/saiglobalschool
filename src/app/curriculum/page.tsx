@@ -8,7 +8,7 @@ import { SUBJECTS } from "@/data/subjects";
 
 export const metadata = {
   title: "Curriculum",
-  description: "NCERT-aligned, integrated curriculum at SSSGS Singapore — structured progression, conceptual depth, and applied learning across primary and middle school.",
+  description: "NCERT-aligned, integrated curriculum at SSSGS Singapore — structured progression, conceptual depth, and applied learning across primary and secondary school.",
   alternates: { canonical: "/curriculum" },
 };
 
@@ -22,19 +22,19 @@ const pillars = [
 const grades = [
   {
     band: "Grades 1–2",
-    label: "Foundations",
+    label: "FOUNDATIONAL STAGE",
     focus: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines.",
     accent: "bg-[var(--brand-primary)]",
   },
   {
     band: "Grades 3–5",
-    label: "Build",
-    focus: "Concept building across English, Second & Third Language, Mathematics, Science, Social Studies and ICT.",
+    label: "PREPARATORY STAGE",
+    focus: "Concept building across English, Second & Third Language, Mathematics, Science, Social Science and ICT.",
     accent: "bg-[var(--brand-accent)]",
   },
   {
     band: "Grades 6–8",
-    label: "Depth",
+    label: "MIDDLE STAGE",
     focus: "Application, projects, lab work, exam-readiness and synthesis across subjects.",
     accent: "bg-[var(--brand-navy)]",
   },
@@ -44,7 +44,7 @@ const supportingPrograms = [
   { title: "Learning Labs", body: "Science, Maths, Language, English and ICT — timetabled hands-on application.", href: "/learning-labs" },
   { title: "Assessment Structure", body: "Daily formative + term summative + oral & project work.", href: "/assessment-structure" },
   { title: "Academic Pathway", body: "Detailed grade-by-grade progression and outcomes.", href: "/academic-pathway" },
-  { title: "Courses Offered", body: "All subjects across primary and middle school.", href: "/courses-offered" },
+  { title: "Courses Offered", body: "All subjects across primary and secondary school.", href: "/courses-offered" },
   { title: "Curriculum Comparison", body: "How NCERT alignment maps onto CBSE, ICSE, Cambridge and IB for transitioning families.", href: "/curriculum/comparison" },
 ];
 
@@ -73,9 +73,9 @@ export default function Page() {
       />
       <CourseJsonLd
         name="NCERT-aligned Integrated Curriculum"
-        description="A structured, NCERT-aligned curriculum integrating Language, Maths, Science, Social Studies, ICT, the Arts and Values Education across primary and middle school."
+        description="A structured, NCERT-aligned curriculum integrating Language, Maths, Science, Social Science, ICT, the Arts and Values Education across primary and secondary school."
         path="/curriculum"
-        grades="Primary and middle school"
+        grades="Primary and secondary school"
       />
 
       {/* Four pillars — big numbered cards */}
@@ -99,7 +99,7 @@ export default function Page() {
       </ContentSection>
 
       {/* Grades progression — visual bands */}
-      <ContentSection flush tone="cream" eyebrow="By grade band" title="Primary and middle school progression">
+      <ContentSection flush tone="cream" eyebrow="By grade band" title="Primary and secondary school progression">
         <p className="text-slate-600 text-[14.5px] mb-5 max-w-2xl">
           The same set of subjects deepens at each band, with developmentally appropriate
           expectations.

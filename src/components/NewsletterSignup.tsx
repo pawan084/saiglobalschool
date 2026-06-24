@@ -4,7 +4,8 @@ import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
-import { fetchWithTimeout } from "@/lib/fetch";
+import { useAppDispatch } from "@/store/hooks";
+import { submitNewsletter } from "@/store/slices/newsletterSlice";
 
 export default function NewsletterSignup() {
   const { show } = useToast();
@@ -15,6 +16,7 @@ export default function NewsletterSignup() {
   const inputRef = useRef<HTMLInputElement>(null);
   const inputId = useId();
   const errId = `${inputId}-err`;
+  const dispatch = useAppDispatch();
 
   function validate(): string | null {
     const v = email.trim();
@@ -25,7 +27,7 @@ export default function NewsletterSignup() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (busy) return;
+    if (busy || honey) return;
     const v = validate();
     if (v) {
       setError(v);
@@ -35,22 +37,19 @@ export default function NewsletterSignup() {
     setError(null);
     setBusy(true);
     try {
-      const res = await fetchWithTimeout("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, honey }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        const msg = data.error || "Something went wrong. Please try again.";
-        setError(msg);
-        inputRef.current?.focus();
-      } else {
-        show("You're on the list — see you in your inbox.", "success");
-        setEmail("");
-      }
-    } catch {
-      setError("Network hiccup. Please try again.");
+      const result = await dispatch(
+        submitNewsletter({ email: email.trim().toLowerCase(), source: "footer" })
+      ).unwrap();
+      show(
+        result.already_subscribed
+          ? "You're already subscribed — updates are on their way."
+          : "You're on the list — see you in your inbox.",
+        "success"
+      );
+      setEmail("");
+    } catch (err: unknown) {
+      const msg = typeof err === "string" ? err : "Something went wrong. Please try again.";
+      setError(msg);
       inputRef.current?.focus();
     } finally {
       setBusy(false);
@@ -113,7 +112,11 @@ export default function NewsletterSignup() {
         <Link href="/privacy" className="underline hover:text-white">
           Privacy Policy
         </Link>
-        . Unsubscribe anytime.
+        .{" "}
+        <Link href="/unsubscribe" className="text-white/80 underline hover:text-white">
+          Unsubscribe anytime
+        </Link>
+        .
       </p>
     </form>
   );

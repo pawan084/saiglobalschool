@@ -5,6 +5,8 @@ import Link from "next/link";
 import Icon from "./Icon";
 import BrandLogo from "./BrandLogo";
 import { safeGetJson, safeSetJson, safeRemove } from "@/lib/storage";
+import { useAppDispatch } from "@/store/hooks";
+import { trackChatSession } from "@/store/slices/chatSessionSlice";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -41,6 +43,18 @@ export default function ChatBot() {
   // until completion even if no one is reading.
   const abortRef = useRef<AbortController | null>(null);
   const mountedRef = useRef(true);
+  const sessionIdRef = useRef<string | null>(null);
+  const dispatch = useAppDispatch();
+
+  function getSessionId(): string {
+    if (!sessionIdRef.current) {
+      sessionIdRef.current =
+        typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `chat-${Date.now()}`;
+    }
+    return sessionIdRef.current;
+  }
 
   // Abort any in-flight stream on unmount.
   useEffect(() => {
@@ -153,6 +167,15 @@ export default function ChatBot() {
     setInput("");
     setSending(true);
     setError(null);
+
+    // Fire-and-forget: track session in backend for analytics
+    const isFirstUserMessage = messages.filter((m) => m.role === "user").length === 0;
+    dispatch(
+      trackChatSession({
+        session_id: getSessionId(),
+        ...(isFirstUserMessage ? { first_message: userMsg.content } : {}),
+      })
+    );
 
     const safeSet = <T,>(updater: (prev: T) => T, setter: (u: (p: T) => T) => void) => {
       if (mountedRef.current && !signal.aborted) setter(updater);

@@ -31,7 +31,7 @@ export const searchIndex: SearchEntry[] = [
   { title: "Curriculum", href: "/curriculum", section: "Academics", tags: "curriculum cbse ncert subjects" },
   { title: "Curriculum comparison", href: "/curriculum/comparison", section: "Academics", tags: "compare ncert cbse icse ib international school" },
   { title: "Courses Offered", href: "/courses-offered", section: "Academics", tags: "courses subjects grades" },
-  { title: "Academic Pathway", href: "/academic-pathway", section: "Academics", tags: "pathway primary middle school progression" },
+  { title: "Academic Pathway", href: "/academic-pathway", section: "Academics", tags: "pathway primary secondary school progression" },
   { title: "Assessment Structure", href: "/assessment-structure", section: "Academics", tags: "assessment exam evaluation grading" },
   { title: "Learning Labs", href: "/learning-labs", section: "Academics", tags: "labs lab learning experiential" },
   { title: "ICT Lab", href: "/ict-lab", section: "Academics", tags: "computer coding ict information communication technology lab" },

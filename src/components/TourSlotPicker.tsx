@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useToast } from "./Toast";
-import { fetchWithTimeout } from "@/lib/fetch";
 import DarkField from "./form/DarkField";
+import { useAppDispatch } from "@/store/hooks";
+import { submitInquiry } from "@/store/slices/inquirySlice";
 import DarkSelect from "./form/DarkSelect";
 
 /**
@@ -86,6 +87,7 @@ export default function TourSlotPicker() {
   const [honey, setHoney] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<{ reference: string } | null>(null);
+  const dispatch = useAppDispatch();
 
   // Picking a new day resets the hour selection.
   function pickDay(iso: string) {
@@ -105,28 +107,24 @@ export default function TourSlotPicker() {
     }
     setBusy(true);
     try {
-      const res = await fetchWithTimeout("/api/inquire", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: "tour-slot-picker",
-          slot: `${day} ${hour}:00 SGT`,
+      const result = await dispatch(
+        submitInquiry({
           name,
           email,
-          phone,
-          grade,
-          honey,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        show(data.error || "Couldn't book that slot. Please try again.", "error");
-        return;
-      }
-      setDone({ reference: data.reference });
+          phone: phone || undefined,
+          grade_interest: grade || undefined,
+          inquiry_type: "TOUR",
+          message: `Preferred slot: ${day} ${hour}:00 SGT`,
+          source_url: "tour-slot-picker",
+        })
+      ).unwrap();
+      setDone({ reference: result.reference });
       show("Tour booked — check your inbox for confirmation.", "success");
-    } catch {
-      show("Network hiccup. Please try again.", "error");
+    } catch (err: unknown) {
+      show(
+        typeof err === "string" ? err : "Couldn't book that slot. Please try again.",
+        "error"
+      );
     } finally {
       setBusy(false);
     }

@@ -44,7 +44,7 @@ const dailyPractices = [
   {
     iconName: "sparkle",
     title: "In reflection",
-    body: "Morning and closing moments help children pause, notice choices and connect learning with values.",
+    body: "Daily morning meditation and end of the day reflection help children pause, notice choices and connect learning with values.",
   },
   {
     iconName: "leaf",

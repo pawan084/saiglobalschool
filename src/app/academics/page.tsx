@@ -7,14 +7,14 @@ import CTAStrip from "@/components/CTAStrip";
 
 export const metadata = {
   title: "Academics",
-  description: "NCERT-aligned curriculum, five specialist learning labs, formative and summative assessment and enrichment programmes at Sri Sathya Sai Global School, Singapore.",
+  description: "NCERT-aligned curriculum, six specialist learning labs, formative and summative assessment and enrichment programmes at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/academics" },
 };
 
 const parentAcademicNeeds = [
   { iconName: "book-open",   title: "A curriculum we can trust",        body: "NCERT-aligned content with structured progression — recognisable, rigorous, and proven across India's leading schools." },
   { iconName: "compass",     title: "Continuity through transitions",   body: "Children moving in from CBSE, ICSE, Cambridge, IB or local schools are supported without academic disruption." },
-  { iconName: "flask",       title: "Learning that actually sticks",    body: "Five dedicated labs — Science, Maths, Language, English and ICT — turn classroom concepts into hands-on application." },
+  { iconName: "flask",       title: "Learning that actually sticks",    body: "Six dedicated labs — Science, Maths, Language, English, ICT and Social Science — turn classroom concepts into hands-on application." },
   { iconName: "list-check",  title: "Assessment for learning",          body: "Daily formative checks, weekly reviews and term assessments — assessment that informs teaching, not just grades." },
 ];
 
@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="Academics"
         title="Academics that travel with your child"
-        lead="Concept-led, hands-on teaching across primary and middle school — designed for academic continuity through any prior curriculum and reinforced with daily lab and applied-learning sessions."
+        lead="Concept-led, hands-on teaching across primary and secondary school — designed for academic continuity through any prior curriculum and reinforced with daily lab and applied-learning sessions."
         breadcrumb={[{ label: "Academics", href: "/academics" }]}
       />
 
@@ -52,7 +52,7 @@ export default function Page() {
         items={[
           {
             title: "Courses Offered",
-            body: "Subjects across primary and middle school: languages, mathematics, science, social studies, ICT, arts, PE and value education.",
+            body: "Subjects across primary and secondary school: languages, mathematics, science, social science, ICT, arts, PE and value education.",
             image: "/img/featuredBlock/courses-offered.jpg",
             href: "/courses-offered",
           },
@@ -94,7 +94,7 @@ export default function Page() {
       <FeatureBlock
         tone="cream"
         title="Where learning gets hands-on."
-        intro="Concepts become real in our five learning labs and through enrichment programmes that take children well beyond the textbook."
+        intro="Concepts become real in our six learning labs and through enrichment programmes that take children well beyond the textbook."
         featured={{
           title: "Application beats memorisation.",
           body:
@@ -151,7 +151,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="The academic credentials" title="Standards parents recognise" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          NCERT-aligned curriculum, CPE-Singapore registration, small-group teaching with a 1:20 maximum ratio — the academic framework is anchored to standards parents already know and trust.
+          NCERT-aligned curriculum, SSG (SkillsFuture Singapore) registration, small-group teaching with a 1:20 maximum ratio — the academic framework is anchored to standards parents already know and trust.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

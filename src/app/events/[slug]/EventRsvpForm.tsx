@@ -4,8 +4,9 @@ import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { useToast } from "@/components/Toast";
-import { fetchWithTimeout } from "@/lib/fetch";
 import DarkField from "@/components/form/DarkField";
+import { useAppDispatch } from "@/store/hooks";
+import { submitInquiry } from "@/store/slices/inquirySlice";
 
 export default function EventRsvpForm({
   slug,
@@ -22,6 +23,7 @@ export default function EventRsvpForm({
   const [honey, setHoney] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<{ reference: string } | null>(null);
+  const dispatch = useAppDispatch();
   const guestsGroupId = useId();
   const guestsLabelId = `${guestsGroupId}-label`;
   const guestsRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -46,28 +48,23 @@ export default function EventRsvpForm({
     if (busy) return;
     setBusy(true);
     try {
-      const res = await fetchWithTimeout("/api/inquire", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: `event:${slug}`,
-          eventTitle: title,
+      const result = await dispatch(
+        submitInquiry({
           name,
           email,
-          phone,
-          guests,
-          honey,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        show(data.error || "Couldn't reserve your spot. Please try again.", "error");
-        return;
-      }
-      setDone({ reference: data.reference });
+          phone: phone || undefined,
+          inquiry_type: "RSVP",
+          message: `Event: ${title}, Guests: ${guests}`,
+          source_url: `event:${slug}`,
+        })
+      ).unwrap();
+      setDone({ reference: result.reference });
       show("Spot reserved. Check your inbox for the confirmation.", "success");
-    } catch {
-      show("Network hiccup. Please try again.", "error");
+    } catch (err: unknown) {
+      show(
+        typeof err === "string" ? err : "Couldn't reserve your spot. Please try again.",
+        "error"
+      );
     } finally {
       setBusy(false);
     }

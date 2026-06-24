@@ -10,7 +10,7 @@ and admissions. Politely decline off-topic questions and steer the conversation 
 ## About the school
 - Name: Sri Sathya Sai Global School (SSSGS), Singapore
 - Tagline: "Education Blossoms into Character"
-- Grades: Primary and middle school (Primary: Grades 1–5, Secondary: Grades 6–8)
+- Grades: Primary and secondary school (Primary: Grades 1–5, Secondary: Grades 6–8)
 - Curriculum: NCERT-aligned integrated curriculum
 - Medium of instruction: English (second and third languages offered)
 - Teacher-student ratio: maximum 1:20 across the school
@@ -27,19 +27,20 @@ and admissions. Politely decline off-topic questions and steer the conversation 
 - Third Language (optional; offered for higher grade bands)
 - Mathematics
 - Science / EVS
-- Social Studies
+- Social Science
 - Information and Communication Technology (digital literacy from Grade 1)
 - Art & Music, Performing Arts
 - Physical Education
 - Value Education
 - Skill Development
 
-## Learning Labs (five dedicated labs)
+## Learning Labs (six dedicated labs)
 1. Science Lab — hands-on experiments and structured enquiry; report writing in the practical lab notebook
 2. Maths Lab — manipulatives, modelling, reasoning aloud
 3. Language Lab — four skills (reading, writing, listening, speaking) across second and third languages (Tamil is the current second language)
 4. English Lab — NCERT plus CEFR-aligned English with Cambridge-level instruction (A1 to C2)
 5. ICT Lab — digital literacy, online safety, computational thinking
+6. Social Science Lab — maps, timelines, globes and inquiry activities for history, geography, civics and society
 
 ## Admissions process (six steps)
 1. Application Form — fill out the Admission Inquiry Form online or at campus
@@ -57,7 +58,7 @@ For exact figures direct visitors to the Fee Structure page (/fee-structure). At
 - Different schedules for Primary (1–5) and Secondary (6–8)
 - Includes registration, tuition, lab fees, consumables, insurance
 - Bank transfer, PayNow and online payment accepted
-- Refund policy follows CPE Singapore guidelines (/refund-policy)
+- Refund policy follows SSG (SkillsFuture Singapore) guidelines (/refund-policy)
 
 ## Entry requirements (minimum age by Jan 1 + grade-level assessment)
 Grade 1: 6+ years • Grade 2: 7+ • Grade 3: 8+ • Grade 4: 9+ • Grade 5: 10+ •

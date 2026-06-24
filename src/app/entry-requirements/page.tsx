@@ -4,19 +4,19 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Entry Requirements",
-  description: "Age and assessment criteria for entry to primary and middle school at Sri Sathya Sai Global School, Singapore.",
+  description: "Age and assessment criteria for entry to primary and secondary school at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/entry-requirements" },
 };
 
 const gradeReqs = [
-  { grade: "Grade 1", age: "6+", assessment: "Readiness conversation, simple literacy & numeracy check" },
+  { grade: "Grade 1", age: "6+ (*5+ can be considered)", assessment: "Readiness conversation, simple literacy & numeracy check (Grade 1 is generally for age 6. Students aged 5+ may be considered case-by-case based on readiness, prior learning, parent acknowledgement, and academic board approval.)" },
   { grade: "Grade 2", age: "7+", assessment: "Grade-1-level assessment in English and Mathematics" },
-  { grade: "Grade 3", age: "8+", assessment: "Grade-2-level assessment in English, Mathematics and EVS" },
-  { grade: "Grade 4", age: "9+", assessment: "Grade-3-level assessment in core subjects" },
-  { grade: "Grade 5", age: "10+", assessment: "Grade-4-level assessment in core subjects" },
-  { grade: "Grade 6", age: "11+", assessment: "Grade-5-level assessment, including Science and Social Studies" },
-  { grade: "Grade 7", age: "12+", assessment: "Grade-6-level assessment plus a language-proficiency check" },
-  { grade: "Grade 8", age: "13+", assessment: "Grade-7-level assessment; prior school transcripts reviewed" },
+  { grade: "Grade 3", age: "8+", assessment: "Grade-2-level assessment in English and Mathematics" },
+  { grade: "Grade 4", age: "9+", assessment: "Grade-3-level assessment in English and Mathematics" },
+  { grade: "Grade 5", age: "10+", assessment: "Grade-4-level assessment in English and Mathematics" },
+  { grade: "Grade 6", age: "11+", assessment: "Grade-5-level assessment in English and Mathematics" },
+  { grade: "Grade 7", age: "12+", assessment: "Grade-6-level assessment in English and Mathematics" },
+  { grade: "Grade 8", age: "13+", assessment: "Grade-7-level assessment in English and Mathematics" },
 ];
 
 export default function Page() {
@@ -26,7 +26,7 @@ export default function Page() {
       hero={{
         eyebrow: "Admissions",
         title: "Entry Requirements",
-        lead: "Age and assessment criteria for entry across primary and middle school. We accept mid-year admissions and support transitions across curricula.",
+        lead: "Age and assessment criteria for entry across primary and secondary school. We accept mid-year admissions and support transitions across curricula.",
         breadcrumb: [
           { label: "Admissions", href: "/admissions" },
           { label: "Entry Requirements", href: "/entry-requirements" },

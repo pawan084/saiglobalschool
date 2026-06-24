@@ -5,7 +5,22 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useToast } from "./Toast";
 import Icon from "./Icon";
-import { fetchWithTimeout } from "@/lib/fetch";
+import { useAppDispatch } from "@/store/hooks";
+import { submitInquiry, type InquiryType } from "@/store/slices/inquirySlice";
+
+function sourceToInquiryType(source: string): InquiryType {
+  if (source === "inquire") return "ADMISSION" as InquiryType;
+  if (source === "tour") return "TOUR" as InquiryType;
+  if (source === "open-house") return "OPEN_HOUSE" as InquiryType;
+  if (source === "contact") return "GENERAL" as InquiryType;
+  return "GENERAL" as InquiryType;
+}
+
+function topicToInquiryType(topic: string): InquiryType | null {
+  if (topic === "Tour / Visit") return "TOUR" as InquiryType;
+  if (topic === "Admissions") return "ADMISSION" as InquiryType;
+  return null;
+}
 
 type Field = {
   name: string;
@@ -39,33 +54,39 @@ export default function FormCard({
   const [busy, setBusy] = useState(false);
   const router = useRouter();
   const toast = useToast();
+  const dispatch = useAppDispatch();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (busy) return;
     const data = new FormData(e.currentTarget);
-    const payload: Record<string, FormDataEntryValue | string> = { source };
-    data.forEach((v, k) => {
-      payload[k] = v;
-    });
+    const raw: Record<string, string> = {};
+    data.forEach((v, k) => { raw[k] = String(v); });
+
     setBusy(true);
     try {
-      const res = await fetchWithTimeout("/api/inquire", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const json = await res.json();
-      if (!res.ok || !json.ok) {
-        toast.show(json.error || "Couldn't send right now. Please try again.", "error");
-        return;
-      }
+      const result = await dispatch(
+        submitInquiry({
+          name: raw.name || "",
+          email: raw.email || "",
+          phone: raw.phone || undefined,
+          grade_interest: raw.grade || raw.grade_interest || undefined,
+          topic: raw.topic || undefined,
+          inquiry_type: (raw.inquiry_type as InquiryType) || (raw.topic ? topicToInquiryType(raw.topic) : null) || sourceToInquiryType(source),
+          message: raw.message || undefined,
+          source_url: source,
+        })
+      ).unwrap();
+
       const params = new URLSearchParams();
-      if (typeof json.reference === "string") params.set("ref", json.reference);
+      if (result.reference) params.set("ref", result.reference);
       params.set("source", source);
       router.push(`/thank-you?${params.toString()}`);
-    } catch {
-      toast.show("Network hiccup. Please try again.", "error");
+    } catch (err: unknown) {
+      toast.show(
+        typeof err === "string" ? err : "Couldn't send right now. Please try again.",
+        "error"
+      );
     } finally {
       setBusy(false);
     }

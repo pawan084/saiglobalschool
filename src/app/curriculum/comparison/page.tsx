@@ -38,7 +38,7 @@ const ROWS: Row[] = [
   },
   {
     label: "Grades covered",
-    sssgs: "Primary and middle school today (expanding)",
+    sssgs: "Primary and secondary school today (expanding)",
     cbse: "Grades 1–12",
     icse: "Grades 1–10 (ISC up to 12)",
     cambridge: "Grades 1–11 (IGCSE); A-Level to 13",
@@ -51,6 +51,14 @@ const ROWS: Row[] = [
     icse: "Often 1:30+",
     cambridge: "Varies by school",
     ib: "Smaller (1:15–1:20 common)",
+  },
+  {
+    label: "Lab-based learning",
+    sssgs: "Active learning labs support Science, Maths, English, Second Language, Social Science and ICT, with strong experiential and practical learning.",
+    cbse: "Available mainly in Science/ICT; varies by school",
+    icse: "Strong practical focus, especially Science and project work",
+    cambridge: "Inquiry and practical learning; school-dependent facilities",
+    ib: "Strong experiential and project-based learning across subjects",
   },
   {
     label: "Assessment style",

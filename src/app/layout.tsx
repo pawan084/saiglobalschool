@@ -14,9 +14,11 @@ import { SITE_URL } from "@/lib/site-url";
 import SkipToContent from "@/components/SkipToContent";
 import OrgJsonLd from "@/components/OrgJsonLd";
 import RecentTracker from "@/components/RecentTracker";
+import PageviewTracker from "@/components/PageviewTracker";
 import DeferredClient from "@/components/DeferredClient";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import GoogleTagManager from "@/components/GoogleTagManager";
+import StoreProvider from "@/components/StoreProvider";
 
 // Non-critical client-only widgets — gated behind <DeferredClient> so their
 // JS chunks don't even fetch until the browser is idle OR the user interacts
@@ -126,7 +128,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <GoogleTagManager containerId={gtmId} nonce={nonce} />
         <GoogleAnalytics measurementId={gaMeasurementId} nonce={nonce} />
         <OrgJsonLd />
-        <SkipToContent />
+        <StoreProvider>
         <ToastProvider>
           <NewsStrip />
           <Header />
@@ -145,7 +147,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <SearchDialog />
           </DeferredClient>
           <RecentTracker />
+          <PageviewTracker />
         </ToastProvider>
+        </StoreProvider>
       </body>
     </html>
   );

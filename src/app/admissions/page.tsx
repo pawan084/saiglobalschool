@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 const parentConcerns = [
-  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcome across primary and middle school, with personalised settling-in support." },
+  { iconName: "calendar",   title: "Can we join mid-year?",          body: "Yes — mid-year admissions are welcome across primary and secondary school, with personalised settling-in support." },
   { iconName: "shield",     title: "Will the transition be smooth?", body: "We support children moving from CBSE, ICSE, Cambridge, IB and local-curriculum schools without academic disruption." },
   { iconName: "graduation", title: "What's the assessment like?",    body: "A grade-appropriate, low-pressure assessment to understand your child — not to filter them out." },
   { iconName: "chat",       title: "Who do we talk to?",             body: "One admissions point of contact, transparent timelines, and a reply within one business day, every time." },
@@ -52,7 +52,7 @@ export default function Page() {
         items={[
           {
             title: "Entry Requirements",
-            body: "Age criteria and grade-appropriate assessment for entry across primary and middle school.",
+            body: "Age criteria and grade-appropriate assessment for entry across primary and secondary school.",
             image: "/img/navbar/admissions/entry-requirements.jpg",
             href: "/entry-requirements",
           },
@@ -98,11 +98,11 @@ export default function Page() {
       <FeatureBlock
         tone="cream"
         title="The concrete details parents care about."
-        intro="Transparent fees, refund terms aligned with CPE Singapore, and chances to meet the team in person before you decide."
+        intro="Transparent fees, refund terms aligned with SSG (SkillsFuture Singapore), and chances to meet the team in person before you decide."
         featured={{
           title: "Fees, dates and policies — published, not buried.",
           body:
-            "Transparent annual fee breakdown for primary and middle school. Tuition is billed per month; lab, CCA and books are billed per year. Refunds follow our published policy and CPE Singapore guidelines.",
+            "Transparent annual fee breakdown for primary and secondary school. Tuition is billed bimonthly; lab, CCA and books are billed per year. Refunds follow our published policy and SSG (SkillsFuture Singapore) guidelines.",
           image: "/img/navbar/admissions/fee-structure.jpg",
           href: "/fee-structure",
         }}
@@ -116,7 +116,7 @@ export default function Page() {
           },
           {
             title: "Refund Policy",
-            body: "CPE Singapore-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
+            body: "SSG (SkillsFuture Singapore)-aligned refund terms — cooling-off period, withdrawal terms, and how refunds are processed.",
             image: "/img/navbar/admissions/assessment.jpg",
             href: "/refund-policy",
           },
@@ -141,7 +141,7 @@ export default function Page() {
           },
           {
             title: "Accreditation",
-            body: "CPE Singapore registration, what PEI accreditation covers, and what it means for your family.",
+            body: "SSG (SkillsFuture Singapore) registration, what PEI accreditation covers, and what it means for your family.",
             image: "/img/home/about-sssgs/vision-mission.jpg",
             imagePosition: "top",
             href: "/accreditation",
@@ -152,7 +152,7 @@ export default function Page() {
       {/* FOLD 5 — TRUST */}
       <ContentSection eyebrow="Why families trust SSSGS" title="A registered, accredited, parent-aligned school" tone="white">
         <p className="text-[15px] text-slate-700 max-w-3xl mb-6 leading-relaxed">
-          You&rsquo;re choosing more than a school — you&rsquo;re choosing the framework that protects your family&rsquo;s investment in your child&rsquo;s education. SSSGS is registered with CPE Singapore, NCERT-aligned, and built around a 1:20 maximum teacher–student ratio.
+          You&rsquo;re choosing more than a school — you&rsquo;re choosing the framework that protects your family&rsquo;s investment in your child&rsquo;s education. SSSGS is registered with SSG (SkillsFuture Singapore), NCERT-aligned, and built around a 1:20 maximum teacher–student ratio.
         </p>
         <TrustBadges variant="inline" />
       </ContentSection>

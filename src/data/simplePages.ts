@@ -9,7 +9,7 @@ export const simplePages: Record<string, SimplePage> = {
   "academic-pathway": {
     eyebrow: "Academics",
     title: "Academic Pathway",
-    lead: "A structured academic pathway that takes children from foundational learning in the primary years through to confident, exam-ready learners by the end of middle school.",
+    lead: "A structured academic pathway that takes children from foundational learning in the primary years through to confident, exam-ready learners by the end of secondary school.",
     breadcrumb: [academicsCrumb, { label: "Academic Pathway", href: "/academic-pathway" }],
     intro: [
       "The SSSGS academic pathway is built around clear, age-appropriate progression. Each grade builds on the last with structured content, formative assessment and reinforcement through lab and applied work.",
@@ -19,7 +19,7 @@ export const simplePages: Record<string, SimplePage> = {
       sectionTitle: "Pathway by grade band",
       items: [
         { icon: "1", title: "Grades 1–2 — Foundations", body: "English, Mathematics, Environmental Studies, Second Language, ICT and Arts — subject-led teaching with foundational reading, numeracy and classroom routines." },
-        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Mathematics, Science, Social Studies and ICT." },
+        { icon: "2", title: "Grades 3–5 — Build", body: "Concept building across English, Second & Third Language, Mathematics, Science, Social Science and ICT." },
         { icon: "3", title: "Grades 6–8 — Depth", body: "Application, projects, lab work and synthesis across subjects." },
       ],
       cols: 3,
@@ -50,8 +50,8 @@ export const simplePages: Record<string, SimplePage> = {
       sectionTitle: "Types of assessment",
       items: [
         { iconName: "check", title: "Daily formative checks", body: "Quick in-class checks help teachers adjust instruction in the moment." },
-        { iconName: "document", title: "Weekly reviews", body: "Short reviews consolidate learning and identify misconceptions." },
-        { iconName: "target", title: "Term assessments", body: "Structured assessments at term boundaries give a holistic picture of progress." },
+        { iconName: "document", title: "Weekly Test and reviews", body: "Weekly tests and reviews consolidate learning and identify misconceptions." },
+        { iconName: "target", title: "Half yearly & Yearly assessments", body: "Structured half-yearly and yearly assessments give a holistic picture of progress." },
         { iconName: "chat", title: "Oral & project work", body: "Speaking, presentations and projects assess skills written tests miss." },
       ],
       cols: 2,
@@ -69,10 +69,10 @@ export const simplePages: Record<string, SimplePage> = {
   "courses-offered": {
     eyebrow: "Academics",
     title: "Courses Offered",
-    lead: "Subjects across primary and middle school — academic core plus arts, physical education, value education and ICT.",
+    lead: "Subjects across primary and secondary school — academic core plus arts, physical education, value education and ICT.",
     breadcrumb: [academicsCrumb, { label: "Courses Offered", href: "/courses-offered" }],
     intro: [
-      "The academic core runs through every grade, widening from foundational literacy and numeracy in the early years to specialised subject teaching by middle school.",
+      "The academic core runs through every grade, widening from foundational literacy and numeracy in the early years to specialised subject teaching by secondary school.",
       "Alongside the core, every child takes the arts, physical education, ICT and value education each week — so the timetable develops the whole child, not a narrow set of subjects.",
     ],
     features: {
@@ -82,13 +82,13 @@ export const simplePages: Record<string, SimplePage> = {
         { iconName: "book-open", title: "Second Language", body: "Reading, writing, listening and speaking across Grades 3–8." },
         { iconName: "book-open", title: "Third Language", body: "Optional third language for higher grade bands; choice depends on yearly offerings." },
         { iconName: "calculator", title: "Mathematics", body: "Foundations through pre-algebra and geometry across the grade range." },
-        { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in middle school." },
-        { iconName: "globe", title: "Social Studies", body: "History, geography and civics with critical-thinking emphasis." },
+        { iconName: "flask", title: "Science / EVS", body: "Environmental Studies in primary; Science branches in secondary school." },
+        { iconName: "globe", title: "Social Science", body: "History, geography and civics with critical-thinking emphasis." },
         { iconName: "monitor", title: "ICT", body: "Information and Communication Technology — digital literacy from Grade 1, including online safety and computational thinking." },
         { iconName: "palette", title: "Art & Music", body: "Visual arts, music and performing arts in every grade." },
         { iconName: "play", title: "Physical Education", body: "Movement, sport and yoga integrated weekly." },
         { iconName: "sparkle", title: "Value Education", body: "Daily moments and dedicated sessions for character work." },
-        { iconName: "compass", title: "Skill Development", body: "Hands-on skill-building modules complement the academic core." },
+        { iconName: "compass", title: "Skill Development", body: "Computational thinking, problem-solving and practical skills for everyday confidence." },
       ],
       cols: 3,
     },
@@ -145,7 +145,7 @@ export const simplePages: Record<string, SimplePage> = {
   "values-integration-academics": {
     eyebrow: "About SSSGS",
     title: "Values Integration with Academics",
-    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — English, Language, Maths, Science, Social Studies, ICT, PE and the Arts.",
+    lead: "Values aren't an extra subject. They're integrated into the way every subject is taught — English, Language, Maths, Science, Social Science, ICT, PE and the Arts.",
     breadcrumb: [aboutCrumb, { label: "Values & Academics", href: "/values-integration-academics" }],
     features: {
       sectionTitle: "How integration works",
@@ -154,7 +154,7 @@ export const simplePages: Record<string, SimplePage> = {
         { iconName: "book-open", title: "In Language", body: "Second and third language work draws on cultural stories that anchor values." },
         { iconName: "calculator", title: "In Maths", body: "Honest effort, peer support and reasoning aloud are built into the practice." },
         { iconName: "flask", title: "In Science", body: "Ethics, environment and responsibility framed alongside content." },
-        { iconName: "globe", title: "In Social Studies", body: "Empathy for context, fairness, and multiple perspectives." },
+        { iconName: "globe", title: "In Social Science", body: "Empathy for context, fairness, and multiple perspectives." },
         { iconName: "monitor", title: "In ICT", body: "Digital citizenship, online ethics and respectful conduct in shared spaces." },
         { iconName: "play", title: "In PE", body: "Teamwork, fair play, persistence and respect through group activities." },
         { iconName: "palette", title: "In the arts", body: "Self-expression, listening to peers and care for shared materials." },
@@ -212,7 +212,7 @@ export const simplePages: Record<string, SimplePage> = {
     features: {
       sectionTitle: "Layers of support",
       items: [
-        { iconName: "document", title: "Academic", body: "Targeted help for children working on specific skills or catching up after transitions." },
+        { iconName: "document", title: "Academic", body: "Targeted help for children working on specific skills or catching up after transitions via weekly remedial classes." },
         { iconName: "handshake", title: "Pastoral", body: "Homeroom teachers and counsellors as the first line of support for every child." },
         { icon: "🧘", title: "Wellbeing", body: "Mindfulness practices, conversations about difficulty, and quiet time when needed." },
       ],
@@ -352,7 +352,6 @@ export const simplePages: Record<string, SimplePage> = {
       sectionTitle: "What to expect",
       items: [
         { icon: "👕", title: "Uniform", body: "Standard school uniform required for all students. Details and supplier info shared at registration." },
-        { icon: "🎽", title: "PE uniform", body: "Separate PE kit for sports days; same supplier and ordering process." },
         { iconName: "map-pin", title: "Transport routes", body: "School transport serves many parts of Singapore; office can advise availability for your area." },
         { iconName: "credit-card", title: "Fees & logistics", body: "Uniform and transport are billed separately from tuition — see the fee structure for details." },
       ],

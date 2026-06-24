@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "SSSGS Spaces",
-  description: "A walk through classrooms, the five specialist labs, library, performing-arts and reflection spaces at Sri Sathya Sai Global School, Singapore.",
+  description: "A walk through classrooms, the six specialist labs, library, performing-arts and reflection spaces at Sri Sathya Sai Global School, Singapore.",
   alternates: { canonical: "/sssgs-spaces" },
 };
 
@@ -21,7 +21,7 @@ const gallery: GalleryItem[] = [
 
 const spaces = [
   { iconName: "book-open", title: "Classrooms", body: "Bright, well-organised classrooms with movable furniture for whole-group, small-group and pair work." },
-  { iconName: "flask", title: "Learning Labs", body: "Five dedicated labs — Science, Maths, Language, English and ICT — built for hands-on application." },
+  { iconName: "flask", title: "Learning Labs", body: "Six dedicated labs — Science, Maths, Language, English, ICT and Social Science — built for hands-on application." },
   { iconName: "book-open", title: "Library & Reading", body: "Curated collection across grade levels, with quiet corners for sustained reading." },
   { iconName: "palette", title: "Creative & Performing Arts", body: "Spaces for music, drama, dance and visual art — children explore expression every week." },
   { iconName: "play", title: "Activity Zones", body: "Indoor and outdoor activity zones for physical education, free play and break-time movement." },

@@ -2,7 +2,7 @@ import LabPage from "@/components/LabPage";
 
 export const metadata = {
   title: "Science Lab",
-  description: "Hands-on experiments, structured enquiry and report writing in the practical lab notebook — SSSGS Science Lab for primary and middle school children, Singapore.",
+  description: "Hands-on experiments, structured enquiry and report writing in the practical lab notebook — SSSGS Science Lab for primary and secondary school children, Singapore.",
   alternates: { canonical: "/science-lab" },
 };
 

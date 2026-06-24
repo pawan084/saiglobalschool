@@ -61,7 +61,7 @@ export default function Page() {
             { name: "phone", label: "Phone / WhatsApp", required: true },
             { name: "grade", label: "Child's current grade", type: "select",
               options: ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8"] },
-            { name: "message", label: "What would you like to know?", type: "textarea", required: true },
+            { name: "message", label: "What would you like to know? (optional)", type: "textarea" },
           ]}
           submitLabel="Submit inquiry"
           sideContent={

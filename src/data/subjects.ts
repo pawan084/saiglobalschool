@@ -459,7 +459,7 @@ export const SUBJECTS: Subject[] = [
   {
     id: "physical-education",
     name: "Physical Education",
-    icon: "play",
+    icon: "heart",
     blurb: "Movement, sport and yoga integrated weekly.",
     intro:
       "Physical Education at SSSGS supports the physical development, health and wellbeing of every child through structured movement, sport and yoga sessions integrated weekly.",

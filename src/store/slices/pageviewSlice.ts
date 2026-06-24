@@ -26,9 +26,9 @@ export const trackPageview = createAsyncThunk(
         payload
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to track pageview"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to track pageview"
       );
     }
   }

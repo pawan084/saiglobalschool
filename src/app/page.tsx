@@ -6,7 +6,7 @@ import TestimonialsGrid from "@/components/TestimonialsGrid";
 import HomeNewsletter from "@/components/HomeNewsletter";
 import Icon from "@/components/Icon";
 import { homeHero } from "@/data/sections";
-import { ctaInquire, ctaWhatsApp } from "@/data/nav";
+import { ctaInquire } from "@/data/nav";
 
 export const metadata = {
   title: { absolute: "Home - International School | Sri Sathya Sai Global School" },

@@ -32,14 +32,14 @@ export default function Page() {
           <div className="border-l-4 border-[var(--brand-primary)] pl-4">
             <h3 className="font-bold text-[var(--brand-navy)]">1.1</h3>
             <p className="mt-1.5 text-slate-700 leading-relaxed text-[15px]">
-              The PEI will notify the student in writing within three (3) working days after becoming aware of any of the following (each a <strong>"Refund Event"</strong>):
+              The PEI will notify the student in writing within three (3) working days after becoming aware of any of the following (each a <strong>&ldquo;Refund Event&rdquo;</strong>):
             </p>
             <ul className="mt-2 space-y-1.5 text-slate-700 text-[15px] leading-relaxed list-none">
               <li className="flex gap-2"><span className="shrink-0">(a)</span><span>It cannot commence the provision of the Course on the Course Commencement Date;</span></li>
               <li className="flex gap-2"><span className="shrink-0">(b)</span><span>It cannot complete the provision of the Course by the Course Completion Date;</span></li>
               <li className="flex gap-2"><span className="shrink-0">(c)</span><span>The Course will be terminated before the Course Completion Date;</span></li>
               <li className="flex gap-2"><span className="shrink-0">(d)</span><span>The Student does not meet the course entry or matriculation requirements as stated in Schedule A; or</span></li>
-              <li className="flex gap-2"><span className="shrink-0">(e)</span><span>The Immigration &amp; Checkpoints Authority of Singapore (the <strong>"ICA"</strong>) rejects the Student&rsquo;s application for the Student Pass.</span></li>
+              <li className="flex gap-2"><span className="shrink-0">(e)</span><span>The Immigration &amp; Checkpoints Authority of Singapore (the <strong>&ldquo;ICA&rdquo;</strong>) rejects the Student&rsquo;s application for the Student Pass.</span></li>
             </ul>
           </div>
 

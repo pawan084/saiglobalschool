@@ -35,9 +35,9 @@ export const submitInquiry = createAsyncThunk(
         payload
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to submit inquiry"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to submit inquiry"
       );
     }
   }

@@ -27,9 +27,9 @@ export const unsubscribeNewsletter = createAsyncThunk(
         { email }
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to unsubscribe"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to unsubscribe"
       );
     }
   }
@@ -44,9 +44,9 @@ export const submitNewsletter = createAsyncThunk(
         payload
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to subscribe"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to subscribe"
       );
     }
   }

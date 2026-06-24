@@ -36,9 +36,9 @@ export const submitApplication = createAsyncThunk(
         payload
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to submit application"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to submit application"
       );
     }
   }

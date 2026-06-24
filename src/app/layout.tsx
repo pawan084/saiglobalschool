@@ -11,7 +11,6 @@ import FloatingMobileCTA from "@/components/FloatingMobileCTA";
 import { ToastProvider } from "@/components/Toast";
 import { site } from "@/data/site";
 import { SITE_URL } from "@/lib/site-url";
-import SkipToContent from "@/components/SkipToContent";
 import OrgJsonLd from "@/components/OrgJsonLd";
 import RecentTracker from "@/components/RecentTracker";
 import PageviewTracker from "@/components/PageviewTracker";

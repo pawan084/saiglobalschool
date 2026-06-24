@@ -25,9 +25,9 @@ export const trackChatSession = createAsyncThunk(
         payload
       );
       return data;
-    } catch (err: any) {
+    } catch (err: unknown) {
       return rejectWithValue(
-        err.response?.data?.detail ?? "Failed to track chat session"
+        (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail ?? "Failed to track chat session"
       );
     }
   }
